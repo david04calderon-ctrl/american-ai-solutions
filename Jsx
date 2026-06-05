@@ -1,1 +1,0 @@
-onClick={() => window.open("YOUR_CALENDLY_LINK", "_blank")}
