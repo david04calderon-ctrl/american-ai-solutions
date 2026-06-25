@@ -41,10 +41,14 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `THIS-WEEK-ACTION-LIST.md` | Printable priority action guide for Week 1 — Netlify, LinkedIn, outreach |
 | `app-roadmap.md` | Phase 1–4 app/product roadmap (PWA → React Native → SaaS) |
 | `n8n-lead-intake-automation.md` | Full n8n 7-node lead intake spec (webhook → Claude → HubSpot → Gmail) |
+| `n8n-build-guide-technical.md` | Technical deployment guide — DigitalOcean, Docker, Caddy SSL, 8-node build |
 | `linkedin-carousel-01-auto-suppliers.md` | 9-slide carousel for Michigan Tier 2/3 automotive suppliers |
 | `linkedin-carousel-02-healthcare.md` | 9-slide HIPAA-focused carousel for Michigan healthcare practices |
 | `linkedin-carousel-03-logistics.md` | 9-slide carousel for Michigan trucking/fleet operators |
 | `linkedin-carousel-04-construction.md` | 9-slide carousel for Michigan GCs and specialty trades |
+| `canva-carousel-design-guide.md` | Step-by-step Canva build guide — brand kit, 4 layouts, slide-by-slide for Carousel 1 |
+| `loom-intro-video-script.md` | 4 Loom video scripts (General, Automotive, Healthcare, Logistics) + recording tips |
+| `linkedin-content-calendar-12weeks.md` | 3x/week LinkedIn calendar — Weeks 1–5 fully scripted, Weeks 6–12 rotating banks |
 | `email-sequence-automotive.md` | 4-email cold sequence for Tier 2/3 auto suppliers + Clay/Instantly config |
 | `email-sequence-healthcare.md` | 4-email HIPAA-aware sequence for Michigan practices + BAA talking points |
 | `email-sequence-construction.md` | 4-email sequence for Michigan GCs and specialty contractors |
@@ -56,11 +60,27 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `competitive-positioning.md` | How to win vs. big firms, MSPs, offshore devs, SaaS, and DIY objections |
 | `seo-content-calendar.md` | 12-month SEO blog calendar — keyword clusters, article outlines, distribution |
 | `client-onboarding-sop.md` | Hour-by-hour onboarding from signature to 30-day check-in |
+| `quarterly-business-review-template.md` | QBR call script, client health scoring, retainer renewal framework |
 | `michigan-ai-market-intel.md` | Deep intel on all 4 verticals — OEM mandates, grants, competitors, AI tools |
 | `team-building-roadmap.md` | Phase 1–4 hiring plan, first hire criteria, culture values filter |
 | `hubspot-setup-guide.md` | Complete HubSpot Starter setup — pipeline, sequences, workflows, integrations |
 | `revenue-model-90day.md` | 3-scenario cash flow model, break-even, weekly KPI targets, 90-day calendar |
+| `case-study-template.md` | Full/short/stat-card formats + permission email + per-vertical tracker |
+| `pricing-one-pager.md` | Prospect-facing pricing framing — 3 tiers, grant math, payment terms |
+| `google-my-business-setup.md` | Step-by-step GMB profile, review strategy, citation building, local SEO timeline |
+| `podcast-speaking-strategy.md` | Michigan podcast targets, pitch templates, 3 talk frameworks, post-appearance repurposing |
 | `blog-post-01-going-pro-fund.md` | Ready-to-publish 1,200-word SEO article on Michigan Going PRO AI eligibility |
+| `blog-post-02-oem-ai-readiness.md` | 1,350-word article on OEM AI mandates for Michigan Tier 2/3 suppliers |
+| `blog-post-03-hipaa-ai-healthcare.md` | 1,300-word article on HIPAA + AI for Michigan healthcare practices |
+
+**Blog HTML pages (`blog/` directory):**
+
+| File | Purpose |
+|------|---------|
+| `blog/index.html` | Blog listing page — 3-card grid, sticky nav, matches main site design |
+| `blog/michigan-going-pro-talent-fund-ai-training/index.html` | Published article: Going PRO Fund AI eligibility guide |
+| `blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/index.html` | Published article: OEM AI readiness for Tier 2/3 suppliers |
+| `blog/hipaa-ai-michigan-healthcare-practices/index.html` | Published article: HIPAA + AI for Michigan healthcare practices |
 
 **Personal files (`personal/` directory — excluded from git):**
 
