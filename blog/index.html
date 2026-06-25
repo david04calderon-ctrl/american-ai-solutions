@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Michigan AI Insights — American AI Solutions LLC</title>
+  <meta name="description" content="Practical AI knowledge for Michigan businesses. What's working, what's not, and what to do next — from a Detroit-based AI consulting firm."/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/blog/"/>
+  <meta property="og:title" content="Michigan AI Insights — American AI Solutions LLC"/>
+  <meta property="og:description" content="Practical AI knowledge for Michigan businesses. No hype, just results."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/blog/"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1C1C1C; background: #fff; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E4E8F0; padding: 0 24px; display: flex; align-items: center; gap: 32px; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-bar { width: 8px; height: 36px; background: #1A3A8F; border-radius: 1px; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: #0D1117; line-height: 1.2; }
+    .nav-sub { font-size: 11px; color: #4A5473; letter-spacing: .05em; }
+    .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #1C1C1C; text-transform: uppercase; }
+    .nav-link:hover { color: #1A3A8F; }
+    .nav-cta { background: #1A3A8F; color: white !important; padding: 9px 20px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .nav-cta:hover { background: #0f2460; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    .page-header { background: #F7F9FC; border-bottom: 1px solid #E4E8F0; padding: 56px 24px; text-align: center; }
+    .divider { width: 48px; height: 2px; background: #1A3A8F; margin: 0 auto 20px; }
+    .tag { display: inline-block; background: #EEF2FA; color: #1A3A8F; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 1px; margin-bottom: 16px; }
+    .page-title { font-family: 'DM Serif Display', serif; font-size: 40px; font-weight: 400; color: #0D1117; margin-bottom: 12px; }
+    .page-sub { font-size: 16px; color: #4A5473; max-width: 480px; margin: 0 auto; }
+
+    .posts-grid { max-width: 900px; margin: 0 auto; padding: 56px 24px 96px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
+    .post-card { border: 1px solid #E4E8F0; border-radius: 2px; background: white; overflow: hidden; display: flex; flex-direction: column; transition: border-color .25s, box-shadow .25s, transform .25s; }
+    .post-card:hover { border-color: #1A3A8F; box-shadow: 0 8px 32px rgba(26,58,143,.10); transform: translateY(-3px); }
+    .post-card-img { height: 140px; display: flex; align-items: center; justify-content: center; }
+    .post-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .post-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 1px; margin-bottom: 12px; }
+    .tag-auto { background: #EEF2FA; color: #1A3A8F; }
+    .tag-health { background: #E6F7EE; color: #065F46; }
+    .tag-grants { background: #FFF7E6; color: #92400E; }
+    .post-card h2 { font-size: 16px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; color: #0D1117; }
+    .post-card p { font-size: 13px; color: #4A5473; line-height: 1.65; flex: 1; margin-bottom: 16px; }
+    .post-read { font-size: 12px; font-weight: 700; color: #1A3A8F; display: inline-flex; align-items: center; gap: 6px; }
+    .post-read::after { content: '→'; }
+    .post-card:hover .post-read::after { margin-left: 3px; }
+
+    footer { background: #0D1117; color: #9AA5B8; padding: 40px 24px; text-align: center; font-size: 13px; }
+    footer a { color: #9AA5B8; }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-bar"></div>
+    <div>
+      <div class="nav-brand">American AI Solutions</div>
+      <div class="nav-sub">Detroit, Michigan</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#services">Services</a>
+    <a class="nav-link" href="/blog/">Insights</a>
+    <a class="nav-link" href="/#contact">Contact</a>
+    <a class="nav-cta" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Free Strategy Call</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="divider"></div>
+  <div class="tag">Michigan AI Insights</div>
+  <h1 class="page-title">From the Field — No Fluff.</h1>
+  <p class="page-sub">Practical AI knowledge for Michigan business owners. What's working, what's not, and what to do next.</p>
+</div>
+
+<div class="posts-grid">
+
+  <a class="post-card" href="/blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0D1117 0%,#1A3A8F 100%)">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.55">
+        <rect x="8" y="16" width="20" height="32" rx="2" fill="#00D4FF"/><rect x="32" y="24" width="20" height="24" rx="2" fill="#FFD700" opacity=".7"/><rect x="20" y="8" width="24" height="8" rx="2" fill="white" opacity=".3"/>
+      </svg>
+    </div>
+    <div class="post-card-body">
+      <span class="post-tag tag-auto">Automotive</span>
+      <h2>OEM AI Mandates: What Michigan Tier 2 and Tier 3 Suppliers Need to Do in 2026</h2>
+      <p>Ford, GM, and Stellantis are raising data readiness requirements for their supply chains. Here's what qualifies you — and what puts your contracts at risk.</p>
+      <span class="post-read">Read the guide</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/hipaa-ai-michigan-healthcare-practices/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0D1A14 0%,#065F46 100%)">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.55">
+        <circle cx="32" cy="20" r="12" stroke="#4ADE80" stroke-width="3"/><path d="M14 52c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="#4ADE80" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="post-card-body">
+      <span class="post-tag tag-health">Healthcare</span>
+      <h2>HIPAA and AI: What Michigan Healthcare Practices Are Actually Getting Wrong</h2>
+      <p>Most practices believe AI is off-limits due to HIPAA. The real story is different — and it opens up 40+ hours per month in admin savings for a typical Michigan practice.</p>
+      <span class="post-read">Read the guide</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/michigan-going-pro-talent-fund-ai-training/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#1A0D00 0%,#92400E 100%)">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.55">
+        <rect x="8" y="28" width="48" height="8" rx="2" fill="#FCD34D"/><circle cx="16" cy="32" r="8" stroke="#FCD34D" stroke-width="3"/><circle cx="48" cy="32" r="8" stroke="#FCD34D" stroke-width="3"/>
+      </svg>
+    </div>
+    <div class="post-card-body">
+      <span class="post-tag tag-grants">Michigan Grants</span>
+      <h2>The Michigan Going PRO Talent Fund: What AI Projects Actually Qualify (2026 Guide)</h2>
+      <p>Up to $50,000 in training reimbursement. Most Michigan businesses don't know how to structure an AI engagement to qualify. Here's the blueprint.</p>
+      <span class="post-read">Read the guide</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  <p><strong>American AI Solutions LLC</strong> &nbsp;·&nbsp; Detroit, Michigan &nbsp;·&nbsp; <a href="mailto:david@americanaisolutionsllc.com">david@americanaisolutionsllc.com</a></p>
+  <p style="margin-top:8px"><a href="/">← Back to americanaisolutionsllc.com</a></p>
+  <p style="margin-top:16px;font-size:11px;color:#4A5473;">© 2026 American AI Solutions LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
