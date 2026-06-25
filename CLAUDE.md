@@ -101,6 +101,12 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `invoice-template.md` | Invoice format AAIS-2026-### sequential, 3 payment options (Pandadoc/Stripe/ACH/check), Net 15 terms, Day 1–30 follow-up sequence, W-9 prep checklist, Google Sheets tracking template |
 | `project-status-report-template.md` | Weekly Friday status email (completed/in-progress/next week/blockers/timeline), phase variations, milestone alert email, blocker 24-hr rule, Google Drive folder structure |
 | `client-referral-program.md` | 3 referral paths (direct intro, permission name-drop, LinkedIn flywheel), peak-satisfaction timing, draft intro emails, HubSpot source tracking, 90-day referral conversation script |
+| `linkedin-newsletter-issue-01.md` | "Michigan AI Weekly" Issue 1 — fully drafted, ready to publish; 5 Michigan AI wins across verticals; LinkedIn newsletter setup steps; Issues 2–4 topic bank; growth tactics and subscriber milestones |
+| `client-offboarding-sop.md` | Complete client lifecycle close — pre-handoff checklist, go-live day email + invoice, training session structure (90 min × 2), 30-day support rules, Day 45 check-in, 90-day results call agenda, case study capture, Google Drive folder structure, HubSpot handoff properties |
+| `speaking-pitch-templates.md` | Tier 1/2/3 Michigan venue targets (MMTC, MMA, SAE, MTA, MHA, Chamber), 3 talk frameworks (automotive/mixed/healthcare), cold pitch email, panel invitation email, post-talk follow-up system, speaker one-pager, 12-week outreach plan |
+| `michigan-ai-use-case-library.md` | Internal discovery call reference — 24 specific AI use cases across 4 verticals (6 automotive, 5 healthcare, 5 logistics, 4+ construction); each with problem, solution, timeline, ROI, grant eligibility, and discovery questions |
+| `vertical-demo-build-guide.md` | Step-by-step build guide for 4 live AI demos on simulated Michigan data — automotive quality dashboard, healthcare prior auth, logistics dispatch board, construction estimating; n8n workflows, demo interfaces, 3-act demo call script |
+| `clay-prospecting-workflow.md` | Clay Pro setup, vertical-specific prospect sources (NAICS/NPI/FMCSA/AGC), table column specs, AI personalization prompt templates, Instantly.ai campaign config, Clay→Instantly→HubSpot integration, weekly metrics and 100-email/week cadence |
 
 **Blog HTML pages (`blog/` directory):**
 
