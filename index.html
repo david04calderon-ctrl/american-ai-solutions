@@ -124,6 +124,85 @@
     .footer-bottom { border-top: 1px solid #1E2535; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-copy { font-size: 13px; color: #4A5473; }
 
+    /* DEMO SECTION */
+    .section-dark { background: #0D1117; }
+    .tag-cyan { background: rgba(0,212,255,.12); color: #00D4FF; }
+    .demo-card {
+      max-width: 840px; margin: 0 auto;
+      background: #101825; border: 1px solid #1E2D45; border-radius: 6px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(0,212,255,.06);
+    }
+    .demo-header {
+      background: #0D1520; padding: 13px 20px;
+      display: flex; align-items: center; gap: 6px; border-bottom: 1px solid #1E2D45;
+    }
+    .demo-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .demo-waveform {
+      padding: 20px 28px 6px; display: flex; align-items: flex-end; gap: 2px;
+      height: 76px; background: #0D1520; overflow: hidden;
+    }
+    .wave-bar { flex: 1; border-radius: 1px 1px 0 0; background: #1E2D45; min-width: 0; transition: background .1s; }
+    .wave-bar.played { background: rgba(0,212,255,.45); }
+    .wave-bar.head   { background: #00D4FF; box-shadow: 0 0 6px rgba(0,212,255,.8); }
+    .scrubber-area {
+      display: flex; align-items: center; gap: 12px; padding: 12px 28px 8px; background: #0D1520;
+    }
+    .scrubber-col { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .scrubber-track { position: relative; height: 4px; background: #1E2D45; border-radius: 2px; cursor: pointer; }
+    .scrubber-fill {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+      background: linear-gradient(90deg, #1A3A8F 0%, #00D4FF 100%);
+      border-radius: 2px; pointer-events: none; transition: width .08s;
+    }
+    .scrubber-playhead {
+      position: absolute; top: 50%; left: 0%; transform: translate(-50%, -50%);
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #FFD700; box-shadow: 0 0 8px rgba(255,215,0,.55);
+      pointer-events: none; z-index: 2;
+      transition: left .08s, box-shadow .2s, width .2s, height .2s;
+    }
+    .scrubber-track.dragging .scrubber-fill     { transition: none; }
+    .scrubber-track.dragging .scrubber-playhead {
+      width: 18px; height: 18px;
+      box-shadow: 0 0 0 4px rgba(255,215,0,.2), 0 0 18px rgba(255,215,0,.75);
+      transition: box-shadow .2s, width .2s, height .2s;
+    }
+    .scrubber-input {
+      position: absolute; inset: -10px 0; width: 100%; height: calc(100% + 20px);
+      opacity: 0; cursor: pointer; margin: 0; z-index: 3; -webkit-appearance: none;
+    }
+    .scrubber-time { font-size: 11px; color: #4A5473; font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 28px; flex-shrink: 0; }
+    .scrubber-annotations { position: relative; height: 22px; }
+    .annotation {
+      position: absolute; bottom: 0; transform: translateX(-50%);
+      font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+      color: #4A5473; background: rgba(0,212,255,.06); border: 1px solid rgba(0,212,255,.15);
+      border-radius: 2px; padding: 2px 6px; white-space: nowrap; cursor: pointer;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    .annotation:hover  { color: #00D4FF; background: rgba(0,212,255,.14); border-color: rgba(0,212,255,.35); }
+    .annotation.passed { color: rgba(255,215,0,.7); border-color: rgba(255,215,0,.25); background: rgba(255,215,0,.05); }
+    .annotation.active { color: white; background: rgba(0,212,255,.22); border-color: #00D4FF; }
+    .demo-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 28px; border-top: 1px solid #1E2D45; flex-wrap: wrap; gap: 12px;
+    }
+    .badge-pulse {
+      width: 7px; height: 7px; border-radius: 50%; background: #00D4FF; display: inline-block;
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .35; transform: scale(.65); }
+    }
+    .demo-stats { display: flex; gap: 24px; align-items: center; }
+    .demo-stat  { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .demo-stat-label { font-size: 10px; color: #4A5473; letter-spacing: .06em; text-transform: uppercase; }
+    .demo-stat-val         { font-size: 13px; font-weight: 700; color: white; }
+    .demo-stat-val.s-green { color: #4ADE80; }
+    .demo-stat-val.s-cyan  { color: #00D4FF; }
+    .demo-stat-val.s-gold  { color: #FFD700; }
+
     /* FADE IN */
     .fade { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade.visible { opacity: 1; transform: translateY(0); }
@@ -188,6 +267,54 @@
         <div class="stat"><div class="stat-num">48hrs</div><div class="stat-label">Average audit turnaround</div></div>
         <div class="stat"><div class="stat-num">3–8 weeks</div><div class="stat-label">Time to first deployment</div></div>
         <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Michigan-based clients</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI DEMO -->
+<section class="section section-dark" id="demo">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:52px">
+      <div class="divider" style="margin:0 auto 14px;background:#00D4FF"></div>
+      <span class="tag tag-cyan">Platform Preview</span>
+      <h2 class="section-title" style="color:white">See the Intelligence, <em style="color:#00D4FF;font-style:italic">In Motion.</em></h2>
+      <p class="section-sub" style="max-width:500px;margin:0 auto">Drag the scrubber to explore how our AI engine processes and annotates real workflow sessions.</p>
+    </div>
+    <div class="demo-card fade" style="transition-delay:.1s">
+      <div class="demo-header">
+        <span class="demo-dot" style="background:#FF5F57"></span>
+        <span class="demo-dot" style="background:#FEBC2E"></span>
+        <span class="demo-dot" style="background:#28C840"></span>
+        <span style="font-size:12px;color:#4A5473;margin-left:10px;font-weight:500;letter-spacing:.04em">AI Workflow Analysis · Detroit Sales Team · Live Demo</span>
+      </div>
+      <div class="demo-waveform" id="demoWaveform"></div>
+      <div class="scrubber-area">
+        <span class="scrubber-time" id="scrubberCurrent">0:00</span>
+        <div class="scrubber-col">
+          <div class="scrubber-track" id="scrubberTrack">
+            <div class="scrubber-fill" id="scrubberFill"></div>
+            <div class="scrubber-playhead" id="scrubberPlayhead"></div>
+            <input class="scrubber-input" id="scrubberInput" type="range" min="0" max="100" value="0">
+          </div>
+          <div class="scrubber-annotations" id="scrubberAnnotations">
+            <div class="annotation" data-pos="12">Lead Qualified</div>
+            <div class="annotation" data-pos="34">Objection Handled</div>
+            <div class="annotation" data-pos="58">Pricing Discussed</div>
+            <div class="annotation" data-pos="78">Next Steps Set</div>
+          </div>
+        </div>
+        <span class="scrubber-time" style="text-align:right">3:47</span>
+      </div>
+      <div class="demo-footer">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#00D4FF;letter-spacing:.06em;text-transform:uppercase">
+          <span class="badge-pulse"></span>AI Analysis Active
+        </div>
+        <div class="demo-stats">
+          <div class="demo-stat"><span class="demo-stat-label">Sentiment</span><span class="demo-stat-val s-green">Positive</span></div>
+          <div class="demo-stat"><span class="demo-stat-label">Intent</span><span class="demo-stat-val s-cyan">High</span></div>
+          <div class="demo-stat"><span class="demo-stat-label">Score</span><span class="demo-stat-val s-gold">94%</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -433,6 +560,81 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
   fades.forEach(el => obs.observe(el));
+
+  // Interactive Scrubber
+  (function() {
+    const BAR_COUNT = 80;
+    const TOTAL_SECS = 227;
+
+    // Build waveform bars
+    const waveContainer = document.getElementById('demoWaveform');
+    for (let i = 0; i < BAR_COUNT; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'wave-bar';
+      bar.style.height = Math.round(6 + Math.abs(Math.sin(i * 0.4 + 1.2) * 20 + Math.sin(i * 0.9) * 12 + Math.sin(i * 0.15) * 7)) + 'px';
+      waveContainer.appendChild(bar);
+    }
+
+    const input    = document.getElementById('scrubberInput');
+    const fill     = document.getElementById('scrubberFill');
+    const playhead = document.getElementById('scrubberPlayhead');
+    const track    = document.getElementById('scrubberTrack');
+    const currTime = document.getElementById('scrubberCurrent');
+    const waveBars = waveContainer.querySelectorAll('.wave-bar');
+    const annotations = document.querySelectorAll('.annotation');
+
+    // Position annotation labels at their percentage offset
+    annotations.forEach(function(a) { a.style.left = a.dataset.pos + '%'; });
+
+    let isDragging = false;
+
+    function formatTime(secs) {
+      return Math.floor(secs / 60) + ':' + String(Math.floor(secs % 60)).padStart(2, '0');
+    }
+
+    function updateUI(pct) {
+      fill.style.width     = pct + '%';
+      playhead.style.left  = pct + '%';
+      currTime.textContent = formatTime((pct / 100) * TOTAL_SECS);
+
+      waveBars.forEach(function(bar, i) {
+        const barPct = ((i + 0.5) / BAR_COUNT) * 100;
+        const isHead = barPct >= pct && barPct < pct + (200 / BAR_COUNT);
+        bar.classList.toggle('played', barPct < pct && !isHead);
+        bar.classList.toggle('head',   isHead && pct > 0);
+      });
+
+      annotations.forEach(function(a) {
+        const pos = +a.dataset.pos;
+        a.classList.toggle('passed', pos < pct - 2);
+        a.classList.toggle('active', pos >= pct - 2 && pos <= pct + 3);
+      });
+    }
+
+    function setDragging(on) {
+      isDragging = on;
+      track.classList.toggle('dragging', on);
+    }
+
+    input.addEventListener('input',      function() { updateUI(+input.value); });
+    // Bind isDragging on pointer (mouse/stylus) and touch surfaces
+    input.addEventListener('pointerdown', function() { setDragging(true); });
+    input.addEventListener('touchstart',  function() { setDragging(true); }, { passive: true });
+
+    // Global cleanup — resets active pulsing even when drag ends off-screen
+    window.addEventListener('pointerup',  function() { if (isDragging) setDragging(false); });
+    window.addEventListener('touchend',   function() { if (isDragging) setDragging(false); });
+
+    annotations.forEach(function(a) {
+      a.addEventListener('click', function() {
+        const v = +a.dataset.pos;
+        input.value = v;
+        updateUI(v);
+      });
+    });
+
+    updateUI(0);
+  })();
 
   // Contact form
   async function submitForm() {
