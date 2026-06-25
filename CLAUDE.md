@@ -80,6 +80,8 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `michigan-business-calendar.md` | Month-by-month buying cycle intel — OEM audit cycles, grant windows, seasonal patterns |
 | `partner-outreach-templates.md` | Email templates for Michigan Works!, MMTC, SBDC, CPAs, banks, MSPs + referral agreement |
 | `ai-tools-client-guide.md` | ChatGPT vs. custom AI comparison, HIPAA BAA table, build vs. buy framework |
+| `linkedin-profile-optimization.md` | Full LinkedIn profile guide — headline copy, About section, banner spec, Featured strategy, 10 skills, Creator Mode |
+| `proposal-follow-up-system.md` | 30-day follow-up sequence (Days 0/3/7/14/21/30), no-show recovery, stalled deal re-engage, HubSpot stage table |
 
 **Blog HTML pages (`blog/` directory):**
 
