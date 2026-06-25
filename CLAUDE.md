@@ -73,6 +73,7 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `blog-post-02-oem-ai-readiness.md` | 1,350-word article on OEM AI mandates for Michigan Tier 2/3 suppliers |
 | `blog-post-03-hipaa-ai-healthcare.md` | 1,300-word article on HIPAA + AI for Michigan healthcare practices |
 | `blog-post-04-construction-ai.md` | 1,300-word article on AI for Michigan GCs — estimating + change order capture |
+| `blog-post-05-michigan-fleet-dispatch-ai.md` | 1,300-word article on Michigan fleet dispatch AI — deadhead math, dispatcher ratios, corridor advantage, grant ROI |
 | `cold-calling-script.md` | Phone scripts for all 4 verticals with objection cheat sheet and voicemail scripts |
 | `pre-call-intake-form.md` | 6-question pre-call form (Typeform/Google Forms setup) + HubSpot automation |
 | `testimonial-review-system.md` | Review request system — pre-client, post-client, multi-channel formats |
@@ -95,6 +96,10 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `scope-creep-change-order-protocol.md` | SOW-as-shield framework, change order template, pricing guide by change type, client pushback scripts, scope change log |
 | `portfolio-demo-strategy.md` | 4-strategy pre-client credibility system — vertical demo builds, Loom library, GitHub open-source portfolio, audit-as-portfolio; demo call framework; first client acquisition fast path |
 | `subcontractor-management-guide.md` | Where to find vetted subs, vetting process, subcontractor agreement key clauses (no-solicitation, IP assignment, BAA), management cadence, pricing margins, 1099 compliance |
+| `going-pro-grant-application-guide.md` | Complete step-by-step Going PRO application walkthrough — eligibility, training plan template, supporting docs, reimbursement claim, Industry 4.0 stack, HubSpot grant tracking |
+| `scope-creep-change-order-protocol.md` | SOW-as-shield framework, change order template, pricing guide by change type, client pushback scripts, scope change log |
+| `portfolio-demo-strategy.md` | 4-strategy pre-client credibility system — vertical demo builds, Loom library, GitHub open-source portfolio, audit-as-portfolio; demo call framework; first client acquisition fast path |
+| `client-master-services-agreement.md` | Full MSA template — IP ownership, payment, confidentiality, HIPAA BAA addendum, limitation of liability, no-solicitation, Michigan governing law; Pandadoc setup instructions |
 
 **Blog HTML pages (`blog/` directory):**
 
@@ -106,6 +111,7 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `blog/hipaa-ai-michigan-healthcare-practices/index.html` | Published article: HIPAA + AI for Michigan healthcare practices |
 | `blog/ai-for-michigan-contractors-estimating-automation/index.html` | Published article: AI for Michigan GCs — estimating + change order automation |
 | `blog/michigan-fleet-ai-dispatch-optimization/index.html` | Published article: Michigan fleet dispatch AI — ROI math and grant funding |
+| `blog/michigan-ai-roi-calculator/index.html` | Published article: All-vertical ROI calculator — labor savings, revenue capture, grant math for all 4 Michigan verticals |
 
 **Personal files (`personal/` directory — excluded from git):**
 

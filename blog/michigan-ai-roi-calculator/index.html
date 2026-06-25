@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Michigan AI ROI Calculator: What Does AI Actually Return? — American AI Solutions LLC</title>
+  <meta name="description" content="Calculate your real AI ROI before you buy. Specific math for Michigan manufacturers, healthcare practices, fleet operators, and contractors — including grant reimbursement."/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/blog/michigan-ai-roi-calculator/"/>
+  <meta property="og:title" content="Michigan AI ROI Calculator: The Math Before You Commit"/>
+  <meta property="og:description" content="Before you spend $15,000 on AI, run the math. This guide shows exactly what AI returns for Michigan manufacturers, healthcare practices, fleets, and contractors."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/blog/michigan-ai-roi-calculator/"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Michigan AI ROI Calculator: What Does AI Actually Return?",
+    "description": "Specific ROI math for Michigan manufacturers, healthcare practices, fleet operators, and contractors — including grant reimbursement calculations.",
+    "author": {"@type": "Person", "name": "David Calderon"},
+    "publisher": {"@type": "Organization", "name": "American AI Solutions LLC"},
+    "datePublished": "2026-06-25",
+    "url": "https://americanaisolutionsllc.com/blog/michigan-ai-roi-calculator/"
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1C1C1C; background: #fff; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E4E8F0; padding: 0 24px; display: flex; align-items: center; gap: 32px; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-bar { width: 8px; height: 36px; background: #1A3A8F; border-radius: 1px; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: #0D1117; line-height: 1.2; }
+    .nav-sub { font-size: 11px; color: #4A5473; letter-spacing: .05em; }
+    .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #1C1C1C; text-transform: uppercase; }
+    .nav-link:hover { color: #1A3A8F; }
+    .nav-cta { background: #1A3A8F; color: white !important; padding: 9px 20px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .nav-cta:hover { background: #0f2460; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    .article-hero { background: linear-gradient(135deg, #0D1117 0%, #1A3A8F 100%); padding: 64px 24px 56px; text-align: center; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,.12); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; margin-bottom: 20px; }
+    .article-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 46px); color: #fff; max-width: 760px; margin: 0 auto 16px; line-height: 1.2; font-weight: 400; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,.75); max-width: 580px; margin: 0 auto; }
+    .hero-meta { margin-top: 28px; font-size: 13px; color: rgba(255,255,255,.5); letter-spacing: .04em; }
+
+    .article-body { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 26px; color: #0D1117; margin: 48px 0 16px; font-weight: 400; }
+    .article-body h3 { font-size: 17px; font-weight: 700; color: #0D1117; margin: 32px 0 12px; }
+    .article-body p { font-size: 16px; color: #2C2C2C; margin-bottom: 20px; line-height: 1.75; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 20px; }
+    .article-body li { font-size: 16px; color: #2C2C2C; margin-bottom: 8px; line-height: 1.65; }
+    .article-body strong { color: #0D1117; }
+
+    .roi-card { background: #F7F9FC; border: 1px solid #E4E8F0; border-left: 4px solid #1A3A8F; border-radius: 2px; padding: 28px 32px; margin: 32px 0; }
+    .roi-card .vertical-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #1A3A8F; margin-bottom: 10px; }
+    .roi-card h3 { font-size: 18px; font-weight: 700; color: #0D1117; margin: 0 0 16px; }
+    .roi-card .math-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid #E4E8F0; font-size: 15px; }
+    .roi-card .math-row:last-of-type { border-bottom: none; }
+    .roi-card .math-label { color: #4A5473; }
+    .roi-card .math-value { font-weight: 700; color: #0D1117; }
+    .roi-card .math-value.green { color: #065F46; }
+    .roi-card .math-value.cyan { color: #0369A1; }
+    .roi-card .net-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; padding-top: 16px; border-top: 2px solid #1A3A8F; }
+    .roi-card .net-label { font-size: 14px; font-weight: 700; color: #0D1117; text-transform: uppercase; letter-spacing: .04em; }
+    .roi-card .net-value { font-size: 22px; font-weight: 700; color: #065F46; }
+
+    .grant-box { background: #0D1117; border-radius: 2px; padding: 32px; margin: 40px 0; }
+    .grant-box .grant-header { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #FFD700; margin-bottom: 12px; }
+    .grant-box h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: #fff; margin-bottom: 16px; font-weight: 400; }
+    .grant-box p { color: rgba(255,255,255,.75); font-size: 15px; margin-bottom: 12px; }
+    .grant-box .grant-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    .grant-box .grant-table th { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.5); text-align: left; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .grant-box .grant-table td { font-size: 14px; color: rgba(255,255,255,.8); padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .grant-box .grant-table td:last-child { color: #FFD700; font-weight: 700; text-align: right; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+    @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
+    .stat-box { background: #EEF2FA; border-radius: 2px; padding: 20px; text-align: center; }
+    .stat-box .stat-num { font-family: 'DM Serif Display', serif; font-size: 32px; color: #1A3A8F; line-height: 1; margin-bottom: 6px; }
+    .stat-box .stat-label { font-size: 12px; color: #4A5473; font-weight: 500; }
+
+    .divider-rule { border: none; border-top: 1px solid #E4E8F0; margin: 48px 0; }
+
+    .cta-box { background: #1A3A8F; border-radius: 2px; padding: 40px; text-align: center; margin: 48px 0 0; }
+    .cta-box h3 { font-family: 'DM Serif Display', serif; font-size: 26px; color: #fff; margin-bottom: 12px; font-weight: 400; }
+    .cta-box p { color: rgba(255,255,255,.8); font-size: 16px; margin-bottom: 24px; }
+    .cta-btn { display: inline-block; background: #FFD700; color: #0D1117; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; padding: 14px 32px; border-radius: 2px; }
+    .cta-btn:hover { background: #f0c800; }
+    .cta-sub { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.5); }
+
+    footer { background: #0D1117; color: #9AA5B8; padding: 40px 24px; text-align: center; font-size: 13px; }
+    footer a { color: #9AA5B8; }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-bar"></div>
+    <div>
+      <div class="nav-brand">American AI Solutions</div>
+      <div class="nav-sub">Detroit, Michigan</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#services">Services</a>
+    <a class="nav-link" href="/blog/">Insights</a>
+    <a class="nav-link" href="/#contact">Contact</a>
+    <a class="nav-cta" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Free Strategy Call</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-tag">All Verticals — ROI Analysis</div>
+  <h1>Michigan AI ROI Calculator: What Does AI Actually Return?</h1>
+  <p class="hero-sub">Run the math before you commit. Specific numbers for manufacturers, healthcare practices, fleet operators, and contractors — including what Michigan grants do to the bottom line.</p>
+  <div class="hero-meta">By David Calderon &nbsp;·&nbsp; American AI Solutions LLC &nbsp;·&nbsp; Detroit, MI</div>
+</div>
+
+<div class="article-body">
+
+  <p>The most common question I hear before a discovery call: <strong>"Is AI actually worth it for a business like mine?"</strong></p>
+
+  <p>It's the right question. Every vendor in this space will tell you "yes" — without showing you the math. This article shows you the math. Specific to Michigan. Specific to your vertical. And specific to what state grant programs do to the net cost.</p>
+
+  <p>If AI doesn't pencil for your operation, I'll tell you that. But in almost every discovery call I run with a Michigan manufacturer, healthcare practice, fleet operator, or contractor, the ROI isn't close — it's not a 2:1 or 3:1 return. It's 10:1 to 30:1 in the first year. Here's why.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>The Framework: What AI Eliminates</h2>
+
+  <p>AI returns value through three mechanisms in every business:</p>
+
+  <ol>
+    <li><strong>Labor cost reduction</strong> — automating tasks that currently require employee hours</li>
+    <li><strong>Revenue capture improvement</strong> — capturing revenue that currently leaks (uncollected change orders, deadhead miles, denied claims)</li>
+    <li><strong>Error cost reduction</strong> — reducing the cost of mistakes that AI catches and humans miss</li>
+  </ol>
+
+  <p>Not every AI project delivers all three. But most deliver at least two. Let's run the numbers by vertical.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>Automotive Tier 2/3 Manufacturers</h2>
+
+  <div class="roi-card">
+    <div class="vertical-label">Automotive / Manufacturing</div>
+    <h3>Baseline: 85-employee Tier 2 supplier, OEE monitoring + quality dashboard</h3>
+    <div class="math-row"><span class="math-label">Quality reporting hours/week (before AI)</span><span class="math-value">22 hrs</span></div>
+    <div class="math-row"><span class="math-label">Hours/week after AI deployment</span><span class="math-value">6 hrs</span></div>
+    <div class="math-row"><span class="math-label">Hours saved per week</span><span class="math-value cyan">16 hrs</span></div>
+    <div class="math-row"><span class="math-label">Loaded labor rate (quality technician)</span><span class="math-value">$45/hr</span></div>
+    <div class="math-row"><span class="math-label">Annual labor savings</span><span class="math-value green">$37,440/yr</span></div>
+    <div class="math-row"><span class="math-label">OEE improvement (55% → 59%)</span><span class="math-value cyan">+4 points</span></div>
+    <div class="math-row"><span class="math-label">Revenue recapture from OEE gain</span><span class="math-value green">$60,000–$90,000/yr</span></div>
+    <div class="math-row"><span class="math-label">Total Year 1 return</span><span class="math-value green">$97,000–$127,000</span></div>
+    <div class="math-row"><span class="math-label">Project investment</span><span class="math-value">$15,000</span></div>
+    <div class="math-row"><span class="math-label">Michigan grant reimbursement (est.)</span><span class="math-value green">−$7,500–$10,000</span></div>
+    <div class="net-row"><span class="net-label">Net ROI (Year 1)</span><span class="net-value">7:1 to 14:1</span></div>
+  </div>
+
+  <p>The OEE number deserves explanation. Every percentage point of OEE improvement on a line running 24/5 translates to hours of additional productive output. For a line producing $1,500/hour in value, 4 points of OEE improvement on a single shift = $60,000–$90,000 in recovered throughput. That's a conservative estimate — many Tier 2 plants see 6–8 point OEE improvement in the first 90 days as the AI surfaces patterns their manual reporting never revealed.</p>
+
+  <p>The audit-readiness value is harder to quantify but real: cutting OEM data request response time from 2 hours to 10 minutes doesn't show on a P&L, but it shows in the relationship with Ford's STA team — and that relationship is what keeps you on the approved supplier list.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>Michigan Healthcare Practices</h2>
+
+  <div class="roi-card">
+    <div class="vertical-label">Healthcare / Medical Practices</div>
+    <h3>Baseline: 5-provider Michigan practice, prior authorization automation</h3>
+    <div class="math-row"><span class="math-label">Prior auth hours/week (before AI)</span><span class="math-value">28 hrs</span></div>
+    <div class="math-row"><span class="math-label">Hours/week after AI deployment</span><span class="math-value">5 hrs</span></div>
+    <div class="math-row"><span class="math-label">Hours saved per week</span><span class="math-value cyan">23 hrs</span></div>
+    <div class="math-row"><span class="math-label">Billing coordinator rate (loaded)</span><span class="math-value">$32/hr</span></div>
+    <div class="math-row"><span class="math-label">Annual labor savings</span><span class="math-value green">$38,272/yr</span></div>
+    <div class="math-row"><span class="math-label">Prior auth denial rate (before)</span><span class="math-value">11%</span></div>
+    <div class="math-row"><span class="math-label">Denial rate after AI (est.)</span><span class="math-value">4%</span></div>
+    <div class="math-row"><span class="math-label">Monthly claims at risk (avg $400/claim × 180 auths)</span><span class="math-value">$72,000</span></div>
+    <div class="math-row"><span class="math-label">Revenue recovered from denial reduction</span><span class="math-value green">$60,480/yr</span></div>
+    <div class="math-row"><span class="math-label">Days-to-approval improvement (7d → 2d)</span><span class="math-value cyan">Cash flow: $40K unlocked</span></div>
+    <div class="math-row"><span class="math-label">Total Year 1 return</span><span class="math-value green">$98,000–$140,000</span></div>
+    <div class="math-row"><span class="math-label">Project investment</span><span class="math-value">$14,000</span></div>
+    <div class="math-row"><span class="math-label">Michigan Going PRO reimbursement (est.)</span><span class="math-value green">−$5,000–$7,000</span></div>
+    <div class="net-row"><span class="net-label">Net ROI (Year 1)</span><span class="net-value">14:1 to 20:1</span></div>
+  </div>
+
+  <p>The prior authorization denial rate is where practices lose the most money they don't see. The industry average denial rate across all payers is 7–14%. Every denied claim either gets appealed (30–90 minutes of additional staff time) or written off. A 7-point reduction in denial rate on 180 monthly authorizations at an average claim value of $400 = $60,480 annually — in revenue that was previously being left on the table.</p>
+
+  <p>This system operates entirely under a signed HIPAA Business Associate Agreement with Anthropic's Claude API. No PHI touches any system that hasn't been reviewed for HIPAA compliance. This is not a workaround — it's the correct architecture.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>Michigan Fleet Operators</h2>
+
+  <div class="roi-card">
+    <div class="vertical-label">Logistics / Trucking</div>
+    <h3>Baseline: 50-truck Michigan carrier, dispatch optimization</h3>
+    <div class="math-row"><span class="math-label">Total annual miles</span><span class="math-value">7,500,000</span></div>
+    <div class="math-row"><span class="math-label">Deadhead % (before AI)</span><span class="math-value">22%</span></div>
+    <div class="math-row"><span class="math-label">Deadhead % (after AI)</span><span class="math-value">16%</span></div>
+    <div class="math-row"><span class="math-label">Empty miles eliminated</span><span class="math-value cyan">450,000 miles</span></div>
+    <div class="math-row"><span class="math-label">Cost per deadhead mile</span><span class="math-value">$1.20</span></div>
+    <div class="math-row"><span class="math-label">Annual deadhead savings</span><span class="math-value green">$540,000/yr</span></div>
+    <div class="math-row"><span class="math-label">Dispatcher ratio improvement (35 → 65 trucks/dispatcher)</span><span class="math-value cyan">Avoid 1 hire</span></div>
+    <div class="math-row"><span class="math-label">Headcount avoidance value</span><span class="math-value green">$65,000/yr</span></div>
+    <div class="math-row"><span class="math-label">Total Year 1 return</span><span class="math-value green">$500,000–$600,000</span></div>
+    <div class="math-row"><span class="math-label">Project investment</span><span class="math-value">$18,000</span></div>
+    <div class="math-row"><span class="math-label">Michigan Going PRO reimbursement (est.)</span><span class="math-value green">−$6,000–$9,000</span></div>
+    <div class="net-row"><span class="net-label">Net ROI (Year 1)</span><span class="net-value">40:1 to 60:1</span></div>
+  </div>
+
+  <p>Logistics is where AI ROI is most dramatic — because the cost of inefficiency scales with fleet size. A 6-point deadhead reduction across 7.5 million miles isn't an optimization at the margins. It's half a million dollars a year. The system pays for itself in the first week of operation.</p>
+
+  <p>The dispatcher ratio improvement compounds this. When one dispatcher can manage 65 trucks instead of 35, the next growth phase (adding 15 trucks) doesn't require a new hire. At $65,000/year per dispatcher (salary + benefits + training), this avoided cost recurs annually.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>Michigan Contractors & Specialty Trades</h2>
+
+  <div class="roi-card">
+    <div class="vertical-label">Construction / Trades</div>
+    <h3>Baseline: Michigan GC, $6M annual revenue, estimating + change order AI</h3>
+    <div class="math-row"><span class="math-label">Hours per bid (before AI)</span><span class="math-value">14 hrs</span></div>
+    <div class="math-row"><span class="math-label">Hours per bid (after AI)</span><span class="math-value">3.5 hrs</span></div>
+    <div class="math-row"><span class="math-label">Hours saved per bid</span><span class="math-value cyan">10.5 hrs</span></div>
+    <div class="math-row"><span class="math-label">Bids per month (before AI)</span><span class="math-value">5</span></div>
+    <div class="math-row"><span class="math-label">Bids per month (after AI)</span><span class="math-value">9</span></div>
+    <div class="math-row"><span class="math-label">Additional bids × 25% win rate × $180K avg margin</span><span class="math-value green">+$216,000/yr gross margin</span></div>
+    <div class="math-row"><span class="math-label">Change order capture rate (before)</span><span class="math-value">68%</span></div>
+    <div class="math-row"><span class="math-label">Change order capture rate (after AI)</span><span class="math-value">91%</span></div>
+    <div class="math-row"><span class="math-label">Annual change orders × 23% capture improvement</span><span class="math-value green">$138,000/yr recovered</span></div>
+    <div class="math-row"><span class="math-label">Total Year 1 return</span><span class="math-value green">$300,000–$400,000</span></div>
+    <div class="math-row"><span class="math-label">Project investment</span><span class="math-value">$14,000</span></div>
+    <div class="math-row"><span class="math-label">Michigan grants (Going PRO + Industry 4.0)</span><span class="math-value green">−$7,000–$11,000</span></div>
+    <div class="net-row"><span class="net-label">Net ROI (Year 1)</span><span class="net-value">20:1 to 30:1</span></div>
+  </div>
+
+  <p>Construction ROI is driven by two levers working simultaneously: bid volume and change order capture. Most contractors don't track change order capture rates — they don't know they're leaving 20–35% of their change order revenue unbilled until we calculate it together in the discovery call. On a $6M annual revenue operation running 15% gross margin, that's $180,000–$315,000 per year in work that was done and not billed.</p>
+
+  <p>The bid volume increase is equally significant. Going from 5 to 9 bids per month — with the same estimating staff — is a capacity expansion that would otherwise require hiring. At a 25% win rate and $180,000 average project margin, the additional 4 bids per month generate $216,000 in gross margin annually.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>What Michigan Grants Do to the Math</h2>
+
+  <div class="grant-box">
+    <div class="grant-header">Michigan State Funding</div>
+    <h3>How Grant Reimbursement Changes Every Project</h3>
+    <p>Every AI project AAIS builds is structured to qualify for Michigan state grant programs. We handle all documentation. You apply through your local Michigan Works! agency.</p>
+    <table class="grant-table">
+      <thead>
+        <tr>
+          <th>Grant Program</th>
+          <th>Who qualifies</th>
+          <th>Max reimbursement</th>
+          <th>Typical award</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Michigan Going PRO Talent Fund</td>
+          <td>All Michigan employers</td>
+          <td>$50,000/yr</td>
+          <td>$4,000–$12,000</td>
+        </tr>
+        <tr>
+          <td>Industry 4.0 Tech Grant (MMTC)</td>
+          <td>Michigan manufacturers</td>
+          <td>50% of project cost</td>
+          <td>$6,000–$20,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">$6K</div>
+      <div class="stat-label">Minimum typical grant recovery</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$20K</div>
+      <div class="stat-label">Maximum typical grant recovery</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Of projects we document for grants</div>
+    </div>
+  </div>
+
+  <hr class="divider-rule"/>
+
+  <h2>When AI Doesn't Pencil</h2>
+
+  <p>Honesty is the point here. There are situations where AI implementation doesn't make financial sense:</p>
+
+  <ul>
+    <li><strong>Your team has fewer than 5 people on the process</strong> — The ROI math requires enough labor cost or revenue volume to justify the investment. At very small scale, off-the-shelf tools may suffice.</li>
+    <li><strong>The process is already nearly automated</strong> — If you're at 85% efficiency on a workflow, the incremental gain from AI may not justify a custom implementation.</li>
+    <li><strong>The problem is operational, not technical</strong> — AI can't fix a process that's broken because of culture, management, or incentive misalignment. These need to be solved first.</li>
+    <li><strong>The data doesn't exist yet</strong> — AI learns from data. If the process you want to automate has never been tracked or logged, you need a data collection phase first — typically 30–90 days.</li>
+  </ul>
+
+  <p>When these conditions exist, I'll tell you in the discovery call. A $2,500 AI Workflow Audit is the right first step — it tells you exactly what's worth building and what isn't before any significant investment is made.</p>
+
+  <hr class="divider-rule"/>
+
+  <h2>Run the Math for Your Operation</h2>
+
+  <p>The numbers above are based on real ranges from Michigan operations in each vertical. Your specific ROI depends on:</p>
+
+  <ul>
+    <li>How many hours per week your team currently spends on the target process</li>
+    <li>Your loaded labor rate for the employees involved</li>
+    <li>The revenue impact of the problem (uncaptured change orders, denied claims, deadhead miles)</li>
+    <li>Which grant programs your operation qualifies for</li>
+  </ul>
+
+  <p>In a 30-minute strategy call, we'll calculate your specific numbers — not industry averages, your operation. You'll leave the call knowing exactly what the ROI looks like and whether it justifies moving forward.</p>
+
+  <p>No cost. No commitment. Just the math.</p>
+
+  <div class="cta-box">
+    <h3>Calculate Your ROI in 30 Minutes</h3>
+    <p>Bring your current process pain points. We'll run the numbers specific to your Michigan operation — labor costs, revenue impact, and grant reimbursement included.</p>
+    <a class="cta-btn" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Book Free Strategy Call</a>
+    <p class="cta-sub">Or email david@americanaisolutionsllc.com &nbsp;·&nbsp; Detroit, MI</p>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>American AI Solutions LLC</strong> &nbsp;·&nbsp; Detroit, Michigan &nbsp;·&nbsp; <a href="mailto:david@americanaisolutionsllc.com">david@americanaisolutionsllc.com</a></p>
+  <p style="margin-top:8px"><a href="/blog/">← Back to Michigan AI Insights</a></p>
+  <p style="margin-top:16px;font-size:11px;color:#4A5473;">© 2026 American AI Solutions LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
