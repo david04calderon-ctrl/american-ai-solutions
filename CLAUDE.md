@@ -82,6 +82,13 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `ai-tools-client-guide.md` | ChatGPT vs. custom AI comparison, HIPAA BAA table, build vs. buy framework |
 | `linkedin-profile-optimization.md` | Full LinkedIn profile guide — headline copy, About section, banner spec, Featured strategy, 10 skills, Creator Mode |
 | `proposal-follow-up-system.md` | 30-day follow-up sequence (Days 0/3/7/14/21/30), no-show recovery, stalled deal re-engage, HubSpot stage table |
+| `year-2-expansion-playbook.md` | Expansion roadmap per vertical, retainer pitch, 90-day results presentation, expansion pipeline in HubSpot, 3-year revenue model |
+| `client-success-metrics.md` | Baseline capture (Day 1), 30/90-day KPIs by vertical, dollar translation formulas, 90-day results presentation template, case study capture |
+| `email-signature-template.md` | 4 signature versions (full/short/formal/cold), Gmail setup steps, mobile signature, LinkedIn message closer, business card spec |
+| `linkedin-company-page-setup.md` | Company page creation, logo/cover specs, About section copy, content strategy, LinkedIn Ads guidance, follower targets |
+| `tech-stack-integration-map.md` | Full tool list + monthly costs, data flow maps (inbound/outbound/proposal/project), tool-by-tool integration setup, n8n internal automation specs |
+| `weekly-execution-dashboard.md` | Monday ritual, weekly activity targets by channel, 90-day calendar (weeks 1–12), KPI tracking, decision rules, generational wealth scorecard |
+| `press-announcement-template.md` | Michigan media targets, 2 press release templates (launch + first client), LinkedIn announcement post templates, credibility stack strategy |
 
 **Blog HTML pages (`blog/` directory):**
 
