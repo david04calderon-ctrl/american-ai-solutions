@@ -334,6 +334,29 @@
     .grant-text strong { font-size: 15px; font-weight: 700; color: #0D1117; }
     .grant-text p { font-size: 13px; color: #4A5473; margin-top: 2px; }
 
+    /* INSIGHTS / BLOG PREVIEW */
+    .insights-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .insight-card {
+      border: 1px solid #E4E8F0; border-radius: 2px; background: white; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .insight-card:hover { border-color: #1A3A8F; box-shadow: 0 8px 32px rgba(26,58,143,.10); transform: translateY(-3px); }
+    .insight-card-img {
+      height: 160px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    }
+    .insight-card-body { padding: 28px 28px 24px; display: flex; flex-direction: column; flex: 1; }
+    .insight-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 1px; margin-bottom: 14px; }
+    .insight-tag-auto { background: #EEF2FA; color: #1A3A8F; }
+    .insight-tag-health { background: #E6F7EE; color: #065F46; }
+    .insight-tag-ops { background: #FFF7E6; color: #92400E; }
+    .insight-card h3 { font-size: 17px; font-weight: 700; line-height: 1.35; margin-bottom: 12px; color: #0D1117; letter-spacing: -.01em; }
+    .insight-card p { font-size: 14px; color: #4A5473; line-height: 1.65; flex: 1; margin-bottom: 18px; }
+    .insight-read { font-size: 13px; font-weight: 700; color: #1A3A8F; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .insight-read::after { content: '→'; transition: transform .2s; }
+    .insight-card:hover .insight-read::after { transform: translateX(4px); }
+    @media (max-width: 768px) { .insights-grid { grid-template-columns: 1fr; } }
+
     /* STICKY MOBILE CTA */
     .sticky-cta {
       display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
@@ -394,10 +417,10 @@
     </a>
     <div class="nav-links">
       <a class="nav-link" onclick="scrollTo('services')">Services</a>
-      <a class="nav-link" onclick="scrollTo('services')">Services</a>
       <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
       <a class="nav-link" onclick="scrollTo('process')">Process</a>
       <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
+      <a class="nav-link" onclick="scrollTo('insights')">Insights</a>
       <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
       <button class="btn btn-primary btn-sm" onclick="bookCall()">Book a Call</button>
     </div>
@@ -407,10 +430,10 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a class="nav-link" onclick="scrollTo('services')">Services</a>
-    <a class="nav-link" onclick="scrollTo('services')">Services</a>
     <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
     <a class="nav-link" onclick="scrollTo('process')">Process</a>
     <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
+    <a class="nav-link" onclick="scrollTo('insights')">Insights</a>
     <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
     <button class="btn btn-primary" style="width:100%;text-align:center" onclick="bookCall()">Book a Free Strategy Call</button>
   </div>
@@ -843,6 +866,68 @@
         </div>
       </div>
       <button class="btn btn-primary btn-sm" onclick="bookCall()" style="white-space:nowrap">Ask About Grants</button>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="section" id="insights">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:60px">
+      <div class="divider" style="margin:0 auto 14px"></div>
+      <span class="tag">Michigan AI Insights</span>
+      <h2 class="section-title">From the Field — <em style="color:#1A3A8F">No Fluff.</em></h2>
+      <p class="section-sub" style="max-width:540px;margin:0 auto">Practical AI knowledge for Michigan business owners. What's working, what's not, and what you should be doing next.</p>
+    </div>
+    <div class="insights-grid">
+
+      <div class="insight-card fade">
+        <div class="insight-card-img" style="background:linear-gradient(135deg,#0D1117 0%,#1A3A8F 100%)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.55">
+            <rect x="8" y="16" width="20" height="32" rx="2" fill="#00D4FF"/><rect x="32" y="24" width="20" height="24" rx="2" fill="#FFD700" opacity=".7"/><rect x="20" y="8" width="24" height="8" rx="2" fill="white" opacity=".3"/>
+          </svg>
+        </div>
+        <div class="insight-card-body">
+          <span class="insight-tag insight-tag-auto">Automotive</span>
+          <h3>What Michigan Tier 2 Suppliers Actually Need to Do for OEM AI Readiness</h3>
+          <p>Ford, GM, and Stellantis are asking their supply chains about AI adoption readiness. Here's exactly what they're looking for — and what gets you on the preferred list.</p>
+          <a class="insight-read" onclick="bookCall()">Read on your strategy call</a>
+        </div>
+      </div>
+
+      <div class="insight-card fade" style="transition-delay:.1s">
+        <div class="insight-card-img" style="background:linear-gradient(135deg,#0D1A14 0%,#065F46 100%)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.55">
+            <circle cx="32" cy="20" r="12" stroke="#4ADE80" stroke-width="3"/><path d="M14 52c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="#4ADE80" stroke-width="3" stroke-linecap="round"/><path d="M26 44h12M32 44v6" stroke="#4ADE80" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="insight-card-body">
+          <span class="insight-tag insight-tag-health">Healthcare</span>
+          <h3>HIPAA and AI: What Michigan Practices Are Getting Wrong (And How to Fix It)</h3>
+          <p>The #1 objection we hear from healthcare clients. The real answer is simpler than attorneys make it sound — and it opens up 40+ hours/month in admin savings.</p>
+          <a class="insight-read" onclick="bookCall()">Read on your strategy call</a>
+        </div>
+      </div>
+
+      <div class="insight-card fade" style="transition-delay:.2s">
+        <div class="insight-card-img" style="background:linear-gradient(135deg,#1A0D00 0%,#92400E 100%)">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.55">
+            <rect x="8" y="28" width="48" height="8" rx="2" fill="#FCD34D"/><circle cx="16" cy="32" r="8" stroke="#FCD34D" stroke-width="3"/><circle cx="48" cy="32" r="8" stroke="#FCD34D" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="insight-card-body">
+          <span class="insight-tag insight-tag-ops">Grants</span>
+          <h3>The Michigan Going PRO Fund: Exactly Which AI Projects Qualify in 2026</h3>
+          <p>Up to $50,000 in training reimbursement. Most Michigan businesses don't know how to structure an engagement to qualify. We've done it. Here's the blueprint.</p>
+          <a class="insight-read" onclick="bookCall()">Read on your strategy call</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="fade" style="text-align:center;margin-top:48px;transition-delay:.3s">
+      <p style="font-size:15px;color:#4A5473;margin-bottom:20px">New insights published every two weeks — focused on Michigan businesses, real numbers, zero fluff.</p>
+      <button class="btn btn-outline" onclick="scrollTo('contact')" style="margin-right:12px">Get Notified</button>
+      <button class="btn btn-primary" onclick="bookCall()">Book a Strategy Call</button>
     </div>
   </div>
 </section>
