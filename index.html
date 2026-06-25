@@ -15,6 +15,9 @@
   <meta name="twitter:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
   <meta name="twitter:description" content="Detroit-based AI consulting. We build systems that run."/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
@@ -214,6 +217,28 @@
     .demo-stat-val.s-cyan  { color: #00D4FF; }
     .demo-stat-val.s-gold  { color: #FFD700; }
 
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; align-items: stretch; }
+    .pricing-card {
+      border: 1px solid #E4E8F0; padding: 40px 36px; border-radius: 2px; background: white;
+      display: flex; flex-direction: column; transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .pricing-card:hover { border-color: #1A3A8F; box-shadow: 0 8px 32px rgba(26,58,143,.10); transform: translateY(-3px); }
+    .pricing-card-featured { border-color: #1A3A8F; background: #F0F4FF; box-shadow: 0 8px 32px rgba(26,58,143,.12); }
+    .pricing-card-featured:hover { transform: translateY(-3px); }
+    .pricing-tier-tag {
+      display: inline-block; background: #EEF2FA; color: #1A3A8F;
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 1px; margin-bottom: 20px; align-self: flex-start;
+    }
+    .pricing-tier-tag.featured { background: #1A3A8F; color: white; }
+    .pricing-name { font-size: 22px; font-weight: 700; margin-bottom: 16px; letter-spacing: -.01em; }
+    .pricing-price { font-size: 36px; font-weight: 700; color: #1A3A8F; letter-spacing: -.02em; margin-bottom: 6px; line-height: 1; }
+    .pricing-timeline { font-size: 13px; color: #6B7694; margin-bottom: 28px; font-weight: 500; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; flex: 1; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #4A5473; line-height: 1.5; }
+    .pricing-features li::before { content: ''; display: inline-block; width: 5px; height: 5px; min-width: 5px; background: #1A3A8F; border-radius: 1px; margin-top: 6px; }
+
     /* FADE IN */
     .fade { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade.visible { opacity: 1; transform: translateY(0); }
@@ -234,6 +259,8 @@
       .scrubber-annotations { overflow: hidden; }
       .demo-footer { padding: 12px 16px; }
       .demo-stats { gap: 14px; }
+      /* Pricing */
+      .pricing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -253,6 +280,7 @@
       <a class="nav-link" onclick="scrollTo('services')">Services</a>
       <a class="nav-link" onclick="scrollTo('about')">About</a>
       <a class="nav-link" onclick="scrollTo('testimonials')">Testimonials</a>
+      <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
       <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
       <button class="btn btn-primary btn-sm" onclick="bookCall()">Book a Call</button>
     </div>
@@ -264,6 +292,7 @@
     <a class="nav-link" onclick="scrollTo('services')">Services</a>
     <a class="nav-link" onclick="scrollTo('about')">About</a>
     <a class="nav-link" onclick="scrollTo('testimonials')">Testimonials</a>
+    <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
     <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
     <button class="btn btn-primary" style="width:100%;text-align:center" onclick="bookCall()">Book a Free Strategy Call</button>
   </div>
@@ -475,8 +504,75 @@
   </div>
 </section>
 
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:60px">
+      <div class="divider" style="margin:0 auto 14px"></div>
+      <span class="tag">Transparent Pricing</span>
+      <h2 class="section-title">Engagements Built Around <em style="color:#1A3A8F">Your Goals.</em></h2>
+      <p class="section-sub" style="max-width:560px;margin:0 auto">Fixed-scope tiers. No hourly surprises. Every engagement ends with working software your team actually uses.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Tier 1 -->
+      <div class="pricing-card fade">
+        <span class="pricing-tier-tag">Starter</span>
+        <div class="pricing-name">AI Workflow Audit</div>
+        <div class="pricing-price">$2,500</div>
+        <div class="pricing-timeline">Delivered in 48–72 hours</div>
+        <ul class="pricing-features">
+          <li>Full process mapping across your core operations</li>
+          <li>AI opportunity scorecard (ranked by ROI)</li>
+          <li>Recommended tool stack & integration plan</li>
+          <li>Executive summary — ready to share with leadership</li>
+          <li>30-minute debrief call included</li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%;text-align:center" onclick="bookCall()">Start with an Audit</button>
+      </div>
+
+      <!-- Tier 2 — Featured -->
+      <div class="pricing-card pricing-card-featured fade" style="transition-delay:.1s">
+        <span class="pricing-tier-tag featured">Most Popular</span>
+        <div class="pricing-name">Quick Deploy</div>
+        <div class="pricing-price">$7,500 – $12,000</div>
+        <div class="pricing-timeline">Live in 3–4 weeks</div>
+        <ul class="pricing-features">
+          <li>Everything in the AI Workflow Audit</li>
+          <li>One end-to-end automation built & deployed</li>
+          <li>CRM, ERP, or ops platform integration</li>
+          <li>Team onboarding session + SOP handoff</li>
+          <li>30-day post-launch support included</li>
+          <li>Measurable ROI checkpoint at 30 days</li>
+        </ul>
+        <button class="btn btn-primary" style="width:100%;text-align:center" onclick="bookCall()">Book a Strategy Call</button>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="pricing-card fade" style="transition-delay:.2s">
+        <span class="pricing-tier-tag">Enterprise</span>
+        <div class="pricing-name">Full Implementation</div>
+        <div class="pricing-price">$25,000+</div>
+        <div class="pricing-timeline">8–12 week engagement</div>
+        <ul class="pricing-features">
+          <li>Everything in Quick Deploy</li>
+          <li>Multi-system AI integration across departments</li>
+          <li>Custom model fine-tuning for your data</li>
+          <li>Dedicated project lead + weekly check-ins</li>
+          <li>Full team training program (all roles)</li>
+          <li>Ongoing optimization retainer available</li>
+          <li>Quarterly ROI review & roadmap refresh</li>
+        </ul>
+        <button class="btn btn-outline" style="width:100%;text-align:center" onclick="bookCall()">Let's Talk Scope</button>
+      </div>
+
+    </div>
+    <p class="fade" style="text-align:center;font-size:14px;color:#9AA3B8;margin-top:36px;transition-delay:.3s">All engagements begin with a free 30-minute strategy call. No commitment required.</p>
+  </div>
+</section>
+
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section section-alt" id="contact">
   <div class="container">
     <div class="grid-2" style="gap:80px">
       <div class="fade">
