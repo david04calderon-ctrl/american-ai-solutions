@@ -14,7 +14,17 @@
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
   <meta name="twitter:description" content="Detroit-based AI consulting. We build systems that run."/>
+  <meta property="og:image" content="https://americanaisolutionsllc.com/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://americanaisolutionsllc.com/og-image.png"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <link rel="apple-touch-icon" href="/icons/icon-192.png"/>
+  <meta name="theme-color" content="#1A3A8F"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="AmericanAI"/>
   <!-- LocalBusiness structured data for Detroit local SEO -->
   <script type="application/ld+json">
   {
@@ -412,15 +422,16 @@
     <div style="max-width:760px">
       <div style="margin-bottom:28px"><span class="tag">Detroit-Based · AI Consulting</span></div>
       <h1>Strategic AI Implementation<br><em>for Real Business Results.</em></h1>
-      <p>We help Detroit businesses automate workflows and deploy AI tools that actually move revenue — not just proof-of-concepts that collect dust.</p>
+      <p>We help Michigan businesses automate workflows and deploy AI that actually moves revenue. Every industry, every size — if AI is the answer, we build it. If it's not, we'll tell you and point you to who can help.</p>
       <div class="hero-ctas">
         <button class="btn btn-primary" onclick="bookCall()">Book a Free Strategy Call</button>
         <button class="btn btn-outline" onclick="scrollTo('services')">See Our Services</button>
       </div>
       <div class="stats">
         <div class="stat"><div class="stat-num">48hrs</div><div class="stat-label">Average audit turnaround</div></div>
-        <div class="stat"><div class="stat-num">3–8 weeks</div><div class="stat-label">Time to first deployment</div></div>
-        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Michigan-based clients</div></div>
+        <div class="stat"><div class="stat-num">3–4 weeks</div><div class="stat-label">Time to first live automation</div></div>
+        <div class="stat"><div class="stat-num">50%</div><div class="stat-label">Grant reimbursement available</div></div>
+        <div class="stat"><div class="stat-num">4</div><div class="stat-label">Michigan verticals served</div></div>
       </div>
     </div>
   </div>
@@ -918,6 +929,12 @@
 </footer>
 
 <script>
+  // PWA shortcut: ?book=1 fires Calendly immediately
+  if (new URLSearchParams(location.search).get('book') === '1') {
+    window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
+    history.replaceState({}, '', '/');
+  }
+
   // Scroll nav shadow + sticky mobile CTA
   const stickyCta = document.getElementById('stickyCta');
   window.addEventListener('scroll', () => {
