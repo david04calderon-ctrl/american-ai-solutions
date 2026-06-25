@@ -91,6 +91,10 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `press-announcement-template.md` | Michigan media targets, 2 press release templates (launch + first client), LinkedIn announcement post templates, credibility stack strategy |
 | `competitor-monitoring-guide.md` | 4-tier competitive landscape (enterprise/MSP/freelance/SaaS), monitoring system (Google Alerts + LinkedIn), counter-scripts by competitor type |
 | `objection-pricing-guide.md` | 6 pricing objections with exact counter-scripts, grant math presentation, payment structure options, when to walk away |
+| `going-pro-grant-application-guide.md` | Complete step-by-step Going PRO application walkthrough — eligibility, training plan template, supporting docs, reimbursement claim, Industry 4.0 stack, HubSpot grant tracking |
+| `scope-creep-change-order-protocol.md` | SOW-as-shield framework, change order template, pricing guide by change type, client pushback scripts, scope change log |
+| `portfolio-demo-strategy.md` | 4-strategy pre-client credibility system — vertical demo builds, Loom library, GitHub open-source portfolio, audit-as-portfolio; demo call framework; first client acquisition fast path |
+| `subcontractor-management-guide.md` | Where to find vetted subs, vetting process, subcontractor agreement key clauses (no-solicitation, IP assignment, BAA), management cadence, pricing margins, 1099 compliance |
 
 **Blog HTML pages (`blog/` directory):**
 
