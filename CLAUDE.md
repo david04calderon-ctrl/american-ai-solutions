@@ -96,16 +96,17 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `scope-creep-change-order-protocol.md` | SOW-as-shield framework, change order template, pricing guide by change type, client pushback scripts, scope change log |
 | `portfolio-demo-strategy.md` | 4-strategy pre-client credibility system — vertical demo builds, Loom library, GitHub open-source portfolio, audit-as-portfolio; demo call framework; first client acquisition fast path |
 | `subcontractor-management-guide.md` | Where to find vetted subs, vetting process, subcontractor agreement key clauses (no-solicitation, IP assignment, BAA), management cadence, pricing margins, 1099 compliance |
-| `going-pro-grant-application-guide.md` | Complete step-by-step Going PRO application walkthrough — eligibility, training plan template, supporting docs, reimbursement claim, Industry 4.0 stack, HubSpot grant tracking |
-| `scope-creep-change-order-protocol.md` | SOW-as-shield framework, change order template, pricing guide by change type, client pushback scripts, scope change log |
-| `portfolio-demo-strategy.md` | 4-strategy pre-client credibility system — vertical demo builds, Loom library, GitHub open-source portfolio, audit-as-portfolio; demo call framework; first client acquisition fast path |
 | `client-master-services-agreement.md` | Full MSA template — IP ownership, payment, confidentiality, HIPAA BAA addendum, limitation of liability, no-solicitation, Michigan governing law; Pandadoc setup instructions |
+| `nda-template.md` | Mutual NDA — 2-year term + 2-year survival, Michigan/Wayne County governing law, standard confidentiality exceptions, return/destroy clause, Pandadoc setup with send script |
+| `invoice-template.md` | Invoice format AAIS-2026-### sequential, 3 payment options (Pandadoc/Stripe/ACH/check), Net 15 terms, Day 1–30 follow-up sequence, W-9 prep checklist, Google Sheets tracking template |
+| `project-status-report-template.md` | Weekly Friday status email (completed/in-progress/next week/blockers/timeline), phase variations, milestone alert email, blocker 24-hr rule, Google Drive folder structure |
+| `client-referral-program.md` | 3 referral paths (direct intro, permission name-drop, LinkedIn flywheel), peak-satisfaction timing, draft intro emails, HubSpot source tracking, 90-day referral conversation script |
 
 **Blog HTML pages (`blog/` directory):**
 
 | File | Purpose |
 |------|---------|
-| `blog/index.html` | Blog listing page — 5-card grid (all verticals + grants), sticky nav, matches main site |
+| `blog/index.html` | Blog listing page — 6-card grid (all verticals + grants + ROI calculator), sticky nav, matches main site |
 | `blog/michigan-going-pro-talent-fund-ai-training/index.html` | Published article: Going PRO Fund AI eligibility guide |
 | `blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/index.html` | Published article: OEM AI readiness for Tier 2/3 suppliers |
 | `blog/hipaa-ai-michigan-healthcare-practices/index.html` | Published article: HIPAA + AI for Michigan healthcare practices |
