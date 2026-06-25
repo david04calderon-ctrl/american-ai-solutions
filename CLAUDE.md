@@ -107,6 +107,9 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `michigan-ai-use-case-library.md` | Internal discovery call reference — 24 specific AI use cases across 4 verticals (6 automotive, 5 healthcare, 5 logistics, 4+ construction); each with problem, solution, timeline, ROI, grant eligibility, and discovery questions |
 | `vertical-demo-build-guide.md` | Step-by-step build guide for 4 live AI demos on simulated Michigan data — automotive quality dashboard, healthcare prior auth, logistics dispatch board, construction estimating; n8n workflows, demo interfaces, 3-act demo call script |
 | `clay-prospecting-workflow.md` | Clay Pro setup, vertical-specific prospect sources (NAICS/NPI/FMCSA/AGC), table column specs, AI personalization prompt templates, Instantly.ai campaign config, Clay→Instantly→HubSpot integration, weekly metrics and 100-email/week cadence |
+| `linkedin-newsletter-issues-2-4.md` | Michigan AI Weekly Issues 2 (OEM mandates), 3 (HIPAA BAA scorecard), and 4 (Going PRO grant) — fully drafted and ready to publish; Issues 5–12 topic bank |
+| `retainer-service-catalog.md` | 3 retainer tiers ($1K–$4.5K/month), exact inclusions, conversion conversation script, ROI framing, 90-day pitch language, HubSpot retainer properties, churn warning signs, path to $20K/month baseline |
+| `incident-communication-sop.md` | 3-level severity system, Level 1 critical response protocol (60-min SLA), resolution email templates, post-incident review doc, never-do list, proactive monitoring setup (n8n alerts, API health checks, monthly audit) |
 
 **Blog HTML pages (`blog/` directory):**
 
