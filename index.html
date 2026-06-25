@@ -15,6 +15,38 @@
   <meta name="twitter:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
   <meta name="twitter:description" content="Detroit-based AI consulting. We build systems that run."/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <!-- LocalBusiness structured data for Detroit local SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "American AI Solutions LLC",
+    "description": "Detroit-based AI consulting firm specializing in workflow automation, AI integration, and team training for Michigan businesses.",
+    "url": "https://americanaisolutionsllc.com",
+    "email": "david@americanaisolutionsllc.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Detroit",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Michigan"
+    },
+    "founder": { "@type": "Person", "name": "David Calderon" },
+    "knowsAbout": ["AI Workflow Automation", "AI Integration", "Machine Learning", "Business Process Automation", "Team AI Training"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Consulting Services",
+      "itemListElement": [
+        { "@type": "Offer", "name": "AI Workflow Audit", "price": "2500", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Quick Deploy", "price": "7500", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Full Implementation", "price": "25000", "priceCurrency": "USD" }
+      ]
+    }
+  }
+  </script>
   <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
@@ -239,6 +271,35 @@
     .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #4A5473; line-height: 1.5; }
     .pricing-features li::before { content: ''; display: inline-block; width: 5px; height: 5px; min-width: 5px; background: #1A3A8F; border-radius: 1px; margin-top: 6px; }
 
+    /* CTA STRIP */
+    .cta-strip { background: #1A3A8F; padding: 72px 0; text-align: center; }
+    .cta-strip h2 { font-family: 'DM Serif Display', serif; font-size: 38px; font-weight: 400; color: white; margin-bottom: 14px; line-height: 1.1; }
+    .cta-strip p { color: rgba(255,255,255,.72); font-size: 17px; margin-bottom: 36px; }
+    .cta-strip-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: white; color: #1A3A8F; }
+    .btn-white:hover { background: #F0F4FF; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: white; border: 2px solid rgba(255,255,255,.4); padding: 12px 30px; }
+    .btn-ghost:hover { border-color: white; background: rgba(255,255,255,.08); }
+
+    /* HOW IT WORKS */
+    .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .process-step { padding: 0 28px 0 0; position: relative; }
+    .process-step:not(:last-child)::after {
+      content: ''; position: absolute; top: 30px; right: 14px;
+      width: 20px; height: 2px; background: #E4E8F0;
+    }
+    .step-num { font-size: 52px; font-weight: 700; color: #EEF2FA; line-height: 1; margin-bottom: 14px; letter-spacing: -.03em; font-family: 'DM Serif Display', serif; }
+    .step-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #0D1117; }
+    .step-desc { font-size: 14px; color: #4A5473; line-height: 1.65; }
+    .step-time { display: inline-block; font-size: 10px; font-weight: 700; color: #1A3A8F; letter-spacing: .08em; text-transform: uppercase; margin-top: 14px; background: #EEF2FA; padding: 3px 8px; border-radius: 1px; }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+    .faq-item { border-top: 1px solid #E4E8F0; padding: 24px 0; }
+    .faq-q { font-size: 15px; font-weight: 700; color: #0D1117; margin-bottom: 10px; }
+    .faq-a { font-size: 14px; color: #4A5473; line-height: 1.75; }
+    .faq-a a { color: #1A3A8F; text-decoration: none; font-weight: 600; }
+
     /* INDUSTRIES */
     .industries-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
     .industry-card {
@@ -289,6 +350,11 @@
       .industries-grid { grid-template-columns: 1fr; }
       .grant-bar { flex-direction: column; align-items: flex-start; padding: 20px 24px; }
       .industry-card { flex-direction: column; gap: 16px; padding: 24px; }
+      /* How It Works */
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-step:not(:last-child)::after { display: none; }
+      /* FAQ */
+      .faq-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -306,9 +372,9 @@
     </a>
     <div class="nav-links">
       <a class="nav-link" onclick="scrollTo('services')">Services</a>
+      <a class="nav-link" onclick="scrollTo('services')">Services</a>
       <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
-      <a class="nav-link" onclick="scrollTo('about')">About</a>
-      <a class="nav-link" onclick="scrollTo('testimonials')">Testimonials</a>
+      <a class="nav-link" onclick="scrollTo('process')">Process</a>
       <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
       <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
       <button class="btn btn-primary btn-sm" onclick="bookCall()">Book a Call</button>
@@ -319,9 +385,9 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a class="nav-link" onclick="scrollTo('services')">Services</a>
+    <a class="nav-link" onclick="scrollTo('services')">Services</a>
     <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
-    <a class="nav-link" onclick="scrollTo('about')">About</a>
-    <a class="nav-link" onclick="scrollTo('testimonials')">Testimonials</a>
+    <a class="nav-link" onclick="scrollTo('process')">Process</a>
     <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
     <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
     <button class="btn btn-primary" style="width:100%;text-align:center" onclick="bookCall()">Book a Free Strategy Call</button>
@@ -493,6 +559,18 @@
   </div>
 </section>
 
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Ready to See What AI Can Do<br><em>for Your Operation?</em></h2>
+    <p>Thirty minutes. No commitment. We'll show you exactly where the leverage is.</p>
+    <div class="cta-strip-btns">
+      <button class="btn btn-white" onclick="bookCall()">Book a Free Strategy Call</button>
+      <button class="btn btn-ghost" onclick="scrollTo('pricing')">See Pricing</button>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="section section-alt" id="about">
   <div class="container">
@@ -568,8 +646,46 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="fade" style="margin-bottom:60px">
+      <div class="divider"></div>
+      <span class="tag">The Process</span>
+      <h2 class="section-title">From First Call to <em style="color:#1A3A8F">Live Automation.</em></h2>
+      <p class="section-sub" style="max-width:500px">No vague timelines. No scope creep. Here's exactly what working with us looks like.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade">
+        <div class="step-num">01</div>
+        <div class="step-title">Free Strategy Call</div>
+        <p class="step-desc">We audit your current workflows, identify your top three AI leverage points, and rank them by ROI. You walk away with clarity — even if you don't hire us.</p>
+        <span class="step-time">30 minutes · Zero cost</span>
+      </div>
+      <div class="process-step fade" style="transition-delay:.08s">
+        <div class="step-num">02</div>
+        <div class="step-title">Proposal & Fixed Scope</div>
+        <p class="step-desc">Within 48 hours, you receive a fixed-price SOW with exact deliverables, timeline, and success metrics. No hourly billing. No surprise overages. You approve before anything starts.</p>
+        <span class="step-time">48–72 hours turnaround</span>
+      </div>
+      <div class="process-step fade" style="transition-delay:.16s">
+        <div class="step-num">03</div>
+        <div class="step-title">Build & Deploy</div>
+        <p class="step-desc">We build your automation against real data from your operation — not a sandbox. Weekly check-ins keep you in the loop. You see working software, not slide decks.</p>
+        <span class="step-time">3–12 weeks depending on scope</span>
+      </div>
+      <div class="process-step fade" style="transition-delay:.24s">
+        <div class="step-num">04</div>
+        <div class="step-title">Handoff & Compound</div>
+        <p class="step-desc">Full team training, documented SOPs, and a 30-day ROI checkpoint. Your team owns it. We stay available. Most clients add a second automation within 60 days of launch.</p>
+        <span class="step-time">30-day post-launch support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
+<section class="section section-alt" id="testimonials">
   <div class="container">
     <div class="fade">
       <div class="divider"></div>
@@ -588,6 +704,43 @@
       <div class="tcard fade" style="transition-delay:.2s">
         <p class="tcard-quote">The workflow automation they built us went live in three weeks. ROI was clear inside the first month.</p>
         <div class="tcard-footer"><div class="avatar">JR</div><div><div class="tname">James R.</div><div class="ttitle">VP of Revenue, Great Lakes Financial</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="fade" style="margin-bottom:52px">
+      <div class="divider"></div>
+      <span class="tag">Common Questions</span>
+      <h2 class="section-title">Everything You Need to <em style="color:#1A3A8F">Know Before You Call.</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item fade">
+        <div class="faq-q">How is this different from just giving my team ChatGPT?</div>
+        <p class="faq-a">ChatGPT is a tool. We build systems. The difference is a workflow that's integrated into your CRM, your email, your ops platform — and runs automatically, without anyone prompting it. We also fine-tune models on your specific data so results are accurate to your business, not generic.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.05s">
+        <div class="faq-q">Do we need technical staff to maintain it after you leave?</div>
+        <p class="faq-a">No. We build for your team's actual capability. Every engagement includes documented SOPs, a team training session, and a 30-day support window. If something breaks or needs updating, we're one email away. We design for operational independence, not dependency on us.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.05s">
+        <div class="faq-q">Can we really get grant funding to cover the cost?</div>
+        <p class="faq-a">Yes — for qualifying Michigan businesses. The <strong>Going PRO Talent Fund</strong> (Michigan LEO, $6M pool) covers AI training costs. The <strong>Industry 4.0 Tech Grant</strong> reimburses up to 50% of technology implementation costs for small manufacturers. We help you structure the engagement to qualify and handle the documentation.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.1s">
+        <div class="faq-q">What if AI isn't actually the right solution for our business?</div>
+        <p class="faq-a">We'll tell you. Our audit is honest — if the highest-ROI move is fixing a process before automating it, that's what we recommend. We've turned down engagements where the problem wasn't an AI problem. That honesty is why our clients refer us.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.1s">
+        <div class="faq-q">How quickly will we see real results?</div>
+        <p class="faq-a">First automation live in 3–4 weeks on a Quick Deploy engagement. We schedule an explicit ROI checkpoint at 30 days post-launch — we measure the output against your baseline and put the numbers in writing. You'll know if it's working, and so will we.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.15s">
+        <div class="faq-q">Do you only work with Michigan businesses?</div>
+        <p class="faq-a">Michigan is our priority — we know the market, the OEM supply chain, the grant landscape, and the local business community. We do take select clients outside Michigan when the engagement is a strong fit. <a href="mailto:david@americanaisolutionsllc.com">Reach out</a> and we'll let you know quickly if it makes sense.</p>
       </div>
     </div>
   </div>
@@ -720,7 +873,8 @@
           <div class="footer-col-title">Quick Links</div>
           <span onclick="scrollTo('services')">Services</span>
           <span onclick="scrollTo('industries')">Industries</span>
-          <span onclick="scrollTo('about')">About</span>
+          <span onclick="scrollTo('process')">Process</span>
+          <span onclick="scrollTo('faq')">FAQ</span>
           <span onclick="scrollTo('pricing')">Pricing</span>
           <span onclick="scrollTo('contact')">Contact</span>
         </div>
