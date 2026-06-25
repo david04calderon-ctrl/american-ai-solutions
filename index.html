@@ -239,6 +239,30 @@
     .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #4A5473; line-height: 1.5; }
     .pricing-features li::before { content: ''; display: inline-block; width: 5px; height: 5px; min-width: 5px; background: #1A3A8F; border-radius: 1px; margin-top: 6px; }
 
+    /* INDUSTRIES */
+    .industries-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .industry-card {
+      border: 1px solid #E4E8F0; padding: 32px 36px; border-radius: 2px; background: white;
+      display: flex; gap: 24px; align-items: flex-start;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+    }
+    .industry-card:hover { border-color: #1A3A8F; box-shadow: 0 8px 32px rgba(26,58,143,.10); transform: translateY(-2px); }
+    .industry-icon { width: 44px; height: 44px; background: #EEF2FA; border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .industry-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.01em; }
+    .industry-body p { font-size: 14px; color: #4A5473; line-height: 1.65; margin-bottom: 14px; }
+    .industry-roi { font-size: 12px; font-weight: 700; color: #1A3A8F; letter-spacing: .04em; text-transform: uppercase; }
+
+    /* GRANT CALLOUT */
+    .grant-bar {
+      background: #F0F4FF; border: 1px solid #C5D5F8; border-radius: 2px;
+      padding: 24px 36px; display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap; margin-top: 44px;
+    }
+    .grant-bar-left { display: flex; align-items: center; gap: 16px; }
+    .grant-badge { background: #1A3A8F; color: white; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 1px; white-space: nowrap; }
+    .grant-text strong { font-size: 15px; font-weight: 700; color: #0D1117; }
+    .grant-text p { font-size: 13px; color: #4A5473; margin-top: 2px; }
+
     /* FADE IN */
     .fade { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
     .fade.visible { opacity: 1; transform: translateY(0); }
@@ -261,6 +285,10 @@
       .demo-stats { gap: 14px; }
       /* Pricing */
       .pricing-grid { grid-template-columns: 1fr; }
+      /* Industries */
+      .industries-grid { grid-template-columns: 1fr; }
+      .grant-bar { flex-direction: column; align-items: flex-start; padding: 20px 24px; }
+      .industry-card { flex-direction: column; gap: 16px; padding: 24px; }
     }
   </style>
 </head>
@@ -278,6 +306,7 @@
     </a>
     <div class="nav-links">
       <a class="nav-link" onclick="scrollTo('services')">Services</a>
+      <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
       <a class="nav-link" onclick="scrollTo('about')">About</a>
       <a class="nav-link" onclick="scrollTo('testimonials')">Testimonials</a>
       <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
@@ -290,6 +319,7 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a class="nav-link" onclick="scrollTo('services')">Services</a>
+    <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
     <a class="nav-link" onclick="scrollTo('about')">About</a>
     <a class="nav-link" onclick="scrollTo('testimonials')">Testimonials</a>
     <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
@@ -404,8 +434,67 @@
   </div>
 </section>
 
+<!-- INDUSTRIES -->
+<section class="section" id="industries">
+  <div class="container">
+    <div class="fade">
+      <div class="divider"></div>
+      <span class="tag">Industries We Serve</span>
+      <h2 class="section-title">Michigan's Fastest-Moving <em style="color:#1A3A8F">Sectors.</em></h2>
+      <p class="section-sub" style="max-width:560px;margin-bottom:52px">We specialize in the industries driving Michigan's economy — and we know the specific bottlenecks, regulations, and ROI benchmarks in each one.</p>
+    </div>
+    <div class="industries-grid">
+
+      <div class="industry-card fade">
+        <div class="industry-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="14" width="8" height="7" stroke="#1A3A8F" stroke-width="2"/><rect x="14" y="3" width="8" height="7" stroke="#1A3A8F" stroke-width="2"/><path d="M6 14V8h12V3" stroke="#1A3A8F" stroke-width="2" stroke-linecap="square"/></svg>
+        </div>
+        <div class="industry-body">
+          <h3>Automotive Supply Chain</h3>
+          <p>Tier 2 &amp; 3 suppliers facing OEM AI mandates with no internal capacity to implement. We deploy predictive maintenance, quality inspection automation, and supply chain optimization — so you stay on the approved vendor list.</p>
+          <div class="industry-roi">Proven: 35% reduction in downtime · 95%+ defect detection accuracy</div>
+        </div>
+      </div>
+
+      <div class="industry-card fade" style="transition-delay:.1s">
+        <div class="industry-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2z" stroke="#1A3A8F" stroke-width="2"/><path d="M2 21c0-4.418 4.477-8 10-8s10 3.582 10 8" stroke="#1A3A8F" stroke-width="2" stroke-linecap="square"/><path d="M17 11v6M14 14h6" stroke="#1A3A8F" stroke-width="1.5" stroke-linecap="square"/></svg>
+        </div>
+        <div class="industry-body">
+          <h3>Healthcare &amp; Medical Practices</h3>
+          <p>Scheduling automation, prior authorization workflows, clinical documentation, and HIPAA-compliant on-premise AI for practices that can't send patient data to public APIs. We build to Michigan compliance standards from day one.</p>
+          <div class="industry-roi">Proven: 200–300% ROI by year 2 · Break-even at 12–18 months</div>
+        </div>
+      </div>
+
+      <div class="industry-card fade" style="transition-delay:.1s">
+        <div class="industry-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="1" y="9" width="15" height="9" stroke="#1A3A8F" stroke-width="2"/><path d="M16 13h4l3 4H16v-4z" stroke="#1A3A8F" stroke-width="2" stroke-linecap="square"/><circle cx="5.5" cy="19.5" r="1.5" stroke="#1A3A8F" stroke-width="1.5"/><circle cx="19.5" cy="19.5" r="1.5" stroke="#1A3A8F" stroke-width="1.5"/></svg>
+        </div>
+        <div class="industry-body">
+          <h3>Logistics &amp; Trucking</h3>
+          <p>Michigan's position as a major freight corridor makes it ground zero for AI-driven dispatch, route optimization, and driver operations. We automate the back-office so your fleet ops team focuses on decisions, not data entry.</p>
+          <div class="industry-roi">Focus: Dispatch automation · Route AI · Load matching</div>
+        </div>
+      </div>
+
+      <div class="industry-card fade" style="transition-delay:.2s">
+        <div class="industry-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 20h20M4 20V10l8-7 8 7v10" stroke="#1A3A8F" stroke-width="2" stroke-linecap="square"/><rect x="9" y="13" width="6" height="7" stroke="#1A3A8F" stroke-width="1.5"/></svg>
+        </div>
+        <div class="industry-body">
+          <h3>Construction &amp; Skilled Trades</h3>
+          <p>Labor shortages are forcing the trades to move. We automate estimating, job scheduling, and customer communication — delivering wins that compound. Low AI competition in this vertical means faster results and stronger referrals.</p>
+          <div class="industry-roi">Focus: Estimate generation · Job scheduling · Follow-up automation</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
-<section class="section" id="about">
+<section class="section section-alt" id="about">
   <div class="container">
     <div class="grid-2">
       <div class="fade">
@@ -480,7 +569,7 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="section section-alt" id="testimonials">
+<section class="section" id="testimonials">
   <div class="container">
     <div class="fade">
       <div class="divider"></div>
@@ -505,7 +594,7 @@
 </section>
 
 <!-- PRICING -->
-<section class="section" id="pricing">
+<section class="section section-alt" id="pricing">
   <div class="container">
     <div class="fade" style="text-align:center;margin-bottom:60px">
       <div class="divider" style="margin:0 auto 14px"></div>
@@ -568,11 +657,22 @@
 
     </div>
     <p class="fade" style="text-align:center;font-size:14px;color:#9AA3B8;margin-top:36px;transition-delay:.3s">All engagements begin with a free 30-minute strategy call. No commitment required.</p>
+
+    <div class="grant-bar fade" style="transition-delay:.4s">
+      <div class="grant-bar-left">
+        <div class="grant-badge">Michigan Funding</div>
+        <div class="grant-text">
+          <strong>Your implementation may qualify for state grant reimbursement.</strong>
+          <p>Michigan's Going PRO Talent Fund and Industry 4.0 Tech Grant can cover up to 50% of AI implementation costs for qualifying businesses. We help you structure the engagement to qualify.</p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="bookCall()" style="white-space:nowrap">Ask About Grants</button>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section section-alt" id="contact">
+<section class="section" id="contact">
   <div class="container">
     <div class="grid-2" style="gap:80px">
       <div class="fade">
@@ -619,8 +719,9 @@
         <div class="footer-col">
           <div class="footer-col-title">Quick Links</div>
           <span onclick="scrollTo('services')">Services</span>
+          <span onclick="scrollTo('industries')">Industries</span>
           <span onclick="scrollTo('about')">About</span>
-          <span onclick="scrollTo('testimonials')">Testimonials</span>
+          <span onclick="scrollTo('pricing')">Pricing</span>
           <span onclick="scrollTo('contact')">Contact</span>
         </div>
         <div class="footer-col">
