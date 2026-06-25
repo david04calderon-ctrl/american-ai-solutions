@@ -89,6 +89,8 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `tech-stack-integration-map.md` | Full tool list + monthly costs, data flow maps (inbound/outbound/proposal/project), tool-by-tool integration setup, n8n internal automation specs |
 | `weekly-execution-dashboard.md` | Monday ritual, weekly activity targets by channel, 90-day calendar (weeks 1–12), KPI tracking, decision rules, generational wealth scorecard |
 | `press-announcement-template.md` | Michigan media targets, 2 press release templates (launch + first client), LinkedIn announcement post templates, credibility stack strategy |
+| `competitor-monitoring-guide.md` | 4-tier competitive landscape (enterprise/MSP/freelance/SaaS), monitoring system (Google Alerts + LinkedIn), counter-scripts by competitor type |
+| `objection-pricing-guide.md` | 6 pricing objections with exact counter-scripts, grant math presentation, payment structure options, when to walk away |
 
 **Blog HTML pages (`blog/` directory):**
 
