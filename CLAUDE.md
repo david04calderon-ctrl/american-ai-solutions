@@ -24,20 +24,59 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Entire site — ~950 lines |
-| `vite.config.js` | Vite build config (minimal) |
+| `index.html` | Entire site — ~1,100 lines |
+| `vite.config.js` | Vite build config + vite-plugin-pwa (PWA/manifest/Workbox) |
 | `netlify.toml` | Netlify deployment config — `npm run build` → `dist/` |
-| `.gitignore` | Excludes `node_modules/`, `dist/`, `.DS_Store` |
+| `.gitignore` | Excludes `node_modules/`, `dist/`, `.DS_Store`, `personal/` |
 | `package-lock.json` | Committed for reproducible Netlify installs |
+| `public/og-image.png` | 1200×630 OG social image (Playwright-generated) |
+| `public/icons/icon-192.png` | PWA icon 192×192 |
+| `public/icons/icon-512.png` | PWA icon 512×512 |
+| `scripts/generate-assets.mjs` | Playwright asset generator for OG image + PWA icons |
+
+**Marketing files (`marketing/` directory):**
+
+| File | Purpose |
+|------|---------|
+| `THIS-WEEK-ACTION-LIST.md` | Printable priority action guide for Week 1 — Netlify, LinkedIn, outreach |
+| `app-roadmap.md` | Phase 1–4 app/product roadmap (PWA → React Native → SaaS) |
+| `n8n-lead-intake-automation.md` | Full n8n 7-node lead intake spec (webhook → Claude → HubSpot → Gmail) |
+| `linkedin-carousel-01-auto-suppliers.md` | 9-slide carousel for Michigan Tier 2/3 automotive suppliers |
+| `linkedin-carousel-02-healthcare.md` | 9-slide HIPAA-focused carousel for Michigan healthcare practices |
+| `linkedin-carousel-03-logistics.md` | 9-slide carousel for Michigan trucking/fleet operators |
+| `linkedin-carousel-04-construction.md` | 9-slide carousel for Michigan GCs and specialty trades |
+| `email-sequence-automotive.md` | 4-email cold sequence for Tier 2/3 auto suppliers + Clay/Instantly config |
+| `email-sequence-healthcare.md` | 4-email HIPAA-aware sequence for Michigan practices + BAA talking points |
+| `email-sequence-construction.md` | 4-email sequence for Michigan GCs and specialty contractors |
+| `email-sequence-logistics.md` | 4-email trucking sequence (morning send, FMCSA targeting) |
+| `linkedin-dm-templates.md` | Connection request, opener, follow-up, close for all 4 verticals |
+| `proposal-sow-template.md` | Complete proposal + SOW template with pricing by vertical |
+| `discovery-call-framework.md` | 30-min call script, scoring rubric, objection handling, post-call SOP |
+| `referral-partner-strategy.md` | Banker/CPA/MSP partner targets, scripts, referral fee structure |
+| `competitive-positioning.md` | How to win vs. big firms, MSPs, offshore devs, SaaS, and DIY objections |
+| `seo-content-calendar.md` | 12-month SEO blog calendar — keyword clusters, article outlines, distribution |
+| `client-onboarding-sop.md` | Hour-by-hour onboarding from signature to 30-day check-in |
+| `michigan-ai-market-intel.md` | Deep intel on all 4 verticals — OEM mandates, grants, competitors, AI tools |
+| `team-building-roadmap.md` | Phase 1–4 hiring plan, first hire criteria, culture values filter |
+| `hubspot-setup-guide.md` | Complete HubSpot Starter setup — pipeline, sequences, workflows, integrations |
+| `revenue-model-90day.md` | 3-scenario cash flow model, break-even, weekly KPI targets, 90-day calendar |
+| `blog-post-01-going-pro-fund.md` | Ready-to-publish 1,200-word SEO article on Michigan Going PRO AI eligibility |
+
+**Personal files (`personal/` directory — excluded from git):**
+
+| File | Purpose |
+|------|---------|
+| `barter-system.md` | Personal barter outreach for dental/vision care — kept private |
 
 ### index.html section order
 
 ```
 <head>  — LocalBusiness JSON-LD schema, GA4 slot (commented), Google Fonts,
-          inline <style> (~420 lines CSS), meta/SEO tags, SVG favicon
+          inline <style> (~480 lines CSS), meta/SEO tags, SVG favicon,
+          PWA meta tags (apple-touch-icon, theme-color, apple-mobile-web-app-*)
 <body>
-  #navbar        — fixed top nav (Services, Industries, Process, Pricing, Contact), mobile hamburger
-  .hero          — headline, CTAs → Calendly, stats bar
+  #navbar        — fixed top nav (Services, Industries, Process, Pricing, Insights, Contact), mobile hamburger
+  .hero          — headline, CTAs → Calendly, 4-stat stats bar
   #demo          — Platform Preview: interactive AI workflow scrubber (dark section)
   #services      — 3-column service cards
   #industries    — 4-card Michigan verticals grid (auto, healthcare, logistics, construction)
@@ -47,9 +86,11 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
   #testimonials  — 3 testimonial cards
   #faq           — 6-question FAQ grid (2 columns)
   #pricing       — 3-tier pricing cards + Michigan grant funding callout bar
-  #contact       — contact info + mailto form
+  #insights      — 3-card blog/article preview teaser (new)
+  #contact       — contact info + Netlify Forms form
+  .sticky-cta    — fixed mobile bottom CTA bar (appears at 500px scroll)
   <footer>       — links, LinkedIn, EIN, copyright
-<script>         — ~115 lines JS (nav, scroll, scrubber, form)
+<script>         — ~120 lines JS (nav, scroll, scrubber, form, PWA shortcut handler)
 ```
 
 ### Section background alternation pattern
@@ -113,11 +154,13 @@ This is a key sales differentiator. Keep this copy accurate and current.
 - 30-day ROI checkpoint
 - Michigan focus with exceptions
 
-### Contact form
+### Contact form (Netlify Forms)
 
-**No backend required.** On submit, opens the user's email client via `mailto:david@americanaisolutionsllc.com` with subject and body pre-filled from the form. Shows a success state after opening.
+Uses `data-netlify="true"` on the `<form>` element with `name="contact"` and `method="POST"`. Netlify detects this at build time and captures submissions automatically.
 
-To upgrade to a real backend later: swap `submitForm()` to POST to a Netlify Function or Formspree endpoint.
+`submitForm()` does a `fetch POST` to `/` with `form-name=contact` — if Netlify returns 200, shows success state. If fetch fails (local dev, non-Netlify host), falls back to opening a pre-filled `mailto:` link. Zero leads are ever lost.
+
+Fields: `name`, `company` (optional), `email`, `message` — all have `name` attributes for Netlify's form capture.
 
 ### Deployment
 
