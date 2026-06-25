@@ -4,6 +4,17 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>American AI Solutions LLC — Detroit AI Consulting</title>
+  <meta name="description" content="Detroit-based AI consulting. We help Michigan businesses automate workflows and deploy AI tools that drive real revenue — not proof-of-concepts that collect dust. Book a free strategy call."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com"/>
+  <meta property="og:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
+  <meta property="og:description" content="We help Detroit businesses automate workflows and deploy AI tools that actually move revenue. Detroit-based, results-first. Book a free strategy call."/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
+  <meta name="twitter:description" content="Detroit-based AI consulting. We build systems that run."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
@@ -519,7 +530,7 @@
         <div class="footer-col">
           <div class="footer-col-title">Connect</div>
           <a href="mailto:david@americanaisolutionsllc.com">Email Us</a>
-          <a href="https://linkedin.com/company/american-ai-solutions" target="_blank" class="footer-linkedin">
+          <a href="https://linkedin.com/company/american-ai-solutions" target="_blank" rel="noopener noreferrer" class="footer-linkedin">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
@@ -642,28 +653,25 @@
     updateUI(0);
   })();
 
-  // Contact form
-  async function submitForm() {
-    const name = document.getElementById('fname').value;
-    const email = document.getElementById('femail').value;
-    const message = document.getElementById('fmessage').value;
-    const company = document.getElementById('fcompany').value;
+  // Contact form — mailto fallback (works without any backend)
+  function submitForm() {
+    const name    = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const message = document.getElementById('fmessage').value.trim();
+    const company = document.getElementById('fcompany').value.trim();
     if (!name || !email || !message) { alert('Please fill in all required fields.'); return; }
-    try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, company, message })
-      });
-      document.getElementById('formBox').innerHTML = `
-        <div class="form-success">
-          <div class="success-icon"><svg width="24" height="20" viewBox="0 0 24 20" fill="none"><path d="M2 10l8 8L22 2" stroke="white" stroke-width="2.5" stroke-linecap="square"/></svg></div>
-          <h3 style="font-size:22px;font-weight:700;margin-bottom:10px">Message Received</h3>
-          <p style="color:#4A5473;font-size:15px">We'll be in touch within 24 business hours.</p>
-        </div>`;
-    } catch {
-      document.getElementById('ferror').style.display = 'block';
-    }
+    const subject = 'Strategy Call Request — ' + name + (company ? ' · ' + company : '');
+    const body    = 'Name: ' + name + '\nEmail: ' + email +
+                    (company ? '\nCompany: ' + company : '') +
+                    '\n\nMessage:\n' + message;
+    window.open('mailto:david@americanaisolutionsllc.com?subject=' +
+                encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
+    document.getElementById('formBox').innerHTML = `
+      <div class="form-success">
+        <div class="success-icon"><svg width="24" height="20" viewBox="0 0 24 20" fill="none"><path d="M2 10l8 8L22 2" stroke="white" stroke-width="2.5" stroke-linecap="square"/></svg></div>
+        <h3 style="font-size:22px;font-weight:700;margin-bottom:10px">Message Sent</h3>
+        <p style="color:#4A5473;font-size:15px">Your email client should open with the message pre-filled. We'll reply within 24 business hours.</p>
+      </div>`;
   }
 </script>
 </body>
