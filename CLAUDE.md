@@ -72,15 +72,25 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `blog-post-01-going-pro-fund.md` | Ready-to-publish 1,200-word SEO article on Michigan Going PRO AI eligibility |
 | `blog-post-02-oem-ai-readiness.md` | 1,350-word article on OEM AI mandates for Michigan Tier 2/3 suppliers |
 | `blog-post-03-hipaa-ai-healthcare.md` | 1,300-word article on HIPAA + AI for Michigan healthcare practices |
+| `blog-post-04-construction-ai.md` | 1,300-word article on AI for Michigan GCs — estimating + change order capture |
+| `cold-calling-script.md` | Phone scripts for all 4 verticals with objection cheat sheet and voicemail scripts |
+| `pre-call-intake-form.md` | 6-question pre-call form (Typeform/Google Forms setup) + HubSpot automation |
+| `testimonial-review-system.md` | Review request system — pre-client, post-client, multi-channel formats |
+| `prospect-targeting-guide.md` | ICP profiles for all 4 verticals, FMCSA/NPI/NAICS sources, lead scoring rubric |
+| `michigan-business-calendar.md` | Month-by-month buying cycle intel — OEM audit cycles, grant windows, seasonal patterns |
+| `partner-outreach-templates.md` | Email templates for Michigan Works!, MMTC, SBDC, CPAs, banks, MSPs + referral agreement |
+| `ai-tools-client-guide.md` | ChatGPT vs. custom AI comparison, HIPAA BAA table, build vs. buy framework |
 
 **Blog HTML pages (`blog/` directory):**
 
 | File | Purpose |
 |------|---------|
-| `blog/index.html` | Blog listing page — 3-card grid, sticky nav, matches main site design |
+| `blog/index.html` | Blog listing page — 5-card grid (all verticals + grants), sticky nav, matches main site |
 | `blog/michigan-going-pro-talent-fund-ai-training/index.html` | Published article: Going PRO Fund AI eligibility guide |
 | `blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/index.html` | Published article: OEM AI readiness for Tier 2/3 suppliers |
 | `blog/hipaa-ai-michigan-healthcare-practices/index.html` | Published article: HIPAA + AI for Michigan healthcare practices |
+| `blog/ai-for-michigan-contractors-estimating-automation/index.html` | Published article: AI for Michigan GCs — estimating + change order automation |
+| `blog/michigan-fleet-ai-dispatch-optimization/index.html` | Published article: Michigan fleet dispatch AI — ROI math and grant funding |
 
 **Personal files (`personal/` directory — excluded from git):**
 
