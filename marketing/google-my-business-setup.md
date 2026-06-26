@@ -26,9 +26,14 @@ With zero reviews, a complete profile still outperforms a competitor with no pro
    - Alternative: **"Management Consultant"** or **"Technology Consultant"** (both are fine, you can change later)
 6. Service business (yes) — you go to clients, they don't come to you
    - Check: "I deliver goods and services to my customers"
-   - Service area: **Michigan** → add Wayne County, Oakland County, Macomb County (and any other counties you serve)
-   - You can add the Detroit metro + Grand Rapids + Flint
-   - **Do NOT hide your address entirely** — add your home or a business address (PO Box, UPS Store, Regus, etc.) for verification purposes. You can then choose to hide it publicly.
+   - Business address for verification: **Southgate, MI 48195** (Wayne County) — this is your home base for Google's records
+   - Service area: Add all of the following:
+     - Wayne County (Downriver: Southgate, Wyandotte, Lincoln Park, Taylor, Trenton, Riverview, Flat Rock, Ecorse, River Rouge, Allen Park, Dearborn, Detroit)
+     - Oakland County (Troy, Auburn Hills, Pontiac, Farmington Hills, Novi)
+     - Macomb County (Sterling Heights, Warren, Clinton Township)
+     - Monroe County (Monroe, Dundee, Flat Rock area)
+     - Add "Metro Detroit" and "Michigan" as broader service areas
+   - **Do NOT hide your address entirely** — Southgate address is visible to Google for local ranking even if you set it to "not publicly displayed."
 7. Phone number: your mobile (this is what clients call)
 8. Website: `americanaisolutionsllc.com`
 9. Click **Finish**

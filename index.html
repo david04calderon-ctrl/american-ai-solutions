@@ -19,7 +19,7 @@
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:image" content="https://americanaisolutionsllc.com/og-image.png"/>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231A3A8F'/><rect x='4' y='18' width='5' height='10' rx='1' fill='white'/><rect x='13' y='12' width='5' height='16' rx='1' fill='white'/><rect x='22' y='5' width='5' height='23' rx='1' fill='white'/><polyline points='6.5,18 15.5,12 24.5,5' stroke='%2300D4FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='6.5' cy='18' r='2' fill='%2300D4FF'/><circle cx='15.5' cy='12' r='2' fill='%2300D4FF'/><circle cx='24.5' cy='5' r='2' fill='%2300D4FF'/></svg>"/>
   <link rel="apple-touch-icon" href="/icons/icon-192.png"/>
   <meta name="theme-color" content="#1A3A8F"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -36,14 +36,28 @@
     "email": "david@americanaisolutionsllc.com",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Detroit",
+      "addressLocality": "Southgate",
       "addressRegion": "MI",
       "addressCountry": "US"
     },
-    "areaServed": {
-      "@type": "State",
-      "name": "Michigan"
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Detroit, Michigan" },
+      { "@type": "City", "name": "Southgate, Michigan" },
+      { "@type": "City", "name": "Dearborn, Michigan" },
+      { "@type": "City", "name": "Wyandotte, Michigan" },
+      { "@type": "City", "name": "Taylor, Michigan" },
+      { "@type": "City", "name": "Lincoln Park, Michigan" },
+      { "@type": "City", "name": "Trenton, Michigan" },
+      { "@type": "City", "name": "Riverview, Michigan" },
+      { "@type": "City", "name": "Flat Rock, Michigan" },
+      { "@type": "State", "name": "Michigan" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/americanaisolutionsllc",
+      "https://www.youtube.com/@AmericanAISolutions",
+      "https://www.instagram.com/americanaisolutions",
+      "https://www.tiktok.com/@americanaisolutions"
+    ],
     "founder": { "@type": "Person", "name": "David Calderon" },
     "knowsAbout": ["AI Workflow Automation", "AI Integration", "Machine Learning", "Business Process Automation", "Team AI Training"],
     "hasOfferCatalog": {
@@ -103,19 +117,19 @@
     .section-alt { background: #F7F9FC; }
     .tag { display: inline-block; background: #EEF2FA; color: #1A3A8F; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px; border-radius: 1px; margin-bottom: 14px; }
     .divider { width: 48px; height: 2px; background: #1A3A8F; margin-bottom: 24px; }
-    .section-title { font-family: 'DM Serif Display', serif; font-size: 42px; font-weight: 400; color: #0D1117; line-height: 1.1; margin-bottom: 16px; }
-    .section-sub { font-size: 17px; color: #4A5473; line-height: 1.65; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 48px; font-weight: 400; color: #0D1117; line-height: 1.08; margin-bottom: 18px; }
+    .section-sub { font-size: 18px; color: #4A5473; line-height: 1.7; }
 
     /* HERO */
     .hero { padding: 160px 0 120px; }
-    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 58px; font-weight: 400; line-height: 1.1; letter-spacing: -.01em; margin-bottom: 28px; color: #0D1117; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 64px; font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 28px; color: #0D1117; }
     .hero h1 em { color: #1A3A8F; font-style: italic; }
-    .hero p { font-size: 19px; color: #4A5473; line-height: 1.7; margin-bottom: 44px; max-width: 580px; }
+    .hero p { font-size: 19px; color: #4A5473; line-height: 1.72; margin-bottom: 44px; max-width: 600px; }
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .stats { display: flex; gap: 40px; margin-top: 64px; flex-wrap: wrap; }
+    .stats { display: flex; gap: 44px; margin-top: 64px; flex-wrap: wrap; }
     .stat { border-left: 3px solid #1A3A8F; padding-left: 20px; }
-    .stat-num { font-size: 26px; font-weight: 700; color: #1A3A8F; letter-spacing: -.02em; }
-    .stat-label { font-size: 13px; color: #6B7694; margin-top: 2px; font-weight: 500; }
+    .stat-num { font-size: 28px; font-weight: 700; color: #1A3A8F; letter-spacing: -.02em; }
+    .stat-label { font-size: 13px; color: #6B7694; margin-top: 3px; font-weight: 500; }
 
     /* SERVICES */
     .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
@@ -409,7 +423,15 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="#">
-      <div class="nav-bar"></div>
+      <svg width="28" height="36" viewBox="0 0 28 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0">
+        <rect x="0"  y="20" width="7" height="16" rx="1.5" fill="#1A3A8F"/>
+        <rect x="10" y="12" width="7" height="24" rx="1.5" fill="#1A3A8F"/>
+        <rect x="20" y="3"  width="7" height="33" rx="1.5" fill="#1A3A8F"/>
+        <polyline points="3.5,20 13.5,12 23.5,3" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="3.5"  cy="20" r="2.5" fill="#00D4FF"/>
+        <circle cx="13.5" cy="12" r="2.5" fill="#00D4FF"/>
+        <circle cx="23.5" cy="3"  r="2.5" fill="#00D4FF"/>
+      </svg>
       <div>
         <div class="nav-name">American AI Solutions</div>
         <div class="nav-sub">LLC · Detroit, MI</div>
@@ -443,18 +465,18 @@
 <section class="hero">
   <div class="container">
     <div style="max-width:760px">
-      <div style="margin-bottom:28px"><span class="tag">Detroit-Based · AI Consulting</span></div>
-      <h1>Strategic AI Implementation<br><em>for Real Business Results.</em></h1>
-      <p>We help Michigan businesses automate workflows and deploy AI that actually moves revenue. Every industry, every size — if AI is the answer, we build it. If it's not, we'll tell you and point you to who can help.</p>
+      <div style="margin-bottom:28px"><span class="tag">Southgate, MI · Serving Metro Detroit · Michigan-Wide</span></div>
+      <h1>We Build the AI<br><em>Your Competition Isn't Using Yet.</em></h1>
+      <p>Michigan businesses automate workflows, capture Michigan grant funding, and generate real ROI — not proof-of-concepts that collect dust. Detroit-grounded. Results-first. If AI is the answer, we build it. If it's not, we'll tell you on the call.</p>
       <div class="hero-ctas">
         <button class="btn btn-primary" onclick="bookCall()">Book a Free Strategy Call</button>
         <button class="btn btn-outline" onclick="scrollTo('services')">See Our Services</button>
       </div>
       <div class="stats">
-        <div class="stat"><div class="stat-num">48hrs</div><div class="stat-label">Average audit turnaround</div></div>
-        <div class="stat"><div class="stat-num">3–4 weeks</div><div class="stat-label">Time to first live automation</div></div>
-        <div class="stat"><div class="stat-num">50%</div><div class="stat-label">Grant reimbursement available</div></div>
-        <div class="stat"><div class="stat-num">4</div><div class="stat-label">Michigan verticals served</div></div>
+        <div class="stat"><div class="stat-num">48 hrs</div><div class="stat-label">Audit turnaround — results in your inbox</div></div>
+        <div class="stat"><div class="stat-num">3–4 wks</div><div class="stat-label">Time to your first live AI system</div></div>
+        <div class="stat"><div class="stat-num">$2K/Trainee</div><div class="stat-label">Michigan Going PRO grant — we handle it</div></div>
+        <div class="stat"><div class="stat-num">4</div><div class="stat-label">Michigan verticals — deep industry knowledge</div></div>
       </div>
     </div>
   </div>
@@ -608,8 +630,8 @@
 <!-- CTA STRIP -->
 <section class="cta-strip">
   <div class="container">
-    <h2>Ready to See What AI Can Do<br><em>for Your Operation?</em></h2>
-    <p>Thirty minutes. No commitment. We'll show you exactly where the leverage is.</p>
+    <h2>The World Is Yours.<br><em>Let's Build the System That Gets You There.</em></h2>
+    <p>Thirty minutes. No commitment. We'll map your biggest AI opportunity and show you what it pays back in Year 1.</p>
     <div class="cta-strip-btns">
       <button class="btn btn-white" onclick="bookCall()">Book a Free Strategy Call</button>
       <button class="btn btn-ghost" onclick="scrollTo('pricing')">See Pricing</button>
@@ -624,13 +646,13 @@
       <div class="fade">
         <div class="divider"></div>
         <span class="tag">About Us</span>
-        <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Execute.</em></h2>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75;margin-bottom:20px">American AI Solutions LLC is a Detroit-based AI consulting firm founded on one principle: implementation beats strategy decks. We don't sell roadmaps — we build systems that run.</p>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75">Founded by David Calderon, we've embedded ourselves in the Detroit business community to understand what local operations actually need. No Silicon Valley assumptions. Just disciplined AI deployment that compounds over time.</p>
+        <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Make Dreams Real.</em></h2>
+        <p style="font-size:16px;color:#4A5473;line-height:1.75;margin-bottom:20px">American AI Solutions LLC is rooted in Southgate, Michigan — the heart of Downriver Detroit. Founded by David Calderon on one principle: implementation beats strategy decks every time. We don't sell roadmaps. We build the systems that run your operation while you sleep and grow your wealth compounding forever.</p>
+        <p style="font-size:16px;color:#4A5473;line-height:1.75">Detroit built the middle class. We're building the AI layer on top of it. No Silicon Valley assumptions. No off-the-shelf demos. Just disciplined AI deployment that pays you back in Year 1 and keeps paying in Year 5.</p>
         <div class="check-list">
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC</div>
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Remote-capable, always available</div>
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Results-first engagement model</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC · Southgate, MI 48195</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Serving Metro Detroit, Downriver, and Michigan-wide</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Results-first — if the numbers don't work, we tell you</div>
         </div>
       </div>
       <div class="fade" style="transition-delay:.15s">
@@ -1023,10 +1045,18 @@
     <div class="footer-inner">
       <div>
         <div class="footer-logo">
-          <div class="footer-bar"></div>
-          <div><div class="footer-brand">American AI Solutions LLC</div><div class="footer-city">Detroit, Michigan</div></div>
+          <svg width="22" height="30" viewBox="0 0 28 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0">
+            <rect x="0"  y="20" width="7" height="16" rx="1.5" fill="#1A3A8F"/>
+            <rect x="10" y="12" width="7" height="24" rx="1.5" fill="#1A3A8F"/>
+            <rect x="20" y="3"  width="7" height="33" rx="1.5" fill="#1A3A8F"/>
+            <polyline points="3.5,20 13.5,12 23.5,3" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="3.5"  cy="20" r="2.5" fill="#00D4FF"/>
+            <circle cx="13.5" cy="12" r="2.5" fill="#00D4FF"/>
+            <circle cx="23.5" cy="3"  r="2.5" fill="#00D4FF"/>
+          </svg>
+          <div><div class="footer-brand">American AI Solutions LLC</div><div class="footer-city">Southgate · Detroit, Michigan</div></div>
         </div>
-        <p class="footer-desc">AI consulting built for businesses that are serious about execution.</p>
+        <p class="footer-desc">Detroit-grounded AI consulting. We build systems that run — and results that compound.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
