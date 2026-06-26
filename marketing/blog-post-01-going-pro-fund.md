@@ -2,7 +2,7 @@
 **Title:** The Michigan Going PRO Talent Fund: What AI Projects Actually Qualify (2026 Guide)
 **Target keyword:** going PRO talent fund AI training, Michigan going PRO AI
 **URL slug:** /blog/michigan-going-pro-talent-fund-ai-training/
-**Meta description:** Michigan businesses can use the Going PRO Talent Fund to cover AI training costs — up to $50,000 per employer. Here's exactly what qualifies and how to apply in 2026.
+**Meta description:** Michigan businesses can use the Going PRO Talent Fund to cover AI training costs — $2,000 per trainee, $3,500 per USDOL Apprentice. Here's exactly what qualifies and how to apply in 2026.
 **Word count:** ~1,200 words
 **Status:** Ready to publish — add to blog section when live
 
@@ -30,7 +30,7 @@ The program's purpose is to help Michigan employers train their workforce in ski
 
 **The basics:**
 - **Who can apply:** Michigan employers of all sizes (not limited to manufacturers)
-- **How much:** Up to $50,000 per employer per fiscal year (October–September)
+- **How much:** $2,000 per trainee (classroom/OJT) or $3,500 per USDOL Registered Apprentice — total reimbursement scales with how many employees complete training
 - **What it covers:** Training costs — instructor time, curriculum development, software subscriptions used for training, and tuition for formal programs
 - **Application process:** Submitted through your local Michigan Works! office
 
@@ -136,7 +136,7 @@ Going PRO isn't the only option. Depending on your industry and business type, y
 **Michigan Industry 4.0 Technology Grant** (for manufacturers)
 → MEDC program specifically for manufacturers deploying advanced manufacturing technology including AI
 → Applications through michiganbusiness.org
-→ Typically $25,000–$150,000 range
+→ Up to $25,000 (50% reimbursement of implementation costs; manufacturers only, SBA small business required)
 
 **Michigan Health Endowment Fund** (for healthcare organizations)
 → Grants for Michigan healthcare organizations implementing patient care technology

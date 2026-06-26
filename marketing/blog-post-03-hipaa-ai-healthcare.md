@@ -133,7 +133,7 @@ The fastest path from "curious but cautious" to "running with data" is a 6-week 
 Michigan practices can access two grant programs that directly apply to AI deployments:
 
 **Michigan Going PRO Talent Fund**
-Covers the training component of any AI project — staff instruction on using the new system. Up to $50,000 per employer. Applied through your local Michigan Works! office. Applications must be submitted before training begins.
+Covers the training component of any AI project — staff instruction on using the new system. $2,000 per trained employee ($3,500 per USDOL Registered Apprentice). Applied through your local Michigan Works! office. Applications must be submitted before training begins.
 
 **Michigan Health Endowment Fund**
 Grants for Michigan healthcare organizations implementing patient care technology. Accepted quarterly. $10,000–$500,000 range, with a focus on underserved communities and smaller organizations. Applications at michiganhealth.org.

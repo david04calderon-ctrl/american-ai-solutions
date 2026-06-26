@@ -377,8 +377,8 @@ Knowing these cycles means sending the right message at the right time to a pros
 
 | Grant | Application Window | Award Timeline | Max Amount |
 |-------|-------------------|----------------|------------|
-| Going PRO Talent Fund | Quarterly (Jan, Apr, Jul, Oct) | 4–6 weeks after close | $50,000/employer |
-| Industry 4.0 Technology Grant | Rolling (check MEDC) | 6–8 weeks | $25,000–$150,000 |
+| Going PRO Talent Fund | Quarterly (Jan, Apr, Jul, Oct) | 4–6 weeks after close | $2,000/trainee |
+| Industry 4.0 Technology Grant | Rolling (check MEDC) | 6–8 weeks | Up to $25,000 |
 | Detroit Small Business Tech Fund | Quarterly (TechTown) | 6–8 weeks | $5,000–$25,000 |
 | Michigan SBDC grants | Rolling | Varies | Varies |
 

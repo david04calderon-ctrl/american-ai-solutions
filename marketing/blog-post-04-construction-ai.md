@@ -116,7 +116,7 @@ Two programs overlap for Michigan construction firms:
 
 **Michigan Going PRO Talent Fund**
 
-Covers AI training costs for Michigan employers. Up to $50,000 per employer per year. The training component of any AI deployment — onboarding your estimating team, teaching your PMs the change order workflow — qualifies.
+Covers AI training costs for Michigan employers. $2,000 per trained employee ($3,500 per USDOL Registered Apprentice). The training component of any AI deployment — onboarding your estimating team, teaching your PMs the change order workflow — qualifies.
 
 **Michigan Industry 4.0 Technology Grant**
 

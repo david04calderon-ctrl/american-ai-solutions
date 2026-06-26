@@ -58,7 +58,7 @@ A multi-workflow AI deployment that connects multiple systems and automates seve
 
 Includes all Quick Deploy deliverables plus system architecture documentation, integration with multiple platforms, and 90 days of support.
 
-Also eligible for Michigan Industry 4.0 Technology Grant (manufacturers) — $25,000–$150,000 range. We help you apply.
+Also eligible for Michigan Industry 4.0 Technology Grant (manufacturers) — up to $25,000 (50% reimbursement of implementation costs). We help you apply.
 
 ---
 
@@ -80,9 +80,9 @@ Every client has the option to continue with a monthly retainer after project de
 
 Michigan has two programs that directly apply to AI deployments at Michigan businesses:
 
-**Going PRO Talent Fund** — Covers training costs for AI implementations. Up to $50,000 per employer per year. Accessible to manufacturers, healthcare, logistics, and construction businesses.
+**Going PRO Talent Fund** — Covers training costs for AI implementations. $2,000 per trained employee ($3,500 per USDOL Registered Apprentice). Accessible to manufacturers, healthcare, logistics, and construction businesses.
 
-**Michigan Industry 4.0 Technology Grant** — For manufacturers implementing advanced manufacturing technology. $25,000–$150,000. Competitive, but accessible.
+**Michigan Industry 4.0 Technology Grant** — For small manufacturers (NAICS 31–33) implementing advanced manufacturing technology. Up to $25,000 (50% reimbursement). Competitive, but accessible.
 
 On a $15,000 project, grant funding commonly offsets $3,000–$8,000 of the cost. We include grant application documentation in every engagement — you don't need to figure it out separately.
 

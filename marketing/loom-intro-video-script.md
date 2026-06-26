@@ -82,7 +82,7 @@ Anthropic, Microsoft, and Google all offer Business Associate Agreements for hea
 
 The result I see most consistently: prior auth time goes from 20+ hours a week to under 5. That's staff time that goes back to patient care — or back to the people doing it.
 
-Michigan's Going PRO Talent Fund covers the training component of any AI deployment — up to $50,000 per employer. We handle that application too.
+Michigan's Going PRO Talent Fund covers the training component of any AI deployment — $2,000 per trained employee. We handle that application too.
 
 I'm not here to sell you something expensive. The call is free. The audit is $2,500. And if the numbers don't work for your practice, I'll tell you that on the call.
 

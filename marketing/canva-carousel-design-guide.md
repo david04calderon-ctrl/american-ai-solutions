@@ -190,9 +190,9 @@ Elements:
 - Tag: "THE GRANT NOBODY'S USING"
 - Headline: "Michigan Industry 4.0 Technology Grant"
 - Two-column layout:
-  - Column 1 (label "Amount"): "$25,000–$150,000"
-  - Column 2 (label "For"): "Michigan manufacturers deploying AI, sensors, and digital manufacturing technology"
-- Below: "Going PRO Talent Fund: Up to $50,000 for training costs"
+  - Column 1 (label "Amount"): "Up to $25,000"
+  - Column 2 (label "For"): "Michigan manufacturers deploying AI, sensors, and digital manufacturing technology (50% reimbursement)"
+- Below: "Going PRO Talent Fund: $2,000 per trained employee"
 - Bottom note: "We handle grant documentation for every project."
 
 ---

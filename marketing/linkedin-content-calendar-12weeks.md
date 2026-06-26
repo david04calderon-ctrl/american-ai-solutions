@@ -237,7 +237,7 @@ Swipe through.
 ```
 Michigan businesses: the Going PRO Talent Fund covers AI training costs.
 
-Up to $50,000 per employer per year.
+$2,000 per trained employee — $3,500 per USDOL Registered Apprentice.
 
 Most businesses I talk to have heard of it but haven't applied. Reasons:
 1. They don't know AI training qualifies (it does)

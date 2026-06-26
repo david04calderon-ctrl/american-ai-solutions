@@ -84,7 +84,7 @@ David
 
 Something you may not know about: Michigan has an active grant program that covers training costs when Michigan employers implement new technology systems.
 
-It's called the Going PRO Talent Fund, administered through Michigan Works!. It reimburses up to $50,000 per employer per year for documented training on new systems — including AI automation.
+It's called the Going PRO Talent Fund, administered through Michigan Works!. It reimburses $2,000 per trained employee ($3,500 per USDOL Registered Apprentice) for documented training on new systems — including AI automation.
 
 For a typical HVAC contractor AI implementation (dispatch optimization + estimating), the project fee might run $10,000–$15,000. After the Going PRO grant and, if you're commercial-heavy, the Industry 4.0 Tech Grant: net cost often lands under $5,000.
 
@@ -109,7 +109,7 @@ Last follow-up from me on this.
 
 I know how busy the season gets — commercial HVAC in Michigan, June through August is not the time to be adding new systems conversations to the calendar.
 
-One thing worth knowing for when the timing is right: the Going PRO grant Q3 deadline is July 31. If you have an AI project in mind for this year, there's a window to capture this year's grant cycle.
+One thing worth knowing for when the timing is right: the Going PRO Talent Fund runs annual application cycles through your local Michigan Works! office. New cycle applications typically open in October (state fiscal year). If you have an AI project in mind, we can plan ahead and have your application ready when the next window opens.
 
 If it's not the right timing, that's completely fine. I'll be here when it is.
 

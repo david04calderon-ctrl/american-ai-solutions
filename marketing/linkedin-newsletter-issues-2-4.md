@@ -188,7 +188,7 @@ The Going PRO Talent Fund is a grant program administered by the Michigan Depart
 
 AI training is explicitly eligible.
 
-The fund is $6 million annually. Awards range from a few thousand dollars to $50,000 per employer, per year.
+The fund is $6 million annually. Awards are $2,000 per trained employee ($3,500 per USDOL Registered Apprentice) — totals vary based on how many employees complete training.
 
 Michigan manufacturers, healthcare practices, logistics companies, and construction firms all qualify — with the right training documentation.
 

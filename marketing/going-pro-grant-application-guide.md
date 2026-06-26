@@ -3,7 +3,7 @@
 
 **Purpose:** This is the step-by-step playbook for actually applying to and winning Michigan Going PRO Talent Fund reimbursement for AI projects. Most consultants mention the grant. AAIS is the only firm in Michigan that walks clients through the application, prepares the documentation, and handles the process. This is a service differentiator, a sales tool, and an operational asset.
 **Who handles this:** David prepares all grant documentation as part of every engagement. The client reviews and submits under their company name (it's an employer-facing program).
-**Grant value:** $2,000–$50,000 per employer per fiscal year. Most AAIS projects qualify for $4,000–$20,000 in reimbursement.
+**Grant value:** $2,000 per trained employee ($3,500 per USDOL Registered Apprentice). Most AAIS projects train 3–10 employees, qualifying for $6,000–$20,000 in reimbursement.
 
 ---
 
@@ -216,7 +216,7 @@ For manufacturing clients, a second grant opportunity stacks on top of Going PRO
 
 **Program:** Michigan Industry 4.0 Technology Grant
 **Administrator:** Michigan Economic Development Corporation (MEDC) + Michigan Manufacturing Technology Center (MMTC)
-**Amount:** Up to 50% reimbursement, projects $25,000–$150,000
+**Amount:** Up to $25,000 (50% reimbursement of eligible implementation costs); requires SBA small business designation and prior MMTC assessment
 **Eligible costs:** Technology implementation, integration, and associated training
 
 **Key difference from Going PRO:**

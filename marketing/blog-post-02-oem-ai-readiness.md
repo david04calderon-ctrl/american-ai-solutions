@@ -114,13 +114,13 @@ A Tier 2/3 supplier project scoped to Level 3 readiness typically falls in the $
 
 **Michigan Industry 4.0 Technology Grant** (administered by MEDC)
 - Specifically for Michigan manufacturers deploying advanced manufacturing technology including AI and sensors
-- Range: $25,000–$150,000
+- Up to $25,000 (50% reimbursement of implementation costs; requires SBA small business designation)
 - Applications through michiganbusiness.org
 - **Important:** Applications are competitive and have submission windows — apply before starting the project
 
 **Michigan Going PRO Talent Fund**
 - Covers the training component of any AI deployment — live instruction + documentation for your operators
-- Up to $50,000 per employer
+- $2,000 per trained employee ($3,500 per USDOL Registered Apprentice)
 - Applied through your local Michigan Works! office
 - Must apply before training begins
 

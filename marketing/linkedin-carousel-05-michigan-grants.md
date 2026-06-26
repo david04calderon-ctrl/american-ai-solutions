@@ -61,8 +61,8 @@ Training your team on AI systems
 you implement.
 
 How much:
-Up to $50,000 per employer,
-per year.
+$2,000 per trained employee.
+$3,500 per USDOL Apprentice.
 
 Who qualifies:
 Any Michigan employer who trains

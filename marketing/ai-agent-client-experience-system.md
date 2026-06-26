@@ -384,11 +384,12 @@ Atlas identifies satisfied clients who might have referral network value and fla
 
 ### Layer 1 — Website Chat Widget
 
-**Tool:** Crisp (free tier — crisp.chat)  
+**Tool:** Crisp Essentials ($95/month — crisp.chat)  
+**Why Essentials:** The free tier has no AI features, no n8n/webhook integrations, and shows "Powered by Crisp" branding. Essentials unlocks the API, chatbot builder, and unlimited integrations — all required for Atlas to function.  
 **Setup:**
-1. Create Crisp account at crisp.chat
+1. Create Crisp account at crisp.chat and upgrade to Essentials
 2. Add workspace "American AI Solutions LLC"
-3. Install the Crisp chat snippet in `index.html` before `</body>`
+3. Install the Crisp chat snippet in `index.html` before `</body>` (snippet code available in Crisp dashboard)
 4. Configure auto-message: "Hi — I'm Atlas, the AI assistant for American AI Solutions. What's the operational problem you're trying to solve?"
 5. Connect Claude API via Crisp plugin or n8n webhook for AI responses
 6. Configure business hours — Atlas handles off-hours; David gets morning summary
