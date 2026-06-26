@@ -1214,5 +1214,33 @@
     }
   }
 </script>
+
+  <!--
+  ============================================================
+  ATLAS LIVE CHAT — Crisp.chat (free tier)
+  Setup steps:
+    1. Go to crisp.chat → sign up free → create workspace "American AI Solutions LLC"
+    2. Go to Settings → Website → copy your Website ID (looks like: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+    3. Replace CRISP_WEBSITE_ID_HERE below with your actual ID
+    4. In Crisp dashboard → Chatbox → set initial message:
+       "Hi — I'm Atlas, AI assistant for American AI Solutions. What's your biggest operational challenge right now?"
+    5. Set business hours, connect your email for offline notifications
+    6. For AI responses: connect Claude API via Crisp plugin or n8n webhook
+  ============================================================
+  -->
+  <script type="text/javascript">
+    // STEP: Replace CRISP_WEBSITE_ID_HERE with your actual Crisp Website ID
+    var CRISP_ID = "CRISP_WEBSITE_ID_HERE";
+    if (CRISP_ID !== "CRISP_WEBSITE_ID_HERE") {
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = CRISP_ID;
+      (function() {
+        var d = document, s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.head.appendChild(s);
+      })();
+    }
+  </script>
 </body>
 </html>

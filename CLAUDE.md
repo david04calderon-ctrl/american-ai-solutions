@@ -115,6 +115,9 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `30-day-launch-action-plan.md` | Day-by-day execution checklist (Days 1–30) — digital presence, HubSpot/Pandadoc setup, email infrastructure, Loom videos, content launch, cold outreach, demo build, proposals, close; daily minimum; full system reference table |
 | `email-sequence-hvac-mechanical.md` | 4-email cold sequence for Michigan HVAC, plumbing, electrical, and mechanical contractors — dispatch and estimating pain, grant angle, objection handling, prospect sources (LARA/PHCC/ACCA), Clay/Instantly config |
 | `linkedin-heart-soul-content-bank.md` | 13 emotionally resonant LinkedIn post templates across 4 categories: human stories (quality manager, dispatcher, nurse, estimator), Detroit pride (mission, Michigan Made, who we're for), honest takes (when AI is wrong, 90-day accountability, pricing), and vision (Year 3 compounding, Detroit→America) |
+| `ai-agent-client-experience-system.md` | Complete Atlas AI agent spec — persona, voice, triage decision tree, 5 emotional state response templates (fear/frustration/excitement/dream-driven/resourced), David+Atlas collaboration protocol, pre-call brief format, Crisp setup instructions, n8n 8-node workflow, Claude system prompt, HubSpot properties, implementation timeline |
+| `multi-platform-social-strategy.md` | Full cross-platform growth strategy — LinkedIn (already built), YouTube (8 video series, 28 episode titles, upload/SEO playbook), Instagram (reels/stories/highlights), TikTok (discovery engine strategy), content repurposing engine (1 video → 15+ pieces), cross-platform linking, platform setup checklist, 90-day traffic targets |
+| `team-training-system.md` | 8-module team onboarding system — company overview, client experience, technical foundation (n8n/Claude/HubSpot), Michigan grants, sales/proposals, project management, subcontractor standards, incident response; Loom recording schedule (8 evergreen training videos); 48-hour onboarding checklist; AAIS culture code |
 
 **Blog HTML pages (`blog/` directory):**
 
@@ -280,6 +283,11 @@ Security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`
 - **Compounding value** — improvements that build on each other over time
 - **Accessible to anyone** — AI for real businesses, not just tech companies
 - **10 steps ahead** — always researching and deploying the newest proven tools
+- **Universal and personable** — compassionate AND strong; every person who reaches out deserves full attention regardless of where they're starting from
+- **The world is yours** — we operate from abundance and possibility; our job is to build the bridge between where someone is and where they want to be
+- **Dreams come true here** — for clients who already have resources, we execute at the highest level; for clients who are building from scratch, we show them the path; both deserve the same excellence
+- **Work harder, smarter, faster** — outwork every competitor, outthink every problem, outbuild every system; stay ready so we never have to get ready
+- **Generational wealth** — everything we build is built to last; for clients, for the team, for Detroit
 
 ### Tech stack intelligence (as of June 2026)
 
