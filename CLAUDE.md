@@ -1,6 +1,42 @@
 # CLAUDE.md
 
+**American AI Solutions LLC — Detroit, MI**
+Owner: David Calderon | david@americanaisolutionsllc.com | david04calderon@gmail.com
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
+
+## Agent Role Assignments (Multi-Agent View)
+
+When running multiple Claude Code sessions in Agent View, assign each session one of these roles. Every role maps to a real business gap. No overlap, no gaps.
+
+| Agent | Role | Primary Files / Tools |
+|-------|------|-----------------------|
+| **WEBSITE** | Website copy, design, SEO, Netlify deploy | `index.html`, `netlify.toml` |
+| **CLIENT-BUILD** | Client automation builds — n8n, Claude API, Gemini, LangGraph | Client project repos |
+| **SALES** | HubSpot pipeline, Clay enrichment, Instantly.ai sequences | HubSpot, Clay, Instantly.ai |
+| **CONTENT** | LinkedIn posts, case studies, cold email copy, follow-ups | Google Drive, Gmail |
+| **OPS** | Linear tickets, Pandadoc proposals, Stripe/HoneyBook billing | Linear, Pandadoc, Stripe |
+
+### Gap Coverage Checklist (review daily from phone)
+- [ ] Website live and loading at americanaisolutionsllc.com
+- [ ] Calendly booking link active
+- [ ] HubSpot pipeline has no stale leads (>3 days no activity)
+- [ ] At least 1 new prospect enriched in Clay per day
+- [ ] Instantly.ai sequences running — open rate >40%, reply rate >8%
+- [ ] All active client projects have a Linear ticket with a due date
+- [ ] No unsigned proposals older than 48 hours in Pandadoc
+- [ ] Fathom transcripts from calls actioned within 24 hours
+- [ ] LinkedIn post scheduled or published this week
+
+### Phone Monitoring (Remote Control Setup)
+- Open Claude app on iPhone 15
+- In any active Claude Code session type: `/rc`
+- Scan the QR code with the Claude iOS app
+- Agent View shows all sessions — filled icon = active, dotted = completed
+
+---
 
 ## Commands
 
