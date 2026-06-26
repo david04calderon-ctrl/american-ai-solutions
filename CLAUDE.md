@@ -113,18 +113,21 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `founding-client-offer.md` | 50%-rate founding client strategy — who qualifies, outreach email, LinkedIn DM, conversation script, case study capture process, when to stop offering the discount |
 | `linkedin-carousel-05-michigan-grants.md` | 9-slide carousel on Michigan AI grants (Going PRO, Industry 4.0, Detroit Tech Fund) — full slide copy, grant math, Canva build notes, LinkedIn caption, distribution strategy |
 | `30-day-launch-action-plan.md` | Day-by-day execution checklist (Days 1–30) — digital presence, HubSpot/Pandadoc setup, email infrastructure, Loom videos, content launch, cold outreach, demo build, proposals, close; daily minimum; full system reference table |
+| `email-sequence-hvac-mechanical.md` | 4-email cold sequence for Michigan HVAC, plumbing, electrical, and mechanical contractors — dispatch and estimating pain, grant angle, objection handling, prospect sources (LARA/PHCC/ACCA), Clay/Instantly config |
+| `linkedin-heart-soul-content-bank.md` | 13 emotionally resonant LinkedIn post templates across 4 categories: human stories (quality manager, dispatcher, nurse, estimator), Detroit pride (mission, Michigan Made, who we're for), honest takes (when AI is wrong, 90-day accountability, pricing), and vision (Year 3 compounding, Detroit→America) |
 
 **Blog HTML pages (`blog/` directory):**
 
 | File | Purpose |
 |------|---------|
-| `blog/index.html` | Blog listing page — 6-card grid (all verticals + grants + ROI calculator), sticky nav, matches main site |
+| `blog/index.html` | Blog listing page — 7-card grid (all verticals + grants + ROI calculator + Detroit perspective), sticky nav, matches main site |
 | `blog/michigan-going-pro-talent-fund-ai-training/index.html` | Published article: Going PRO Fund AI eligibility guide |
 | `blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/index.html` | Published article: OEM AI readiness for Tier 2/3 suppliers |
 | `blog/hipaa-ai-michigan-healthcare-practices/index.html` | Published article: HIPAA + AI for Michigan healthcare practices |
 | `blog/ai-for-michigan-contractors-estimating-automation/index.html` | Published article: AI for Michigan GCs — estimating + change order automation |
 | `blog/michigan-fleet-ai-dispatch-optimization/index.html` | Published article: Michigan fleet dispatch AI — ROI math and grant funding |
 | `blog/michigan-ai-roi-calculator/index.html` | Published article: All-vertical ROI calculator — labor savings, revenue capture, grant math for all 4 Michigan verticals |
+| `blog/what-detroit-gets-about-ai/index.html` | Published article: Detroit vs. Silicon Valley AI — Michigan-first perspective, human stories, grant advantage, who AAIS serves; targets "Michigan AI consultant" and "Detroit AI company" searches |
 
 **Personal files (`personal/` directory — excluded from git):**
 
