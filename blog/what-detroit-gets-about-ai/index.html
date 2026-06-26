@@ -10,8 +10,9 @@
   <meta property="og:description" content="Michigan businesses need AI built for real operations, real accountability, and real results — not hype cycles and demo days." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://americanaisolutionsllc.com/blog/what-detroit-gets-about-ai/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,12 +44,17 @@
     a:hover { text-decoration: underline; }
 
     /* NAV */
-    nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: #1A3A8F; font-weight: 400; }
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
-    .nav-links a { color: #4A5473; font-size: 0.9rem; font-weight: 500; }
-    .nav-cta { background: #1A3A8F; color: #fff !important; padding: 0.5rem 1.25rem; border-radius: 6px; font-size: 0.85rem !important; }
-    .nav-cta:hover { text-decoration: none; background: #152d72; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E4E8F0; padding: 0 24px; display: flex; align-items: center; gap: 32px; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-logo:hover { text-decoration: none; }
+    .nav-bar { width: 8px; height: 36px; background: #1A3A8F; border-radius: 1px; flex-shrink: 0; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: #0D1117; line-height: 1.2; }
+    .nav-sub { font-size: 11px; color: #4A5473; letter-spacing: .05em; }
+    .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #1C1C1C; text-transform: uppercase; text-decoration: none; }
+    .nav-link:hover { color: #1A3A8F; text-decoration: none; }
+    .nav-cta { background: #1A3A8F; color: white !important; padding: 9px 20px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; text-decoration: none !important; }
+    .nav-cta:hover { background: #0f2460; text-decoration: none; }
 
     /* HERO */
     .article-hero {
@@ -206,8 +212,9 @@
     .back-link:hover { color: #1A3A8F; }
 
     /* FOOTER */
-    footer { background: #0D1117; color: rgba(255,255,255,0.5); text-align: center; padding: 2.5rem; font-size: 0.85rem; }
-    footer a { color: rgba(255,255,255,0.6); }
+    footer { background: #0D1117; color: #9AA5B8; text-align: center; padding: 40px 24px; font-size: 13px; }
+    footer a { color: #9AA5B8; }
+    footer strong { color: white; }
 
     @media (max-width: 640px) {
       .stat-row { grid-template-columns: 1fr; }
@@ -220,13 +227,18 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">American AI Solutions LLC</a>
+  <a class="nav-logo" href="/">
+    <div class="nav-bar"></div>
+    <div>
+      <div class="nav-brand">American AI Solutions</div>
+      <div class="nav-sub">Detroit, Michigan</div>
+    </div>
+  </a>
   <div class="nav-links">
-    <a href="/#services">Services</a>
-    <a href="/#industries">Industries</a>
-    <a href="/blog/">Blog</a>
-    <a href="/#contact">Contact</a>
-    <a href="/#contact" class="nav-cta">Free Strategy Call</a>
+    <a class="nav-link" href="/#services">Services</a>
+    <a class="nav-link" href="/blog/">Insights</a>
+    <a class="nav-link" href="/#contact">Contact</a>
+    <a class="nav-cta" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Free Strategy Call</a>
   </div>
 </nav>
 
@@ -381,14 +393,16 @@
   <div class="cta-box">
     <h2>Talk to Someone Who Knows Michigan</h2>
     <p>30-minute strategy call. No pitch, no deck, no obligation. We'll tell you whether AI is the right answer for your operation — and if it is, what it would cost and what Michigan grants you qualify for.</p>
-    <a href="https://calendly.com/david-americanaisolutionsllc" class="btn" target="_blank" rel="noopener">Book a Free Strategy Call</a>
+    <a href="https://calendly.com/david04calderon/ai-strategy-call" class="btn" target="_blank" rel="noopener">Book a Free Strategy Call</a>
     <p class="meta">david@americanaisolutionsllc.com · Detroit, Michigan · americanaisolutionsllc.com</p>
   </div>
 
 </div>
 
 <footer>
-  <p>&copy; 2026 American AI Solutions LLC · Detroit, Michigan · <a href="/">americanaisolutionsllc.com</a></p>
+  <p><strong>American AI Solutions LLC</strong> &nbsp;·&nbsp; Detroit, Michigan &nbsp;·&nbsp; <a href="mailto:david@americanaisolutionsllc.com">david@americanaisolutionsllc.com</a></p>
+  <p style="margin-top:8px"><a href="/blog/">← Back to Michigan AI Insights</a></p>
+  <p style="margin-top:16px;font-size:11px;color:#4A5473;">© 2026 American AI Solutions LLC. All rights reserved.</p>
 </footer>
 
 </body>
