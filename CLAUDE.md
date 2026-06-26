@@ -110,6 +110,9 @@ All CSS, HTML, and JavaScript are inline in `index.html`. React/React DOM are in
 | `linkedin-newsletter-issues-2-4.md` | Michigan AI Weekly Issues 2 (OEM mandates), 3 (HIPAA BAA scorecard), and 4 (Going PRO grant) — fully drafted and ready to publish; Issues 5–12 topic bank |
 | `retainer-service-catalog.md` | 3 retainer tiers ($1K–$4.5K/month), exact inclusions, conversion conversation script, ROI framing, 90-day pitch language, HubSpot retainer properties, churn warning signs, path to $20K/month baseline |
 | `incident-communication-sop.md` | 3-level severity system, Level 1 critical response protocol (60-min SLA), resolution email templates, post-incident review doc, never-do list, proactive monitoring setup (n8n alerts, API health checks, monthly audit) |
+| `founding-client-offer.md` | 50%-rate founding client strategy — who qualifies, outreach email, LinkedIn DM, conversation script, case study capture process, when to stop offering the discount |
+| `linkedin-carousel-05-michigan-grants.md` | 9-slide carousel on Michigan AI grants (Going PRO, Industry 4.0, Detroit Tech Fund) — full slide copy, grant math, Canva build notes, LinkedIn caption, distribution strategy |
+| `30-day-launch-action-plan.md` | Day-by-day execution checklist (Days 1–30) — digital presence, HubSpot/Pandadoc setup, email infrastructure, Loom videos, content launch, cold outreach, demo build, proposals, close; daily minimum; full system reference table |
 
 **Blog HTML pages (`blog/` directory):**
 
