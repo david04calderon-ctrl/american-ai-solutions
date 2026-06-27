@@ -11,9 +11,16 @@
   <meta property="og:url" content="https://americanaisolutionsllc.com"/>
   <meta property="og:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
   <meta property="og:description" content="We help Detroit businesses automate workflows and deploy AI tools that actually move revenue. Detroit-based, results-first. Book a free strategy call."/>
-  <meta name="twitter:card" content="summary"/>
+  <meta property="og:image" content="https://americanaisolutionsllc.com/assets/og-image.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="American AI Solutions LLC — David Calderon, Founder & CEO, Detroit AI Consulting"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@AmerAISolutions"/>
+  <meta name="twitter:creator" content="@AmerAISolutions"/>
   <meta name="twitter:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
-  <meta name="twitter:description" content="Detroit-based AI consulting. We build systems that run."/>
+  <meta name="twitter:description" content="Detroit-based AI consulting. Fixed scope. No proof-of-concepts. We build systems that run."/>
+  <meta name="twitter:image" content="https://americanaisolutionsllc.com/assets/og-image.jpg"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
   <!-- LocalBusiness structured data for Detroit local SEO -->
   <script type="application/ld+json">
@@ -49,6 +56,53 @@
     }
   }
   </script>
+  <!-- Person schema for David Calderon -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "David Calderon",
+    "jobTitle": "Founder & CEO",
+    "worksFor": { "@type": "Organization", "name": "American AI Solutions LLC" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Detroit", "addressRegion": "MI" },
+    "sameAs": ["https://linkedin.com/in/david-calderon-ai", "https://twitter.com/AmerAISolutions"],
+    "knowsAbout": ["AI Automation", "Workflow Automation", "n8n", "LangGraph", "Business Process Automation", "Michigan Manufacturing"]
+  }
+  </script>
+  <!-- AggregateRating schema for rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "American AI Solutions LLC",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3",
+      "bestRating": "5"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "Operations Lead" },
+        "reviewBody": "Our dispatch team was manually building routes every morning — two people, four hours, every day. Three weeks after David's team finished, the system built routes automatically. First month we got back 20 hours a week."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "Practice Administrator" },
+        "reviewBody": "They didn't oversell it. David walked through our intake and prior auth process, told us exactly what he could fix and what he couldn't — then he fixed it. On budget, on time. Our staff got three hours a day back."
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "author": { "@type": "Person", "name": "Quality Manager" },
+        "reviewBody": "We had an OEM audit coming up and needed our quality process tightened fast. David mapped it, built the detection model, trained our team. We passed the audit. That's the only number that matters."
+      }
+    ]
+  }
+  </script>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYLW5WBTTK"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PYLW5WBTTK');</script>
@@ -64,6 +118,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
   <script>gtag('config','AW-XXXXXXXXXX');</script>
   -->
+  <link rel="preload" as="image" href="assets/david-calderon-headshot.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
@@ -401,6 +456,25 @@
     .result-label { font-size: 13px; color: #6B7694; line-height: 1.6; }
     /* Star ratings */
     .tcard-stars { color: #FFD700; letter-spacing: 2px; margin-bottom: 12px; font-size: 15px; }
+    /* ROI Calculator */
+    .roi-card { max-width: 900px; margin: 0 auto; background: #101825; border: 1px solid #1E2D45; border-radius: 6px; overflow: hidden; }
+    .roi-inputs { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-bottom: 1px solid #1E2D45; }
+    .roi-field { padding: 28px 32px; border-right: 1px solid #1E2D45; }
+    .roi-field:last-child { border-right: none; }
+    .roi-label { display: block; font-size: 11px; font-weight: 700; color: #4A5473; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+    .roi-input-wrap { display: flex; align-items: center; gap: 6px; }
+    .roi-input { background: #0D1520; border: 1px solid #1E2D45; border-radius: 2px; color: #00D4FF; font-size: 28px; font-weight: 700; font-family: 'DM Serif Display', serif; width: 100%; padding: 8px 10px; outline: none; letter-spacing: -.02em; transition: border-color .2s; -moz-appearance: textfield; }
+    .roi-input::-webkit-outer-spin-button, .roi-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .roi-input:focus { border-color: rgba(0,212,255,.5); }
+    .roi-prefix { font-size: 22px; font-weight: 700; color: #4A5473; flex-shrink: 0; }
+    .roi-unit { font-size: 12px; color: #4A5473; white-space: nowrap; flex-shrink: 0; }
+    .roi-output { padding: 32px; }
+    .roi-result-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 16px; align-items: center; }
+    .roi-result-arrow { font-size: 22px; color: #2A3C58; }
+    .roi-result-item { padding: 20px; background: rgba(0,0,0,.2); border-radius: 2px; border: 1px solid #1E2D45; }
+    .roi-result-item-highlight { border-color: rgba(0,212,255,.25); background: rgba(0,212,255,.04); }
+    .roi-result-label { font-size: 11px; color: #4A5473; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+    .roi-result-num { font-size: 26px; font-weight: 700; color: white; letter-spacing: -.02em; font-family: 'DM Serif Display', serif; }
     /* Sticky mobile CTA */
     .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); }
 
@@ -415,6 +489,13 @@
       body { padding-bottom: 64px; }
       .trust-bar-label, .trust-bar-sep, .trust-bar-michigan { display: none; }
       .trust-bar-logos span { padding: 0 10px; font-size: 11px; }
+      .roi-inputs { grid-template-columns: 1fr; }
+      .roi-field { border-right: none; border-bottom: 1px solid #1E2D45; padding: 20px 20px; }
+      .roi-field:last-child { border-bottom: none; }
+      .roi-result-row { grid-template-columns: 1fr; gap: 12px; }
+      .roi-result-arrow { display: none; }
+      .roi-output { padding: 20px; }
+      .roi-input { font-size: 22px; }
     }
   </style>
 </head>
@@ -923,6 +1004,66 @@
   </div>
 </section>
 
+<!-- ROI CALCULATOR -->
+<section class="section section-dark" id="roi">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:52px">
+      <div class="divider" style="margin:0 auto 14px;background:#00D4FF"></div>
+      <span class="tag tag-cyan">Free Estimate</span>
+      <h2 class="section-title" style="color:white">What Is Manual Work<br><em style="color:#00D4FF;font-style:italic">Actually Costing You?</em></h2>
+      <p class="section-sub" style="max-width:500px;margin:0 auto;color:#6B7694">Plug in three numbers. See your potential savings in seconds.</p>
+    </div>
+    <div class="roi-card fade" style="transition-delay:.1s">
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <label class="roi-label">People handling this process manually</label>
+          <div class="roi-input-wrap">
+            <input type="number" id="roiPeople" class="roi-input" value="3" min="1" max="50" oninput="calcROI()"/>
+            <span class="roi-unit">people</span>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label class="roi-label">Hours per week per person</label>
+          <div class="roi-input-wrap">
+            <input type="number" id="roiHours" class="roi-input" value="10" min="1" max="60" oninput="calcROI()"/>
+            <span class="roi-unit">hrs/wk</span>
+          </div>
+        </div>
+        <div class="roi-field">
+          <label class="roi-label">Average hourly cost (wage + overhead)</label>
+          <div class="roi-input-wrap">
+            <span class="roi-prefix">$</span>
+            <input type="number" id="roiRate" class="roi-input roi-input-dollar" value="28" min="12" max="150" oninput="calcROI()"/>
+            <span class="roi-unit">/hr</span>
+          </div>
+        </div>
+      </div>
+      <div class="roi-output">
+        <div class="roi-result-row">
+          <div class="roi-result-item">
+            <div class="roi-result-label">Annual cost of this process</div>
+            <div class="roi-result-num" id="roiAnnualCost">$43,680</div>
+          </div>
+          <div class="roi-result-arrow">→</div>
+          <div class="roi-result-item roi-result-item-highlight">
+            <div class="roi-result-label">Your savings with AI automation</div>
+            <div class="roi-result-num" id="roiSavings" style="color:#00D4FF">$30,576/yr</div>
+          </div>
+          <div class="roi-result-arrow">→</div>
+          <div class="roi-result-item">
+            <div class="roi-result-label">Quick Deploy pays for itself in</div>
+            <div class="roi-result-num" id="roiPayback" style="color:#FFD700">3.9 months</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:32px">
+          <p style="font-size:13px;color:#4A5473;margin-bottom:20px">Based on 70% workflow recovery — our Michigan client average. Your actual savings confirmed on the strategy call.</p>
+          <button class="btn btn-primary" onclick="bookCall()" style="font-size:15px;padding:16px 40px">Book Your Free Strategy Call — Confirm the Numbers</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="container">
@@ -1117,6 +1258,22 @@
 
     updateUI(0);
   })();
+
+  // ROI Calculator
+  function calcROI() {
+    var people  = Math.max(1, +document.getElementById('roiPeople').value || 1);
+    var hours   = Math.max(1, +document.getElementById('roiHours').value  || 1);
+    var rate    = Math.max(1, +document.getElementById('roiRate').value    || 1);
+    var annual  = people * hours * rate * 52;
+    var savings = Math.round(annual * 0.70);
+    var tier2   = 9750; // midpoint Quick Deploy
+    var payback = tier2 / (savings / 12);
+    var fmt = function(n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+    document.getElementById('roiAnnualCost').textContent = fmt(annual);
+    document.getElementById('roiSavings').textContent    = fmt(savings) + '/yr';
+    document.getElementById('roiPayback').textContent    = payback.toFixed(1) + ' months';
+  }
+  calcROI();
 
   // Contact form — mailto fallback (works without any backend)
   function submitForm() {
