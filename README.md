@@ -89,6 +89,7 @@ The website sends people to: `calendly.com/david04calderon/ai-strategy-call`
 | `marketing/funnel-map.md` | 12-touchpoint hypnotic loop diagram |
 | `marketing/linkedin-content-30-days.md` | All 30 days of posts — every word written |
 | `marketing/social-media-setup.md` | All 6 platforms, usernames, cross-post flow |
+| `marketing/twitter-x-video-scripts.md` | 5 video series, 12 scripts, thread templates, repurposing map |
 
 ### Legal & Operations
 | File | What It Is |
