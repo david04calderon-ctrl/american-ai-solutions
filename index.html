@@ -2060,6 +2060,12 @@
     window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
   }
 
+  // PWA shortcut handler — fires when installed app opens with ?book=1
+  (function() {
+    var p = new URLSearchParams(window.location.search);
+    if (p.get('book') === '1') bookCall();
+  })();
+
   // Fade in on scroll
   const fades = document.querySelectorAll('.fade');
   const obs = new IntersectionObserver((entries) => {
@@ -2417,12 +2423,17 @@
 </button>
 
 <!-- EXIT INTENT POPUP -->
+<!-- Hidden form so Netlify registers exit-capture at build time -->
+<form name="exit-capture" data-netlify="true" hidden>
+  <input type="email" name="email"/>
+</form>
+
 <div class="exit-overlay" id="exitPopup" role="dialog" aria-modal="true">
   <div class="exit-modal" id="exitModal">
     <button class="exit-close" id="exitClose" aria-label="Close">×</button>
     <div class="exit-tag">Before You Go</div>
-    <h3>Get the Free Michigan AI Grant Blueprint</h3>
-    <p>Going PRO and Industry 4.0 grants can cover up to 50% of your AI implementation costs — but most Michigan businesses never apply. Get the plain-English guide, free.</p>
+    <h3>Get the Free Michigan AI Funding Guide</h3>
+    <p>Michigan businesses can get up to 50% of their AI implementation costs covered — but most never apply. Get the plain-English guide to every available program, free.</p>
     <form class="exit-form" id="exitForm">
       <input class="exit-input" type="email" id="exitEmail" placeholder="Your email address" required autocomplete="email"/>
       <button class="exit-btn" type="submit">Send It →</button>
