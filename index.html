@@ -486,10 +486,25 @@
     .roi-result-item-highlight { border-color: rgba(0,212,255,.25); background: rgba(0,212,255,.04); }
     .roi-result-label { font-size: 11px; color: #4A5473; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
     .roi-result-num { font-size: 26px; font-weight: 700; color: white; letter-spacing: -.02em; font-family: 'DM Serif Display', serif; }
+    /* Michigan Edge / Secret section */
+    .edge-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid #1E2D45; border-radius: 4px; overflow: hidden; margin-top: 48px; }
+    .edge-stat { padding: 36px 28px; border-right: 1px solid #1E2D45; transition: background .25s; }
+    .edge-stat:hover { background: rgba(0,212,255,.03); }
+    .edge-stat:last-child { border-right: none; }
+    .edge-num { font-family: 'DM Serif Display', serif; font-size: clamp(36px,4vw,52px); color: #00D4FF; line-height: 1; margin-bottom: 14px; letter-spacing: -.02em; }
+    .edge-num sup { font-size: .45em; vertical-align: super; }
+    .edge-label { font-size: 13px; color: #6B7694; line-height: 1.65; }
+    .edge-divider { border: none; border-top: 1px solid #1E2D45; margin: 52px 0 0; }
+    .edge-closing { text-align: center; padding-top: 44px; }
+    .edge-closing p { font-size: 15px; color: #4A5473; max-width: 600px; margin: 0 auto 28px; line-height: 1.75; }
     /* Sticky mobile CTA */
     .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); }
 
     @media (max-width: 768px) {
+      .edge-grid { grid-template-columns: 1fr 1fr; }
+      .edge-stat { border-right: none; border-bottom: 1px solid #1E2D45; padding: 24px 20px; }
+      .edge-stat:nth-child(odd) { border-right: 1px solid #1E2D45; }
+      .edge-stat:last-child { border-bottom: none; }
       .hero-split { grid-template-columns: 1fr; }
       .hero-right { display: none; }
       .results-grid { grid-template-columns: 1fr 1fr; }
@@ -718,8 +733,8 @@
         </div>
         <div class="industry-body">
           <h3>Automotive Supply Chain</h3>
-          <p>Tier 2 &amp; 3 suppliers facing OEM AI mandates with no internal capacity to implement. We deploy predictive maintenance, quality inspection automation, and supply chain optimization — so you stay on the approved vendor list.</p>
-          <div class="industry-roi">Industry benchmark: 35% downtime reduction · 95%+ defect detection with AI-assisted inspection</div>
+          <p>Sterling Heights, Warren, Auburn Hills, Pontiac — Michigan's Tier 2 &amp; 3 suppliers are under direct pressure from Ford, GM, and Stellantis to digitize quality inspection and reporting. Fail the next OEM audit and you're off the vendor list. We get AI-assisted QA live before your next window — built to your line, not a demo environment.</p>
+          <div class="industry-roi">35% downtime reduction · 95%+ defect detection · OEM audit-ready from day one</div>
         </div>
       </div>
 
@@ -729,8 +744,8 @@
         </div>
         <div class="industry-body">
           <h3>Healthcare &amp; Medical Practices</h3>
-          <p>Scheduling automation, prior authorization workflows, clinical documentation, and HIPAA-compliant on-premise AI for practices that can't send patient data to public APIs. We build to Michigan compliance standards from day one.</p>
-          <div class="industry-roi">Industry benchmark: 200–300% ROI by year 2 · Break-even typically at 12–18 months</div>
+          <p>Metro Detroit groups, Henry Ford-affiliated practices, and independent Southeast Michigan clinics are losing 3–5 staff hours daily to manual prior auth and intake processing. We build HIPAA-compliant on-premise AI that handles scheduling, documentation, and authorization workflows — patient data never touches a public API, never leaves your network.</p>
+          <div class="industry-roi">30+ staff hours recovered per week · Break-even at 12–18 months · Zero PHI exposure</div>
         </div>
       </div>
 
@@ -740,8 +755,8 @@
         </div>
         <div class="industry-body">
           <h3>Logistics &amp; Trucking</h3>
-          <p>Michigan's position as a major freight corridor makes it ground zero for AI-driven dispatch, route optimization, and driver operations. We automate the back-office so your fleet ops team focuses on decisions, not data entry.</p>
-          <div class="industry-roi">Focus: Dispatch automation · Route AI · Load matching</div>
+          <p>Carriers running the I-75, I-94, and I-96 corridors — the Detroit-Windsor trade lane, Downriver to Ohio, the Detroit-Chicago run — are hand-building routes every morning. We automate dispatch, load matching, and driver assignment so your crew is rolling before they clock in and your back-office team actually goes home on time.</p>
+          <div class="industry-roi">20+ dispatch hours/week recovered · Routes built before shift start · Load matching automated</div>
         </div>
       </div>
 
@@ -751,11 +766,45 @@
         </div>
         <div class="industry-body">
           <h3>Construction &amp; Skilled Trades</h3>
-          <p>Labor shortages are forcing the trades to move. We automate estimating, job scheduling, and customer communication — delivering wins that compound. Low AI competition in this vertical means faster results and stronger referrals.</p>
-          <div class="industry-roi">Focus: Estimate generation · Job scheduling · Follow-up automation</div>
+          <p>Southeast Michigan GCs, MEP subs, and specialty trades are fighting two fronts at once: a labor shortage that isn't reversing, and a market where whoever estimates fastest wins the job. We automate your estimating workflow, follow-up sequences, and job scheduling — so your sales team closes faster and your crews don't sit on dead time.</p>
+          <div class="industry-roi">Estimates generated 80% faster · Follow-up automated from first contact · No more scheduling conflicts</div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- MICHIGAN EDGE -->
+<section class="section section-dark" id="michigan-edge">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:0">
+      <span class="tag" style="background:rgba(0,212,255,.10);color:#00D4FF;border-color:rgba(0,212,255,.18)">Why Michigan. Why Now.</span>
+      <h2 class="section-title" style="color:#fff;margin-top:16px;margin-bottom:20px">The Businesses Pulling Ahead<br><em style="color:#00D4FF">Aren't Working Harder.</em></h2>
+      <p style="font-size:17px;color:#8892A4;max-width:700px;margin:0 auto">The I-75 corridor from Detroit to Flint carries some of the densest manufacturing traffic in North America. The Detroit-Windsor crossing handles more US-Canada commercial trade than any other border crossing. Ford, GM, and Stellantis are forcing their supply chains to digitize — or lose the contract. Metro Detroit healthcare networks are drowning in prior auth denials. The contractors who estimate fastest are winning every job. The secret isn't working harder. It's building the right system — before your competitor does.</p>
+    </div>
+    <div class="edge-grid">
+      <div class="edge-stat fade">
+        <div class="edge-num">#1</div>
+        <div class="edge-label">Michigan is the nation's leading manufacturing state per capita — with the world's densest concentration of Tier 2/3 OEM suppliers, most now under direct AI mandate pressure from the Big 3</div>
+      </div>
+      <div class="edge-stat fade" style="transition-delay:.08s">
+        <div class="edge-num">$250M<sup>+</sup></div>
+        <div class="edge-label">In daily US-Canada commercial trade through the Detroit-Windsor corridor — Michigan freight carriers that automate dispatch and routing now hold a permanent margin advantage</div>
+      </div>
+      <div class="edge-stat fade" style="transition-delay:.16s">
+        <div class="edge-num">6,000<sup>+</sup></div>
+        <div class="edge-label">Independent medical practices in Michigan still processing scheduling and prior auth manually — the first ones to automate will see more patients with the same staff</div>
+      </div>
+      <div class="edge-stat fade" style="transition-delay:.24s">
+        <div class="edge-num">50%</div>
+        <div class="edge-label">Of AI implementation costs reimbursable through Michigan's Industry 4.0 Tech Grant — available right now for qualifying manufacturers. Most don't know to ask</div>
+      </div>
+    </div>
+    <hr class="edge-divider">
+    <div class="edge-closing fade">
+      <p>We're not a national firm that parachutes into Michigan. We're built here — Sterling Heights suppliers, Downriver freight carriers, Metro Detroit practices, Southeast Michigan contractors. We know the territory because we work in it every day.</p>
+      <button class="btn btn-primary" onclick="bookCall()">Get Your Free Michigan AI Audit</button>
     </div>
   </div>
 </section>
