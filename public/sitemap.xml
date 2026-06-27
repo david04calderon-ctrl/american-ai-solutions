@@ -20,6 +20,14 @@
     <priority>0.5</priority>
   </url>
 
+  <!-- Resources / lead magnets -->
+  <url>
+    <loc>https://americanaisolutionsllc.com/resources/michigan-ai-grant-guide/</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Legal pages -->
   <url>
     <loc>https://americanaisolutionsllc.com/privacy/</loc>

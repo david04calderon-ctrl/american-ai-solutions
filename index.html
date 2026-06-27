@@ -1017,6 +1017,7 @@
     <div class="fade" style="text-align:center;margin-top:48px;transition-delay:.5s">
       <p style="font-size:15px;color:#4A5473;margin-bottom:20px">New insights published every two weeks — Michigan businesses, real numbers, zero fluff.</p>
       <a class="btn btn-outline" href="/blog/" style="margin-right:12px;display:inline-block;padding:12px 28px;border:1.5px solid #1A3A8F;color:#1A3A8F;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border-radius:2px">View All 7 Articles</a>
+      <a class="btn btn-outline" href="/resources/michigan-ai-grant-guide/" style="margin-right:12px;display:inline-block;padding:12px 28px;border:1.5px solid #00D4FF;color:#00D4FF;font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border-radius:2px">Free Grant Guide →</a>
       <button class="btn btn-primary" onclick="bookCall()">Book a Strategy Call</button>
     </div>
   </div>
@@ -1038,7 +1039,7 @@
         </div>
       </div>
       <div class="fade" style="transition-delay:.1s">
-        <form class="form-box" id="formBox" name="contact" data-netlify="true" method="POST" onsubmit="return false">
+        <form class="form-box" id="formBox" name="contact" data-netlify="true" method="POST" action="/thank-you/" onsubmit="return false">
           <input type="hidden" name="form-name" value="contact">
           <h3 style="font-size:18px;font-weight:700;margin-bottom:20px">Send Us a Message</h3>
           <div class="form-row">
@@ -1293,7 +1294,7 @@
         body: encode({ 'form-name': 'contact', name, email, company, message })
       });
       if (!res.ok) throw new Error('netlify-miss');
-      showSuccess();
+      window.location.href = '/thank-you/';
     } catch {
       // Fallback: open pre-filled mailto so no lead is ever lost
       const subject = 'Strategy Call Request — ' + name + (company ? ' · ' + company : '');
@@ -1301,7 +1302,7 @@
                       (company ? '\nCompany: ' + company : '') + '\n\nMessage:\n' + message;
       window.open('mailto:david@americanaisolutionsllc.com?subject=' +
                   encodeURIComponent(subject) + '&body=' + encodeURIComponent(body));
-      showSuccess();
+      window.location.href = '/thank-you/';
     }
   }
 </script>

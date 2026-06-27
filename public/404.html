@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Not Found | American AI Solutions LLC</title>
+  <meta name="robots" content="noindex"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231A3A8F'/><rect x='4' y='18' width='5' height='10' rx='1' fill='white'/><rect x='13' y='12' width='5' height='16' rx='1' fill='white'/><rect x='22' y='5' width='5' height='23' rx='1' fill='white'/><polyline points='6.5,18 15.5,12 24.5,5' stroke='%2300D4FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='6.5' cy='18' r='2' fill='%2300D4FF'/><circle cx='15.5' cy='12' r='2' fill='%2300D4FF'/><circle cx='24.5' cy='5' r='2' fill='%2300D4FF'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #0D1117; background: #0D1117; min-height: 100vh; display: flex; flex-direction: column; }
+    a { text-decoration: none; }
+
+    nav { background: rgba(13,17,23,.95); backdrop-filter: blur(8px); border-bottom: 1px solid #1E2D45; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-logo-text { font-family: 'DM Serif Display', serif; font-size: 17px; color: white; line-height: 1.1; }
+    .nav-logo-sub { font-size: 10px; font-weight: 600; color: rgba(255,255,255,.45); letter-spacing: .08em; text-transform: uppercase; }
+    .nav-home { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7); letter-spacing: .04em; text-transform: uppercase; border: 1px solid rgba(255,255,255,.2); padding: 8px 16px; border-radius: 3px; }
+    .nav-home:hover { border-color: #00D4FF; color: #00D4FF; }
+
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 24px; }
+    .content { max-width: 600px; text-align: center; }
+
+    .error-code { font-family: 'DM Serif Display', serif; font-size: clamp(96px, 20vw, 140px); color: #1A3A8F; line-height: 1; margin-bottom: 0; letter-spacing: -4px; }
+    .error-accent { display: block; width: 48px; height: 3px; background: #00D4FF; margin: 0 auto 28px; border-radius: 2px; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 5vw, 36px); color: white; margin-bottom: 16px; line-height: 1.2; }
+    p { font-size: 16px; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 36px; }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 48px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #1A3A8F; color: white; font-size: 14px; font-weight: 700; padding: 14px 28px; border-radius: 3px; letter-spacing: .04em; text-transform: uppercase; }
+    .btn-primary:hover { background: #0f2460; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,.7); font-size: 14px; font-weight: 600; padding: 13px 28px; border-radius: 3px; border: 1px solid rgba(255,255,255,.2); letter-spacing: .04em; text-transform: uppercase; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,.5); color: white; }
+
+    .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+    .quick-link { background: #101825; border: 1px solid #1E2D45; border-radius: 4px; padding: 14px 16px; color: rgba(255,255,255,.65); font-size: 13px; font-weight: 500; transition: border-color .2s, color .2s; }
+    .quick-link:hover { border-color: #1A3A8F; color: white; }
+    .quick-link-label { font-size: 10px; font-weight: 700; color: #00D4FF; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+
+    footer { background: #060D16; border-top: 1px solid #1E2D45; padding: 20px 24px; text-align: center; font-size: 12px; color: rgba(255,255,255,.3); }
+    footer a { color: rgba(255,255,255,.4); }
+    footer a:hover { color: rgba(255,255,255,.7); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="4" fill="#0D1117"/>
+      <rect x="4" y="18" width="5" height="10" rx="1" fill="#1A3A8F"/>
+      <rect x="13" y="12" width="5" height="16" rx="1" fill="#1A3A8F"/>
+      <rect x="22" y="5" width="5" height="23" rx="1" fill="#1A3A8F"/>
+      <polyline points="6.5,18 15.5,12 24.5,5" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="6.5" cy="18" r="2" fill="#00D4FF"/>
+      <circle cx="15.5" cy="12" r="2" fill="#00D4FF"/>
+      <circle cx="24.5" cy="5" r="2" fill="#00D4FF"/>
+    </svg>
+    <div>
+      <div class="nav-logo-text">American AI Solutions</div>
+      <div class="nav-logo-sub">Southgate, Michigan</div>
+    </div>
+  </a>
+  <a class="nav-home" href="/">← Back to Home</a>
+</nav>
+
+<main>
+  <div class="content">
+    <div class="error-code">404</div>
+    <span class="error-accent"></span>
+    <h1>This page doesn't exist — but your AI roadmap does.</h1>
+    <p>The URL you followed may have changed or been removed. We can take you where you need to go.</p>
+
+    <div class="btn-row">
+      <a class="btn-primary" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg>
+        Book a Free Strategy Call
+      </a>
+      <a class="btn-secondary" href="/">← Go to Homepage</a>
+    </div>
+
+    <div class="quick-links">
+      <a class="quick-link" href="/#services">
+        <div class="quick-link-label">Services</div>
+        What We Build
+      </a>
+      <a class="quick-link" href="/#pricing">
+        <div class="quick-link-label">Pricing</div>
+        Fixed-Scope Tiers
+      </a>
+      <a class="quick-link" href="/blog/">
+        <div class="quick-link-label">Insights</div>
+        Michigan AI Blog
+      </a>
+      <a class="quick-link" href="/#contact">
+        <div class="quick-link-label">Contact</div>
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 American AI Solutions LLC &nbsp;·&nbsp; Southgate, Michigan &nbsp;·&nbsp; <a href="/">americanaisolutionsllc.com</a></p>
+</footer>
+
+</body>
+</html>
