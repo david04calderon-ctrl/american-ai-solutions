@@ -486,6 +486,22 @@
     .roi-result-item-highlight { border-color: rgba(0,212,255,.25); background: rgba(0,212,255,.04); }
     .roi-result-label { font-size: 11px; color: #4A5473; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
     .roi-result-num { font-size: 26px; font-weight: 700; color: white; letter-spacing: -.02em; font-family: 'DM Serif Display', serif; }
+    /* Comparison table */
+    .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid #E4E8F0; border-radius: 4px; }
+    .compare-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    .compare-table thead tr { background: #0D1117; }
+    .compare-table th { padding: 14px 20px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6B7694; text-align: left; border-right: 1px solid #1E2D45; }
+    .compare-table th.col-us { color: white; background: rgba(26,58,143,.45); border-left: 3px solid #1A3A8F; }
+    .compare-table th:last-child { border-right: none; }
+    .compare-table td { padding: 15px 20px; font-size: 14px; color: #4A5473; border-top: 1px solid #F0F2F7; border-right: 1px solid #F0F2F7; vertical-align: top; }
+    .compare-table td:first-child { font-weight: 600; color: #1C1C1C; background: #FAFBFD; }
+    .compare-table td.col-us { background: rgba(26,58,143,.03); border-left: 3px solid #1A3A8F; font-weight: 600; color: #0D2464; }
+    .compare-table td:last-child { border-right: none; }
+    .compare-table tbody tr:hover td { background: #F7F9FC; }
+    .compare-table tbody tr:hover td.col-us { background: rgba(26,58,143,.05); }
+    .cmark { color: #1A3A8F; margin-right: 5px; }
+    .xmark { color: #CBD0DE; margin-right: 5px; }
+    .dmark { color: #F59E0B; margin-right: 5px; }
     /* Michigan Edge / Secret section */
     .edge-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid #1E2D45; border-radius: 4px; overflow: hidden; margin-top: 48px; }
     .edge-stat { padding: 36px 28px; border-right: 1px solid #1E2D45; transition: background .25s; }
@@ -967,21 +983,21 @@
       <span class="tag tag-cyan">By the Numbers</span>
       <h2 class="section-title" style="color:white">What Happens When<br><em style="color:#00D4FF;font-style:italic">AI Actually Ships.</em></h2>
     </div>
-    <div class="results-grid fade" style="transition-delay:.1s">
+    <div class="results-grid fade" id="resultsGrid" style="transition-delay:.1s">
       <div class="result-item">
-        <div class="result-num">30<sup>+hrs</sup></div>
+        <div class="result-num"><span class="count-num" data-target="30">0</span><sup>+hrs</sup></div>
         <div class="result-label">Per week recovered for a single Michigan medical practice — clinical staff time freed from manual prior auth</div>
       </div>
       <div class="result-item">
-        <div class="result-num">70<sup>%</sup></div>
+        <div class="result-num"><span class="count-num" data-target="70">0</span><sup>%</sup></div>
         <div class="result-label">Of prior authorization requests fully automated — HIPAA-compliant, on-premise, no PHI leaves the network</div>
       </div>
       <div class="result-item">
-        <div class="result-num">95<sup>%+</sup></div>
+        <div class="result-num"><span class="count-num" data-target="95">0</span><sup>%+</sup></div>
         <div class="result-label">Defect detection accuracy with AI-assisted quality inspection for automotive Tier 2 suppliers</div>
       </div>
       <div class="result-item">
-        <div class="result-num">50<sup>%</sup></div>
+        <div class="result-num"><span class="count-num" data-target="50">0</span><sup>%</sup></div>
         <div class="result-label">Of implementation costs covered by Michigan state grant funding for qualifying manufacturers</div>
       </div>
     </div>
@@ -1032,6 +1048,83 @@
         <div class="faq-q">What if the automation doesn't perform the way we expected?</div>
         <p class="faq-a">That's what the 30-day ROI checkpoint is for. We measure the output against the baseline we set together before the build. If something's underperforming, we diagnose and fix it — included in every engagement. We don't close the ticket until the numbers match the projection. Our reputation in a tight Michigan market depends on every client getting results they can point to.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:48px">
+      <div class="divider" style="margin:0 auto 14px"></div>
+      <span class="tag">The Honest Comparison</span>
+      <h2 class="section-title">Why Michigan Businesses<br><em style="color:#1A3A8F">Choose Us Over the Alternatives.</em></h2>
+      <p class="section-sub" style="max-width:520px;margin:0 auto">We're not the only option. Here's what working with us actually looks like next to everything else.</p>
+    </div>
+    <div class="compare-wrap fade" style="transition-delay:.1s">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:28%"></th>
+            <th class="col-us">American AI Solutions</th>
+            <th>National AI Firms</th>
+            <th>DIY / ChatGPT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pricing model</td>
+            <td class="col-us"><span class="cmark">✓</span>Fixed price, signed SOW</td>
+            <td><span class="xmark">✗</span>Hourly / open retainer</td>
+            <td><span class="xmark">✗</span>Hidden time cost</td>
+          </tr>
+          <tr>
+            <td>Michigan market knowledge</td>
+            <td class="col-us"><span class="cmark">✓</span>Born and built here</td>
+            <td><span class="xmark">✗</span>Generic playbooks</td>
+            <td><span class="xmark">✗</span>None</td>
+          </tr>
+          <tr>
+            <td>Time to live automation</td>
+            <td class="col-us"><span class="cmark">✓</span>3–12 weeks</td>
+            <td><span class="xmark">✗</span>6–18 months</td>
+            <td><span class="xmark">✗</span>Never runs automatically</td>
+          </tr>
+          <tr>
+            <td>Michigan grant access</td>
+            <td class="col-us"><span class="cmark">✓</span>We handle the paperwork</td>
+            <td><span class="xmark">✗</span>Not eligible / unknown</td>
+            <td><span class="xmark">✗</span>Not eligible</td>
+          </tr>
+          <tr>
+            <td>Integrates with your systems</td>
+            <td class="col-us"><span class="cmark">✓</span>CRM, ERP, ops stack</td>
+            <td><span class="dmark">△</span>Often rip-and-replace</td>
+            <td><span class="xmark">✗</span>No integration</td>
+          </tr>
+          <tr>
+            <td>Team training included</td>
+            <td class="col-us"><span class="cmark">✓</span>SOPs + 30-day support</td>
+            <td><span class="xmark">✗</span>Extra cost</td>
+            <td><span class="xmark">✗</span>You're on your own</td>
+          </tr>
+          <tr>
+            <td>30-day ROI checkpoint</td>
+            <td class="col-us"><span class="cmark">✓</span>In writing, in the contract</td>
+            <td><span class="xmark">✗</span>Vague success metrics</td>
+            <td><span class="xmark">✗</span>No accountability</td>
+          </tr>
+          <tr>
+            <td>Free audit before you commit</td>
+            <td class="col-us"><span class="cmark">✓</span>30-min call, zero cost</td>
+            <td><span class="xmark">✗</span>Paid discovery phase</td>
+            <td><span class="xmark">✗</span>You're on your own</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fade" style="text-align:center;margin-top:40px;transition-delay:.2s">
+      <button class="btn btn-primary" onclick="bookCall()">Start with a Free 30-Minute Audit</button>
     </div>
   </div>
 </section>
@@ -1384,6 +1477,28 @@
     document.getElementById('roiPayback').textContent    = payback.toFixed(1) + ' months';
   }
   calcROI();
+
+  // Animated counters on Results section
+  (function() {
+    var triggered = false;
+    var obs = new IntersectionObserver(function(entries) {
+      if (triggered || !entries[0].isIntersecting) return;
+      triggered = true;
+      document.querySelectorAll('.count-num').forEach(function(el) {
+        var target = +el.dataset.target;
+        var dur = 1600;
+        var t0 = performance.now();
+        (function tick(now) {
+          var p = Math.min((now - t0) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * ease);
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }, { threshold: 0.35 });
+    var grid = document.getElementById('resultsGrid');
+    if (grid) obs.observe(grid);
+  })();
 
   // Contact form — mailto fallback (works without any backend)
   function submitForm() {
