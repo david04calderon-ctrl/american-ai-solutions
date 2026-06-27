@@ -610,6 +610,104 @@
       .roi-output { padding: 20px; }
       .roi-input { font-size: 22px; }
     }
+
+    /* ── AI Readiness Quiz ── */
+    .quiz-shell {
+      max-width: 680px; margin: 0 auto;
+      background: #101825; border: 1px solid #1E2D45;
+      border-radius: 12px; padding: 40px;
+    }
+    .quiz-progress-wrap {
+      background: #1E2D45; border-radius: 99px;
+      height: 4px; margin-bottom: 12px; overflow: hidden;
+    }
+    .quiz-progress-bar {
+      height: 4px;
+      background: linear-gradient(90deg,#1A3A8F,#00D4FF);
+      border-radius: 99px; transition: width .4s ease;
+    }
+    .quiz-step-label {
+      font-size: 11px; color: #4A5473;
+      letter-spacing: .10em; text-transform: uppercase; margin-bottom: 26px;
+    }
+    .quiz-q { display: none; }
+    .quiz-q.active { display: block; }
+    .quiz-q-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(17px,2.2vw,21px);
+      color: white; margin-bottom: 18px; line-height: 1.35;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 9px; }
+    .quiz-opt {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 16px; border: 1px solid #1E2D45;
+      border-radius: 8px; cursor: pointer;
+      transition: border-color .18s, background .18s;
+      color: #8892A4; font-size: 15px;
+    }
+    .quiz-opt:hover { border-color: #1A3A8F; background: rgba(26,58,143,.08); color: #C0CDDE; }
+    .quiz-opt.selected { border-color: #00D4FF; background: rgba(0,212,255,.07); color: white; }
+    .quiz-opt-icon { font-size: 18px; flex-shrink: 0; }
+    .quiz-nav { margin-top: 22px; text-align: right; }
+    .quiz-btn-next {
+      background: #1A3A8F; color: white; border: none;
+      border-radius: 6px; padding: 12px 28px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: background .2s; letter-spacing: .03em;
+    }
+    .quiz-btn-next:hover { background: #2347B0; }
+    .quiz-result {
+      max-width: 680px; margin: 0 auto;
+      background: #101825; border: 1px solid #1E2D45;
+      border-radius: 12px; padding: 48px 40px; text-align: center;
+    }
+    .quiz-score-ring-wrap {
+      position: relative; width: 120px; height: 120px; margin: 0 auto 28px;
+    }
+    .quiz-score-ring { width: 120px; height: 120px; }
+    .quiz-score-inner {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%); text-align: center;
+    }
+    .quiz-score-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px; color: #00D4FF; line-height: 1;
+    }
+    .quiz-score-label { font-size: 11px; color: #4A5473; margin-top: 2px; }
+    .quiz-result-tier {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px; color: white; margin-bottom: 8px;
+    }
+    .quiz-result-desc { color: #6B7694; font-size: 15px; margin-bottom: 28px; line-height: 1.65; }
+    .quiz-recs {
+      background: #0D1117; border: 1px solid #1E2D45;
+      border-radius: 8px; padding: 20px 24px;
+      text-align: left; margin-bottom: 28px;
+    }
+    .quiz-recs-title {
+      font-size: 10px; font-weight: 700; color: #00D4FF;
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .quiz-rec-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid #1E2D45;
+      color: #8892A4; font-size: 14px; line-height: 1.55;
+    }
+    .quiz-rec-item:last-child { border-bottom: none; }
+    .quiz-rec-num {
+      background: rgba(0,212,255,.1); color: #00D4FF;
+      font-size: 11px; font-weight: 700;
+      width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .quiz-rec-name { font-weight: 600; color: white; display: block; margin-bottom: 2px; }
+    .quiz-cta { width: 100%; text-align: center; font-size: 15px; padding: 16px 32px; }
+    .quiz-cta-note { font-size: 12px; color: #4A5473; margin-top: 10px; }
+    @media (max-width: 768px) {
+      .quiz-shell, .quiz-result { padding: 24px 18px; }
+      .quiz-opt { font-size: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -1374,6 +1472,98 @@
   </div>
 </section>
 
+<!-- AI READINESS QUIZ -->
+<section class="section section-dark" id="quiz">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:48px">
+      <div class="divider" style="margin:0 auto 14px;background:#00D4FF"></div>
+      <span class="tag tag-cyan">Free Michigan AI Audit</span>
+      <h2 class="section-title" style="color:white">What Should Your Business<br><em style="color:#00D4FF;font-style:italic">Automate First?</em></h2>
+      <p class="section-sub" style="max-width:520px;margin:0 auto;color:#6B7694">Answer 5 quick questions. Get your Michigan AI Readiness Score and the exact workflows to automate first — personalized to your industry.</p>
+    </div>
+    <div class="quiz-shell fade" style="transition-delay:.1s" id="quizShell">
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-bar" id="quizProgressBar" style="width:0%"></div>
+      </div>
+      <div class="quiz-step-label" id="quizStepLabel">Question 1 of 5</div>
+      <div id="quizQuestions">
+        <div class="quiz-q active" id="qq1">
+          <h3 class="quiz-q-title">What industry best describes your business?</h3>
+          <div class="quiz-options">
+            <div class="quiz-opt" data-q="1" data-val="auto" data-score="28" onclick="selectOpt(this)"><span class="quiz-opt-icon">🏭</span><span>Automotive / Manufacturing</span></div>
+            <div class="quiz-opt" data-q="1" data-val="health" data-score="26" onclick="selectOpt(this)"><span class="quiz-opt-icon">🏥</span><span>Healthcare / Medical Practice</span></div>
+            <div class="quiz-opt" data-q="1" data-val="logistics" data-score="24" onclick="selectOpt(this)"><span class="quiz-opt-icon">🚛</span><span>Logistics / Trucking / Freight</span></div>
+            <div class="quiz-opt" data-q="1" data-val="construction" data-score="22" onclick="selectOpt(this)"><span class="quiz-opt-icon">🏗️</span><span>Construction / Trades</span></div>
+            <div class="quiz-opt" data-q="1" data-val="other" data-score="18" onclick="selectOpt(this)"><span class="quiz-opt-icon">🏢</span><span>Other Michigan Business</span></div>
+          </div>
+        </div>
+        <div class="quiz-q" id="qq2">
+          <h3 class="quiz-q-title">How many people are on your team?</h3>
+          <div class="quiz-options">
+            <div class="quiz-opt" data-q="2" data-val="tiny" data-score="14" onclick="selectOpt(this)"><span>1 – 10 people</span></div>
+            <div class="quiz-opt" data-q="2" data-val="small" data-score="18" onclick="selectOpt(this)"><span>11 – 50 people</span></div>
+            <div class="quiz-opt" data-q="2" data-val="mid" data-score="20" onclick="selectOpt(this)"><span>51 – 200 people</span></div>
+            <div class="quiz-opt" data-q="2" data-val="large" data-score="17" onclick="selectOpt(this)"><span>200+ people</span></div>
+          </div>
+        </div>
+        <div class="quiz-q" id="qq3">
+          <h3 class="quiz-q-title">Where are you losing the most time right now?</h3>
+          <div class="quiz-options">
+            <div class="quiz-opt" data-q="3" data-val="dataentry" data-score="20" onclick="selectOpt(this)"><span>Manual data entry &amp; reporting</span></div>
+            <div class="quiz-opt" data-q="3" data-val="scheduling" data-score="18" onclick="selectOpt(this)"><span>Scheduling &amp; dispatch coordination</span></div>
+            <div class="quiz-opt" data-q="3" data-val="followup" data-score="16" onclick="selectOpt(this)"><span>Customer follow-up &amp; quote management</span></div>
+            <div class="quiz-opt" data-q="3" data-val="qc" data-score="19" onclick="selectOpt(this)"><span>Quality control &amp; inspections</span></div>
+            <div class="quiz-opt" data-q="3" data-val="estimating" data-score="17" onclick="selectOpt(this)"><span>Estimating &amp; project management</span></div>
+          </div>
+        </div>
+        <div class="quiz-q" id="qq4">
+          <h3 class="quiz-q-title">What's your current tech setup like?</h3>
+          <div class="quiz-options">
+            <div class="quiz-opt" data-q="4" data-val="spreadsheets" data-score="15" onclick="selectOpt(this)"><span>Mostly spreadsheets &amp; email</span></div>
+            <div class="quiz-opt" data-q="4" data-val="onetool" data-score="13" onclick="selectOpt(this)"><span>One or two software tools</span></div>
+            <div class="quiz-opt" data-q="4" data-val="erp" data-score="10" onclick="selectOpt(this)"><span>ERP or industry-specific system</span></div>
+            <div class="quiz-opt" data-q="4" data-val="disconnected" data-score="14" onclick="selectOpt(this)"><span>Multiple disconnected tools (lots of copy-paste)</span></div>
+          </div>
+        </div>
+        <div class="quiz-q" id="qq5">
+          <h3 class="quiz-q-title">How many staff hours per week go to tasks that could be automated?</h3>
+          <div class="quiz-options">
+            <div class="quiz-opt" data-q="5" data-val="low" data-score="8" onclick="selectOpt(this)"><span>Under 10 hours</span></div>
+            <div class="quiz-opt" data-q="5" data-val="mid" data-score="12" onclick="selectOpt(this)"><span>10 – 30 hours</span></div>
+            <div class="quiz-opt" data-q="5" data-val="high" data-score="15" onclick="selectOpt(this)"><span>30 – 60 hours</span></div>
+            <div class="quiz-opt" data-q="5" data-val="max" data-score="15" onclick="selectOpt(this)"><span>60+ hours — it's out of control</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="quiz-nav" id="quizNav" style="display:none">
+        <button class="quiz-btn-next" id="quizNext" onclick="quizNext()">Next →</button>
+      </div>
+    </div>
+    <div class="quiz-result" id="quizResult" style="display:none">
+      <div class="quiz-score-ring-wrap">
+        <svg class="quiz-score-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="#1E2D45" stroke-width="8"/>
+          <circle id="quizRingFill" cx="60" cy="60" r="52" fill="none" stroke="#00D4FF" stroke-width="8"
+            stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round"
+            transform="rotate(-90 60 60)"/>
+        </svg>
+        <div class="quiz-score-inner">
+          <div class="quiz-score-num" id="quizScoreNum">0</div>
+          <div class="quiz-score-label">/ 100</div>
+        </div>
+      </div>
+      <h3 class="quiz-result-tier" id="quizTierLabel"></h3>
+      <p class="quiz-result-desc" id="quizTierDesc"></p>
+      <div class="quiz-recs">
+        <div class="quiz-recs-title">Your Top 3 Automation Opportunities</div>
+        <div id="quizRecsList"></div>
+      </div>
+      <button class="btn btn-primary quiz-cta" onclick="bookCallQuiz()">Book Your Free Michigan AI Audit →</button>
+      <p class="quiz-cta-note">30 minutes. Free. We'll walk through these exact recommendations for your business.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="section" id="contact">
   <div class="container">
@@ -1430,6 +1620,7 @@
           <span onclick="scrollTo('process')">Process</span>
           <span onclick="scrollTo('faq')">FAQ</span>
           <span onclick="scrollTo('pricing')">Pricing</span>
+          <span onclick="scrollTo('quiz')">AI Readiness Quiz</span>
           <span onclick="scrollTo('contact')">Contact</span>
         </div>
         <div class="footer-col">
@@ -1485,6 +1676,7 @@
 
   // Calendly
   function bookCall() {
+    if (typeof gtag !== 'undefined') gtag('event', 'book_call_click', { event_category: 'cta', cta_source: 'page' });
     window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
   }
 
@@ -1571,18 +1763,23 @@
   })();
 
   // ROI Calculator
+  var roiGaFired = false;
   function calcROI() {
     var people  = Math.max(1, +document.getElementById('roiPeople').value || 1);
     var hours   = Math.max(1, +document.getElementById('roiHours').value  || 1);
     var rate    = Math.max(1, +document.getElementById('roiRate').value    || 1);
     var annual  = people * hours * rate * 52;
     var savings = Math.round(annual * 0.70);
-    var tier2   = 9750; // midpoint Quick Deploy
+    var tier2   = 9750;
     var payback = tier2 / (savings / 12);
     var fmt = function(n) { return '$' + Math.round(n).toLocaleString('en-US'); };
     document.getElementById('roiAnnualCost').textContent = fmt(annual);
     document.getElementById('roiSavings').textContent    = fmt(savings) + '/yr';
     document.getElementById('roiPayback').textContent    = payback.toFixed(1) + ' months';
+    if (!roiGaFired && typeof gtag !== 'undefined') {
+      roiGaFired = true;
+      gtag('event', 'roi_calculator_interact', { event_category: 'engagement' });
+    }
   }
   calcROI();
 
@@ -1608,6 +1805,126 @@
     if (grid) obs.observe(grid);
   })();
 
+  // AI Readiness Quiz
+  (function() {
+    var answers = {};
+    var currentQ = 1;
+    var TOTAL_Q = 5;
+
+    window.selectOpt = function(el) {
+      var q = el.dataset.q;
+      document.querySelectorAll('[data-q="' + q + '"]').forEach(function(o) { o.classList.remove('selected'); });
+      el.classList.add('selected');
+      answers[q] = { val: el.dataset.val, score: +el.dataset.score };
+      document.getElementById('quizNav').style.display = 'block';
+      document.getElementById('quizNext').textContent = currentQ === TOTAL_Q ? 'See My Results →' : 'Next →';
+    };
+
+    window.quizNext = function() {
+      if (!answers[currentQ]) return;
+      if (currentQ < TOTAL_Q) {
+        document.getElementById('qq' + currentQ).classList.remove('active');
+        currentQ++;
+        document.getElementById('qq' + currentQ).classList.add('active');
+        if (!answers[currentQ]) document.getElementById('quizNav').style.display = 'none';
+        else document.getElementById('quizNext').textContent = currentQ === TOTAL_Q ? 'See My Results →' : 'Next →';
+        var pct = ((currentQ - 1) / TOTAL_Q) * 100;
+        document.getElementById('quizProgressBar').style.width = pct + '%';
+        document.getElementById('quizStepLabel').textContent = 'Question ' + currentQ + ' of ' + TOTAL_Q;
+      } else {
+        showQuizResult();
+      }
+    };
+
+    function showQuizResult() {
+      var total = 0;
+      for (var k in answers) total += answers[k].score;
+      total = Math.min(100, total);
+
+      var ind        = (answers['1'] || {}).val || 'other';
+      var bottleneck = (answers['3'] || {}).val || 'dataentry';
+      var hours      = (answers['5'] || {}).val || 'mid';
+
+      var tier, desc;
+      if (total >= 80) {
+        tier = 'High-Impact Opportunity';
+        desc = 'You\'re leaving significant automation savings on the table. Michigan businesses in your industry are already recovering these exact hours.';
+      } else if (total >= 65) {
+        tier = 'Strong Automation Candidate';
+        desc = 'Clear automation wins available — typical payback inside 3–6 months for businesses at your stage.';
+      } else if (total >= 50) {
+        tier = 'Emerging Opportunity';
+        desc = 'AI can help. Start with one high-impact process to build momentum and prove ROI fast.';
+      } else {
+        tier = 'Building the Foundation';
+        desc = 'You\'re early-stage, but the right AI foundation now compounds into a major competitive edge in 12–18 months.';
+      }
+
+      var pools = {
+        auto:         ['OEM Compliance Reporting Automation — Eliminate manual reporting to Ford, GM, and Stellantis. Done in hours, not days.',
+                       'AI Visual Inspection System — 95%+ defect detection rate. Stop catching problems after they leave the line.'],
+        health:       ['Prior Auth & Scheduling AI — Recover 3–5 staff hours daily. HIPAA-compliant, on-premise deployment.',
+                       'Patient Follow-up Automation — Automated reminders, no-show reduction, and care gap outreach.'],
+        logistics:    ['Dispatch Optimization AI — Route, assign, and confirm loads in minutes. Michigan carriers recover 20 hrs/week.',
+                       'Load & Invoice Automation — Eliminate manual entry, invoice matching, and broker back-and-forth.'],
+        construction: ['Automated Estimating System — Generate accurate estimates 80% faster. Every bid auto-followed-up.',
+                       'Subcontractor & Schedule Coordination — Automated job assignments, change orders, and crew communication.'],
+        other:        ['Lead Nurture & Follow-up Automation — Never let a prospect go cold. Automated sequence from inquiry to close.',
+                       'Reporting & Dashboard Automation — Live KPIs pulled automatically. No more manual spreadsheet updates.']
+      };
+      var bottleneckRec = {
+        dataentry:  'Data Entry Elimination — AI reads, routes, and enters data from emails, PDFs, and forms automatically.',
+        scheduling: 'Intelligent Scheduling Engine — AI schedules, dispatches, and confirms without human coordination.',
+        followup:   'Sales Follow-up Automation — Multi-touch AI sequence: email, SMS, voicemail drop. Zero slip-through.',
+        qc:         'AI Quality Control System — Computer vision inspection catches defects before they reach the customer.',
+        estimating: 'Rapid Estimating & Proposal AI — Answer RFQs in under 2 hours with accurate, auto-generated proposals.'
+      };
+
+      var recs = [];
+      var indPool = pools[ind] || pools['other'];
+      recs.push(indPool[0]);
+      var bRec = bottleneckRec[bottleneck];
+      if (bRec && recs[0].indexOf(bRec.split(' — ')[0]) === -1) recs.push(bRec);
+      if (recs.length < 3 && indPool[1]) recs.push(indPool[1]);
+      if (recs.length < 3 && (hours === 'high' || hours === 'max'))
+        recs.push('Full Workflow Audit — Map every manual process, rank by ROI, build your 90-day automation roadmap.');
+      recs = recs.slice(0, 3);
+
+      document.getElementById('quizShell').style.display = 'none';
+      document.getElementById('quizResult').style.display = 'block';
+      document.getElementById('quizTierLabel').textContent = tier;
+      document.getElementById('quizTierDesc').textContent  = desc;
+
+      var html = '';
+      recs.forEach(function(r, i) {
+        var parts = r.split(' — ');
+        html += '<div class="quiz-rec-item"><div class="quiz-rec-num">' + (i + 1) + '</div>' +
+          '<div><span class="quiz-rec-name">' + parts[0] + '</span>' + (parts[1] || '') + '</div></div>';
+      });
+      document.getElementById('quizRecsList').innerHTML = html;
+
+      var ring  = document.getElementById('quizRingFill');
+      var scoreEl = document.getElementById('quizScoreNum');
+      var circ = 326.7;
+      var t0 = performance.now(), dur = 1400;
+      (function tick(now) {
+        var p = Math.min((now - t0) / dur, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
+        scoreEl.textContent = Math.round(total * ease);
+        ring.style.strokeDashoffset = circ - circ * (total / 100) * ease;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+
+      if (typeof gtag !== 'undefined')
+        gtag('event', 'quiz_complete', { event_category: 'lead_qualification', quiz_score: total, quiz_industry: ind });
+    }
+
+    window.bookCallQuiz = function() {
+      if (typeof gtag !== 'undefined') gtag('event', 'book_call_click', { event_category: 'cta', cta_source: 'quiz' });
+      window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
+    };
+  })();
+
   // Contact form — Netlify Forms with /thank-you/ redirect; mailto fallback for dev
   function submitForm(e) {
     if (e) e.preventDefault();
@@ -1623,6 +1940,7 @@
     data.append('email', email);
     data.append('company', company);
     data.append('message', message);
+    if (typeof gtag !== 'undefined') gtag('event', 'contact_form_submit', { event_category: 'lead' });
     fetch('/', { method: 'POST', body: data })
       .then(r => { if (r.ok) { window.location.href = '/thank-you/'; } else { throw new Error(); } })
       .catch(() => {
