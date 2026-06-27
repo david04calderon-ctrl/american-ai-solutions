@@ -1,0 +1,157 @@
+{
+  "name": "AIS Phone Agent — Call Processing",
+  "description": "Receives Vapi call webhooks, logs to HubSpot, texts David, sends follow-up email to prospect",
+  "nodes": [
+    {
+      "id": "webhook-trigger",
+      "name": "Vapi Call Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "notes": "Receives POST from Vapi after every call ends. Set this URL in Vapi dashboard under Assistant > End of Call Report Webhook.",
+      "parameters": {
+        "path": "ais-call-complete",
+        "method": "POST"
+      }
+    },
+    {
+      "id": "parse-call",
+      "name": "Parse Call Data",
+      "type": "n8n-nodes-base.set",
+      "notes": "Extracts the fields we care about from Vapi's call report",
+      "parameters": {
+        "values": {
+          "callerName": "={{ $json.body.customer.name }}",
+          "callerPhone": "={{ $json.body.customer.number }}",
+          "businessName": "={{ $json.body.analysis.structuredData.businessName }}",
+          "industry": "={{ $json.body.analysis.structuredData.industry }}",
+          "problemDescription": "={{ $json.body.analysis.structuredData.problem }}",
+          "budgetMentioned": "={{ $json.body.analysis.structuredData.budget }}",
+          "decisionMaker": "={{ $json.body.analysis.structuredData.decisionMaker }}",
+          "urgency": "={{ $json.body.analysis.structuredData.urgency }}",
+          "outcome": "={{ $json.body.analysis.structuredData.outcome }}",
+          "callSummary": "={{ $json.body.analysis.summary }}",
+          "calledBooked": "={{ $json.body.analysis.structuredData.outcome === 'booked_call' }}",
+          "callDuration": "={{ $json.body.durationSeconds }}",
+          "callRecordingUrl": "={{ $json.body.recordingUrl }}"
+        }
+      }
+    },
+    {
+      "id": "create-hubspot-contact",
+      "name": "Create or Update HubSpot Contact",
+      "type": "n8n-nodes-base.hubspot",
+      "notes": "Creates new contact in HubSpot. If phone already exists, updates existing record.",
+      "parameters": {
+        "resource": "contact",
+        "operation": "upsert",
+        "additionalFields": {
+          "firstname": "={{ $json.callerName.split(' ')[0] }}",
+          "lastname": "={{ $json.callerName.split(' ').slice(1).join(' ') }}",
+          "phone": "={{ $json.callerPhone }}",
+          "company": "={{ $json.businessName }}",
+          "industry": "={{ $json.industry }}",
+          "hs_lead_status": "IN_PROGRESS",
+          "lifecyclestage": "lead",
+          "lead_source": "AI Phone Agent"
+        }
+      }
+    },
+    {
+      "id": "create-hubspot-deal",
+      "name": "Create HubSpot Deal",
+      "type": "n8n-nodes-base.hubspot",
+      "notes": "Creates a deal in the pipeline for every qualified caller",
+      "parameters": {
+        "resource": "deal",
+        "operation": "create",
+        "additionalFields": {
+          "dealname": "={{ $json.businessName }} — {{ $json.industry }} Automation",
+          "dealstage": "appointmentscheduled",
+          "pipeline": "default",
+          "amount": "7500",
+          "closedate": "={{ new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString() }}",
+          "description": "={{ $json.callSummary }}",
+          "lead_source": "Inbound Call — AI Agent"
+        }
+      }
+    },
+    {
+      "id": "add-call-note",
+      "name": "Add Call Note to HubSpot",
+      "type": "n8n-nodes-base.hubspot",
+      "notes": "Logs the full call summary as a note on the contact",
+      "parameters": {
+        "resource": "engagement",
+        "operation": "create",
+        "type": "NOTE",
+        "additionalFields": {
+          "body": "=📞 AI Phone Agent Call Summary\n\nCaller: {{ $json.callerName }} | {{ $json.callerPhone }}\nBusiness: {{ $json.businessName }} | {{ $json.industry }}\nDuration: {{ Math.floor($json.callDuration / 60) }}m {{ $json.callDuration % 60 }}s\n\nPROBLEM DESCRIBED:\n{{ $json.problemDescription }}\n\nBUDGET: {{ $json.budgetMentioned || 'Not discussed' }}\nDECISION MAKER: {{ $json.decisionMaker }}\nURGENCY: {{ $json.urgency }}\nOUTCOME: {{ $json.outcome }}\n\nFULL SUMMARY:\n{{ $json.callSummary }}\n\n🎙️ Recording: {{ $json.callRecordingUrl }}"
+        }
+      }
+    },
+    {
+      "id": "text-david",
+      "name": "Text David — New Lead Alert",
+      "type": "n8n-nodes-base.twilio",
+      "notes": "Texts David immediately after every completed call. Replace DAVID_PHONE with his real number.",
+      "parameters": {
+        "operation": "send",
+        "from": "={{ $env.TWILIO_PHONE_NUMBER }}",
+        "to": "={{ $env.DAVID_PHONE_NUMBER }}",
+        "message": "=🔔 AIS LEAD ALERT\n\n{{ $json.callerName }} | {{ $json.businessName }}\n{{ $json.industry }}\n\nProblem: {{ $json.problemDescription.substring(0, 150) }}...\n\nBudget: {{ $json.budgetMentioned || 'Not discussed' }}\nUrgency: {{ $json.urgency }}\nOutcome: {{ $json.outcome }}\n\nHubSpot: https://app.hubspot.com/contacts/\nRecording: {{ $json.callRecordingUrl }}"
+      }
+    },
+    {
+      "id": "check-if-booked",
+      "name": "Did They Book?",
+      "type": "n8n-nodes-base.if",
+      "notes": "Routes to follow-up email only if call was booked. Unbooked leads get a different nurture sequence.",
+      "parameters": {
+        "conditions": {
+          "boolean": [{ "value1": "={{ $json.calledBooked }}", "value2": true }]
+        }
+      }
+    },
+    {
+      "id": "send-booking-confirmation",
+      "name": "Send Booking Confirmation Email",
+      "type": "n8n-nodes-base.gmail",
+      "notes": "Sends from david@americanaisolutionsllc.com to confirm the strategy call and set expectations",
+      "parameters": {
+        "operation": "send",
+        "to": "={{ $json.callerEmail }}",
+        "subject": "Your Strategy Call with American AI Solutions — What to Expect",
+        "emailType": "html",
+        "message": "=<p>Hi {{ $json.callerName.split(' ')[0] }},</p><p>You're booked. David's going to come into that call already knowing what you shared with Alex today — you won't have to repeat yourself.</p><p><strong>What to expect in 30 minutes:</strong></p><ul><li>David audits your top workflow bottlenecks and ranks them by ROI</li><li>You get a clear picture of what AI can fix — and what it can't</li><li>If there's a fit, you'll have a fixed-price scope in 48 hours</li><li>Zero obligation. Zero pitch. Just real answers.</li></ul><p>Before the call, it helps to have a rough sense of:<br>• Which process is costing you the most time or money<br>• Who on your team would need to be involved in a decision like this</p><p>That's it. See you soon.</p><p>— David Calderon<br>American AI Solutions LLC<br>Detroit, Michigan<br>david@americanaisolutionsllc.com</p>"
+      }
+    },
+    {
+      "id": "send-nurture-email",
+      "name": "Send Nurture Email (Not Booked)",
+      "type": "n8n-nodes-base.gmail",
+      "notes": "For callers who didn't book — keeps the door open",
+      "parameters": {
+        "operation": "send",
+        "to": "={{ $json.callerEmail }}",
+        "subject": "Good talking with you — one thing worth knowing",
+        "emailType": "html",
+        "message": "=<p>Hi {{ $json.callerName.split(' ')[0] }},</p><p>Thanks for calling American AI Solutions today. Wanted to follow up with one thing that might be useful.</p><p>Based on what you described — {{ $json.problemDescription.substring(0, 200) }} — the most common thing we see is that businesses wait until the problem is costing them significantly before they act. The ones who move early end up 6–12 months ahead of their competition.</p><p>If you want a free 30-minute audit of your workflow, no strings attached, you can book here: https://calendly.com/david04calderon/ai-strategy-call</p><p>We'll tell you exactly what's possible and what it would cost — even if the answer is \"not yet.\"</p><p>— David Calderon<br>American AI Solutions LLC<br>david@americanaisolutionsllc.com</p>"
+      }
+    }
+  ],
+  "connections": {
+    "webhook-trigger": { "main": [["parse-call"]] },
+    "parse-call": { "main": [["create-hubspot-contact"]] },
+    "create-hubspot-contact": { "main": [["create-hubspot-deal"]] },
+    "create-hubspot-deal": { "main": [["add-call-note", "text-david", "check-if-booked"]] },
+    "check-if-booked": {
+      "main": [["send-booking-confirmation"], ["send-nurture-email"]]
+    }
+  },
+  "settings": {
+    "environment_variables": {
+      "TWILIO_PHONE_NUMBER": "Your Twilio business number (e.g. +13135551234)",
+      "DAVID_PHONE_NUMBER": "David's personal cell for alerts",
+      "HUBSPOT_API_KEY": "From HubSpot > Settings > Integrations > API Key"
+    }
+  }
+}
