@@ -709,6 +709,93 @@
       .quiz-opt { font-size: 14px; }
     }
 
+    /* ── Exit Intent Popup ── */
+    .exit-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,.78); z-index: 9999; backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .exit-overlay.active { display: flex; }
+    .exit-modal {
+      background: #0D1117; border: 1px solid #1E2D45; border-radius: 12px;
+      padding: 48px 40px; max-width: 520px; width: 100%;
+      position: relative; text-align: center;
+      animation: popup-in .25s ease;
+    }
+    @keyframes popup-in { from { transform: scale(.93); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .exit-close {
+      position: absolute; top: 14px; right: 18px; background: none; border: none;
+      color: #4A5473; font-size: 24px; cursor: pointer; padding: 4px 8px; line-height: 1;
+    }
+    .exit-close:hover { color: white; }
+    .exit-tag {
+      display: inline-block; background: rgba(255,215,0,.12); color: #FFD700;
+      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(255,215,0,.25);
+      margin-bottom: 18px;
+    }
+    .exit-modal h3 { font-family: 'DM Serif Display', serif; font-size: clamp(20px,3vw,26px); color: white; margin-bottom: 10px; line-height: 1.2; }
+    .exit-modal p { color: #6B7694; font-size: 14px; line-height: 1.65; margin-bottom: 22px; }
+    .exit-form { display: flex; gap: 8px; margin-bottom: 16px; }
+    .exit-input {
+      flex: 1; background: rgba(255,255,255,.05); border: 1px solid #1E2D45;
+      border-radius: 6px; padding: 13px 16px; font-size: 14px; color: white;
+      font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .2s;
+    }
+    .exit-input::placeholder { color: #4A5473; }
+    .exit-input:focus { border-color: #00D4FF; }
+    .exit-btn {
+      background: #FFD700; color: #0D1117; border: none; border-radius: 6px;
+      padding: 13px 18px; font-size: 13px; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: background .2s;
+    }
+    .exit-btn:hover { background: #FFE740; }
+    .exit-divider { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 11px; color: #4A5473; }
+    .exit-divider::before, .exit-divider::after { content: ''; flex: 1; height: 1px; background: #1E2D45; }
+    .exit-skip { font-size: 12px; color: #4A5473; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .exit-skip:hover { color: #9AA3B8; }
+    @media (max-width: 600px) {
+      .exit-modal { padding: 36px 20px; }
+      .exit-form { flex-direction: column; }
+      .exit-btn { width: 100%; padding: 14px; }
+    }
+
+    /* ── Video / Founder Section ── */
+    .video-card {
+      position: relative; border-radius: 8px; overflow: hidden;
+      cursor: pointer; max-width: 760px; margin: 0 auto;
+      box-shadow: 0 32px 80px rgba(0,0,0,.36);
+      transition: transform .25s;
+    }
+    .video-card:hover { transform: translateY(-4px); }
+    .video-thumb {
+      width: 100%; display: block;
+      filter: brightness(.62); transition: filter .3s;
+    }
+    .video-card:hover .video-thumb { filter: brightness(.78); }
+    .video-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 76px; height: 76px; border-radius: 50%;
+      background: rgba(26,58,143,.92); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(255,255,255,.28);
+      transition: transform .2s, background .2s;
+    }
+    .video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); background: #1A3A8F; }
+    .video-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg,rgba(0,0,0,.88) 0%,transparent 100%);
+      padding: 40px 28px 22px;
+    }
+    .video-bar-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: white; margin-bottom: 4px; }
+    .video-bar-sub { font-size: 13px; color: rgba(255,255,255,.55); }
+    .video-duration {
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(0,0,0,.65); color: white; font-size: 11px;
+      font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    }
+
     /* ── Lead Magnet ── */
     .lead-magnet-wrap {
       max-width: 680px; margin: 0 auto;
@@ -844,8 +931,8 @@
       <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
       <a class="nav-link" onclick="scrollTo('process')">Process</a>
       <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
+      <a class="nav-link" onclick="scrollTo('quiz')" style="color:#00D4FF;font-weight:700;">AI Quiz</a>
       <a class="nav-link" href="/blog/">Insights</a>
-      <a class="nav-link" href="/resources/michigan-ai-grant-guide/" style="color:#1A3A8F;font-weight:700;">Free Grant Guide</a>
       <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
       <!-- PHONE NAV: uncomment and replace number when Google Voice is secured -->
       <!-- <a class="nav-link" href="tel:PHONE_NUMBER_PLACEHOLDER" style="color:#1A3A8F;font-weight:700">PHONE_NUMBER_PLACEHOLDER</a> -->
@@ -860,8 +947,9 @@
     <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
     <a class="nav-link" onclick="scrollTo('process')">Process</a>
     <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
+    <a class="nav-link" onclick="scrollTo('quiz')" style="color:#00D4FF;font-weight:700;">AI Readiness Quiz</a>
     <a class="nav-link" href="/blog/">Insights</a>
-    <a class="nav-link" href="/resources/michigan-ai-grant-guide/" style="color:#1A3A8F;font-weight:700;">Free Grant Guide</a>
+    <a class="nav-link" onclick="scrollTo('grant-guide')">Free Grant Guide</a>
     <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
     <button class="btn btn-primary" style="width:100%;text-align:center" onclick="bookCall()">Book a Free Strategy Call</button>
   </div>
@@ -875,7 +963,7 @@
         <div style="margin-bottom:16px"><span class="tag">Detroit-Based · AI Consulting</span></div>
         <div class="accepting-badge">
           <span class="accepting-dot"></span>
-          Now accepting new clients for Q3 2026
+          Q3 2026 strategy calls booking now — slots fill 2–3 weeks out
         </div>
         <h1>Your Business Runs on You.<br><em>Let's Change That.</em></h1>
         <p>We build AI systems that handle the work so you can focus on what only you can do. Detroit-based. Fixed scope. No proof-of-concepts — just automation that ships and runs.</p>
@@ -1218,6 +1306,34 @@
   </div>
 </section>
 
+<!-- FOUNDER VIDEO -->
+<section class="section section-dark" id="video">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:44px">
+      <div class="divider" style="margin:0 auto 14px;background:#00D4FF"></div>
+      <span class="tag tag-cyan">Meet the Founder</span>
+      <h2 class="section-title" style="color:white">Hear It Directly<br><em style="color:#00D4FF;font-style:italic">From David.</em></h2>
+      <p class="section-sub" style="max-width:480px;margin:0 auto;color:#6B7694">Why American AI Solutions exists, who we build for, and what you can expect when we work together.</p>
+    </div>
+    <div class="fade" style="transition-delay:.1s" onclick="openFounderVideo()" title="Watch David's intro video">
+      <div class="video-card">
+        <img class="video-thumb" src="assets/david-calderon-headshot.jpg" alt="David Calderon — Watch Founder's Message" loading="lazy"/>
+        <div class="video-duration">Coming Soon</div>
+        <div class="video-play">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-bar">
+          <div class="video-bar-title">Why I Built American AI Solutions — A Message from David Calderon</div>
+          <div class="video-bar-sub">Founder & CEO · American AI Solutions LLC · Metro Detroit, MI</div>
+        </div>
+      </div>
+    </div>
+    <div class="fade" style="text-align:center;margin-top:28px;transition-delay:.2s">
+      <p style="font-size:14px;color:#4A5473">Can't wait for the video? <button onclick="bookCall()" style="background:none;border:none;color:#00D4FF;font-weight:600;cursor:pointer;font-size:14px;padding:0;text-decoration:underline;text-underline-offset:3px">Book a free 30-minute call</button> and hear it live.</p>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="section" id="process">
   <div class="container">
@@ -1282,6 +1398,28 @@
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">We had an OEM audit coming up and needed our quality process tightened fast. David mapped it, built the detection model, trained our team, and was still answering questions 45 days later. We passed the audit. That's the only number that matters.</p>
         <div class="tcard-footer"><div class="avatar">QM</div><div><div class="tname">Quality Manager</div><div class="ttitle">West Michigan Tier 2 supplier · Quick Deploy</div></div></div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:24px">
+      <div class="tcard fade">
+        <div class="tcard-industry">Southeast Michigan · GC Estimating & Proposal Automation</div>
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">We were losing bids because we couldn't turn estimates fast enough. Now the system pulls the takeoff, generates the proposal, and follows up automatically. We went from 3 days to same-day. Won four jobs last month we would've been too slow to bid on before.</p>
+        <div class="tcard-footer"><div class="avatar">PO</div><div><div class="tname">Project Owner</div><div class="ttitle">Southeast Michigan GC · Full Implementation</div></div></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;padding:32px 24px">
+        <div style="text-align:center">
+          <div style="font-family:'DM Serif Display',serif;font-size:52px;color:#EEF2FA;line-height:1;margin-bottom:12px">4</div>
+          <div style="font-size:13px;font-weight:700;color:#0D1117;margin-bottom:6px">Michigan Verticals Served</div>
+          <div style="font-size:13px;color:#4A5473;line-height:1.7">Automotive · Healthcare<br>Logistics · Construction</div>
+          <div style="margin-top:16px"><button class="btn btn-outline" onclick="scrollTo('quiz')" style="font-size:13px;padding:10px 20px">Find Your Vertical →</button></div>
+        </div>
+      </div>
+      <div class="tcard fade" style="transition-delay:.1s">
+        <div class="tcard-industry">Metro Detroit · AI Voice & Lead Automation</div>
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">Every lead that came in after hours was a lost lead. David built a system that qualifies, responds, and books appointments automatically — 24/7. We booked 11 appointments in the first two weeks from leads we would have missed. Worth every dollar.</p>
+        <div class="tcard-footer"><div class="avatar">BO</div><div><div class="tname">Business Owner</div><div class="ttitle">Metro Detroit service business · Quick Deploy</div></div></div>
       </div>
     </div>
   </div>
@@ -2038,6 +2176,54 @@
     if (grid) obs.observe(grid);
   })();
 
+  // Founder video (replace URL with Loom/YouTube link when recorded)
+  function openFounderVideo() {
+    var url = 'https://www.youtube.com/@americanaisolutions';
+    if (typeof gtag !== 'undefined') gtag('event', 'video_click', { event_category: 'engagement', video_title: 'founder_intro' });
+    window.open(url, '_blank');
+  }
+
+  // Exit intent popup
+  (function() {
+    if (sessionStorage.getItem('exitShown')) return;
+    var overlay = document.getElementById('exitPopup');
+    var triggered = false;
+    function showPopup() {
+      if (triggered) return;
+      triggered = true;
+      sessionStorage.setItem('exitShown', '1');
+      overlay.classList.add('active');
+      if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_shown', { event_category: 'engagement' });
+    }
+    // Desktop: mouse exits top of viewport
+    document.addEventListener('mouseleave', function(e) { if (e.clientY < 8) showPopup(); });
+    // Mobile: 50s idle after scroll
+    var lastScroll = Date.now();
+    window.addEventListener('scroll', function() { lastScroll = Date.now(); }, { passive: true });
+    setTimeout(function() { if (Date.now() - lastScroll > 22000) showPopup(); }, 50000);
+    // Close
+    document.getElementById('exitClose').addEventListener('click', function() { overlay.classList.remove('active'); });
+    document.getElementById('exitSkip').addEventListener('click', function() { overlay.classList.remove('active'); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('active'); });
+    // Form
+    document.getElementById('exitForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('exitEmail').value.trim();
+      if (!email) return;
+      if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_capture', { event_category: 'lead' });
+      var data = new FormData(); data.append('form-name', 'exit-capture'); data.append('email', email);
+      fetch('/', { method: 'POST', body: data }).catch(function(){});
+      document.getElementById('exitModal').innerHTML =
+        '<div style="text-align:center;padding:20px 0">' +
+        '<div style="font-size:40px;margin-bottom:16px">✓</div>' +
+        '<h3 style="font-family:DM Serif Display,serif;font-size:24px;color:white;margin-bottom:10px">It\'s on its way.</h3>' +
+        '<p style="color:#6B7694;font-size:14px;line-height:1.65;margin-bottom:20px">The Michigan AI Grant Blueprint is heading to your inbox right now. While you\'re here —</p>' +
+        '<button class="btn btn-primary" onclick="bookCall()" style="width:100%;margin-bottom:12px">Book a Free 30-Minute Strategy Call</button>' +
+        '<div style="font-size:12px;color:#4A5473;cursor:pointer;text-decoration:underline" onclick="document.getElementById(\'exitPopup\').classList.remove(\'active\')">No thanks, I\'ll read the guide first</div>' +
+        '</div>';
+    });
+  })();
+
   // Grant Guide lead magnet form
   function submitGrantForm(e) {
     if (e) e.preventDefault();
@@ -2220,5 +2406,22 @@
   <span class="float-chat-dot"></span>
   Let's Talk
 </button>
+
+<!-- EXIT INTENT POPUP -->
+<div class="exit-overlay" id="exitPopup" role="dialog" aria-modal="true">
+  <div class="exit-modal" id="exitModal">
+    <button class="exit-close" id="exitClose" aria-label="Close">×</button>
+    <div class="exit-tag">Before You Go</div>
+    <h3>Get the Free Michigan AI Grant Blueprint</h3>
+    <p>Going PRO and Industry 4.0 grants can cover up to 50% of your AI implementation costs — but most Michigan businesses never apply. Get the plain-English guide, free.</p>
+    <form class="exit-form" id="exitForm">
+      <input class="exit-input" type="email" id="exitEmail" placeholder="Your email address" required autocomplete="email"/>
+      <button class="exit-btn" type="submit">Send It →</button>
+    </form>
+    <div class="exit-divider">or</div>
+    <button class="btn btn-primary" onclick="bookCall();document.getElementById('exitPopup').classList.remove('active')" style="width:100%;margin-bottom:14px">Book a Free Strategy Call Instead</button>
+    <div><span class="exit-skip" id="exitSkip">No thanks, I don't want the grant guide</span></div>
+  </div>
+</div>
 </body>
 </html>
