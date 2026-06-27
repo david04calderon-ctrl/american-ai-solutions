@@ -708,6 +708,123 @@
       .quiz-shell, .quiz-result { padding: 24px 18px; }
       .quiz-opt { font-size: 14px; }
     }
+
+    /* ── Lead Magnet ── */
+    .lead-magnet-wrap {
+      max-width: 680px; margin: 0 auto;
+      background: linear-gradient(135deg,#0A1628 0%,#0D1B32 60%,#091220 100%);
+      border: 1px solid #1E2D45; border-radius: 12px; padding: 52px 48px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .lead-magnet-wrap::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(0,212,255,.08),transparent 70%);
+      pointer-events: none;
+    }
+    .lead-magnet-label {
+      display: inline-block; background: rgba(255,215,0,.12); color: #FFD700;
+      font-size: 10px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 99px;
+      border: 1px solid rgba(255,215,0,.25); margin-bottom: 18px;
+    }
+    .lead-magnet-title {
+      font-family: 'DM Serif Display', serif; font-size: clamp(22px,3vw,30px);
+      color: white; line-height: 1.2; margin-bottom: 10px;
+    }
+    .lead-magnet-sub { font-size: 15px; color: #6B7694; line-height: 1.65; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .lead-magnet-bullets {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 20px;
+      margin-bottom: 32px;
+    }
+    .lm-bullet {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; color: #8892A4;
+    }
+    .lm-bullet::before { content: '✓'; color: #00D4FF; font-weight: 700; font-size: 12px; }
+    .lead-magnet-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+    .lead-magnet-input {
+      flex: 1; background: rgba(255,255,255,.05); border: 1px solid #1E2D45;
+      border-radius: 6px; padding: 14px 18px; font-size: 14px; color: white;
+      font-family: 'DM Sans', sans-serif; outline: none;
+      transition: border-color .2s;
+    }
+    .lead-magnet-input::placeholder { color: #4A5473; }
+    .lead-magnet-input:focus { border-color: #00D4FF; }
+    .lead-magnet-submit {
+      background: #FFD700; color: #0D1117; border: none; border-radius: 6px;
+      padding: 14px 22px; font-size: 14px; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: background .2s; letter-spacing: .02em;
+    }
+    .lead-magnet-submit:hover { background: #FFE740; }
+    .lead-magnet-note { font-size: 11px; color: #4A5473; margin-top: 14px; }
+    .lead-magnet-success { display: none; text-align: center; }
+    @media (max-width: 768px) {
+      .lead-magnet-wrap { padding: 36px 22px; }
+      .lead-magnet-form { flex-direction: column; }
+      .lead-magnet-submit { width: 100%; padding: 15px; }
+    }
+
+    /* ── Blog Cards ── */
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .blog-card {
+      border: 1px solid #E4E8F0; border-radius: 4px; overflow: hidden;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+      text-decoration: none; display: block; background: white;
+    }
+    .blog-card:hover { box-shadow: 0 12px 40px rgba(26,58,143,.12); transform: translateY(-4px); border-color: #C5CDE6; }
+    .blog-card-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 99px;
+      background: #EEF2FA; color: #1A3A8F; margin-bottom: 10px;
+    }
+    .blog-card-body { padding: 24px; }
+    .blog-card-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #0D1117; line-height: 1.3; margin-bottom: 8px; }
+    .blog-card-desc { font-size: 13px; color: #4A5473; line-height: 1.65; margin-bottom: 16px; }
+    .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #9AA3B8; }
+    .blog-card-read { color: #1A3A8F; font-weight: 600; font-size: 13px; }
+    @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    /* ── Values / Why Section ── */
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid #E4E8F0; border-radius: 4px; overflow: hidden; }
+    .value-card { padding: 36px 28px; border-right: 1px solid #E4E8F0; }
+    .value-card:last-child { border-right: none; }
+    .value-icon { font-size: 28px; margin-bottom: 14px; }
+    .value-name { font-size: 16px; font-weight: 700; color: #0D1117; margin-bottom: 8px; }
+    .value-desc { font-size: 14px; color: #4A5473; line-height: 1.75; }
+    .founder-quote {
+      border-left: 3px solid #1A3A8F; padding: 20px 28px;
+      background: #F7F9FC; margin-top: 32px; border-radius: 0 4px 4px 0;
+    }
+    .founder-quote-text { font-family: 'DM Serif Display', serif; font-size: 20px; color: #0D1117; line-height: 1.5; margin-bottom: 10px; font-style: italic; }
+    .founder-quote-attr { font-size: 12px; color: #4A5473; font-weight: 600; letter-spacing: .06em; }
+    @media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } .value-card { border-right: none; border-bottom: 1px solid #E4E8F0; } .value-card:last-child { border-bottom: none; } }
+
+    /* ── Floating Chat Button ── */
+    .float-chat {
+      position: fixed; bottom: 88px; right: 22px; z-index: 900;
+      background: #1A3A8F; color: white; border: none; border-radius: 50px;
+      padding: 12px 18px 12px 14px; font-size: 13px; font-weight: 600;
+      cursor: pointer; box-shadow: 0 4px 20px rgba(26,58,143,.40);
+      display: flex; align-items: center; gap: 8px;
+      transition: background .2s, transform .2s;
+      text-decoration: none;
+    }
+    .float-chat:hover { background: #2347B0; transform: translateY(-2px); }
+    .float-chat-dot { width: 8px; height: 8px; background: #00D4FF; border-radius: 50%; flex-shrink: 0; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+    @media (max-width: 768px) { .float-chat { display: none; } }
+
+    /* ── Mission Banner ── */
+    .mission-banner {
+      background: #0D1117; border-top: 1px solid #1E2D45;
+      padding: 32px 0; text-align: center;
+    }
+    .mission-banner-text {
+      font-family: 'DM Serif Display', serif; font-size: clamp(17px,2vw,22px);
+      color: #6B7694; line-height: 1.5; max-width: 680px; margin: 0 auto;
+    }
+    .mission-banner-text em { color: #00D4FF; font-style: normal; }
   </style>
 </head>
 <body>
@@ -1046,17 +1163,21 @@
 <!-- ABOUT -->
 <section class="section section-alt" id="about">
   <div class="container">
-    <div class="grid-2">
+    <div class="grid-2" style="gap:80px;align-items:start">
       <div class="fade">
         <div class="divider"></div>
-        <span class="tag">About Us</span>
-        <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Execute.</em></h2>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75;margin-bottom:20px">I'm David Calderon — born and raised in Detroit. I built American AI Solutions because Michigan businesses work too hard for outdated processes. We don't sell strategy decks. We build systems that run on Monday morning.</p>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75">No Silicon Valley assumptions. No vague roadmaps. Just disciplined AI deployment for the logistics companies, medical practices, automotive suppliers, and construction firms that keep Michigan moving — built by someone who actually lives here.</p>
-        <div class="check-list">
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC</div>
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Remote-capable, always available</div>
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Results-first engagement model</div>
+        <span class="tag">About the Founder</span>
+        <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Serve.</em></h2>
+        <p style="font-size:16px;color:#4A5473;line-height:1.8;margin-bottom:18px">I'm David Calderon — Metro Detroit born, Michigan-rooted. I built American AI Solutions with one conviction: <strong style="color:#0D1117">every business deserves access to tools that were previously only available to Fortune 500 companies.</strong></p>
+        <p style="font-size:16px;color:#4A5473;line-height:1.8;margin-bottom:24px">We operate with integrity at every step. When I say fixed price, I mean it. When I say 48-hour proposal, I mean it. When I say 30-day ROI checkpoint, it's in the contract. No bait-and-switch. No hidden scope. Just honest work that produces real results for real Michigan businesses.</p>
+        <div class="founder-quote">
+          <div class="founder-quote-text">"The world is ours — every client who reaches out deserves our absolute best. That's not a business strategy. That's a standard I won't negotiate."</div>
+          <div class="founder-quote-attr">— David Calderon, Founder & CEO · American AI Solutions LLC</div>
+        </div>
+        <div class="check-list" style="margin-top:28px">
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC · EIN registered</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Every engagement is fixed-price with a signed SOW</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>30-day ROI checkpoint — guaranteed in writing</div>
         </div>
       </div>
       <div class="fade" style="transition-delay:.15s">
@@ -1070,7 +1191,26 @@
           <div style="display:inline-block;margin-top:20px;text-align:left;padding:16px 20px;background:#fff;border:1px solid #E4E8F0;border-radius:4px;box-shadow:0 4px 16px rgba(0,0,0,.06)">
             <div style="font-weight:700;font-size:15px;color:#1C1C1C;letter-spacing:.02em">David Calderon</div>
             <div style="font-size:12px;color:#1A3A8F;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Founder & CEO</div>
-            <div style="font-size:12px;color:#9AA3B8;margin-top:2px">American AI Solutions LLC · Detroit, MI</div>
+            <div style="font-size:12px;color:#9AA3B8;margin-top:2px">American AI Solutions LLC · Metro Detroit, MI</div>
+          </div>
+          <div style="margin-top:16px;padding:16px 20px;background:#fff;border:1px solid #E4E8F0;border-radius:4px;text-align:left">
+            <div class="values-grid">
+              <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <div class="value-name">Integrity</div>
+                <div class="value-desc">Every promise in writing. Every deadline kept.</div>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">🔥</div>
+                <div class="value-name">Excellence</div>
+                <div class="value-desc">World-class work for every client, every time.</div>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <div class="value-name">Purpose</div>
+                <div class="value-desc">Building systems that serve people and communities.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1208,6 +1348,56 @@
     </div>
     <div class="fade" style="text-align:center;margin-top:48px;transition-delay:.2s">
       <button class="btn btn-white" onclick="bookCall()">See What We Can Build for Your Business</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / INSIGHTS -->
+<section class="section section-alt" id="insights">
+  <div class="container">
+    <div class="fade" style="margin-bottom:52px">
+      <div class="divider"></div>
+      <span class="tag">Michigan AI Intelligence</span>
+      <h2 class="section-title">From the Lab — <em style="color:#1A3A8F">Read the Research.</em></h2>
+      <p style="color:#4A5473;font-size:16px;max-width:540px;line-height:1.7">Deep dives on Michigan AI strategy, grant funding, and vertical-specific automation. Real playbooks, real numbers, no filler.</p>
+    </div>
+    <div class="blog-grid fade" style="transition-delay:.1s">
+      <a class="blog-card" href="/blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/" target="_blank" rel="noopener">
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Automotive</span>
+          <div class="blog-card-title">OEM AI Mandates Are Here — What Michigan Tier 2 & 3 Suppliers Must Do Now</div>
+          <div class="blog-card-desc">Ford, GM, and Stellantis have added AI readiness requirements to their supplier scorecards. Here's exactly what that means for Sterling Heights and Warren manufacturers.</div>
+          <div class="blog-card-meta">
+            <span>7 min read</span>
+            <span class="blog-card-read">Read article →</span>
+          </div>
+        </div>
+      </a>
+      <a class="blog-card" href="/blog/hipaa-ai-michigan-healthcare-practices/" target="_blank" rel="noopener">
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Healthcare</span>
+          <div class="blog-card-title">HIPAA + AI for Michigan Medical Practices: The Complete On-Premise Playbook</div>
+          <div class="blog-card-desc">Metro Detroit practices are losing 30+ staff hours weekly to manual prior auth. This is how HIPAA-compliant AI automation actually works — and what it's not allowed to touch.</div>
+          <div class="blog-card-meta">
+            <span>8 min read</span>
+            <span class="blog-card-read">Read article →</span>
+          </div>
+        </div>
+      </a>
+      <a class="blog-card" href="/blog/michigan-fleet-ai-dispatch-optimization/" target="_blank" rel="noopener">
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Logistics</span>
+          <div class="blog-card-title">Michigan Fleet AI: The Math Behind Recovering 20 Dispatch Hours Every Week</div>
+          <div class="blog-card-desc">Carriers running I-75, I-94, and the Detroit-Windsor corridor are the biggest beneficiaries of dispatch AI. Here's the ROI breakdown and the grant funding angle.</div>
+          <div class="blog-card-meta">
+            <span>6 min read</span>
+            <span class="blog-card-read">Read article →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="fade" style="text-align:center;margin-top:36px;transition-delay:.2s">
+      <a href="/blog/" class="btn btn-outline" style="display:inline-block;text-decoration:none">View All Michigan AI Articles →</a>
     </div>
   </div>
 </section>
@@ -1472,6 +1662,39 @@
   </div>
 </section>
 
+<!-- LEAD MAGNET -->
+<section class="section section-alt" id="grant-guide">
+  <div class="container">
+    <div class="lead-magnet-wrap fade">
+      <div class="lead-magnet-label">Free Download · Limited Time</div>
+      <h2 class="lead-magnet-title">The Michigan AI<br>Grant Blueprint</h2>
+      <p class="lead-magnet-sub">A plain-English guide to the Going PRO Talent Fund and Industry 4.0 Tech Grant — how to qualify, apply, and get up to 50% of your AI implementation costs reimbursed by the State of Michigan.</p>
+      <div class="lead-magnet-bullets">
+        <span class="lm-bullet">Going PRO eligibility checklist</span>
+        <span class="lm-bullet">Industry 4.0 application walkthrough</span>
+        <span class="lm-bullet">Grant math by business size</span>
+        <span class="lm-bullet">Common rejection reasons (and how to avoid them)</span>
+      </div>
+      <div id="lmFormWrap">
+        <form name="grant-guide" method="POST" data-netlify="true" action="/thank-you/" onsubmit="return submitGrantForm(event)">
+          <input type="hidden" name="form-name" value="grant-guide"/>
+          <div class="lead-magnet-form">
+            <input class="lead-magnet-input" type="email" name="email" id="lmEmail" placeholder="Your email address" required autocomplete="email"/>
+            <button class="lead-magnet-submit" type="submit">Send My Free Guide →</button>
+          </div>
+        </form>
+        <p class="lead-magnet-note">No spam. Unsubscribe anytime. This goes straight to your inbox in 60 seconds.</p>
+      </div>
+      <div class="lead-magnet-success" id="lmSuccess">
+        <div style="font-size:28px;margin-bottom:12px">✓</div>
+        <div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px">It's on its way.</div>
+        <p style="color:#6B7694;font-size:14px">Check your inbox — and if you're serious about getting grants funded, let's talk strategy.</p>
+        <button class="btn btn-primary" onclick="bookCall()" style="margin-top:18px">Book a Free Strategy Call</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- AI READINESS QUIZ -->
 <section class="section section-dark" id="quiz">
   <div class="container">
@@ -1601,6 +1824,14 @@
   </div>
 </section>
 
+<!-- MISSION BANNER -->
+<div class="mission-banner">
+  <p class="mission-banner-text">
+    We build AI systems that serve <em>people</em> — the dispatcher, the nurse, the fabricator, the estimator.<br>
+    Not just the balance sheet. <em>Detroit-built. Values-driven. Results guaranteed.</em>
+  </p>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1620,7 +1851,9 @@
           <span onclick="scrollTo('process')">Process</span>
           <span onclick="scrollTo('faq')">FAQ</span>
           <span onclick="scrollTo('pricing')">Pricing</span>
+          <span onclick="scrollTo('insights')">Blog / Insights</span>
           <span onclick="scrollTo('quiz')">AI Readiness Quiz</span>
+          <span onclick="scrollTo('grant-guide')">Free Grant Guide</span>
           <span onclick="scrollTo('contact')">Contact</span>
         </div>
         <div class="footer-col">
@@ -1805,6 +2038,27 @@
     if (grid) obs.observe(grid);
   })();
 
+  // Grant Guide lead magnet form
+  function submitGrantForm(e) {
+    if (e) e.preventDefault();
+    var email = document.getElementById('lmEmail').value.trim();
+    if (!email) return false;
+    if (typeof gtag !== 'undefined') gtag('event', 'grant_guide_signup', { event_category: 'lead', event_label: email });
+    var data = new FormData();
+    data.append('form-name', 'grant-guide');
+    data.append('email', email);
+    fetch('/', { method: 'POST', body: data })
+      .then(function() {
+        document.getElementById('lmFormWrap').style.display = 'none';
+        document.getElementById('lmSuccess').style.display = 'block';
+      })
+      .catch(function() {
+        document.getElementById('lmFormWrap').style.display = 'none';
+        document.getElementById('lmSuccess').style.display = 'block';
+      });
+    return false;
+  }
+
   // AI Readiness Quiz
   (function() {
     var answers = {};
@@ -1960,5 +2214,11 @@
 <div class="sticky-cta-mobile">
   <button class="btn btn-primary" style="width:100%;text-align:center;font-size:14px;padding:15px 32px" onclick="bookCall()">Book a Free Strategy Call</button>
 </div>
+
+<!-- FLOATING CHAT BUTTON -->
+<button class="float-chat" onclick="scrollTo('contact')" aria-label="Start a conversation">
+  <span class="float-chat-dot"></span>
+  Let's Talk
+</button>
 </body>
 </html>
