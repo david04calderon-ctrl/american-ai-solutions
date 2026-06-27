@@ -30,7 +30,7 @@ americanaisolutionsllc.com
 
 **Engagement Type:**
 - [ ] AI Workflow Audit ($2,500)
-- [ ] Quick Deploy — Single Automation ($7,500)
+- [ ] Quick Deploy — Single Automation ($7,500–$12,000)
 - [ ] Full Implementation ($25,000+)
 
 **Problem We're Solving:**

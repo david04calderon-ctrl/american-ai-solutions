@@ -36,8 +36,8 @@ We build custom AI automation systems for Michigan businesses. We eliminate manu
 
 **Pricing (be honest, give ranges):**
 - AI Workflow Audit: $2,500 — map your top 3 automation opportunities, ranked by ROI
-- Quick Deploy: $7,500 — one end-to-end automation built and live in 3–4 weeks
-- Full Implementation: $25,000+ — multi-system build, full team training, 12-week engagement
+- Quick Deploy: $7,500–$12,000 — one end-to-end automation built and live in 3–4 weeks (scope determines final price)
+- Full Implementation: $25,000+ — multi-system build, full team training, 8–12 week engagement
 - Custom enterprise: "We scope it together — we've worked with budgets from $10K to $100K+"
 
 **Michigan grant funding (HUGE differentiator — lead with this for manufacturers):**
