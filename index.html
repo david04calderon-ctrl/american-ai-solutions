@@ -456,6 +456,18 @@
     .result-label { font-size: 13px; color: #6B7694; line-height: 1.6; }
     /* Star ratings */
     .tcard-stars { color: #FFD700; letter-spacing: 2px; margin-bottom: 12px; font-size: 15px; }
+    /* Accepting badge */
+    .accepting-badge { display: inline-flex; align-items: center; gap: 8px; background: #F0FDF4; border: 1px solid #86EFAC; border-radius: 20px; padding: 6px 14px; margin-bottom: 20px; font-size: 12px; font-weight: 600; color: #15803D; letter-spacing: .03em; }
+    .accepting-dot { width: 7px; height: 7px; background: #22C55E; border-radius: 50%; display: inline-block; flex-shrink: 0; animation: pulse-dot 1.6s ease-in-out infinite; }
+    /* Promise section */
+    .promise-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .promise-card { border: 1px solid #E4E8F0; padding: 36px 28px; border-radius: 2px; background: white; transition: border-color .25s, box-shadow .25s, transform .25s; }
+    .promise-card:hover { border-color: #1A3A8F; box-shadow: 0 8px 32px rgba(26,58,143,.10); transform: translateY(-3px); }
+    .promise-num { font-family: 'DM Serif Display', serif; font-size: 68px; color: #EEF2FA; line-height: .9; margin-bottom: 18px; letter-spacing: -.03em; }
+    .promise-title { font-size: 17px; font-weight: 700; margin-bottom: 12px; color: #0D1117; }
+    .promise-desc { font-size: 14px; color: #4A5473; line-height: 1.75; }
+    /* Testimonial industry tag */
+    .tcard-industry { font-size: 10px; font-weight: 700; color: #1A3A8F; letter-spacing: .08em; text-transform: uppercase; background: #EEF2FA; display: inline-block; padding: 4px 10px; border-radius: 1px; margin-bottom: 14px; }
     /* ROI Calculator */
     .roi-card { max-width: 900px; margin: 0 auto; background: #101825; border: 1px solid #1E2D45; border-radius: 6px; overflow: hidden; }
     .roi-inputs { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-bottom: 1px solid #1E2D45; }
@@ -489,6 +501,7 @@
       body { padding-bottom: 64px; }
       .trust-bar-label, .trust-bar-sep, .trust-bar-michigan { display: none; }
       .trust-bar-logos span { padding: 0 10px; font-size: 11px; }
+      .promise-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .roi-inputs { grid-template-columns: 1fr; }
       .roi-field { border-right: none; border-bottom: 1px solid #1E2D45; padding: 20px 20px; }
       .roi-field:last-child { border-bottom: none; }
@@ -540,7 +553,11 @@
   <div class="container">
     <div class="hero-split">
       <div class="hero-left">
-        <div style="margin-bottom:28px"><span class="tag">Detroit-Based · AI Consulting</span></div>
+        <div style="margin-bottom:16px"><span class="tag">Detroit-Based · AI Consulting</span></div>
+        <div class="accepting-badge">
+          <span class="accepting-dot"></span>
+          Now accepting new clients for Q3 2026
+        </div>
         <h1>Your Business Runs on You.<br><em>Let's Change That.</em></h1>
         <p>We build AI systems that handle the work so you can focus on what only you can do. Detroit-based. Fixed scope. No proof-of-concepts — just automation that ships and runs.</p>
         <div class="hero-ctas">
@@ -744,6 +761,40 @@
   </div>
 </section>
 
+<!-- OUR PROMISE -->
+<section class="section" id="promise">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:52px">
+      <div class="divider" style="margin:0 auto 14px"></div>
+      <span class="tag">Zero Risk</span>
+      <h2 class="section-title">Every Reason to Start.<br><em style="color:#1A3A8F">None to Wait.</em></h2>
+      <p class="section-sub" style="max-width:520px;margin:0 auto">We removed every common objection before you could raise it. Here's the commitment before you book anything.</p>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-card fade">
+        <div class="promise-num">01</div>
+        <h3 class="promise-title">Fixed Price. Always.</h3>
+        <p class="promise-desc">The number in your signed SOW is the number on your invoice. No hourly overages. No scope creep charges. If we underestimate the build — we absorb it. You never pay more than you approved.</p>
+      </div>
+      <div class="promise-card fade" style="transition-delay:.07s">
+        <div class="promise-num">02</div>
+        <h3 class="promise-title">Live in the Timeline.</h3>
+        <p class="promise-desc">You get a launch date before you sign. We build buffer into every project. If something goes sideways, we work nights and weekends. Your deadline is our deadline — it's in the contract.</p>
+      </div>
+      <div class="promise-card fade" style="transition-delay:.14s">
+        <div class="promise-num">03</div>
+        <h3 class="promise-title">30-Day ROI in Writing.</h3>
+        <p class="promise-desc">At 30 days post-launch we measure the result together. Hours recovered, errors eliminated, volume processed — put in writing. If we can't show you the output, we keep optimizing until we can.</p>
+      </div>
+      <div class="promise-card fade" style="transition-delay:.21s">
+        <div class="promise-num">04</div>
+        <h3 class="promise-title">Free Before You Commit.</h3>
+        <p class="promise-desc">You get a full 30-minute audit of your operation, a ranked list of your top AI opportunities, and a frank conversation about what we'd leave alone. Zero cost. No obligation. Even if you don't hire us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA STRIP -->
 <section class="cta-strip">
   <div class="container">
@@ -839,19 +890,22 @@
     </div>
     <div class="grid-3">
       <div class="tcard fade">
+        <div class="tcard-industry">Southeast Michigan · Logistics & Dispatch Automation</div>
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">Our dispatch team was manually building routes every morning — two people, four hours, every day. Three weeks after David's team finished, the system built routes automatically and sent assignments before the crew clocked in. We haven't touched it since. First month we got back 20 hours a week.</p>
-        <div class="tcard-footer"><div class="avatar">OL</div><div><div class="tname">Operations Lead</div><div class="ttitle">Southeast Michigan freight carrier</div></div></div>
+        <div class="tcard-footer"><div class="avatar">OL</div><div><div class="tname">Operations Lead</div><div class="ttitle">Southeast Michigan freight carrier · Quick Deploy</div></div></div>
       </div>
       <div class="tcard fade" style="transition-delay:.1s">
+        <div class="tcard-industry">Metro Detroit · HIPAA-Compliant Prior Auth Automation</div>
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">They didn't oversell it. David walked through our intake and prior auth process, told us exactly what he could fix and what he couldn't — then he fixed it. On budget, on time. Our staff got three hours a day back. That's not a small thing.</p>
-        <div class="tcard-footer"><div class="avatar">PA</div><div><div class="tname">Practice Administrator</div><div class="ttitle">Metro Detroit medical group</div></div></div>
+        <div class="tcard-footer"><div class="avatar">PA</div><div><div class="tname">Practice Administrator</div><div class="ttitle">Metro Detroit medical group · Full Implementation</div></div></div>
       </div>
       <div class="tcard fade" style="transition-delay:.2s">
+        <div class="tcard-industry">West Michigan · OEM Quality Inspection AI · Tier 2 Supplier</div>
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">We had an OEM audit coming up and needed our quality process tightened fast. David mapped it, built the detection model, trained our team, and was still answering questions 45 days later. We passed the audit. That's the only number that matters.</p>
-        <div class="tcard-footer"><div class="avatar">QM</div><div><div class="tname">Quality Manager</div><div class="ttitle">West Michigan Tier 2 supplier</div></div></div>
+        <div class="tcard-footer"><div class="avatar">QM</div><div><div class="tname">Quality Manager</div><div class="ttitle">West Michigan Tier 2 supplier · Quick Deploy</div></div></div>
       </div>
     </div>
   </div>
@@ -921,6 +975,14 @@
       <div class="faq-item fade" style="transition-delay:.15s">
         <div class="faq-q">Do you only work with Michigan businesses?</div>
         <p class="faq-a">Michigan is our priority — we know the market, the OEM supply chain, the grant landscape, and the local business community. We do take select clients outside Michigan when the engagement is a strong fit. <a href="mailto:david@americanaisolutionsllc.com">Reach out</a> and we'll let you know quickly if it makes sense.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.15s">
+        <div class="faq-q">How is my business data protected during the build?</div>
+        <p class="faq-a">We sign an NDA before any work begins. For healthcare clients, we sign a Business Associate Agreement (BAA) before writing a single line of code. For sensitive operations, we build on-premise — your data never touches a public API. We work inside your environment, not ours. Data handling protocols are documented in every SOW.</p>
+      </div>
+      <div class="faq-item fade" style="transition-delay:.2s">
+        <div class="faq-q">What if the automation doesn't perform the way we expected?</div>
+        <p class="faq-a">That's what the 30-day ROI checkpoint is for. We measure the output against the baseline we set together before the build. If something's underperforming, we diagnose and fix it — included in every engagement. We don't close the ticket until the numbers match the projection. Our reputation in a tight Michigan market depends on every client getting results they can point to.</p>
       </div>
     </div>
   </div>
