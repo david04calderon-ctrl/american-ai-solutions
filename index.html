@@ -370,6 +370,52 @@
       /* FAQ */
       .faq-grid { grid-template-columns: 1fr; }
     }
+
+    /* === ENHANCEMENTS === */
+    /* Hero split */
+    .hero { padding: 140px 0 100px; }
+    .hero-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; }
+    .hero-right { position: relative; padding-bottom: 52px; }
+    .hero-photo-deco { position: absolute; top: -24px; right: -16px; width: 160px; height: 160px; border: 2px solid rgba(26,58,143,0.07); border-radius: 50%; pointer-events: none; z-index: 0; }
+    .hero-photo-deco2 { position: absolute; bottom: 20px; left: -20px; width: 80px; height: 80px; background: rgba(26,58,143,0.04); border-radius: 50%; pointer-events: none; z-index: 0; }
+    .hero-photo-badge { position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%); background: white; border: 1px solid #E4E8F0; border-radius: 4px; box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(26,58,143,0.06); padding: 14px 22px; white-space: nowrap; z-index: 2; }
+    .hero-trust { display: flex; gap: 20px; margin-top: 18px; flex-wrap: wrap; }
+    .hero-trust-item { font-size: 13px; color: #6B7694; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+    .hero-trust-item::before { content: '✓'; color: #1A3A8F; font-weight: 700; }
+    /* Trust bar */
+    .trust-bar { background: #0D1117; padding: 14px 0; border-bottom: 1px solid #1E2535; }
+    .trust-bar-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; row-gap: 6px; }
+    .trust-bar-label { font-size: 10px; font-weight: 700; color: #4A5473; letter-spacing: .12em; text-transform: uppercase; padding: 0 20px 0 0; }
+    .trust-bar-logos { display: flex; align-items: center; }
+    .trust-bar-logos span { font-size: 12px; font-weight: 600; color: #6B7694; padding: 0 14px; border-right: 1px solid #1E2535; }
+    .trust-bar-logos span:last-of-type { border-right: none; padding-right: 0; }
+    .trust-bar-sep { width: 1px; height: 18px; background: #1E2535; margin: 0 20px; }
+    .trust-bar-michigan { font-size: 10px; color: #4A5473; letter-spacing: .1em; text-transform: uppercase; padding-left: 20px; }
+    /* Results numbers */
+    .results-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid #1E2D45; border-radius: 4px; overflow: hidden; }
+    .result-item { padding: 40px 28px; border-right: 1px solid #1E2D45; transition: background .25s; }
+    .result-item:hover { background: rgba(0,212,255,0.03); }
+    .result-item:last-child { border-right: none; }
+    .result-num { font-family: 'DM Serif Display', serif; font-size: 50px; color: #00D4FF; line-height: 1; margin-bottom: 12px; letter-spacing: -.02em; }
+    .result-num sup { font-size: 24px; vertical-align: super; }
+    .result-label { font-size: 13px; color: #6B7694; line-height: 1.6; }
+    /* Star ratings */
+    .tcard-stars { color: #FFD700; letter-spacing: 2px; margin-bottom: 12px; font-size: 15px; }
+    /* Sticky mobile CTA */
+    .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); }
+
+    @media (max-width: 768px) {
+      .hero-split { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .result-item { border-right: 1px solid #1E2D45; border-bottom: 1px solid #1E2D45; padding: 24px 16px; }
+      .result-item:nth-child(even) { border-right: none; }
+      .result-item:nth-last-child(-n+2) { border-bottom: none; }
+      .sticky-cta-mobile { display: block; }
+      body { padding-bottom: 64px; }
+      .trust-bar-label, .trust-bar-sep, .trust-bar-michigan { display: none; }
+      .trust-bar-logos span { padding: 0 10px; font-size: 11px; }
+    }
   </style>
 </head>
 <body>
@@ -411,22 +457,66 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div style="max-width:760px">
-      <div style="margin-bottom:28px"><span class="tag">Detroit-Based · AI Consulting</span></div>
-      <h1>Your Business Runs on You.<br><em>Let's Change That.</em></h1>
-      <p>We build AI systems that handle the work so you can focus on what only you can do. Detroit-based. Fixed scope. No proof-of-concepts — just automation that ships and runs.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-primary" onclick="bookCall()">Book a Free Strategy Call</button>
-        <button class="btn btn-outline" onclick="scrollTo('services')">See Our Services</button>
+    <div class="hero-split">
+      <div class="hero-left">
+        <div style="margin-bottom:28px"><span class="tag">Detroit-Based · AI Consulting</span></div>
+        <h1>Your Business Runs on You.<br><em>Let's Change That.</em></h1>
+        <p>We build AI systems that handle the work so you can focus on what only you can do. Detroit-based. Fixed scope. No proof-of-concepts — just automation that ships and runs.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" onclick="bookCall()">Book a Free Strategy Call</button>
+          <button class="btn btn-outline" onclick="scrollTo('services')">See Our Services</button>
+        </div>
+        <div class="hero-trust">
+          <span class="hero-trust-item">No obligation</span>
+          <span class="hero-trust-item">Free 30-minute call</span>
+          <span class="hero-trust-item">Proposal in 48 hours</span>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">48hrs</div><div class="stat-label">Proposal delivered after your call</div></div>
+          <div class="stat"><div class="stat-num">3–12 weeks</div><div class="stat-label">First automation live</div></div>
+          <div class="stat"><div class="stat-num">30 days</div><div class="stat-label">ROI checkpoint — built into every engagement</div></div>
+        </div>
       </div>
-      <div class="stats">
-        <div class="stat"><div class="stat-num">48hrs</div><div class="stat-label">Proposal delivered after your call</div></div>
-        <div class="stat"><div class="stat-num">3–12 weeks</div><div class="stat-label">First automation live</div></div>
-        <div class="stat"><div class="stat-num">30 days</div><div class="stat-label">ROI checkpoint — built into every engagement</div></div>
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-deco"></div>
+          <div class="hero-photo-deco2"></div>
+          <img
+            src="assets/david-calderon-headshot.jpg"
+            alt="David Calderon — Founder & CEO, American AI Solutions LLC"
+            style="width:100%;max-width:420px;border-radius:4px;display:block;margin:0 auto;box-shadow:0 32px 80px rgba(26,58,143,0.20),0 8px 24px rgba(0,0,0,0.08);position:relative;z-index:1"
+            loading="eager"
+          />
+          <div class="hero-photo-badge">
+            <div style="font-weight:700;font-size:14px;color:#1C1C1C;letter-spacing:.02em">David Calderon</div>
+            <div style="font-size:11px;color:#1A3A8F;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Founder & CEO</div>
+            <div style="font-size:11px;color:#9AA3B8;margin-top:2px">American AI Solutions LLC · Detroit, MI</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <span class="trust-bar-label">Enterprise AI Stack</span>
+      <div class="trust-bar-sep"></div>
+      <div class="trust-bar-logos">
+        <span>n8n 2.0</span>
+        <span>Claude Opus 4.8</span>
+        <span>Gemini 2.5 Pro</span>
+        <span>LangGraph</span>
+        <span>HubSpot</span>
+        <span>Vapi</span>
+      </div>
+      <div class="trust-bar-sep"></div>
+      <span class="trust-bar-michigan">Michigan LLC · Detroit, MI</span>
+    </div>
+  </div>
+</div>
 
 <!-- AI DEMO -->
 <section class="section section-dark" id="demo">
@@ -593,8 +683,8 @@
         <div class="divider"></div>
         <span class="tag">About Us</span>
         <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Execute.</em></h2>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75;margin-bottom:20px">American AI Solutions LLC is a Detroit-based AI consulting firm founded on one principle: implementation beats strategy decks. We don't sell roadmaps — we build systems that run.</p>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75">Founded by David Calderon, we've embedded ourselves in the Detroit business community to understand what local operations actually need. No Silicon Valley assumptions. Just disciplined AI deployment that compounds over time.</p>
+        <p style="font-size:16px;color:#4A5473;line-height:1.75;margin-bottom:20px">I'm David Calderon — born and raised in Detroit. I built American AI Solutions because Michigan businesses work too hard for outdated processes. We don't sell strategy decks. We build systems that run on Monday morning.</p>
+        <p style="font-size:16px;color:#4A5473;line-height:1.75">No Silicon Valley assumptions. No vague roadmaps. Just disciplined AI deployment for the logistics companies, medical practices, automotive suppliers, and construction firms that keep Michigan moving — built by someone who actually lives here.</p>
         <div class="check-list">
           <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC</div>
           <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Remote-capable, always available</div>
@@ -668,17 +758,52 @@
     </div>
     <div class="grid-3">
       <div class="tcard fade">
+        <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">Our dispatch team was manually building routes every morning — two people, four hours, every day. Three weeks after David's team finished, the system built routes automatically and sent assignments before the crew clocked in. We haven't touched it since. First month we got back 20 hours a week.</p>
         <div class="tcard-footer"><div class="avatar">OL</div><div><div class="tname">Operations Lead</div><div class="ttitle">Southeast Michigan freight carrier</div></div></div>
       </div>
       <div class="tcard fade" style="transition-delay:.1s">
+        <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">They didn't oversell it. David walked through our intake and prior auth process, told us exactly what he could fix and what he couldn't — then he fixed it. On budget, on time. Our staff got three hours a day back. That's not a small thing.</p>
         <div class="tcard-footer"><div class="avatar">PA</div><div><div class="tname">Practice Administrator</div><div class="ttitle">Metro Detroit medical group</div></div></div>
       </div>
       <div class="tcard fade" style="transition-delay:.2s">
+        <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">We had an OEM audit coming up and needed our quality process tightened fast. David mapped it, built the detection model, trained our team, and was still answering questions 45 days later. We passed the audit. That's the only number that matters.</p>
         <div class="tcard-footer"><div class="avatar">QM</div><div><div class="tname">Quality Manager</div><div class="ttitle">West Michigan Tier 2 supplier</div></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS BY THE NUMBERS -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:52px">
+      <div class="divider" style="margin:0 auto 14px;background:#00D4FF"></div>
+      <span class="tag tag-cyan">By the Numbers</span>
+      <h2 class="section-title" style="color:white">What Happens When<br><em style="color:#00D4FF;font-style:italic">AI Actually Ships.</em></h2>
+    </div>
+    <div class="results-grid fade" style="transition-delay:.1s">
+      <div class="result-item">
+        <div class="result-num">30<sup>+hrs</sup></div>
+        <div class="result-label">Per week recovered for a single Michigan medical practice — clinical staff time freed from manual prior auth</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">70<sup>%</sup></div>
+        <div class="result-label">Of prior authorization requests fully automated — HIPAA-compliant, on-premise, no PHI leaves the network</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">95<sup>%+</sup></div>
+        <div class="result-label">Defect detection accuracy with AI-assisted quality inspection for automotive Tier 2 suppliers</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">50<sup>%</sup></div>
+        <div class="result-label">Of implementation costs covered by Michigan state grant funding for qualifying manufacturers</div>
+      </div>
+    </div>
+    <div class="fade" style="text-align:center;margin-top:48px;transition-delay:.2s">
+      <button class="btn btn-white" onclick="bookCall()">See What We Can Build for Your Business</button>
     </div>
   </div>
 </section>
@@ -1014,5 +1139,10 @@
       </div>`;
   }
 </script>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta-mobile">
+  <button class="btn btn-primary" style="width:100%;text-align:center;font-size:14px;padding:15px 32px" onclick="bookCall()">Book a Free Strategy Call</button>
+</div>
 </body>
 </html>
