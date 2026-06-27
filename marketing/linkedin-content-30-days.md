@@ -270,14 +270,300 @@ Voice: Direct. Detroit. Real. No corporate fluff. Short paragraphs. White space.
 
 **WEEK 4 — Close & Convert**
 
-**Day 16–30: Rotate these themes**
-- One client outcome story per week (anonymized)
-- One "how AI works" explainer (demystify the tech)
-- One Detroit/Michigan community post (not about business)
-- One grant/funding angle post
-- One short punchy observation (2–4 lines max)
-- One direct CTA post (ask for the call)
-- One behind-the-scenes of what you're building
+**Day 16 — The Client Story (anonymized outcome post)**
+> A Michigan freight carrier came to us in January.
+>
+> Two-person dispatch team. Starting at 5am every morning.
+> Building routes by hand. Every day.
+>
+> We built a system that pulls from their TMS overnight,
+> optimizes routes automatically, and sends driver assignments
+> before anyone clocks in.
+>
+> Week 1 after go-live: the dispatchers came in at 8am for the first time in years.
+>
+> That's what "20 hours a week back" actually looks like.
+>
+> One automation. Three weeks to build. Fixed price.
+>
+> If your team is doing work a computer could do — let's talk.
+> Free 30-minute call. Link in bio.
+
+---
+
+**Day 17 — How AI Actually Works (demystify it)**
+> People hear "AI" and picture robots or ChatGPT.
+>
+> What we actually build is closer to a very reliable employee
+> who works 24/7, never forgets a step, and never calls in sick.
+>
+> Here's the simple version of how it works:
+>
+> 1. Your existing system generates data (orders, routes, patient records, dispatch requests)
+> 2. Our automation watches for triggers (new order, new form submission, end of shift)
+> 3. Logic runs: sort, route, draft, flag, match, schedule
+> 4. Output goes where it needs to go (your inbox, your TMS, your team's phones)
+>
+> Nobody prompts it. Nobody monitors it.
+> It just runs.
+>
+> That's the difference between "we have ChatGPT" and "we have automation."
+>
+> Questions? Drop one in the comments. I'll answer every one.
+
+---
+
+**Day 18 — Detroit Community Post (not about business)**
+> Detroit doesn't get enough credit for what it's actually doing right now.
+>
+> The food scene. The development. The entrepreneurs who stayed.
+> The neighborhoods rebuilding on their own terms.
+>
+> I started American AI Solutions here because this is where the real work gets done.
+>
+> Not in a VC office in San Francisco.
+> Not on a slide deck.
+>
+> In a freight yard in Southeast Michigan.
+> In a medical practice in Sterling Heights.
+> In a machine shop in Grand Rapids.
+>
+> I believe Detroit is going to lead the next wave of American industry.
+> AI is just the tool. The people here are the reason.
+
+---
+
+**Day 19 — Grant Funding Part 3 (the process post)**
+> I want to walk you through exactly how the Michigan grant funding works.
+>
+> Because "50% reimbursement" sounds too good to be true.
+> It's not. But it has rules.
+>
+> **Industry 4.0 Tech Grant:**
+> → For small manufacturers in Michigan
+> → Reimburses up to 50% of AI implementation costs
+> → Applied BEFORE the project starts — not retroactively
+> → Requires a formal quote from the vendor (us) and a project plan
+>
+> **Going PRO Talent Fund:**
+> → For AI training costs — covering your team
+> → $6M pool — still available as of this post
+> → Your employees, on the clock, learning the tools we build
+>
+> We structure every qualifying engagement to hit both programs.
+> We write the documentation. We give you the invoices in the right format.
+>
+> You do the work. Michigan helps pay for the tools.
+>
+> DM me "GRANT" and I'll walk you through whether you qualify.
+
+---
+
+**Day 20 — Short Punchy Post**
+> Nobody comes to work wanting to copy-paste data from one system to another.
+>
+> That's not what you hired them for.
+>
+> Fix it.
+
+---
+
+**Day 21 — Behind the Scenes**
+> What it looks like when we start a new project:
+>
+> Day 1: Kickoff call. We review the exact scope. We collect credentials.
+> We map every data source. We ask the questions nobody asked before.
+>
+> Day 2–3: We build in your actual environment.
+> Not a sandbox. Not a simulation. Your real systems.
+>
+> Day 5: First working prototype. You see it run on your actual data.
+>
+> Week 2–4: We refine. We test edge cases. We break it on purpose.
+>
+> Week 6: Go-live. Training. SOPs. You take over.
+>
+> Day 37: The dispatch team stops working weekends.
+>
+> That's the timeline. That's the process.
+> Every project. No exceptions.
+
+---
+
+**Day 22 — The Direct CTA Post**
+> If you've been reading these posts for 3 weeks —
+>
+> You already know what we do.
+>
+> You already know your operation has a process that's eating your team alive.
+>
+> The only thing left is the call.
+>
+> 30 minutes. Free. I'll tell you exactly what we can automate
+> and what it would cost. Even if the answer is "not yet,"
+> you'll walk away knowing more than you did.
+>
+> That's the whole offer.
+>
+> Book it. Link in bio.
+
+---
+
+**Day 23 — The Second Client Story**
+> Michigan medical group. Metro Detroit.
+>
+> Prior authorization was taking 3 full-time staff members 14+ hours each per week.
+> On hold with insurance companies. Every day.
+>
+> We built an on-premise AI system — HIPAA-compliant, no data leaving their network —
+> that handles 70% of prior auth automatically.
+>
+> Status checks. Form submissions. Follow-up tracking.
+>
+> The staff still handle complex cases and exceptions.
+> But the routine work runs without them.
+>
+> They recovered 30+ hours of clinical staff time per week.
+> They stopped losing staff to burnout.
+>
+> Break-even: 6 months. After that, pure recovered capacity.
+>
+> Healthcare practice owners — this is your problem and this is the fix.
+> DM me or book a call. Link in bio.
+
+---
+
+**Day 24 — The Mindset Post**
+> The businesses I worry about aren't the ones that can't afford AI.
+>
+> It's the ones that keep saying "we'll look at that next quarter."
+>
+> Every quarter, your competitor who didn't wait is 90 days further ahead.
+>
+> The OEM mandate doesn't care about your Q3 planning cycle.
+> The staff member who quit because of prior auth paperwork already left.
+> The logistics contract you lost to the company with better route efficiency is gone.
+>
+> The urgency isn't from me. It's from your market.
+>
+> I'm just the one who can help you move faster.
+
+---
+
+**Day 25 — The FAQ Post**
+> The most common questions I get on strategy calls:
+>
+> **"Do we need technical staff?"**
+> No. We build it. We train your team. We hand over SOPs.
+> Your people operate it. No coding required.
+>
+> **"How much does it actually cost?"**
+> Depends on scope. Single automation: $7,500 fixed.
+> Full implementation: $25,000+. Michigan grants can cover 50%.
+>
+> **"What if it breaks?"**
+> 30-day support is built into every engagement.
+> And the systems we build are simple enough that your team can restart them.
+>
+> **"What if we're not ready?"**
+> I'll tell you that on the call. We've turned down work
+> when the timing wasn't right. That's why our clients refer us.
+>
+> Any other questions? Drop them below.
+
+---
+
+**Day 26 — The Short One**
+> Your competition didn't wait for perfect conditions either.
+>
+> Detroit never does.
+
+---
+
+**Day 27 — The Industry Intelligence Post**
+> Here's what I'm seeing across Michigan right now:
+>
+> Automotive Tier 2 suppliers are getting 12-month windows from OEMs
+> to demonstrate AI capability or lose preferred supplier status.
+>
+> Healthcare practices are losing staff faster than they can hire
+> because manual admin work is driving burnout.
+>
+> Logistics companies are getting undercut by competitors
+> who dispatch 30% more efficiently.
+>
+> Construction firms are losing bids because their estimates take 3x longer.
+>
+> In every one of these industries — the businesses that move now
+> are going to own their market by 2027.
+>
+> That window is open. Not forever.
+
+---
+
+**Day 28 — The Values Post**
+> I want to tell you something about how we operate.
+>
+> We don't take on work we can't deliver.
+> We don't make promises we can't keep.
+> We don't tell you it's going to cost $7,500 and then bill you $30,000.
+>
+> Fixed price. Exact scope. Exact timeline.
+> You know the number before anything starts. Period.
+>
+> Michigan businesses have been burned by consultants who overpromise.
+> I'm not interested in being another one.
+>
+> We succeed when you can measure the result.
+> If we can't measure it, we don't promise it.
+>
+> That's the whole company.
+
+---
+
+**Day 29 — The Offer Reminder**
+> 29 days of posts about AI automation for Michigan businesses.
+>
+> Here's the one thing I want you to remember:
+>
+> The strategy call is free.
+> The audit is real.
+> The proposal is fixed-price.
+>
+> There is no sales pressure. There is no pitch.
+> There is no "we'll send you a 40-slide deck and follow up 9 times."
+>
+> 30 minutes. I diagnose your top 3 workflow gaps.
+> You walk away knowing exactly what's possible — and what it costs.
+>
+> Then you decide. No obligation.
+>
+> That's it. Book it. Link in bio.
+
+---
+
+**Day 30 — The Closing Post (pin as second post behind Day 1)**
+> 30 days ago I started posting about what we do here.
+>
+> Here's what I know now that I didn't know then:
+>
+> Michigan business owners are ready.
+>
+> Not ready in a "we're going to think about it" way.
+> Ready in a "we've been waiting for someone to actually build this for us" way.
+>
+> The calls have been real. The problems are real. The results are real.
+>
+> American AI Solutions is Detroit-built.
+> We build AI systems that run your operation — not demos, not decks.
+>
+> If you've been following along and you're ready to see what this looks like for your business:
+>
+> Book a free 30-minute strategy call. Link in bio.
+>
+> And if you know a Michigan business owner who needs to hear this — share this post.
+>
+> We're just getting started.
 
 ---
 
