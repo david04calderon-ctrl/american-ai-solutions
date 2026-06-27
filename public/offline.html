@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>You're Offline — American AI Solutions LLC</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231A3A8F'/><rect x='4' y='18' width='5' height='10' rx='1' fill='white'/><rect x='13' y='12' width='5' height='16' rx='1' fill='white'/><rect x='22' y='5' width='5' height='23' rx='1' fill='white'/><polyline points='6.5,18 15.5,12 24.5,5' stroke='%2300D4FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='6.5' cy='18' r='2' fill='%2300D4FF'/><circle cx='15.5' cy='12' r='2' fill='%2300D4FF'/><circle cx='24.5' cy='5' r='2' fill='%2300D4FF'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0D1117;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .icon {
+      width: 72px;
+      height: 72px;
+      background: #101825;
+      border: 1px solid #1E2D45;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .icon svg { width: 36px; height: 36px; }
+    .accent-bar {
+      width: 48px;
+      height: 3px;
+      background: #00D4FF;
+      border-radius: 2px;
+      margin: 0 auto 28px;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    p {
+      font-size: 16px;
+      color: #9AA5B8;
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .btn {
+      display: inline-block;
+      background: #1A3A8F;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn:hover { background: #00D4FF; color: #0D1117; }
+    .divider {
+      width: 1px;
+      height: 32px;
+      background: #1E2D45;
+      margin: 24px auto;
+    }
+    .footer-note {
+      font-size: 13px;
+      color: #4A5473;
+    }
+    .footer-note a { color: #00D4FF; text-decoration: none; }
+    .footer-note a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="icon">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 4C10.268 4 4 10.268 4 18s6.268 14 14 14 14-6.268 14-14S25.732 4 18 4z" stroke="#1E2D45" stroke-width="1.5"/>
+      <path d="M18 10v8l5 3" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 8l20 20" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="accent-bar"></div>
+
+  <h1>You're Currently Offline</h1>
+  <p>Check your connection and try again. Your AI roadmap isn't going anywhere — we'll be here when you're back online.</p>
+
+  <button class="btn" onclick="window.location.reload()">Try Again</button>
+
+  <div class="divider"></div>
+
+  <p class="footer-note">
+    American AI Solutions LLC &mdash; Southgate, Michigan (Metro Detroit)<br/>
+    <a href="mailto:david04calderon@gmail.com">david04calderon@gmail.com</a>
+  </p>
+</body>
+</html>
