@@ -107,6 +107,10 @@
     .crm-add-btn:hover{background:#2450BF}
     .crm-export-btn{background:transparent;border:1px solid #1E2D45;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:600;color:#4A5473;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
     .crm-export-btn:hover{border-color:#4A5473;color:#9AA3B8}
+    .crm-import-btn{background:transparent;border:1px solid #1A3A8F;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:600;color:#00D4FF;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+    .crm-import-btn:hover{background:rgba(0,212,255,.08);border-color:#00D4FF}
+    .import-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#22C55E;color:white;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:700;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+    .import-toast.show{opacity:1}
     .crm-table{width:100%;border-collapse:collapse;font-size:13px}
     .crm-table th{padding:10px 16px;text-align:left;font-size:10px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid #1E2D45;white-space:nowrap}
     .crm-table td{padding:12px 16px;border-bottom:1px solid #0D1520;color:#9AA3B8;vertical-align:middle}
@@ -338,6 +342,8 @@
         </div>
         <div style="display:flex;gap:8px">
           <button class="crm-export-btn" onclick="exportCSV('leads')">Export CSV</button>
+          <button class="crm-import-btn" onclick="document.getElementById('importLeads').click()">Import CSV</button>
+          <input type="file" id="importLeads" accept=".csv" style="display:none" onchange="importCSV('leads',this)"/>
           <button class="crm-add-btn" onclick="openModal('lead')">+ Add Lead</button>
         </div>
       </div>
@@ -367,6 +373,8 @@
         <input class="crm-search" type="text" id="servicesSearch" placeholder="Search services..." oninput="renderServices()"/>
         <div style="display:flex;gap:8px">
           <button class="crm-export-btn" onclick="exportCSV('services')">Export CSV</button>
+          <button class="crm-import-btn" onclick="document.getElementById('importServices').click()">Import CSV</button>
+          <input type="file" id="importServices" accept=".csv" style="display:none" onchange="importCSV('services',this)"/>
           <button class="crm-add-btn" onclick="openModal('service')">+ Add Service</button>
         </div>
       </div>
@@ -394,6 +402,8 @@
         <input class="crm-search" type="text" id="portalSearch" placeholder="Search clients..." oninput="renderPortal()"/>
         <div style="display:flex;gap:8px">
           <button class="crm-export-btn" onclick="exportCSV('portal')">Export CSV</button>
+          <button class="crm-import-btn" onclick="document.getElementById('importPortal').click()">Import CSV</button>
+          <input type="file" id="importPortal" accept=".csv" style="display:none" onchange="importCSV('portal',this)"/>
           <button class="crm-add-btn" onclick="openModal('portal')">+ Add Client</button>
         </div>
       </div>
@@ -415,6 +425,8 @@
       </div>
     </div>
   </div>
+
+  <div class="import-toast" id="importToast"></div>
 
   <!-- PLATFORM HEALTH -->
   <div class="section-label">Digital Presence · Platform Health</div>
@@ -967,6 +979,78 @@ function updateKPIs() {
   document.getElementById('barCalls').style.width = Math.min(calls / 5 * 100, 100) + '%';
   document.getElementById('barProps').style.width = Math.min(props / 3 * 100, 100) + '%';
   document.getElementById('barProjects').style.width = Math.min(active / 3 * 100, 100) + '%';
+}
+
+// ── CSV IMPORT ──
+function importCSV(type, input) {
+  var file = input.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var lines = e.target.result.split('\n').map(function(l) { return l.trim(); }).filter(Boolean);
+    if (lines.length < 2) { showToast('No data rows found in CSV.', '#EF4444'); input.value=''; return; }
+    // strip quotes from each cell
+    function cell(s) { return s.replace(/^"|"$/g,'').replace(/""/g,'"').trim(); }
+    function row(line) { var r=[]; var re=/"([^"]*)"|([^,]+)|(?<=,|^)(?=,|$)/g; var m; while((m=re.exec(line))!==null){r.push(m[1]!==undefined?m[1]:m[2]||'');} return r; }
+    // simple split (handles basic quoted CSVs from Google Sheets)
+    function parseRow(line) {
+      var result=[]; var cur=''; var inQ=false;
+      for(var i=0;i<line.length;i++){
+        var c=line[i];
+        if(c==='"'){inQ=!inQ;}
+        else if(c===','&&!inQ){result.push(cur.trim());cur='';}
+        else{cur+=c;}
+      }
+      result.push(cur.trim());
+      return result;
+    }
+    var imported = 0;
+    var skipped = 0;
+    for (var i = 1; i < lines.length; i++) {
+      var cols = parseRow(lines[i]);
+      var obj;
+      if (type === 'leads') {
+        // Cols: Booking ID, Client Name, Email, Phone, Company, Status, Notes
+        if (!cols[1]) { skipped++; continue; }
+        var existIdx = db.leads.findIndex(function(r){ return r.id === cols[0]; });
+        obj = { id: cols[0]||nextId('leads'), name: cols[1]||'', email: cols[2]||'', phone: cols[3]||'', company: cols[4]||'', status: cols[5]||'Discovery Call', notes: cols[6]||'' };
+        if (existIdx >= 0) { db.leads[existIdx] = obj; } else { db.leads.push(obj); }
+      } else if (type === 'services') {
+        // Cols: Service ID, Service Name, Description, Est. Delivery, Value Metric
+        if (!cols[1]) { skipped++; continue; }
+        var existIdx = db.services.findIndex(function(r){ return r.id === cols[0]; });
+        obj = { id: cols[0]||nextId('services'), name: cols[1]||'', desc: cols[2]||'', delivery: cols[3]||'', value: cols[4]||'' };
+        if (existIdx >= 0) { db.services[existIdx] = obj; } else { db.services.push(obj); }
+      } else {
+        // Cols: Portal ID, Company Name, Active Service ID, Project Milestone, Launch Date
+        if (!cols[1]) { skipped++; continue; }
+        var existIdx = db.portal.findIndex(function(r){ return r.id === cols[0]; });
+        obj = { id: cols[0]||nextId('portal'), company: cols[1]||'', serviceId: cols[2]||'', milestone: cols[3]||'', launch: cols[4]||'' };
+        if (existIdx >= 0) { db.portal[existIdx] = obj; } else { db.portal.push(obj); }
+      }
+      imported++;
+    }
+    save(type);
+    if (type==='leads') renderLeads();
+    else if (type==='services') renderServices();
+    else renderPortal();
+    updateKPIs();
+    input.value = '';
+    showToast('Imported ' + imported + ' row' + (imported===1?'':'s') + (skipped?' ('+skipped+' skipped)':'') + ' ✓', '#22C55E');
+  };
+  reader.readAsText(file);
+}
+function showToast(msg, color) {
+  var t = document.getElementById('importToast');
+  t.textContent = msg;
+  t.style.background = color || '#22C55E';
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3000);
+}
+function nextId(type) {
+  if (type==='leads') { var n=db.leads.length+1; return 'BK-'+String(n).padStart(3,'0'); }
+  if (type==='services') { var n=db.services.length+1; return 'AAIS-'+String(n).padStart(3,'0'); }
+  var n=db.portal.length+1; return 'CP-'+String(n).padStart(3,'0');
 }
 
 // ── CSV EXPORT ──
