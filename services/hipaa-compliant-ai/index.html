@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>HIPAA-Compliant AI for Michigan Healthcare Practices — American AI Solutions LLC</title>
+  <meta name="description" content="AI automation built for Michigan healthcare practices — on-premise or private cloud, full HIPAA BAA, no PHI in public models. Prior auth, scheduling, documentation. Free strategy call."/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/services/hipaa-compliant-ai/"/>
+  <meta property="og:title" content="HIPAA-Compliant AI for Michigan Healthcare — American AI Solutions LLC"/>
+  <meta property="og:description" content="AI that works inside HIPAA. Prior auth automation, scheduling, documentation — on-premise or private cloud. Full BAA included. Michigan healthcare practices only."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/services/hipaa-compliant-ai/"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231A3A8F'/><rect x='4' y='18' width='5' height='10' rx='1' fill='white'/><rect x='13' y='12' width='5' height='16' rx='1' fill='white'/><rect x='22' y='5' width='5' height='23' rx='1' fill='white'/><polyline points='6.5,18 15.5,12 24.5,5' stroke='%2300D4FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='6.5' cy='18' r='2' fill='%2300D4FF'/><circle cx='15.5' cy='12' r='2' fill='%2300D4FF'/><circle cx='24.5' cy='5' r='2' fill='%2300D4FF'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1C1C1C; background: #fff; line-height: 1.7; }
+    a { color: #1A3A8F; } a:hover { text-decoration: underline; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); backdrop-filter: blur(8px); border-bottom: 1px solid #E4E8F0; padding: 0 24px; display: flex; align-items: center; gap: 32px; height: 64px; }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-bar { width: 8px; height: 36px; background: #1A3A8F; border-radius: 1px; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 16px; color: #0D1117; line-height: 1.2; }
+    .nav-sub { font-size: 11px; color: #4A5473; letter-spacing: .05em; }
+    .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+    .nav-link { font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #1C1C1C; text-transform: uppercase; text-decoration: none; }
+    .nav-link:hover { color: #1A3A8F; }
+    .nav-cta { background: #1A3A8F; color: white !important; padding: 9px 20px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; text-decoration: none !important; }
+    .nav-cta:hover { background: #0f2460; }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    .hero { background: linear-gradient(135deg, #0D1A14 0%, #065F46 100%); padding: 80px 24px 72px; text-align: center; }
+    .hero-tag { display: inline-block; background: rgba(74,222,128,.12); color: #4ADE80; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(30px,4.5vw,52px); font-weight: 400; color: white; line-height: 1.1; max-width: 800px; margin: 0 auto 20px; }
+    .hero p { font-size: 18px; color: rgba(255,255,255,.65); max-width: 560px; margin: 0 auto 36px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-green { display: inline-block; background: #065F46; border: 1px solid rgba(74,222,128,.3); color: white !important; padding: 14px 28px; border-radius: 2px; font-weight: 700; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; text-decoration: none !important; }
+    .btn-green:hover { background: #047857; }
+    .btn-white { display: inline-block; background: white; color: #0D1117 !important; padding: 14px 28px; border-radius: 2px; font-weight: 700; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; text-decoration: none !important; }
+    .baa-bar { background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2); border-radius: 2px; padding: 14px 20px; max-width: 560px; margin: 24px auto 0; font-size: 13px; color: rgba(255,255,255,.7); display: flex; align-items: center; gap: 10px; justify-content: center; }
+    .baa-check { color: #4ADE80; font-size: 16px; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #065F46; margin-bottom: 10px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #0D1117; margin-bottom: 16px; line-height: 1.15; }
+    .section-sub { font-size: 17px; color: #4A5473; max-width: 580px; line-height: 1.7; margin-bottom: 48px; }
+
+    .use-cases { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 24px; }
+    .use-case { border: 1px solid #E4E8F0; border-radius: 4px; padding: 28px; }
+    .uc-tag { display: inline-block; background: #E6F7EE; color: #065F46; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 1px; margin-bottom: 12px; }
+    .use-case h3 { font-size: 17px; font-weight: 700; color: #0D1117; margin-bottom: 8px; }
+    .use-case p { font-size: 14px; color: #4A5473; line-height: 1.7; margin-bottom: 14px; }
+    .uc-stat { font-size: 13px; font-weight: 700; color: #065F46; background: #E6F7EE; padding: 4px 10px; border-radius: 1px; display: inline-block; }
+
+    .compliance-bg { background: #F7F9FC; border-top: 1px solid #E4E8F0; border-bottom: 1px solid #E4E8F0; }
+    .compliance-inner { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+    .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    @media (max-width:720px) { .compliance-grid { grid-template-columns: 1fr; } }
+    .compliance-list { list-style: none; }
+    .compliance-list li { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #E4E8F0; font-size: 15px; color: #2C2C2C; }
+    .compliance-list li:last-child { border-bottom: none; }
+    .c-check { color: #065F46; font-weight: 700; flex-shrink: 0; }
+    .baa-callout { background: #E6F7EE; border: 1px solid #A7F3D0; border-radius: 4px; padding: 28px; }
+    .baa-callout h3 { font-size: 20px; font-weight: 700; color: #065F46; margin-bottom: 12px; }
+    .baa-callout p { font-size: 14px; color: #047857; line-height: 1.7; margin-bottom: 0; }
+
+    .final-cta { background: #0D1117; padding: 80px 24px; text-align: center; }
+    .final-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px,4vw,40px); color: white; margin-bottom: 16px; }
+    .final-cta p { font-size: 17px; color: rgba(255,255,255,.5); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+    .btn-primary { display: inline-block; background: #1A3A8F; color: white !important; padding: 15px 32px; border-radius: 2px; font-weight: 700; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; text-decoration: none !important; }
+    .btn-primary:hover { background: #00D4FF; color: #0D1117 !important; }
+
+    footer { background: #0D1117; border-top: 1px solid #1E2D45; color: #9AA5B8; padding: 48px 24px 32px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 40px; }
+    @media (max-width:600px) { .footer-inner { grid-template-columns: 1fr; } }
+    .footer-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: white; margin-bottom: 8px; }
+    .footer-tagline { font-size: 13px; color: #6B7280; margin-bottom: 16px; }
+    .footer-legal { font-size: 12px; color: #4A5473; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; text-align: right; }
+    @media (max-width:600px) { .footer-links { text-align: left; } }
+    .footer-links a { font-size: 13px; color: #9AA5B8; text-decoration: none; }
+    .footer-links a:hover { color: white; }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><div class="nav-bar"></div><div><div class="nav-brand">American AI Solutions</div><div class="nav-sub">Detroit, Michigan</div></div></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#services">Services</a>
+    <a class="nav-link" href="/blog/">Insights</a>
+    <a class="nav-link" href="/resources/">Resources</a>
+    <a class="nav-link" href="/resources/michigan-ai-grant-guide/">Free Grant Guide</a>
+    <a class="nav-link" href="/#contact">Contact</a>
+    <a class="nav-cta" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Book Free Call</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Service · HIPAA-Compliant AI · Healthcare</div>
+  <h1>AI that works inside HIPAA.<br/>Not around it.</h1>
+  <p>Prior auth automation, scheduling, documentation, and billing prep — built on-premise or in a private cloud. Full Business Associate Agreement included. No PHI ever touches a public AI model.</p>
+  <div class="hero-btns">
+    <a class="btn-white" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Book Your Free Strategy Call</a>
+    <a class="btn-green" href="/blog/hipaa-ai-michigan-healthcare-practices/">Read: HIPAA + AI Guide →</a>
+  </div>
+  <div class="baa-bar"><span class="baa-check">✓</span> Business Associate Agreement (BAA) executed before any PHI is discussed or processed</div>
+</div>
+
+<div class="section">
+  <div class="section-eyebrow">What We Build</div>
+  <h2 class="section-title">Where Michigan practices are recovering 40+ hours per month</h2>
+  <p class="section-sub">Every system we build is HIPAA-compliant by design — not retrofitted. We start with your compliance requirements, then build the automation around them.</p>
+  <div class="use-cases">
+    <div class="use-case">
+      <span class="uc-tag">Prior Auth</span>
+      <h3>Prior Authorization Automation</h3>
+      <p>AI handles the payer-specific prior auth form population, submission, and status tracking. What takes 2–3 hours per case manually takes 20 minutes with AI assistance. Staff handles exceptions; AI handles volume.</p>
+      <span class="uc-stat">80% time reduction · 3× capacity</span>
+    </div>
+    <div class="use-case">
+      <span class="uc-tag">Scheduling</span>
+      <h3>AI Scheduling &amp; Reminder System</h3>
+      <p>Automated appointment confirmation, reminder sequences, and cancellation capture. Reduces no-show rate 30–40% and fills cancellations automatically from your waitlist — without staff making calls all day.</p>
+      <span class="uc-stat">30–40% no-show reduction</span>
+    </div>
+    <div class="use-case">
+      <span class="uc-tag">Documentation</span>
+      <h3>Clinical Note Assistance</h3>
+      <p>AI drafts structured clinical notes from encounter summaries or voice input. Physicians review and finalize — not write from scratch. Saves 45–90 minutes per provider per day on documentation alone.</p>
+      <span class="uc-stat">45–90 min/day per provider</span>
+    </div>
+    <div class="use-case">
+      <span class="uc-tag">Billing Prep</span>
+      <h3>Coding &amp; Billing Preparation</h3>
+      <p>AI flags encounters with likely coding gaps before they leave the office. Catches the missed diagnoses and undercoded procedures that cost Michigan practices $50,000–$200,000 per year in lost revenue.</p>
+      <span class="uc-stat">$50K–200K annual recovery</span>
+    </div>
+    <div class="use-case">
+      <span class="uc-tag">Patient Comms</span>
+      <h3>HIPAA-Safe Patient Messaging</h3>
+      <p>Automated follow-up messages for lab results notification, care plan reminders, and preventive care outreach — through HIPAA-compliant messaging channels only. No PHI through unsecured SMS.</p>
+      <span class="uc-stat">Fully compliant · Zero PHI exposure</span>
+    </div>
+    <div class="use-case">
+      <span class="uc-tag">Referrals</span>
+      <h3>Referral Management Automation</h3>
+      <p>AI tracks every outgoing referral — status, response received, follow-up needed. Nothing falls through the cracks. Referral loop closure time drops from weeks to days.</p>
+      <span class="uc-stat">Referral closure: weeks → days</span>
+    </div>
+  </div>
+</div>
+
+<div class="compliance-bg">
+  <div class="compliance-inner">
+    <div class="compliance-grid">
+      <div>
+        <div class="section-eyebrow">HIPAA Compliance Built-In</div>
+        <h2 class="section-title" style="font-size:30px;">How we keep every system compliant</h2>
+        <ul class="compliance-list">
+          <li><span class="c-check">✓</span>Business Associate Agreement signed before any work begins</li>
+          <li><span class="c-check">✓</span>All PHI processed on-premise or in dedicated private cloud — never in shared public AI APIs</li>
+          <li><span class="c-check">✓</span>End-to-end encryption for all data in transit and at rest</li>
+          <li><span class="c-check">✓</span>Role-based access controls — staff only sees what they need to see</li>
+          <li><span class="c-check">✓</span>Complete audit logging of all AI actions involving PHI</li>
+          <li><span class="c-check">✓</span>Incident response protocol and breach notification procedure included</li>
+          <li><span class="c-check">✓</span>Annual compliance review option available</li>
+        </ul>
+      </div>
+      <div class="baa-callout">
+        <h3>Why "ChatGPT for healthcare" isn't HIPAA-compliant — and what is</h3>
+        <p>Public AI models (ChatGPT, Claude via consumer API, Google Gemini) do not offer a BAA for standard subscriptions. Entering PHI into these systems is a HIPAA violation — regardless of whether you intend to use the output for clinical purposes.</p>
+        <br/>
+        <p>The systems we build use Claude API via Anthropic's enterprise agreements (which include BAA), on-premise models (Llama 3.1 / Mistral on your own hardware), or Microsoft Azure OpenAI — all with proper BAA execution. Your data stays in a compliant environment from intake to output.</p>
+        <br/>
+        <p><strong>Every Michigan practice we work with receives a completed BAA before we begin any scoping conversation involving patient data.</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="text-align:center; max-width:820px;">
+  <div class="section-eyebrow">Michigan Healthcare Grant Funding</div>
+  <h2 class="section-title">Going PRO covers your staff training. Industry 4.0 may cover implementation.</h2>
+  <p style="font-size:17px;color:#4A5473;line-height:1.7;margin-bottom:32px;">Michigan healthcare practices with administrative functions qualifying as "technical training" have successfully used Going PRO Talent Fund reimbursements for AI system training — $1,500–$3,000 per employee. Qualifying practices with clinical operations can also access the Detroit Small Business Tech Fund. We help you structure the engagement to maximize grant recovery.</p>
+  <a href="/resources/michigan-ai-grant-guide/" style="display:inline-block;background:#EEF2FA;color:#1A3A8F;padding:12px 28px;border-radius:2px;font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;">Download the Michigan Grant Guide →</a>
+</div>
+
+<div class="final-cta">
+  <h2>HIPAA doesn't mean no AI.<br/>It means you need the right partner.</h2>
+  <p>30 minutes. We walk through your practice's specific compliance situation and where AI can save your team the most time — no generic advice.</p>
+  <a class="btn-primary" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Book Your Free Strategy Call</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">American AI Solutions LLC</div>
+      <div class="footer-tagline">Detroit-built AI systems for Michigan businesses.</div>
+      <div class="footer-legal">© 2026 American AI Solutions LLC · Southgate, MI<br/><a href="/privacy/" style="color:#4A5473;text-decoration:none;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#4A5473;text-decoration:none;">Terms</a></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/services/ai-workflow-automation/">AI Workflow Automation</a>
+      <a href="/services/ai-phone-agent/">AI Phone Agent</a>
+      <a href="/services/dispatch-route-optimization/">Dispatch Optimization</a>
+      <a href="/blog/hipaa-ai-michigan-healthcare-practices/">HIPAA + AI Guide</a>
+      <a href="/resources/michigan-ai-grant-guide/">Free Grant Guide</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
