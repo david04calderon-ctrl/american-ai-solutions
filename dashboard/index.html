@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>AAIS Operations Dashboard</title>
+  <title>AAIS Command Center</title>
+  <meta name="robots" content="noindex,nofollow"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231A3A8F'/><rect x='4' y='18' width='5' height='10' rx='1' fill='white'/><rect x='13' y='12' width='5' height='16' rx='1' fill='white'/><rect x='22' y='5' width='5' height='23' rx='1' fill='white'/><polyline points='6.5,18 15.5,12 24.5,5' stroke='%2300D4FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='6.5' cy='18' r='2' fill='%2300D4FF'/><circle cx='15.5' cy='12' r='2' fill='%2300D4FF'/><circle cx='24.5' cy='5' r='2' fill='%2300D4FF'/></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
@@ -12,7 +13,19 @@
     html{scroll-behavior:smooth}
     body{font-family:'DM Sans',sans-serif;background:#060E1A;color:#E2E8F0;min-height:100vh}
 
-    /* LAYOUT */
+    /* ── PASSWORD GATE ── */
+    #gate{position:fixed;inset:0;background:#060E1A;z-index:9999;display:flex;align-items:center;justify-content:center}
+    .gate-card{background:#0D1520;border:1px solid #1E2D45;border-radius:8px;padding:48px 40px;width:100%;max-width:380px;text-align:center}
+    .gate-logo{margin-bottom:24px}
+    .gate-title{font-family:'DM Serif Display',serif;font-size:22px;color:white;margin-bottom:6px}
+    .gate-sub{font-size:13px;color:#4A5473;margin-bottom:28px}
+    .gate-input{width:100%;background:#060E1A;border:1px solid #1E2D45;border-radius:4px;padding:12px 16px;font-size:14px;color:#E2E8F0;font-family:'DM Sans',sans-serif;text-align:center;letter-spacing:.1em;outline:none;margin-bottom:12px;transition:border-color .2s}
+    .gate-input:focus{border-color:#1A3A8F}
+    .gate-btn{width:100%;background:#1A3A8F;border:none;border-radius:4px;padding:12px;font-size:13px;font-weight:700;color:white;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s}
+    .gate-btn:hover{background:#2450BF}
+    .gate-err{font-size:12px;color:#EF4444;margin-top:8px;min-height:18px}
+
+    /* ── LAYOUT ── */
     .topbar{background:#0D1520;border-bottom:1px solid #1E2D45;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
     .tb-left{display:flex;align-items:center;gap:14px}
     .tb-logo{display:flex;align-items:center;gap:10px}
@@ -23,39 +36,37 @@
     .live-dot{width:7px;height:7px;border-radius:50%;background:#00D4FF;box-shadow:0 0 8px #00D4FF;animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-    main{max-width:1200px;margin:0 auto;padding:24px 16px 60px}
+    main{max-width:1280px;margin:0 auto;padding:24px 16px 60px}
 
-    /* GRID SYSTEM */
+    /* ── GRIDS ── */
     .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .grid-1{display:grid;grid-template-columns:1fr;gap:16px}
     @media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:1fr 1fr}}
     @media(max-width:600px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
 
-    /* SECTION */
+    /* ── SECTION LABELS ── */
     .section-label{font-size:10px;font-weight:700;color:#4A5473;letter-spacing:.14em;text-transform:uppercase;margin:28px 0 12px;display:flex;align-items:center;gap:10px}
     .section-label::after{content:'';flex:1;height:1px;background:#1E2D45}
 
-    /* CARDS */
+    /* ── CARDS ── */
     .card{background:#0D1520;border:1px solid #1E2D45;border-radius:6px;padding:20px}
     .card-sm{background:#0D1520;border:1px solid #1E2D45;border-radius:6px;padding:16px}
     .card-title{font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
 
-    /* STATUS CHIPS */
-    .chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:2px}
+    /* ── CHIPS ── */
+    .chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:2px;white-space:nowrap}
     .chip-live{background:rgba(0,212,255,.1);color:#00D4FF;border:1px solid rgba(0,212,255,.2)}
     .chip-go{background:rgba(34,197,94,.1);color:#22C55E;border:1px solid rgba(34,197,94,.2)}
     .chip-warn{background:rgba(255,215,0,.1);color:#FFD700;border:1px solid rgba(255,215,0,.2)}
     .chip-off{background:rgba(255,255,255,.04);color:#4A5473;border:1px solid #1E2D45}
     .chip-hot{background:rgba(239,68,68,.1);color:#EF4444;border:1px solid rgba(239,68,68,.2)}
+    .chip-blue{background:rgba(26,58,143,.2);color:#7B9FE8;border:1px solid rgba(26,58,143,.4)}
 
-    /* KPI CARDS */
+    /* ── KPI ── */
     .kpi-num{font-size:36px;font-weight:700;color:#00D4FF;letter-spacing:-.02em;line-height:1}
     .kpi-label{font-size:12px;color:#4A5473;margin-top:6px;line-height:1.4}
     .kpi-target{font-size:11px;color:#1A3A8F;margin-top:4px}
-
-    /* PROGRESS BARS */
     .prog-wrap{margin-top:10px}
     .prog-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}
     .prog-label span:first-child{color:#9AA3B8;font-weight:500}
@@ -66,11 +77,83 @@
     .prog-blue{background:#1A3A8F}
     .prog-gold{background:#FFD700}
     .prog-green{background:#22C55E}
-    .prog-red{background:#EF4444}
 
-    /* PLATFORM ICONS */
-    .platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    @media(max-width:600px){.platform-grid{grid-template-columns:repeat(2,1fr)}}
+    /* ── ACTIVATE PILLARS ── */
+    .activate-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media(max-width:700px){.activate-grid{grid-template-columns:repeat(2,1fr)}}
+    .activate-card{background:#060E1A;border:1px solid #1E2D45;border-radius:6px;padding:18px;position:relative;overflow:hidden}
+    .activate-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+    .ac-innovate::before{background:#00D4FF}
+    .ac-automate::before{background:#1A3A8F}
+    .ac-elevate::before{background:#FFD700}
+    .ac-activate::before{background:#22C55E}
+    .ac-num{font-size:28px;font-weight:700;opacity:.12;position:absolute;top:10px;right:14px;font-family:'DM Serif Display',serif}
+    .ac-tag{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+    .ac-title{font-size:16px;font-weight:700;color:white;margin-bottom:8px;font-family:'DM Serif Display',serif}
+    .ac-desc{font-size:12px;color:#6B7694;line-height:1.6}
+
+    /* ── CRM TABS ── */
+    .crm-shell{background:#0D1520;border:1px solid #1E2D45;border-radius:6px;overflow:hidden}
+    .crm-tabs{display:flex;border-bottom:1px solid #1E2D45;background:#060E1A}
+    .crm-tab{padding:12px 20px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4A5473;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+    .crm-tab.active{color:#00D4FF;border-bottom-color:#00D4FF}
+    .crm-tab:hover:not(.active){color:#9AA3B8}
+    .crm-panel{display:none;padding:0}
+    .crm-panel.active{display:block}
+    .crm-toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #1E2D45;gap:12px;flex-wrap:wrap}
+    .crm-search{background:#060E1A;border:1px solid #1E2D45;border-radius:4px;padding:8px 12px;font-size:13px;color:#E2E8F0;font-family:'DM Sans',sans-serif;outline:none;width:220px;transition:border-color .2s}
+    .crm-search:focus{border-color:#1A3A8F}
+    .crm-add-btn{background:#1A3A8F;border:none;border-radius:4px;padding:8px 16px;font-size:12px;font-weight:700;color:white;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s}
+    .crm-add-btn:hover{background:#2450BF}
+    .crm-export-btn{background:transparent;border:1px solid #1E2D45;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:600;color:#4A5473;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+    .crm-export-btn:hover{border-color:#4A5473;color:#9AA3B8}
+    .crm-import-btn{background:transparent;border:1px solid #1A3A8F;border-radius:4px;padding:8px 14px;font-size:12px;font-weight:600;color:#00D4FF;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+    .crm-import-btn:hover{background:rgba(0,212,255,.08);border-color:#00D4FF}
+    .import-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#22C55E;color:white;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:700;z-index:9999;opacity:0;transition:opacity .3s;pointer-events:none}
+    .import-toast.show{opacity:1}
+    .crm-table{width:100%;border-collapse:collapse;font-size:13px}
+    .crm-table th{padding:10px 16px;text-align:left;font-size:10px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid #1E2D45;white-space:nowrap}
+    .crm-table td{padding:12px 16px;border-bottom:1px solid #0D1520;color:#9AA3B8;vertical-align:middle}
+    .crm-table tr:hover td{background:rgba(26,58,143,.04)}
+    .crm-table tr:last-child td{border-bottom:none}
+    .crm-table td:first-child{color:#E2E8F0;font-weight:600;font-family:'DM Sans',sans-serif}
+    .crm-empty{padding:40px;text-align:center;color:#4A5473;font-size:13px}
+    .crm-actions{display:flex;gap:8px}
+    .crm-btn-edit{background:rgba(26,58,143,.15);border:1px solid rgba(26,58,143,.3);border-radius:3px;padding:4px 10px;font-size:11px;color:#7B9FE8;cursor:pointer;font-family:'DM Sans',sans-serif}
+    .crm-btn-del{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:3px;padding:4px 10px;font-size:11px;color:#EF4444;cursor:pointer;font-family:'DM Sans',sans-serif}
+
+    /* ── MODAL ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+    .modal-overlay.open{display:flex}
+    .modal{background:#0D1520;border:1px solid #1E2D45;border-radius:8px;padding:28px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto}
+    .modal-title{font-size:16px;font-weight:700;color:white;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
+    .modal-close{background:none;border:none;color:#4A5473;font-size:20px;cursor:pointer;line-height:1}
+    .modal-close:hover{color:#E2E8F0}
+    .form-row{margin-bottom:16px}
+    .form-label{font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;display:block}
+    .form-input,.form-select,.form-textarea{width:100%;background:#060E1A;border:1px solid #1E2D45;border-radius:4px;padding:10px 12px;font-size:13px;color:#E2E8F0;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#1A3A8F}
+    .form-select option{background:#0D1520}
+    .form-textarea{resize:vertical;min-height:80px}
+    .form-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .modal-footer{display:flex;gap:10px;justify-content:flex-end;margin-top:24px;padding-top:16px;border-top:1px solid #1E2D45}
+    .btn-save{background:#1A3A8F;border:none;border-radius:4px;padding:10px 20px;font-size:13px;font-weight:700;color:white;cursor:pointer;font-family:'DM Sans',sans-serif}
+    .btn-save:hover{background:#2450BF}
+    .btn-cancel{background:transparent;border:1px solid #1E2D45;border-radius:4px;padding:10px 16px;font-size:13px;color:#4A5473;cursor:pointer;font-family:'DM Sans',sans-serif}
+    .btn-cancel:hover{color:#9AA3B8}
+
+    /* ── STATUS BADGES in table ── */
+    .status-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+    .s-discovery{background:rgba(0,212,255,.1);color:#00D4FF}
+    .s-proposal{background:rgba(255,215,0,.1);color:#FFD700}
+    .s-inprogress{background:rgba(26,58,143,.2);color:#7B9FE8}
+    .s-won{background:rgba(34,197,94,.1);color:#22C55E}
+    .s-lost{background:rgba(239,68,68,.1);color:#EF4444}
+
+    /* ── PLATFORM ── */
+    .platform-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    @media(max-width:800px){.platform-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:500px){.platform-grid{grid-template-columns:repeat(2,1fr)}}
     .platform-card{background:#060E1A;border:1px solid #1E2D45;border-radius:6px;padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;transition:border-color .2s,transform .15s}
     .platform-card:hover{border-color:#1A3A8F;transform:translateY(-2px)}
     .platform-card.live{border-color:rgba(0,212,255,.25)}
@@ -80,18 +163,16 @@
     .p-name{font-size:11px;font-weight:700;color:#9AA3B8;letter-spacing:.05em;text-align:center}
     .p-status{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
     .p-status.live{color:#00D4FF}
+    .p-status.go{color:#22C55E}
     .p-status.setup{color:#FFD700}
     .p-status.missing{color:#4A5473}
 
-    /* REVENUE STREAMS */
-    .stream-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #1E2D45}
+    /* ── STREAM / ACTION / GRANT ROWS ── */
+    .stream-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid #1E2D45}
     .stream-row:last-child{border-bottom:none}
     .stream-num{width:24px;height:24px;background:#1A3A8F;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
     .stream-name{flex:1;font-size:14px;font-weight:600;color:#E2E8F0}
     .stream-sub{font-size:12px;color:#4A5473;margin-top:2px}
-    .stream-val{text-align:right;font-size:13px;font-weight:700;color:#00D4FF;white-space:nowrap}
-
-    /* GRANT CALENDAR */
     .grant-row{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #1E2D45}
     .grant-row:last-child{border-bottom:none}
     .grant-date{width:52px;text-align:center;flex-shrink:0}
@@ -100,36 +181,51 @@
     .grant-name{font-size:14px;font-weight:600;color:#E2E8F0}
     .grant-detail{font-size:12px;color:#4A5473;margin-top:3px}
     .grant-amount{font-size:13px;font-weight:700;color:#FFD700;margin-top:4px}
-
-    /* ACTION ITEMS */
     .action-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #1E2D45}
     .action-item:last-child{border-bottom:none}
     .action-pri{width:20px;height:20px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
     .pri-1{background:#EF4444}
     .pri-2{background:#FFD700;color:#0D1117}
     .pri-3{background:#1A3A8F}
+    .pri-done{background:#22C55E}
     .action-text{font-size:14px;color:#E2E8F0;flex:1;line-height:1.5}
     .action-text small{display:block;font-size:11px;color:#4A5473;margin-top:2px}
-
-    /* LEGAL */
+    .action-done .action-text{color:#4A5473;text-decoration:line-through}
     .legal-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #1E2D45}
     .legal-item:last-child{border-bottom:none}
     .legal-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
     .legal-text{flex:1;font-size:13px;color:#9AA3B8}
     .legal-status{font-size:11px;font-weight:700}
-
-    /* CONTENT PIPELINE */
     .content-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #1E2D45}
     .content-row:last-child{border-bottom:none}
     .content-platform{width:28px;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .content-title{font-size:13px;color:#E2E8F0;flex:1}
-    .content-due{font-size:11px;color:#4A5473}
-
-    /* FOOTER */
     .dash-footer{text-align:center;padding:24px;font-size:12px;color:#1E2D45;margin-top:40px}
   </style>
 </head>
 <body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo">
+      <svg width="32" height="42" viewBox="0 0 28 36" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="20" width="7" height="16" rx="1.5" fill="#1A3A8F"/>
+        <rect x="10" y="12" width="7" height="24" rx="1.5" fill="#1A3A8F"/>
+        <rect x="20" y="3" width="7" height="33" rx="1.5" fill="#1A3A8F"/>
+        <polyline points="3.5,20 13.5,12 23.5,3" stroke="#00D4FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="3.5" cy="20" r="2.5" fill="#00D4FF"/>
+        <circle cx="13.5" cy="12" r="2.5" fill="#00D4FF"/>
+        <circle cx="23.5" cy="3" r="2.5" fill="#00D4FF"/>
+      </svg>
+    </div>
+    <div class="gate-title">AAIS Command Center</div>
+    <div class="gate-sub">American AI Solutions LLC · CEO Access Only</div>
+    <input class="gate-input" type="password" id="gateInput" placeholder="Enter access code" autocomplete="off"/>
+    <button class="gate-btn" onclick="checkGate()">Enter →</button>
+    <div class="gate-err" id="gateErr"></div>
+  </div>
+</div>
 
 <!-- TOP BAR -->
 <div class="topbar">
@@ -146,7 +242,7 @@
       </svg>
       <div>
         <div class="tb-title">American AI Solutions LLC</div>
-        <div class="tb-sub">Operations Dashboard · Southgate, MI</div>
+        <div class="tb-sub">CEO Command Center · Southgate, MI</div>
       </div>
     </div>
   </div>
@@ -160,489 +256,454 @@
 <main>
 
   <!-- KPI SCORECARDS -->
-  <div class="section-label">Weekly KPIs · Month 1 Targets</div>
+  <div class="section-label">Live KPIs · Month 1 Targets</div>
   <div class="grid-4">
     <div class="card-sm">
       <div class="card-title">Strategy Calls Booked</div>
-      <div class="kpi-num">0</div>
+      <div class="kpi-num" id="kpiCalls">0</div>
       <div class="kpi-label">Qualified discovery calls this month</div>
       <div class="kpi-target">Target: 5/month</div>
       <div class="prog-wrap">
-        <div class="prog-track"><div class="prog-bar prog-cyan" style="width:0%"></div></div>
+        <div class="prog-track"><div class="prog-bar prog-cyan" id="barCalls" style="width:0%"></div></div>
       </div>
     </div>
     <div class="card-sm">
       <div class="card-title">Proposals Sent</div>
-      <div class="kpi-num">0</div>
+      <div class="kpi-num" id="kpiProps">0</div>
       <div class="kpi-label">Active proposals in pipeline</div>
       <div class="kpi-target">Target: 2–3/month</div>
       <div class="prog-wrap">
-        <div class="prog-track"><div class="prog-bar prog-blue" style="width:0%"></div></div>
+        <div class="prog-track"><div class="prog-bar prog-blue" id="barProps" style="width:0%"></div></div>
       </div>
     </div>
     <div class="card-sm">
       <div class="card-title">Active Projects</div>
-      <div class="kpi-num">0</div>
+      <div class="kpi-num" id="kpiProjects">0</div>
       <div class="kpi-label">Clients currently in build phase</div>
       <div class="kpi-target">Target: 1 by Month 3</div>
       <div class="prog-wrap">
-        <div class="prog-track"><div class="prog-bar prog-gold" style="width:0%"></div></div>
+        <div class="prog-track"><div class="prog-bar prog-gold" id="barProjects" style="width:0%"></div></div>
       </div>
     </div>
     <div class="card-sm">
       <div class="card-title">Monthly Revenue</div>
-      <div class="kpi-num">$0</div>
+      <div class="kpi-num" id="kpiRev" style="font-size:28px">$0</div>
       <div class="kpi-label">Invoiced + collected this month</div>
       <div class="kpi-target">Year 1 target: $13K/month</div>
       <div class="prog-wrap">
-        <div class="prog-track"><div class="prog-bar prog-green" style="width:0%"></div></div>
+        <div class="prog-track"><div class="prog-bar prog-green" id="barRev" style="width:0%"></div></div>
       </div>
     </div>
   </div>
+
+  <!-- ACTIVATE FRAMEWORK -->
+  <div class="section-label">The ACTIVATE System · Four Pillars</div>
+  <div class="activate-grid">
+    <div class="activate-card ac-innovate">
+      <div class="ac-num">I</div>
+      <div class="ac-tag" style="color:#00D4FF">01 · Innovate</div>
+      <div class="ac-title">Market Disruption</div>
+      <div class="ac-desc">Advanced AI-driven conceptualization. Identify highest-ROI opportunities before competitors see them. Detroit-market intelligence as the edge.</div>
+    </div>
+    <div class="activate-card ac-automate">
+      <div class="ac-num">A</div>
+      <div class="ac-tag" style="color:#7B9FE8">02 · Automate</div>
+      <div class="ac-title">Remove Friction</div>
+      <div class="ac-desc">Complete removal of operational friction through digital architecture. n8n + Claude + custom workflows. Zero manual steps in the delivery chain.</div>
+    </div>
+    <div class="activate-card ac-elevate">
+      <div class="ac-num">E</div>
+      <div class="ac-tag" style="color:#FFD700">03 · Elevate</div>
+      <div class="ac-title">Scale &amp; Dominate</div>
+      <div class="ac-desc">Scale systems, increase margins, position for market dominance. Retainers compound. Referrals compound. Reputation compounds. Year 3: $1.2M.</div>
+    </div>
+    <div class="activate-card ac-activate">
+      <div class="ac-num">A</div>
+      <div class="ac-tag" style="color:#22C55E">04 · Activate</div>
+      <div class="ac-title">Deploy &amp; Win</div>
+      <div class="ac-desc">High-velocity execution. Every week has a close target. Every call has a proposal. Every proposal has a follow-up sequence. First client is everything.</div>
+    </div>
+  </div>
+
+  <!-- CRM — 3-TAB SYSTEM -->
+  <div class="section-label">CRM · Leads · Services · Client Portal</div>
+  <div class="crm-shell">
+    <div class="crm-tabs">
+      <div class="crm-tab active" onclick="switchTab('leads')">Leads &amp; Bookings</div>
+      <div class="crm-tab" onclick="switchTab('services')">Services Portfolio</div>
+      <div class="crm-tab" onclick="switchTab('portal')">Client Portal</div>
+    </div>
+
+    <!-- LEADS TAB -->
+    <div class="crm-panel active" id="tab-leads">
+      <div class="crm-toolbar">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input class="crm-search" type="text" id="leadsSearch" placeholder="Search leads..." oninput="renderLeads()"/>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="crm-export-btn" onclick="exportCSV('leads')">Export CSV</button>
+          <button class="crm-import-btn" onclick="document.getElementById('importLeads').click()">Import CSV</button>
+          <input type="file" id="importLeads" accept=".csv" style="display:none" onchange="importCSV('leads',this)"/>
+          <button class="crm-add-btn" onclick="openModal('lead')">+ Add Lead</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="crm-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Client Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Notes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="leadsBody"></tbody>
+        </table>
+        <div class="crm-empty" id="leadsEmpty" style="display:none">No leads yet. Add your first prospect above.</div>
+      </div>
+    </div>
+
+    <!-- SERVICES TAB -->
+    <div class="crm-panel" id="tab-services">
+      <div class="crm-toolbar">
+        <input class="crm-search" type="text" id="servicesSearch" placeholder="Search services..." oninput="renderServices()"/>
+        <div style="display:flex;gap:8px">
+          <button class="crm-export-btn" onclick="exportCSV('services')">Export CSV</button>
+          <button class="crm-import-btn" onclick="document.getElementById('importServices').click()">Import CSV</button>
+          <input type="file" id="importServices" accept=".csv" style="display:none" onchange="importCSV('services',this)"/>
+          <button class="crm-add-btn" onclick="openModal('service')">+ Add Service</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="crm-table">
+          <thead>
+            <tr>
+              <th>Service ID</th>
+              <th>Service Name</th>
+              <th>Description</th>
+              <th>Est. Delivery</th>
+              <th>Value Metric</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="servicesBody"></tbody>
+        </table>
+        <div class="crm-empty" id="servicesEmpty" style="display:none">No services defined yet.</div>
+      </div>
+    </div>
+
+    <!-- CLIENT PORTAL TAB -->
+    <div class="crm-panel" id="tab-portal">
+      <div class="crm-toolbar">
+        <input class="crm-search" type="text" id="portalSearch" placeholder="Search clients..." oninput="renderPortal()"/>
+        <div style="display:flex;gap:8px">
+          <button class="crm-export-btn" onclick="exportCSV('portal')">Export CSV</button>
+          <button class="crm-import-btn" onclick="document.getElementById('importPortal').click()">Import CSV</button>
+          <input type="file" id="importPortal" accept=".csv" style="display:none" onchange="importCSV('portal',this)"/>
+          <button class="crm-add-btn" onclick="openModal('portal')">+ Add Client</button>
+        </div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="crm-table">
+          <thead>
+            <tr>
+              <th>Portal ID</th>
+              <th>Company Name</th>
+              <th>Active Service</th>
+              <th>Project Milestone</th>
+              <th>Launch Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="portalBody"></tbody>
+        </table>
+        <div class="crm-empty" id="portalEmpty" style="display:none">No active clients yet. Close your first deal.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="import-toast" id="importToast"></div>
 
   <!-- PLATFORM HEALTH -->
   <div class="section-label">Digital Presence · Platform Health</div>
   <div class="card">
     <div class="platform-grid">
-
       <a class="platform-card live" href="https://americanaisolutionsllc.com" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#1A3A8F">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 17.93V18a1 1 0 00-2 0v1.93A8.001 8.001 0 014.07 13H6a1 1 0 000-2H4.07A8.001 8.001 0 0111 4.07V6a1 1 0 002 0V4.07A8.001 8.001 0 0119.93 11H18a1 1 0 000 2h1.93A8.001 8.001 0 0113 19.93z"/></svg>
-        </div>
+        <div class="p-icon" style="background:#1A3A8F"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 17.93V18a1 1 0 00-2 0v1.93A8.001 8.001 0 014.07 13H6a1 1 0 000-2H4.07A8.001 8.001 0 0111 4.07V6a1 1 0 002 0V4.07A8.001 8.001 0 0119.93 11H18a1 1 0 000 2h1.93A8.001 8.001 0 0113 19.93z"/></svg></div>
         <div class="p-name">Website</div>
         <div class="p-status live">● LIVE</div>
       </a>
-
+      <a class="platform-card live" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">
+        <div class="p-icon" style="background:#0069FF"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/></svg></div>
+        <div class="p-name">Calendly</div>
+        <div class="p-status live">● LIVE</div>
+      </a>
       <a class="platform-card setup" href="https://business.google.com" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#1E2D45">
-          <svg width="22" height="22" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        </div>
+        <div class="p-icon" style="background:#1E2D45"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg></div>
         <div class="p-name">Google Business</div>
         <div class="p-status setup">⚠ SETUP NEEDED</div>
       </a>
-
       <a class="platform-card setup" href="https://www.linkedin.com/company/americanaisolutionsllc" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#0A66C2">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </div>
+        <div class="p-icon" style="background:#0A66C2"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
         <div class="p-name">LinkedIn Company</div>
         <div class="p-status setup">⚠ CREATE PAGE</div>
       </a>
-
-      <a class="platform-card setup" href="https://www.youtube.com/@AmericanAISolutions" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#FF0000">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-        </div>
+      <a class="platform-card missing" href="https://www.youtube.com/@AmericanAISolutions" target="_blank" rel="noopener">
+        <div class="p-icon" style="background:#FF0000"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></div>
         <div class="p-name">YouTube</div>
-        <div class="p-status setup">⚠ CREATE CHANNEL</div>
-      </a>
-
-      <a class="platform-card setup" href="https://www.instagram.com/americanaisolutions" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);background:#C13584">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </div>
-        <div class="p-name">Instagram</div>
-        <div class="p-status setup">⚠ CLAIM HANDLE</div>
-      </a>
-
-      <a class="platform-card setup" href="https://www.tiktok.com/@americanaisolutions" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#010101">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.87a8.22 8.22 0 004.81 1.54V7.01a4.85 4.85 0 01-1.04-.32z"/></svg>
-        </div>
-        <div class="p-name">TikTok</div>
-        <div class="p-status setup">⚠ CLAIM HANDLE</div>
-      </a>
-
-      <a class="platform-card missing" href="https://www.facebook.com" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#1877F2">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </div>
-        <div class="p-name">Facebook</div>
         <div class="p-status missing">○ NOT STARTED</div>
       </a>
-
-      <a class="platform-card setup" href="https://www.bbb.org/us/mi/southgate/profile/artificial-intelligence/american-ai-solutions-llc" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#00549A">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-        </div>
-        <div class="p-name">BBB</div>
-        <div class="p-status setup">⚠ REGISTER NOW</div>
+      <a class="platform-card missing" href="https://www.instagram.com/americanaisolutions" target="_blank" rel="noopener">
+        <div class="p-icon" style="background:#C13584"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <div class="p-name">Instagram</div>
+        <div class="p-status missing">○ CLAIM HANDLE</div>
       </a>
-      <a class="platform-card missing" href="https://twitter.com" target="_blank" rel="noopener">
-        <div class="p-icon" style="background:#000000">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </div>
-        <div class="p-name">X / Twitter</div>
-        <div class="p-status missing">○ OPTIONAL</div>
+      <a class="platform-card missing" href="https://www.tiktok.com/@americanaisolutions" target="_blank" rel="noopener">
+        <div class="p-icon" style="background:#010101"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.87a8.22 8.22 0 004.81 1.54V7.01a4.85 4.85 0 01-1.04-.32z"/></svg></div>
+        <div class="p-name">TikTok</div>
+        <div class="p-status missing">○ CLAIM HANDLE</div>
       </a>
-
       <a class="platform-card live" href="mailto:david04calderon@gmail.com">
-        <div class="p-icon" style="background:#1A3A8F">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </div>
+        <div class="p-icon" style="background:#1A3A8F"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
         <div class="p-name">Email</div>
         <div class="p-status live">● ACTIVE</div>
       </a>
-
+      <a class="platform-card live" href="tel:+13133140225">
+        <div class="p-icon" style="background:#1A3A8F"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg></div>
+        <div class="p-name">(313) 314-0225</div>
+        <div class="p-status live">● ACTIVE</div>
+      </a>
+      <a class="platform-card setup" href="https://www.bbb.org" target="_blank" rel="noopener">
+        <div class="p-icon" style="background:#00549A"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <div class="p-name">BBB</div>
+        <div class="p-status setup">⚠ REGISTER</div>
+      </a>
     </div>
   </div>
 
-  <!-- REVENUE STREAMS STATUS -->
-  <div class="section-label">Revenue Streams · 8-Stream Tracker</div>
-  <div class="card">
-    <div class="stream-row">
-      <div class="stream-num">1</div>
-      <div>
-        <div class="stream-name">Client Implementation</div>
-        <div class="stream-sub">$5K–$100K per project · Primary engine · Build portfolio first</div>
-      </div>
-      <span class="chip chip-warn">Prospecting</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">2</div>
-      <div>
-        <div class="stream-name">Monthly Retainers</div>
-        <div class="stream-sub">$1K–$4.5K/month per client · Starts after first project closes</div>
-      </div>
-      <span class="chip chip-off">Not Yet</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">3</div>
-      <div>
-        <div class="stream-name">YouTube Ad Revenue</div>
-        <div class="stream-sub">6–9 months to monetization · 1,000 subscribers + 4K watch hours</div>
-      </div>
-      <span class="chip chip-off">Build Now</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">4</div>
-      <div>
-        <div class="stream-name">Sponsorships</div>
-        <div class="stream-sub">500–1K subs in niche = $500–$5K/video · B2B software targets</div>
-      </div>
-      <span class="chip chip-off">Month 3+</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">5</div>
-      <div>
-        <div class="stream-name">Digital Products</div>
-        <div class="stream-sub">Grant Guide $97 · ROI Calculator $47 · Course $497–$997</div>
-      </div>
-      <span class="chip chip-warn">Create</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">6</div>
-      <div>
-        <div class="stream-name">Speaking Fees</div>
-        <div class="stream-sub">$500–$15K · Pitch Michigan Chamber, MMTC, SAE, MHA now</div>
-      </div>
-      <span class="chip chip-warn">Pitch Now</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">7</div>
-      <div>
-        <div class="stream-name">Affiliate / Referral</div>
-        <div class="stream-sub">HubSpot, Clay, Pandadoc, n8n · Apply for affiliate accounts now</div>
-      </div>
-      <span class="chip chip-warn">Apply Now</span>
-    </div>
-    <div class="stream-row">
-      <div class="stream-num">8</div>
-      <div>
-        <div class="stream-name">SaaS App Revenue</div>
-        <div class="stream-sub">Free → $97/month → $297/month · Phase 2, Month 6–18</div>
-      </div>
-      <span class="chip chip-off">Year 2</span>
-    </div>
-  </div>
-
-  <!-- GRANT CALENDAR + LEGAL -->
+  <!-- REVENUE STREAMS + ACTIONS -->
   <div class="grid-2">
 
     <div class="card">
-      <div class="card-title">Grant Calendar · Michigan</div>
-      <div class="grant-row">
-        <div class="grant-date">
-          <div class="grant-month">OCT</div>
-          <div class="grant-day">1</div>
-        </div>
-        <div>
-          <div class="grant-name">Going PRO — FY2027 Cycle 1 Opens</div>
-          <div class="grant-detail">Apply through your local Michigan Works! office. $2,000/trainee — submit BEFORE training starts.</div>
-          <div class="grant-amount">$2K per trained employee</div>
-        </div>
+      <div class="card-title">Revenue Streams · 8-Stream Tracker</div>
+      <div class="stream-row">
+        <div class="stream-num">1</div>
+        <div><div class="stream-name">Client Implementation</div><div class="stream-sub">$2.5K–$25K+ per project · Primary engine</div></div>
+        <span class="chip chip-warn">Prospecting</span>
       </div>
-      <div class="grant-row">
-        <div class="grant-date">
-          <div class="grant-month">ROLL</div>
-          <div class="grant-day">ING</div>
-        </div>
-        <div>
-          <div class="grant-name">Industry 4.0 Technology Grant</div>
-          <div class="grant-detail">Rolling applications via MMTC + michiganbusiness.org. Manufacturers only (NAICS 31–33). SBA small biz required.</div>
-          <div class="grant-amount">Up to $25,000 (50% reimbursement)</div>
-        </div>
+      <div class="stream-row">
+        <div class="stream-num">2</div>
+        <div><div class="stream-name">Monthly Retainers</div><div class="stream-sub">$1K–$4.5K/month · Starts after first close</div></div>
+        <span class="chip chip-off">Not Yet</span>
       </div>
-      <div class="grant-row">
-        <div class="grant-date">
-          <div class="grant-month">QRTLY</div>
-          <div class="grant-day">—</div>
-        </div>
-        <div>
-          <div class="grant-name">Detroit Small Business Tech Fund</div>
-          <div class="grant-detail">TechTown referral + MBBA. Quarterly windows. Best for Downriver / Detroit city clients.</div>
-          <div class="grant-amount">$5,000–$25,000</div>
-        </div>
+      <div class="stream-row">
+        <div class="stream-num">3</div>
+        <div><div class="stream-name">YouTube Ad Revenue</div><div class="stream-sub">6–9 months to monetization · 1K subs + 4K hrs</div></div>
+        <span class="chip chip-off">Build Now</span>
       </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Legal & LLC Protection</div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#22C55E"></div>
-        <div class="legal-text">Michigan LLC — American AI Solutions LLC<br><small style="color:#4A5473">EIN: 42-2142801 · Fully registered · Wayne County</small></div>
-        <div class="legal-status" style="color:#22C55E">ACTIVE</div>
+      <div class="stream-row">
+        <div class="stream-num">4</div>
+        <div><div class="stream-name">Sponsorships</div><div class="stream-sub">500–1K subs = $500–$5K/video · B2B software</div></div>
+        <span class="chip chip-off">Month 3+</span>
       </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#22C55E"></div>
-        <div class="legal-text">Master Services Agreement (MSA)<br><small style="color:#4A5473">IP ownership, payment, confidentiality, limitation of liability</small></div>
-        <div class="legal-status" style="color:#22C55E">READY</div>
+      <div class="stream-row">
+        <div class="stream-num">5</div>
+        <div><div class="stream-name">Digital Products</div><div class="stream-sub">Grant Guide $97 · ROI Calc $47 · Course $997</div></div>
+        <span class="chip chip-warn">Create</span>
       </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#22C55E"></div>
-        <div class="legal-text">NDA Template<br><small style="color:#4A5473">2-year term, Michigan/Wayne County, mutual confidentiality</small></div>
-        <div class="legal-status" style="color:#22C55E">READY</div>
+      <div class="stream-row">
+        <div class="stream-num">6</div>
+        <div><div class="stream-name">Speaking Fees</div><div class="stream-sub">$500–$15K · Pitch MMTC, SAE, MHA, Chamber</div></div>
+        <span class="chip chip-warn">Pitch Now</span>
       </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#22C55E"></div>
-        <div class="legal-text">Subcontractor Agreement<br><small style="color:#4A5473">No-solicitation 2yr, IP assignment, BAA clause for healthcare</small></div>
-        <div class="legal-status" style="color:#22C55E">READY</div>
+      <div class="stream-row">
+        <div class="stream-num">7</div>
+        <div><div class="stream-name">Affiliate / Referral</div><div class="stream-sub">HubSpot, Clay, Pandadoc, n8n · Apply now</div></div>
+        <span class="chip chip-warn">Apply Now</span>
       </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#FFD700"></div>
-        <div class="legal-text">HIPAA BAA (healthcare clients)<br><small style="color:#4A5473">Required before any healthcare client data touches AI tools</small></div>
-        <div class="legal-status" style="color:#FFD700">ON REQUEST</div>
-      </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#FFD700"></div>
-        <div class="legal-text">General Liability Insurance<br><small style="color:#4A5473">Recommended before first client engagement — ~$500–$800/yr</small></div>
-        <div class="legal-status" style="color:#FFD700">GET SOON</div>
-      </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#FFD700"></div>
-        <div class="legal-text">E&amp;O / Professional Liability Insurance<br><small style="color:#4A5473">Errors &amp; Omissions. Enterprise clients may require it</small></div>
-        <div class="legal-status" style="color:#FFD700">YEAR 1</div>
-      </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#22C55E"></div>
-        <div class="legal-text">Non-Discrimination Policy — Published<br><small style="color:#4A5473">Race, color, religion, sex, gender identity, disability, age, veteran status · We serve all · Reserve right to refuse for lawful business reasons</small></div>
-        <div class="legal-status" style="color:#22C55E">LIVE</div>
-      </div>
-      <div class="legal-item">
-        <div class="legal-dot" style="background:#FFD700"></div>
-        <div class="legal-text">Better Business Bureau Registration<br><small style="color:#4A5473">bbb.org Michigan · Southgate · Builds trust signals and local credibility</small></div>
-        <div class="legal-status" style="color:#FFD700">DO THIS WEEK</div>
+      <div class="stream-row">
+        <div class="stream-num">8</div>
+        <div><div class="stream-name">SaaS App Revenue</div><div class="stream-sub">$97–$297/month · Phase 2 · Month 6–18</div></div>
+        <span class="chip chip-off">Year 2</span>
       </div>
     </div>
-
-  </div>
-
-  <!-- ACTION ITEMS + CONTENT PIPELINE -->
-  <div class="grid-2">
 
     <div class="card">
       <div class="card-title">Priority Actions · This Week</div>
+      <div class="action-item action-done">
+        <div class="action-pri pri-done">✓</div>
+        <div class="action-text">Website live on americanaisolutionsllc.com
+          <small>Connected GitHub → Netlify → live. All CTAs wired to Calendly.</small>
+        </div>
+        <span class="chip chip-go">DONE</span>
+      </div>
+      <div class="action-item action-done">
+        <div class="action-pri pri-done">✓</div>
+        <div class="action-text">Calendly AI Strategy Call configured
+          <small>calendly.com/david04calderon/ai-strategy-call · Phone call · 30 min</small>
+        </div>
+        <span class="chip chip-go">DONE</span>
+      </div>
+      <div class="action-item action-done">
+        <div class="action-pri pri-done">✓</div>
+        <div class="action-text">Phone (313) 314-0225 on site
+          <small>Google Voice linked · Shows in nav + contact section</small>
+        </div>
+        <span class="chip chip-go">DONE</span>
+      </div>
       <div class="action-item">
         <div class="action-pri pri-1">1</div>
-        <div class="action-text">Get website live on Netlify
-          <small>Connect GitHub → Netlify → build runs → point DNS to americanaisolutionsllc.com</small>
+        <div class="action-text">Connect Google Calendar to Calendly
+          <small>calendly.com → Integrations → Google Calendar. Prevents double-bookings.</small>
         </div>
-        <span class="chip chip-hot">URGENT</span>
+        <span class="chip chip-hot">TODAY</span>
       </div>
       <div class="action-item">
         <div class="action-pri pri-1">2</div>
-        <div class="action-text">Create Google Business Profile
-          <small>business.google.com · Southgate MI · All Downriver service area</small>
+        <div class="action-text">Post LinkedIn launch post
+          <small>Personal profile first. Draft ready. Tag Detroit, AI, automation.</small>
         </div>
-        <span class="chip chip-hot">URGENT</span>
+        <span class="chip chip-hot">TODAY</span>
       </div>
       <div class="action-item">
         <div class="action-pri pri-1">3</div>
-        <div class="action-text">Claim @americanaisolutions on Instagram + TikTok
-          <small>Lock handles now before anyone else takes them</small>
+        <div class="action-text">Text 10 warm contacts about AAIS
+          <small>"Hey, I launched American AI Solutions — worth 30 min?" That's it.</small>
         </div>
-        <span class="chip chip-hot">URGENT</span>
+        <span class="chip chip-hot">TODAY</span>
       </div>
       <div class="action-item">
         <div class="action-pri pri-2">4</div>
-        <div class="action-text">Create YouTube channel "American AI Solutions LLC"
-          <small>Use Google account · Handle: @AmericanAISolutions</small>
+        <div class="action-text">Create Google Business Profile
+          <small>business.google.com · Southgate MI · All Downriver service area</small>
         </div>
         <span class="chip chip-warn">This Week</span>
       </div>
       <div class="action-item">
         <div class="action-pri pri-2">5</div>
-        <div class="action-text">Apply for affiliate accounts
-          <small>HubSpot, Clay Pro, Pandadoc, n8n Cloud, Instantly.ai</small>
+        <div class="action-text">Claim @americanaisolutions — Instagram &amp; TikTok
+          <small>Lock handles now. Takes 5 minutes each.</small>
         </div>
         <span class="chip chip-warn">This Week</span>
       </div>
       <div class="action-item">
         <div class="action-pri pri-2">6</div>
-        <div class="action-text">Post first 3 LinkedIn posts
-          <small>Content calendar weeks 1–2 already scripted in marketing/</small>
-        </div>
-        <span class="chip chip-warn">This Week</span>
-      </div>
-      <div class="action-item">
-        <div class="action-pri pri-2">7</div>
         <div class="action-text">Register with Better Business Bureau
-          <small>bbb.org → Michigan listing · Southgate address · AI Consulting category</small>
+          <small>bbb.org Michigan · Southgate · AI Consulting category</small>
         </div>
         <span class="chip chip-warn">This Week</span>
       </div>
       <div class="action-item">
-        <div class="action-pri pri-3">8</div>
-        <div class="action-text">Set up Crisp chat (Essentials $95/mo)
-          <small>crisp.chat · Install widget on site · Configure Atlas auto-reply</small>
+        <div class="action-pri pri-3">7</div>
+        <div class="action-text">Apply for affiliate accounts
+          <small>HubSpot, Clay Pro, Pandadoc, n8n Cloud, Instantly.ai</small>
         </div>
         <span class="chip chip-off">Month 1</span>
       </div>
-      <div class="action-item">
-        <div class="action-pri pri-3">9</div>
-        <div class="action-text">Record first Loom intro video (Loom #1)
-          <small>10–15 min · Personal story, mission, Detroit, who we serve</small>
-        </div>
-        <span class="chip chip-off">Month 1</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Content Pipeline · Next 30 Days</div>
-
-      <div style="font-size:10px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px">LINKEDIN · 3x/week</div>
-      <div class="content-row">
-        <div class="content-platform" style="background:#0A66C2"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-        <div class="content-title">Detroit → Michigan → America origin post</div>
-        <div class="content-due"><span class="chip chip-warn" style="padding:2px 8px">Draft</span></div>
-      </div>
-      <div class="content-row">
-        <div class="content-platform" style="background:#0A66C2"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-        <div class="content-title">OEM AI mandates carousel post</div>
-        <div class="content-due"><span class="chip chip-warn" style="padding:2px 8px">Draft</span></div>
-      </div>
-      <div class="content-row">
-        <div class="content-platform" style="background:#0A66C2"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-        <div class="content-title">Going PRO grant — what qualifies post</div>
-        <div class="content-due"><span class="chip chip-warn" style="padding:2px 8px">Draft</span></div>
-      </div>
-
-      <div style="font-size:10px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin:16px 0 8px">YOUTUBE · 1x/week goal</div>
-      <div class="content-row">
-        <div class="content-platform" style="background:#FF0000"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></div>
-        <div class="content-title">Ep 1: What Michigan Businesses Need to Know About AI in 2026</div>
-        <div class="content-due"><span class="chip chip-off" style="padding:2px 8px">Record</span></div>
-      </div>
-      <div class="content-row">
-        <div class="content-platform" style="background:#FF0000"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></div>
-        <div class="content-title">Ep 2: Why I Started an AI Firm in Detroit</div>
-        <div class="content-due"><span class="chip chip-off" style="padding:2px 8px">Plan</span></div>
-      </div>
-
-      <div style="font-size:10px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin:16px 0 8px">INSTAGRAM / TIKTOK · 5x/week</div>
-      <div class="content-row">
-        <div class="content-platform" style="background:#C13584"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-        <div class="content-title">Short-form clips from YouTube long-form (repurpose engine)</div>
-        <div class="content-due"><span class="chip chip-off" style="padding:2px 8px">After YT</span></div>
-      </div>
-
     </div>
 
   </div>
 
-  <!-- YEAR 1 REVENUE PROJECTION -->
-  <div class="section-label">Revenue Projection · Year 1 vs Year 3 vs Year 5</div>
+  <!-- GRANT CALENDAR + LEGAL -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Grant Calendar · Michigan</div>
+      <div class="grant-row">
+        <div class="grant-date"><div class="grant-month">OCT</div><div class="grant-day">1</div></div>
+        <div>
+          <div class="grant-name">Going PRO — FY2027 Cycle 1 Opens</div>
+          <div class="grant-detail">Apply through Wayne Metro Michigan Works! · Submit BEFORE training starts.</div>
+          <div class="grant-amount">$2K per trained employee</div>
+        </div>
+      </div>
+      <div class="grant-row">
+        <div class="grant-date"><div class="grant-month">ROLL</div><div class="grant-day">ING</div></div>
+        <div>
+          <div class="grant-name">Industry 4.0 Technology Grant</div>
+          <div class="grant-detail">Rolling via MMTC + michiganbusiness.org. Manufacturers (NAICS 31–33). SBA required.</div>
+          <div class="grant-amount">Up to $25,000 (50% reimbursement)</div>
+        </div>
+      </div>
+      <div class="grant-row">
+        <div class="grant-date"><div class="grant-month">QRTLY</div><div class="grant-day">—</div></div>
+        <div>
+          <div class="grant-name">Detroit Small Business Tech Fund</div>
+          <div class="grant-detail">TechTown + MBBA. Quarterly windows. Best for Downriver / Detroit city clients.</div>
+          <div class="grant-amount">$5,000–$25,000</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Legal &amp; LLC Protection</div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#22C55E"></div>
+        <div class="legal-text">Michigan LLC · EIN: 42-2142801 · Wayne County</div>
+        <div class="legal-status" style="color:#22C55E">ACTIVE</div>
+      </div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#22C55E"></div>
+        <div class="legal-text">Master Services Agreement (MSA) · IP, payment, liability</div>
+        <div class="legal-status" style="color:#22C55E">READY</div>
+      </div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#22C55E"></div>
+        <div class="legal-text">NDA Template · 2-year term · Michigan/Wayne County</div>
+        <div class="legal-status" style="color:#22C55E">READY</div>
+      </div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#22C55E"></div>
+        <div class="legal-text">Subcontractor Agreement · No-solicitation + IP assignment</div>
+        <div class="legal-status" style="color:#22C55E">READY</div>
+      </div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#FFD700"></div>
+        <div class="legal-text">HIPAA BAA · Required before any healthcare client data</div>
+        <div class="legal-status" style="color:#FFD700">ON REQUEST</div>
+      </div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#FFD700"></div>
+        <div class="legal-text">General Liability Insurance · ~$500–$800/yr</div>
+        <div class="legal-status" style="color:#FFD700">GET SOON</div>
+      </div>
+      <div class="legal-item">
+        <div class="legal-dot" style="background:#FFD700"></div>
+        <div class="legal-text">E&amp;O / Professional Liability · Enterprise clients may require</div>
+        <div class="legal-status" style="color:#FFD700">YEAR 1</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVENUE PROJECTIONS -->
+  <div class="section-label">Revenue Trajectory · Year 1 → Year 3 → Year 5</div>
   <div class="card">
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
       <div>
         <div style="font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Year 1 · Build</div>
         <div style="font-size:32px;font-weight:700;color:#E2E8F0">$142K</div>
         <div style="font-size:12px;color:#4A5473;margin:4px 0 16px">~$13K/month average</div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Client projects</span><span>$120K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-blue" style="width:85%"></div></div>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Retainers</span><span>$20K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-blue" style="width:14%"></div></div>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Affiliate</span><span>$2.4K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-blue" style="width:2%"></div></div>
-        </div>
+        <div class="prog-wrap"><div class="prog-label"><span>Client projects</span><span>$120K</span></div><div class="prog-track"><div class="prog-bar prog-blue" style="width:85%"></div></div></div>
+        <div class="prog-wrap"><div class="prog-label"><span>Retainers</span><span>$20K</span></div><div class="prog-track"><div class="prog-bar prog-blue" style="width:14%"></div></div></div>
+        <div class="prog-wrap"><div class="prog-label"><span>Affiliate</span><span>$2.4K</span></div><div class="prog-track"><div class="prog-bar prog-blue" style="width:2%"></div></div></div>
       </div>
       <div>
         <div style="font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Year 3 · Scale</div>
         <div style="font-size:32px;font-weight:700;color:#00D4FF">$1.2M</div>
         <div style="font-size:12px;color:#4A5473;margin:4px 0 16px">~$101K/month average</div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Client + Retainers</span><span>$840K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-cyan" style="width:70%"></div></div>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>App subscriptions</span><span>$120K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-cyan" style="width:10%"></div></div>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Content + Products</span><span>$252K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-cyan" style="width:21%"></div></div>
-        </div>
+        <div class="prog-wrap"><div class="prog-label"><span>Client + Retainers</span><span>$840K</span></div><div class="prog-track"><div class="prog-bar prog-cyan" style="width:70%"></div></div></div>
+        <div class="prog-wrap"><div class="prog-label"><span>App subscriptions</span><span>$120K</span></div><div class="prog-track"><div class="prog-bar prog-cyan" style="width:10%"></div></div></div>
+        <div class="prog-wrap"><div class="prog-label"><span>Content + Products</span><span>$252K</span></div><div class="prog-track"><div class="prog-bar prog-cyan" style="width:21%"></div></div></div>
       </div>
       <div>
         <div style="font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Year 5 · Legacy</div>
         <div style="font-size:32px;font-weight:700;color:#FFD700">$3.12M</div>
         <div style="font-size:12px;color:#4A5473;margin:4px 0 16px">~$260K/month · Exit value $9M–$15M</div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Client + Retainers</span><span>$1.92M</span></div>
-          <div class="prog-track"><div class="prog-bar prog-gold" style="width:62%"></div></div>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>App subscriptions</span><span>$600K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-gold" style="width:19%"></div></div>
-        </div>
-        <div class="prog-wrap">
-          <div class="prog-label"><span>Content + Products</span><span>$600K</span></div>
-          <div class="prog-track"><div class="prog-bar prog-gold" style="width:19%"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DOWNRIVER MARKET -->
-  <div class="section-label">Southgate · Downriver · Metro Detroit Market</div>
-  <div class="card">
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
-      <div>
-        <div style="font-size:12px;font-weight:700;color:#00D4FF;margin-bottom:10px">YOUR BACKYARD MARKET</div>
-        <div style="font-size:13px;color:#9AA3B8;line-height:1.7">
-          <strong style="color:#E2E8F0">Southgate, MI 48195</strong> — Wayne County, Downriver corridor.<br><br>
-          Nearest Michigan Works!: <strong style="color:#E2E8F0">Wayne Metro Michigan Works!</strong> — your Going PRO contact point for Downriver clients.<br><br>
-          Key industry clusters: Flat Rock Assembly Tier 2/3 suppliers, FMCSA carriers on I-75/I-94/US-24, Downriver HVAC/mechanical contractors, Beaumont Wyandotte healthcare network.
-        </div>
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:700;color:#00D4FF;margin-bottom:10px">DOWNRIVER CITIES TO TARGET</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Wyandotte</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Lincoln Park</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Taylor</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Trenton</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Riverview</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Flat Rock</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Allen Park</span>
-          <span style="font-size:12px;color:#9AA3B8;padding:6px 10px;background:#060E1A;border-radius:4px;border:1px solid #1E2D45">Ecorse</span>
-        </div>
-        <div style="margin-top:10px;font-size:12px;color:#4A5473">Downriver Chamber of Commerce referral source. Local SEO advantage — no other AI firm is hyper-targeting Downriver.</div>
+        <div class="prog-wrap"><div class="prog-label"><span>Client + Retainers</span><span>$1.92M</span></div><div class="prog-track"><div class="prog-bar prog-gold" style="width:62%"></div></div></div>
+        <div class="prog-wrap"><div class="prog-label"><span>App subscriptions</span><span>$600K</span></div><div class="prog-track"><div class="prog-bar prog-gold" style="width:19%"></div></div></div>
+        <div class="prog-wrap"><div class="prog-label"><span>Content + Products</span><span>$600K</span></div><div class="prog-track"><div class="prog-bar prog-gold" style="width:19%"></div></div></div>
       </div>
     </div>
   </div>
@@ -650,20 +711,387 @@
 </main>
 
 <div class="dash-footer">
-  American AI Solutions LLC · Southgate, Michigan · david04calderon@gmail.com · EIN 42-2142801
+  American AI Solutions LLC · CEO Command Center · Southgate, Michigan · EIN 42-2142801 · Private &amp; Confidential
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
 </div>
 
 <script>
-  // Live date/time
-  function setDate() {
-    const d = new Date();
-    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    document.getElementById('dashDate').textContent =
-      days[d.getDay()] + ' · ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+// ── PASSWORD GATE ──
+// Change this password to whatever you want
+var GATE_PASS = 'AAIS2026';
+var SESSION_KEY = 'aais_auth';
+
+function checkGate() {
+  var val = document.getElementById('gateInput').value;
+  if (val === GATE_PASS) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    document.getElementById('gate').style.display = 'none';
+  } else {
+    document.getElementById('gateErr').textContent = 'Incorrect access code.';
+    document.getElementById('gateInput').value = '';
   }
-  setDate();
-  setInterval(setDate, 60000);
+}
+
+document.getElementById('gateInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkGate();
+});
+
+if (sessionStorage.getItem(SESSION_KEY) === '1') {
+  document.getElementById('gate').style.display = 'none';
+}
+
+// ── DATE ──
+function setDate() {
+  var d = new Date();
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('dashDate').textContent =
+    days[d.getDay()] + ' · ' + months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+}
+setDate(); setInterval(setDate, 60000);
+
+// ── CRM DATA STORE ──
+var db = {
+  leads: JSON.parse(localStorage.getItem('aais_leads') || '[]'),
+  services: JSON.parse(localStorage.getItem('aais_services') || '[]'),
+  portal: JSON.parse(localStorage.getItem('aais_portal') || '[]')
+};
+
+function save(key) { localStorage.setItem('aais_' + key, JSON.stringify(db[key])); }
+
+// Auto-increment IDs
+function nextId(key, prefix, pad) {
+  var max = 0;
+  db[key].forEach(function(r) {
+    var n = parseInt(r.id.replace(/\D/g, '')) || 0;
+    if (n > max) max = n;
+  });
+  var num = String(max + 1).padStart(pad || 3, '0');
+  return prefix + num;
+}
+
+// ── TABS ──
+function switchTab(name) {
+  document.querySelectorAll('.crm-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.crm-panel').forEach(function(p) { p.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+  if (name === 'leads') renderLeads();
+  if (name === 'services') renderServices();
+  if (name === 'portal') renderPortal();
+}
+
+// ── STATUS BADGE HELPER ──
+function statusBadge(s) {
+  var map = {
+    'Discovery Call': 's-discovery',
+    'Proposal': 's-proposal',
+    'In Progress': 's-inprogress',
+    'Closed-Won': 's-won',
+    'Closed-Lost': 's-lost'
+  };
+  return '<span class="status-badge ' + (map[s] || '') + '">' + (s || '—') + '</span>';
+}
+
+function esc(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── RENDER LEADS ──
+function renderLeads() {
+  var q = (document.getElementById('leadsSearch').value || '').toLowerCase();
+  var rows = db.leads.filter(function(r) {
+    return !q || JSON.stringify(r).toLowerCase().includes(q);
+  });
+  var tbody = document.getElementById('leadsBody');
+  var empty = document.getElementById('leadsEmpty');
+  if (!rows.length) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  tbody.innerHTML = rows.map(function(r, i) {
+    var idx = db.leads.indexOf(r);
+    return '<tr>' +
+      '<td>' + esc(r.id) + '</td>' +
+      '<td style="color:#E2E8F0;font-weight:600">' + esc(r.name) + '</td>' +
+      '<td><a href="mailto:' + esc(r.email) + '" style="color:#00D4FF;text-decoration:none">' + esc(r.email) + '</a></td>' +
+      '<td>' + esc(r.phone) + '</td>' +
+      '<td>' + esc(r.company) + '</td>' +
+      '<td>' + statusBadge(r.status) + '</td>' +
+      '<td style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="' + esc(r.notes) + '">' + esc(r.notes) + '</td>' +
+      '<td><div class="crm-actions"><button class="crm-btn-edit" onclick="editLead(' + idx + ')">Edit</button><button class="crm-btn-del" onclick="deleteLead(' + idx + ')">Del</button></div></td>' +
+      '</tr>';
+  }).join('');
+}
+
+// ── RENDER SERVICES ──
+function renderServices() {
+  var q = (document.getElementById('servicesSearch').value || '').toLowerCase();
+  var rows = db.services.filter(function(r) {
+    return !q || JSON.stringify(r).toLowerCase().includes(q);
+  });
+  var tbody = document.getElementById('servicesBody');
+  var empty = document.getElementById('servicesEmpty');
+  if (!rows.length) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  tbody.innerHTML = rows.map(function(r) {
+    var idx = db.services.indexOf(r);
+    return '<tr>' +
+      '<td>' + esc(r.id) + '</td>' +
+      '<td style="color:#E2E8F0;font-weight:600">' + esc(r.name) + '</td>' +
+      '<td style="max-width:200px">' + esc(r.desc) + '</td>' +
+      '<td>' + esc(r.delivery) + '</td>' +
+      '<td style="color:#00D4FF;font-weight:600">' + esc(r.value) + '</td>' +
+      '<td><div class="crm-actions"><button class="crm-btn-edit" onclick="editService(' + idx + ')">Edit</button><button class="crm-btn-del" onclick="deleteService(' + idx + ')">Del</button></div></td>' +
+      '</tr>';
+  }).join('');
+}
+
+// ── RENDER PORTAL ──
+function renderPortal() {
+  var q = (document.getElementById('portalSearch').value || '').toLowerCase();
+  var rows = db.portal.filter(function(r) {
+    return !q || JSON.stringify(r).toLowerCase().includes(q);
+  });
+  var tbody = document.getElementById('portalBody');
+  var empty = document.getElementById('portalEmpty');
+  if (!rows.length) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  tbody.innerHTML = rows.map(function(r) {
+    var idx = db.portal.indexOf(r);
+    return '<tr>' +
+      '<td>' + esc(r.id) + '</td>' +
+      '<td style="color:#E2E8F0;font-weight:600">' + esc(r.company) + '</td>' +
+      '<td><span class="chip chip-blue" style="padding:3px 8px">' + esc(r.serviceId) + '</span></td>' +
+      '<td>' + esc(r.milestone) + '</td>' +
+      '<td>' + esc(r.launch) + '</td>' +
+      '<td><div class="crm-actions"><button class="crm-btn-edit" onclick="editPortal(' + idx + ')">Edit</button><button class="crm-btn-del" onclick="deletePortal(' + idx + ')">Del</button></div></td>' +
+      '</tr>';
+  }).join('');
+}
+
+// ── MODALS ──
+var currentModal = null;
+var editIdx = -1;
+
+function openModal(type, idx) {
+  currentModal = type; editIdx = (idx !== undefined) ? idx : -1;
+  var overlay = document.getElementById('modalOverlay');
+  var content = document.getElementById('modalContent');
+  var data = {};
+  if (editIdx >= 0) {
+    if (type === 'lead') data = db.leads[editIdx];
+    if (type === 'service') data = db.services[editIdx];
+    if (type === 'portal') data = db.portal[editIdx];
+  }
+  if (type === 'lead') content.innerHTML = leadForm(data);
+  if (type === 'service') content.innerHTML = serviceForm(data);
+  if (type === 'portal') content.innerHTML = portalForm(data);
+  overlay.classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  currentModal = null; editIdx = -1;
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function v(id) { return (document.getElementById(id) || {}).value || ''; }
+
+function leadForm(d) {
+  return '<div class="modal-title"><span>' + (editIdx >= 0 ? 'Edit Lead' : 'Add New Lead') + '</span><button class="modal-close" onclick="closeModal()">×</button></div>' +
+    '<div class="form-2col"><div class="form-row"><label class="form-label">Client Name *</label><input class="form-input" id="fName" value="' + esc(d.name||'') + '" placeholder="Jane Smith"/></div>' +
+    '<div class="form-row"><label class="form-label">Company</label><input class="form-input" id="fCompany" value="' + esc(d.company||'') + '" placeholder="Acme Manufacturing"/></div></div>' +
+    '<div class="form-2col"><div class="form-row"><label class="form-label">Email *</label><input class="form-input" id="fEmail" type="email" value="' + esc(d.email||'') + '" placeholder="jane@company.com"/></div>' +
+    '<div class="form-row"><label class="form-label">Phone</label><input class="form-input" id="fPhone" value="' + esc(d.phone||'') + '" placeholder="(313) 555-0000"/></div></div>' +
+    '<div class="form-row"><label class="form-label">Status</label><select class="form-select" id="fStatus">' +
+    ['Discovery Call','Proposal','In Progress','Closed-Won','Closed-Lost'].map(function(s) {
+      return '<option value="' + s + '"' + (d.status === s ? ' selected' : '') + '>' + s + '</option>';
+    }).join('') + '</select></div>' +
+    '<div class="form-row"><label class="form-label">Notes</label><textarea class="form-textarea" id="fNotes" placeholder="Source, pain points, next step...">' + esc(d.notes||'') + '</textarea></div>' +
+    '<div class="modal-footer"><button class="btn-cancel" onclick="closeModal()">Cancel</button><button class="btn-save" onclick="saveLead()">Save Lead</button></div>';
+}
+
+function serviceForm(d) {
+  return '<div class="modal-title"><span>' + (editIdx >= 0 ? 'Edit Service' : 'Add Service') + '</span><button class="modal-close" onclick="closeModal()">×</button></div>' +
+    '<div class="form-row"><label class="form-label">Service Name *</label><input class="form-input" id="fSvcName" value="' + esc(d.name||'') + '" placeholder="AI Workflow Audit"/></div>' +
+    '<div class="form-row"><label class="form-label">Description</label><textarea class="form-textarea" id="fSvcDesc" placeholder="Full process mapping, opportunity scorecard...">' + esc(d.desc||'') + '</textarea></div>' +
+    '<div class="form-2col"><div class="form-row"><label class="form-label">Est. Delivery</label><input class="form-input" id="fSvcDel" value="' + esc(d.delivery||'') + '" placeholder="48–72 hours"/></div>' +
+    '<div class="form-row"><label class="form-label">Value Metric</label><input class="form-input" id="fSvcVal" value="' + esc(d.value||'') + '" placeholder="$2,500 fixed"/></div></div>' +
+    '<div class="modal-footer"><button class="btn-cancel" onclick="closeModal()">Cancel</button><button class="btn-save" onclick="saveService()">Save Service</button></div>';
+}
+
+function portalForm(d) {
+  var svcOpts = db.services.length ?
+    db.services.map(function(s) { return '<option value="' + esc(s.id) + '"' + (d.serviceId === s.id ? ' selected' : '') + '>' + esc(s.id) + ' — ' + esc(s.name) + '</option>'; }).join('') :
+    '<option value="">No services defined yet</option>';
+  return '<div class="modal-title"><span>' + (editIdx >= 0 ? 'Edit Client' : 'Add Client') + '</span><button class="modal-close" onclick="closeModal()">×</button></div>' +
+    '<div class="form-row"><label class="form-label">Company Name *</label><input class="form-input" id="fPCo" value="' + esc(d.company||'') + '" placeholder="Acme Manufacturing"/></div>' +
+    '<div class="form-row"><label class="form-label">Active Service</label><select class="form-select" id="fPSvc">' + svcOpts + '</select></div>' +
+    '<div class="form-row"><label class="form-label">Project Milestone</label><input class="form-input" id="fPMile" value="' + esc(d.milestone||'') + '" placeholder="Week 2 — n8n integration complete"/></div>' +
+    '<div class="form-row"><label class="form-label">Launch Date</label><input class="form-input" id="fPLaunch" type="date" value="' + esc(d.launch||'') + '"/></div>' +
+    '<div class="modal-footer"><button class="btn-cancel" onclick="closeModal()">Cancel</button><button class="btn-save" onclick="savePortal()">Save Client</button></div>';
+}
+
+function saveLead() {
+  var name = v('fName'); if (!name) { alert('Client name required.'); return; }
+  var email = v('fEmail'); if (!email) { alert('Email required.'); return; }
+  var rec = { id: editIdx >= 0 ? db.leads[editIdx].id : nextId('leads', 'BK-'), name: name, email: email, phone: v('fPhone'), company: v('fCompany'), status: v('fStatus'), notes: v('fNotes') };
+  if (editIdx >= 0) db.leads[editIdx] = rec; else db.leads.push(rec);
+  save('leads'); renderLeads(); updateKPIs(); closeModal();
+}
+
+function saveService() {
+  var name = v('fSvcName'); if (!name) { alert('Service name required.'); return; }
+  var rec = { id: editIdx >= 0 ? db.services[editIdx].id : nextId('services', 'AAIS-'), name: name, desc: v('fSvcDesc'), delivery: v('fSvcDel'), value: v('fSvcVal') };
+  if (editIdx >= 0) db.services[editIdx] = rec; else db.services.push(rec);
+  save('services'); renderServices(); closeModal();
+}
+
+function savePortal() {
+  var company = v('fPCo'); if (!company) { alert('Company name required.'); return; }
+  var rec = { id: editIdx >= 0 ? db.portal[editIdx].id : nextId('portal', 'CP-'), company: company, serviceId: v('fPSvc'), milestone: v('fPMile'), launch: v('fPLaunch') };
+  if (editIdx >= 0) db.portal[editIdx] = rec; else db.portal.push(rec);
+  save('portal'); renderPortal(); updateKPIs(); closeModal();
+}
+
+function editLead(i) { openModal('lead', i); }
+function editService(i) { openModal('service', i); }
+function editPortal(i) { openModal('portal', i); }
+
+function deleteLead(i) { if (confirm('Delete this lead?')) { db.leads.splice(i, 1); save('leads'); renderLeads(); updateKPIs(); } }
+function deleteService(i) { if (confirm('Delete this service?')) { db.services.splice(i, 1); save('services'); renderServices(); } }
+function deletePortal(i) { if (confirm('Delete this client?')) { db.portal.splice(i, 1); save('portal'); renderPortal(); updateKPIs(); } }
+
+// ── KPI SYNC FROM CRM ──
+function updateKPIs() {
+  var calls = db.leads.filter(function(r) { return r.status === 'Discovery Call'; }).length;
+  var props = db.leads.filter(function(r) { return r.status === 'Proposal'; }).length;
+  var active = db.portal.length;
+  document.getElementById('kpiCalls').textContent = calls;
+  document.getElementById('kpiProps').textContent = props;
+  document.getElementById('kpiProjects').textContent = active;
+  document.getElementById('barCalls').style.width = Math.min(calls / 5 * 100, 100) + '%';
+  document.getElementById('barProps').style.width = Math.min(props / 3 * 100, 100) + '%';
+  document.getElementById('barProjects').style.width = Math.min(active / 3 * 100, 100) + '%';
+}
+
+// ── CSV IMPORT ──
+function importCSV(type, input) {
+  var file = input.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var lines = e.target.result.split('\n').map(function(l) { return l.trim(); }).filter(Boolean);
+    if (lines.length < 2) { showToast('No data rows found in CSV.', '#EF4444'); input.value=''; return; }
+    // strip quotes from each cell
+    function cell(s) { return s.replace(/^"|"$/g,'').replace(/""/g,'"').trim(); }
+    function row(line) { var r=[]; var re=/"([^"]*)"|([^,]+)|(?<=,|^)(?=,|$)/g; var m; while((m=re.exec(line))!==null){r.push(m[1]!==undefined?m[1]:m[2]||'');} return r; }
+    // simple split (handles basic quoted CSVs from Google Sheets)
+    function parseRow(line) {
+      var result=[]; var cur=''; var inQ=false;
+      for(var i=0;i<line.length;i++){
+        var c=line[i];
+        if(c==='"'){inQ=!inQ;}
+        else if(c===','&&!inQ){result.push(cur.trim());cur='';}
+        else{cur+=c;}
+      }
+      result.push(cur.trim());
+      return result;
+    }
+    var imported = 0;
+    var skipped = 0;
+    for (var i = 1; i < lines.length; i++) {
+      var cols = parseRow(lines[i]);
+      var obj;
+      if (type === 'leads') {
+        // Cols: Booking ID, Client Name, Email, Phone, Company, Status, Notes
+        if (!cols[1]) { skipped++; continue; }
+        var existIdx = db.leads.findIndex(function(r){ return r.id === cols[0]; });
+        obj = { id: cols[0]||nextId('leads'), name: cols[1]||'', email: cols[2]||'', phone: cols[3]||'', company: cols[4]||'', status: cols[5]||'Discovery Call', notes: cols[6]||'' };
+        if (existIdx >= 0) { db.leads[existIdx] = obj; } else { db.leads.push(obj); }
+      } else if (type === 'services') {
+        // Cols: Service ID, Service Name, Description, Est. Delivery, Value Metric
+        if (!cols[1]) { skipped++; continue; }
+        var existIdx = db.services.findIndex(function(r){ return r.id === cols[0]; });
+        obj = { id: cols[0]||nextId('services'), name: cols[1]||'', desc: cols[2]||'', delivery: cols[3]||'', value: cols[4]||'' };
+        if (existIdx >= 0) { db.services[existIdx] = obj; } else { db.services.push(obj); }
+      } else {
+        // Cols: Portal ID, Company Name, Active Service ID, Project Milestone, Launch Date
+        if (!cols[1]) { skipped++; continue; }
+        var existIdx = db.portal.findIndex(function(r){ return r.id === cols[0]; });
+        obj = { id: cols[0]||nextId('portal'), company: cols[1]||'', serviceId: cols[2]||'', milestone: cols[3]||'', launch: cols[4]||'' };
+        if (existIdx >= 0) { db.portal[existIdx] = obj; } else { db.portal.push(obj); }
+      }
+      imported++;
+    }
+    save(type);
+    if (type==='leads') renderLeads();
+    else if (type==='services') renderServices();
+    else renderPortal();
+    updateKPIs();
+    input.value = '';
+    showToast('Imported ' + imported + ' row' + (imported===1?'':'s') + (skipped?' ('+skipped+' skipped)':'') + ' ✓', '#22C55E');
+  };
+  reader.readAsText(file);
+}
+function showToast(msg, color) {
+  var t = document.getElementById('importToast');
+  t.textContent = msg;
+  t.style.background = color || '#22C55E';
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3000);
+}
+function nextId(type) {
+  if (type==='leads') { var n=db.leads.length+1; return 'BK-'+String(n).padStart(3,'0'); }
+  if (type==='services') { var n=db.services.length+1; return 'AAIS-'+String(n).padStart(3,'0'); }
+  var n=db.portal.length+1; return 'CP-'+String(n).padStart(3,'0');
+}
+
+// ── CSV EXPORT ──
+function exportCSV(type) {
+  var headers, rows;
+  if (type === 'leads') {
+    headers = ['Booking ID','Client Name','Email','Phone','Company','Status','Notes'];
+    rows = db.leads.map(function(r) { return [r.id,r.name,r.email,r.phone,r.company,r.status,r.notes]; });
+  } else if (type === 'services') {
+    headers = ['Service ID','Service Name','Description','Est. Delivery','Value Metric'];
+    rows = db.services.map(function(r) { return [r.id,r.name,r.desc,r.delivery,r.value]; });
+  } else {
+    headers = ['Portal ID','Company Name','Active Service ID','Project Milestone','Launch Date'];
+    rows = db.portal.map(function(r) { return [r.id,r.company,r.serviceId,r.milestone,r.launch]; });
+  }
+  var csv = [headers].concat(rows).map(function(r) {
+    return r.map(function(c) { return '"' + (c||'').replace(/"/g,'""') + '"'; }).join(',');
+  }).join('\n');
+  var a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'AAIS-' + type + '-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+}
+
+// ── SEED SERVICES (first load only) ──
+if (db.services.length === 0) {
+  db.services = [
+    {id:'AAIS-001',name:'AI Workflow Automation',desc:'Custom n8n automations — lead intake, follow-up, reporting',delivery:'3–6 weeks',value:'$2,500–$5,000'},
+    {id:'AAIS-002',name:'Custom AI Integration',desc:'Claude API integrated into existing business software',delivery:'4–8 weeks',value:'$5,000–$15,000'},
+    {id:'AAIS-003',name:'Enterprise AI Systems',desc:'Full-scale multi-agent AI system with custom UI',delivery:'8–12 weeks',value:'$15,000–$40,000'},
+    {id:'AAIS-004',name:'Essential Retainer',desc:'Monthly AI support, monitoring, and optimization',delivery:'Ongoing',value:'$1,000/month'},
+    {id:'AAIS-005',name:'Growth Retainer',desc:'Expanded support + new automations + quarterly strategy',delivery:'Ongoing',value:'$2,500/month'},
+    {id:'AAIS-006',name:'Scale Retainer',desc:'Dedicated build hours + priority support + KPI reporting',delivery:'Ongoing',value:'$4,500/month'},
+    {id:'AAIS-007',name:'AI Readiness Audit',desc:'Discovery + gap analysis + Michigan grant eligibility assessment',delivery:'1–2 weeks',value:'$500–$1,500'},
+    {id:'AAIS-008',name:'Going PRO Grant Consulting',desc:'Michigan Going PRO AI training reimbursement support',delivery:'2–4 weeks',value:'Included in project'},
+  ];
+  save('services');
+}
+
+// ── INIT ──
+renderLeads(); renderServices(); renderPortal(); updateKPIs();
 </script>
 </body>
 </html>

@@ -109,6 +109,27 @@
   </url>
 
   <url>
+    <loc>https://americanaisolutionsllc.com/testimonial/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://americanaisolutionsllc.com/resources/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://americanaisolutionsllc.com/report/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://americanaisolutionsllc.com/blog/ai-consulting-michigan-why-local-matters/</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -495,6 +516,7 @@
 
   <url>
     <loc>https://americanaisolutionsllc.com/blog/ai-for-michigan-craft-breweries/</loc>
+    <loc>https://americanaisolutionsllc.com/blog/michigan-ai-readiness-assessment/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -502,6 +524,7 @@
 
   <url>
     <loc>https://americanaisolutionsllc.com/blog/ai-for-michigan-auto-glass-companies/</loc>
+    <loc>https://americanaisolutionsllc.com/blog/michigan-business-ai-fear-transformation/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -509,6 +532,7 @@
 
   <url>
     <loc>https://americanaisolutionsllc.com/blog/ai-for-michigan-veterinary-practices/</loc>
+    <loc>https://americanaisolutionsllc.com/blog/michigan-manufacturing-ai-guide/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -516,6 +540,7 @@
 
   <url>
     <loc>https://americanaisolutionsllc.com/blog/ai-for-michigan-printing-sign-companies/</loc>
+    <loc>https://americanaisolutionsllc.com/blog/michigan-small-business-ai/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -530,6 +555,7 @@
 
   <url>
     <loc>https://americanaisolutionsllc.com/blog/ai-for-michigan-moving-companies/</loc>
+    <loc>https://americanaisolutionsllc.com/blog/michigan-hvac-mechanical-ai/</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

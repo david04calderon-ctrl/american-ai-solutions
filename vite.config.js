@@ -28,6 +28,11 @@ export default defineConfig({
             description: 'Book your free 30-minute AI strategy call'
           },
           {
+            name: 'ROI Calculator',
+            url: '/#roi',
+            description: 'Calculate your AI return on investment'
+          },
+          {
             name: 'Our Services',
             url: '/#services',
             description: 'Explore AI workflow automation services'
@@ -36,6 +41,11 @@ export default defineConfig({
             name: 'Pricing',
             url: '/#pricing',
             description: 'See fixed-scope pricing tiers'
+          },
+          {
+            name: 'CEO Dashboard',
+            url: '/dashboard/',
+            description: 'CEO Command Center — leads, pipeline, client portal'
           }
         ],
         categories: ['business', 'productivity'],

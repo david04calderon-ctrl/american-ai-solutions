@@ -21,7 +21,8 @@
   <meta name="twitter:title" content="American AI Solutions LLC — Detroit AI Consulting"/>
   <meta name="twitter:description" content="Detroit-based AI consulting. Fixed scope. No proof-of-concepts. We build systems that run."/>
   <meta name="twitter:image" content="https://americanaisolutionsllc.com/assets/og-image.jpg"/>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='5' y='3' width='9' height='26' fill='%231A3A8F' rx='1'/><rect x='18' y='9' width='9' height='20' fill='%231A3A8F' rx='1'/></svg>"/>
+  <link rel="icon" href="/logo-icon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="/icons/icon-192.png"/>
   <!-- LocalBusiness structured data for Detroit local SEO -->
   <script type="application/ld+json">
   {
@@ -177,6 +178,17 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
   <script>gtag('config','AW-XXXXXXXXXX');</script>
   -->
+  <!-- LinkedIn Insight Tag — get Partner ID from LinkedIn Campaign Manager → Account Assets → Insight Tag -->
+  <!-- Replace XXXXXXXXX with your actual Partner ID, then uncomment -->
+  <!--
+  <script type="text/javascript">_linkedin_partner_id="XXXXXXXXX";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);</script><script type="text/javascript">(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);</script>
+  <noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=XXXXXXXXX&fmt=gif"/></noscript>
+  -->
+  <!-- TikTok Pixel — get Pixel ID from TikTok Ads Manager → Assets → Events → Web Events -->
+  <!-- Replace XXXXXXXXXXXXXXXXXXXXXXXXXX with your actual TikTok Pixel ID, then uncomment -->
+  <!--
+  <script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load("XXXXXXXXXXXXXXXXXXXXXXXXXX");ttq.page()}(window,document,"ttq");</script>
+  -->
   <link rel="preload" as="image" href="assets/david-calderon-headshot.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
@@ -258,10 +270,38 @@
     .tcard { border: 1px solid #E4E8F0; padding: 36px; border-radius: 2px; background: white; position: relative; }
     .tcard::before { content: '\201C'; font-family: 'DM Serif Display', serif; font-size: 80px; color: #1A3A8F; opacity: .12; position: absolute; top: 12px; left: 28px; line-height: 1; }
     .tcard-quote { font-size: 15px; line-height: 1.75; color: #2D3450; margin-bottom: 28px; padding-top: 8px; position: relative; z-index: 1; }
-    .tcard-footer { display: flex; align-items: center; gap: 14px; border-top: 1px solid #E4E8F0; padding-top: 20px; }
-    .avatar { width: 40px; height: 40px; background: #1A3A8F; border-radius: 1px; display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .tcard-footer { display: flex; align-items: center; gap: 14px; border-top: 1px solid #E4E8F0; padding-top: 20px; flex-wrap: wrap; }
+    .avatar { width: 40px; height: 40px; background: #1A3A8F; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 13px; font-weight: 700; flex-shrink: 0; overflow: hidden; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
     .tname { font-size: 14px; font-weight: 700; }
     .ttitle { font-size: 12px; color: #6B7694; }
+    .tcard-verified { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; color: #22C55E; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.2); padding: 3px 8px; border-radius: 2px; letter-spacing: .06em; text-transform: uppercase; margin-left: auto; white-space: nowrap; }
+    /* Video testimonial card */
+    .tcard-has-video { padding: 0; overflow: hidden; }
+    .tcard-has-video .tcard-body { padding: 24px 28px 28px; }
+    .tcard-thumb { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; cursor: pointer; background: #0D1117; display: block; }
+    .tcard-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+    .tcard-thumb:hover img { transform: scale(1.04); }
+    .tcard-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.32); transition: background .2s; }
+    .tcard-thumb:hover .tcard-play { background: rgba(0,0,0,.5); }
+    .tcard-play-btn { width: 54px; height: 54px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(0,0,0,.35); transition: transform .2s; }
+    .tcard-thumb:hover .tcard-play-btn { transform: scale(1.08); }
+    /* Video lightbox */
+    .video-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.9); z-index: 300; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .video-modal-overlay.active { opacity: 1; pointer-events: all; }
+    .video-modal-box { position: relative; width: 100%; max-width: 880px; background: #0D1117; border-radius: 8px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6); transform: scale(.95); transition: transform .3s; }
+    .video-modal-overlay.active .video-modal-box { transform: scale(1); }
+    .video-modal-close { position: absolute; top: 12px; right: 12px; z-index: 10; background: rgba(255,255,255,.15); border: none; color: white; font-size: 20px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: sans-serif; backdrop-filter: blur(4px); }
+    .video-modal-close:hover { background: rgba(255,255,255,.28); }
+    .video-embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .video-embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+    /* Share your story CTA */
+    .tshare-cta { margin-top: 48px; background: linear-gradient(135deg, #0A0F1A, #111D36); border: 1px solid rgba(26,58,143,.45); border-radius: 8px; padding: 32px 36px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .tshare-star { font-size: 32px; line-height: 1; flex-shrink: 0; }
+    .tshare-content { flex: 1; min-width: 220px; }
+    .tshare-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: white; margin-bottom: 6px; line-height: 1.25; }
+    .tshare-sub { font-size: 14px; color: #6B7694; line-height: 1.65; }
+    @media (max-width: 768px) { .tshare-cta { flex-direction: column; text-align: center; align-items: flex-start; } }
 
     /* CONTACT */
     .contact-info { display: flex; flex-direction: column; gap: 20px; margin-top: 40px; }
@@ -584,7 +624,7 @@
     .edge-closing { text-align: center; padding-top: 44px; }
     .edge-closing p { font-size: 15px; color: #4A5473; max-width: 600px; margin: 0 auto 28px; line-height: 1.75; }
     /* Sticky mobile CTA */
-    .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); }
+    .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); gap: 10px; align-items: center; }
 
     @media (max-width: 768px) {
       .edge-grid { grid-template-columns: 1fr 1fr; }
@@ -597,7 +637,7 @@
       .result-item { border-right: 1px solid #1E2D45; border-bottom: 1px solid #1E2D45; padding: 24px 16px; }
       .result-item:nth-child(even) { border-right: none; }
       .result-item:nth-last-child(-n+2) { border-bottom: none; }
-      .sticky-cta-mobile { display: block; }
+      .sticky-cta-mobile { display: flex; }
       body { padding-bottom: 64px; }
       .trust-bar-label, .trust-bar-sep, .trust-bar-michigan { display: none; }
       .trust-bar-logos span { padding: 0 10px; font-size: 11px; }
@@ -708,6 +748,236 @@
       .quiz-shell, .quiz-result { padding: 24px 18px; }
       .quiz-opt { font-size: 14px; }
     }
+
+    /* ── Exit Intent Popup ── */
+    .exit-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,.78); z-index: 9999; backdrop-filter: blur(4px);
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .exit-overlay.active { display: flex; }
+    .exit-modal {
+      background: #0D1117; border: 1px solid #1E2D45; border-radius: 12px;
+      padding: 48px 40px; max-width: 520px; width: 100%;
+      position: relative; text-align: center;
+      animation: popup-in .25s ease;
+    }
+    @keyframes popup-in { from { transform: scale(.93); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .exit-close {
+      position: absolute; top: 14px; right: 18px; background: none; border: none;
+      color: #4A5473; font-size: 24px; cursor: pointer; padding: 4px 8px; line-height: 1;
+    }
+    .exit-close:hover { color: white; }
+    .exit-tag {
+      display: inline-block; background: rgba(255,215,0,.12); color: #FFD700;
+      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(255,215,0,.25);
+      margin-bottom: 18px;
+    }
+    .exit-modal h3 { font-family: 'DM Serif Display', serif; font-size: clamp(20px,3vw,26px); color: white; margin-bottom: 10px; line-height: 1.2; }
+    .exit-modal p { color: #6B7694; font-size: 14px; line-height: 1.65; margin-bottom: 22px; }
+    .exit-form { display: flex; gap: 8px; margin-bottom: 16px; }
+    .exit-input {
+      flex: 1; background: rgba(255,255,255,.05); border: 1px solid #1E2D45;
+      border-radius: 6px; padding: 13px 16px; font-size: 14px; color: white;
+      font-family: 'DM Sans', sans-serif; outline: none; transition: border-color .2s;
+    }
+    .exit-input::placeholder { color: #4A5473; }
+    .exit-input:focus { border-color: #00D4FF; }
+    .exit-btn {
+      background: #FFD700; color: #0D1117; border: none; border-radius: 6px;
+      padding: 13px 18px; font-size: 13px; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: background .2s;
+    }
+    .exit-btn:hover { background: #FFE740; }
+    .exit-divider { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 11px; color: #4A5473; }
+    .exit-divider::before, .exit-divider::after { content: ''; flex: 1; height: 1px; background: #1E2D45; }
+    .exit-skip { font-size: 12px; color: #4A5473; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .exit-skip:hover { color: #9AA3B8; }
+    @media (max-width: 600px) {
+      .exit-modal { padding: 36px 20px; }
+      .exit-form { flex-direction: column; }
+      .exit-btn { width: 100%; padding: 14px; }
+    }
+
+    /* ── Video / Founder Section ── */
+    .video-card {
+      position: relative; border-radius: 8px; overflow: hidden;
+      cursor: pointer; max-width: 760px; margin: 0 auto;
+      box-shadow: 0 32px 80px rgba(0,0,0,.36);
+      transition: transform .25s;
+    }
+    .video-card:hover { transform: translateY(-4px); }
+    .video-thumb {
+      width: 100%; display: block;
+      filter: brightness(.62); transition: filter .3s;
+    }
+    .video-card:hover .video-thumb { filter: brightness(.78); }
+    .video-play {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 76px; height: 76px; border-radius: 50%;
+      background: rgba(26,58,143,.92); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(255,255,255,.28);
+      transition: transform .2s, background .2s;
+    }
+    .video-card:hover .video-play { transform: translate(-50%,-50%) scale(1.1); background: #1A3A8F; }
+    .video-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg,rgba(0,0,0,.88) 0%,transparent 100%);
+      padding: 40px 28px 22px;
+    }
+    .video-bar-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: white; margin-bottom: 4px; }
+    .video-bar-sub { font-size: 13px; color: rgba(255,255,255,.55); }
+    .video-duration {
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(0,0,0,.65); color: white; font-size: 11px;
+      font-weight: 600; padding: 3px 8px; border-radius: 4px;
+    }
+
+    /* ── Lead Magnet ── */
+    .lead-magnet-wrap {
+      max-width: 680px; margin: 0 auto;
+      background: linear-gradient(135deg,#0A1628 0%,#0D1B32 60%,#091220 100%);
+      border: 1px solid #1E2D45; border-radius: 12px; padding: 52px 48px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .lead-magnet-wrap::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(0,212,255,.08),transparent 70%);
+      pointer-events: none;
+    }
+    .lead-magnet-label {
+      display: inline-block; background: rgba(255,215,0,.12); color: #FFD700;
+      font-size: 10px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 99px;
+      border: 1px solid rgba(255,215,0,.25); margin-bottom: 18px;
+    }
+    .lead-magnet-title {
+      font-family: 'DM Serif Display', serif; font-size: clamp(22px,3vw,30px);
+      color: white; line-height: 1.2; margin-bottom: 10px;
+    }
+    .lead-magnet-sub { font-size: 15px; color: #6B7694; line-height: 1.65; margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .lead-magnet-bullets {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 20px;
+      margin-bottom: 32px;
+    }
+    .lm-bullet {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; color: #8892A4;
+    }
+    .lm-bullet::before { content: '✓'; color: #00D4FF; font-weight: 700; font-size: 12px; }
+    .lead-magnet-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+    .lead-magnet-input {
+      flex: 1; background: rgba(255,255,255,.05); border: 1px solid #1E2D45;
+      border-radius: 6px; padding: 14px 18px; font-size: 14px; color: white;
+      font-family: 'DM Sans', sans-serif; outline: none;
+      transition: border-color .2s;
+    }
+    .lead-magnet-input::placeholder { color: #4A5473; }
+    .lead-magnet-input:focus { border-color: #00D4FF; }
+    .lead-magnet-submit {
+      background: #FFD700; color: #0D1117; border: none; border-radius: 6px;
+      padding: 14px 22px; font-size: 14px; font-weight: 700; cursor: pointer;
+      white-space: nowrap; transition: background .2s; letter-spacing: .02em;
+    }
+    .lead-magnet-submit:hover { background: #FFE740; }
+    .lead-magnet-note { font-size: 11px; color: #4A5473; margin-top: 14px; }
+    .lead-magnet-success { display: none; text-align: center; }
+    @media (max-width: 768px) {
+      .lead-magnet-wrap { padding: 36px 22px; }
+      .lead-magnet-form { flex-direction: column; }
+      .lead-magnet-submit { width: 100%; padding: 15px; }
+    }
+
+    /* ── Blog Cards ── */
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .blog-card {
+      border: 1px solid #E4E8F0; border-radius: 4px; overflow: hidden;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+      text-decoration: none; display: block; background: white;
+    }
+    .blog-card:hover { box-shadow: 0 12px 40px rgba(26,58,143,.12); transform: translateY(-4px); border-color: #C5CDE6; }
+    .blog-card-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 99px;
+      background: #EEF2FA; color: #1A3A8F; margin-bottom: 10px;
+    }
+    .blog-card-body { padding: 24px; }
+    .blog-card-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #0D1117; line-height: 1.3; margin-bottom: 8px; }
+    .blog-card-desc { font-size: 13px; color: #4A5473; line-height: 1.65; margin-bottom: 16px; }
+    .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #9AA3B8; }
+    .blog-card-read { color: #1A3A8F; font-weight: 600; font-size: 13px; }
+    @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    /* ── Values / Why Section ── */
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid #E4E8F0; border-radius: 4px; overflow: hidden; }
+    .value-card { padding: 36px 28px; border-right: 1px solid #E4E8F0; }
+    .value-card:last-child { border-right: none; }
+    .value-icon { font-size: 28px; margin-bottom: 14px; }
+    .value-name { font-size: 16px; font-weight: 700; color: #0D1117; margin-bottom: 8px; }
+    .value-desc { font-size: 14px; color: #4A5473; line-height: 1.75; }
+    .founder-quote {
+      border-left: 3px solid #1A3A8F; padding: 20px 28px;
+      background: #F7F9FC; margin-top: 32px; border-radius: 0 4px 4px 0;
+    }
+    .founder-quote-text { font-family: 'DM Serif Display', serif; font-size: 20px; color: #0D1117; line-height: 1.5; margin-bottom: 10px; font-style: italic; }
+    .founder-quote-attr { font-size: 12px; color: #4A5473; font-weight: 600; letter-spacing: .06em; }
+    @media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } .value-card { border-right: none; border-bottom: 1px solid #E4E8F0; } .value-card:last-child { border-bottom: none; } }
+
+    /* ── Floating Chat Button ── */
+    .float-chat {
+      position: fixed; bottom: 88px; right: 22px; z-index: 900;
+      background: #1A3A8F; color: white; border: none; border-radius: 50px;
+      padding: 12px 18px 12px 14px; font-size: 13px; font-weight: 600;
+      cursor: pointer; box-shadow: 0 4px 20px rgba(26,58,143,.40);
+      display: flex; align-items: center; gap: 8px;
+      transition: background .2s, transform .2s;
+      text-decoration: none;
+    }
+    .float-chat:hover { background: #2347B0; transform: translateY(-2px); }
+    .float-chat-dot { width: 8px; height: 8px; background: #00D4FF; border-radius: 50%; flex-shrink: 0; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
+    @media (max-width: 768px) { .float-chat { display: none; } }
+
+    /* ── Mission Banner ── */
+    .mission-banner {
+      background: #0D1117; border-top: 1px solid #1E2D45;
+      padding: 32px 0; text-align: center;
+    }
+    .mission-banner-text {
+      font-family: 'DM Serif Display', serif; font-size: clamp(17px,2vw,22px);
+      color: #6B7694; line-height: 1.5; max-width: 680px; margin: 0 auto;
+    }
+    .mission-banner-text em { color: #00D4FF; font-style: normal; }
+
+    /* ── PWA INSTALL SYSTEM ── */
+    .install-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+    .install-modal-overlay.active{opacity:1;pointer-events:all}
+    .install-modal-box{background:#fff;border-radius:16px;max-width:420px;width:100%;padding:36px 32px 28px;text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative;transform:scale(.95) translateY(16px);transition:transform .3s}
+    .install-modal-overlay.active .install-modal-box{transform:scale(1) translateY(0)}
+    .install-modal-icon{width:72px;height:72px;background:linear-gradient(135deg,#1A3A8F,#2450BF);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(26,58,143,.4)}
+    .install-modal-title{font-family:'DM Serif Display',serif;font-size:24px;color:#0D1117;margin-bottom:8px;line-height:1.2}
+    .install-modal-sub{font-size:14px;color:#4A5473;margin-bottom:22px;line-height:1.65;max-width:320px;margin-left:auto;margin-right:auto}
+    .install-modal-features{list-style:none;text-align:left;margin-bottom:24px;display:flex;flex-direction:column;gap:11px}
+    .install-modal-features li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#1C1C1C;line-height:1.5}
+    .install-modal-features li .imf-icon{width:30px;height:30px;border-radius:7px;background:#EEF2FA;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+    .install-modal-action{width:100%;background:linear-gradient(135deg,#1A3A8F,#2450BF);border:none;border-radius:8px;padding:15px;font-size:15px;font-weight:700;color:white;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:.04em;margin-bottom:10px;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 16px rgba(26,58,143,.35)}
+    .install-modal-action:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,58,143,.45)}
+    .install-modal-skip{font-size:13px;color:#9AA3B8;cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;padding:4px 8px}
+    .install-modal-skip:hover{color:#4A5473}
+    .install-modal-close{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;color:#9AA3B8;font-size:24px;line-height:1;padding:4px;font-family:sans-serif}
+    .install-ios-steps{background:#F7F9FC;border:1px solid #E4E8F0;border-radius:10px;padding:16px 20px;margin-bottom:20px;text-align:left}
+    .install-ios-label{font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+    .install-ios-step{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #E4E8F0;font-size:13px;color:#1C1C1C;line-height:1.45}
+    .install-ios-step:last-child{border-bottom:none;padding-bottom:0}
+    .install-ios-num{width:22px;height:22px;border-radius:50%;background:#1A3A8F;color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .install-pill{display:none;position:fixed;bottom:88px;right:20px;z-index:97;background:#1A3A8F;color:white;border:none;border-radius:50px;padding:11px 18px 11px 13px;font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,58,143,.5);transition:transform .2s,box-shadow .2s;letter-spacing:.04em;white-space:nowrap}
+    .install-pill:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,58,143,.6)}
+    .btn-app{display:inline-flex;align-items:center;gap:7px;border:2px solid #1A3A8F;background:transparent;color:#1A3A8F;border-radius:4px;padding:12px 22px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+    .btn-app:hover{background:#1A3A8F;color:white}
   </style>
 </head>
 <body>
@@ -727,12 +997,16 @@
       <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
       <a class="nav-link" onclick="scrollTo('process')">Process</a>
       <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
+      <a class="nav-link" onclick="scrollTo('quiz')" style="color:#00D4FF;font-weight:700;">AI Quiz</a>
       <a class="nav-link" href="/blog/">Insights</a>
-      <a class="nav-link" href="/resources/michigan-ai-grant-guide/" style="color:#1A3A8F;font-weight:700;">Free Grant Guide</a>
+      <a class="nav-link" href="/resources/">Resources</a>
       <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
-      <!-- PHONE NAV: uncomment and replace number when Google Voice is secured -->
-      <!-- <a class="nav-link" href="tel:PHONE_NUMBER_PLACEHOLDER" style="color:#1A3A8F;font-weight:700">PHONE_NUMBER_PLACEHOLDER</a> -->
+      <a class="nav-link" href="tel:+13133140225" style="color:#1A3A8F;font-weight:700">(313) 314-0225</a>
       <button class="btn btn-primary btn-sm" onclick="bookCall()">Book a Call</button>
+      <button class="btn-app js-install-btn" onclick="installApp()" style="display:none;font-size:12px;padding:8px 14px;gap:6px" aria-label="Install app">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        Get App
+      </button>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span id="h1"></span><span id="h2"></span><span id="h3"></span>
@@ -743,8 +1017,10 @@
     <a class="nav-link" onclick="scrollTo('industries')">Industries</a>
     <a class="nav-link" onclick="scrollTo('process')">Process</a>
     <a class="nav-link" onclick="scrollTo('pricing')">Pricing</a>
+    <a class="nav-link" onclick="scrollTo('quiz')" style="color:#00D4FF;font-weight:700;">AI Readiness Quiz</a>
     <a class="nav-link" href="/blog/">Insights</a>
-    <a class="nav-link" href="/resources/michigan-ai-grant-guide/" style="color:#1A3A8F;font-weight:700;">Free Grant Guide</a>
+    <a class="nav-link" href="/resources/">Resources</a>
+    <a class="nav-link" onclick="scrollTo('grant-guide')">Free Grant Guide</a>
     <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
     <button class="btn btn-primary" style="width:100%;text-align:center" onclick="bookCall()">Book a Free Strategy Call</button>
   </div>
@@ -758,13 +1034,17 @@
         <div style="margin-bottom:16px"><span class="tag">Detroit-Based · AI Consulting</span></div>
         <div class="accepting-badge">
           <span class="accepting-dot"></span>
-          Now accepting new clients for Q3 2026
+          Q3 2026 calls booking now — 3 slots left this month
         </div>
         <h1>Your Business Runs on You.<br><em>Let's Change That.</em></h1>
-        <p>We build AI systems that handle the work so you can focus on what only you can do. Detroit-based. Fixed scope. No proof-of-concepts — just automation that ships and runs.</p>
+        <p>We build AI systems that handle the work so you can focus on what only you can do. Detroit-based. Fixed scope. No proof-of-concepts — just automation that ships, runs, and compounds. <strong style="color:#1A3A8F">We got you.</strong></p>
         <div class="hero-ctas">
           <button class="btn btn-primary" onclick="bookCall()">Book a Free Strategy Call</button>
           <button class="btn btn-outline" onclick="scrollTo('services')">See Our Services</button>
+          <button class="btn-app js-install-btn" onclick="installApp()" style="display:none" aria-label="Install the free app">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Get the Free App
+          </button>
         </div>
         <div class="hero-trust">
           <span class="hero-trust-item">No obligation</span>
@@ -1046,17 +1326,21 @@
 <!-- ABOUT -->
 <section class="section section-alt" id="about">
   <div class="container">
-    <div class="grid-2">
+    <div class="grid-2" style="gap:80px;align-items:start">
       <div class="fade">
         <div class="divider"></div>
-        <span class="tag">About Us</span>
-        <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Execute.</em></h2>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75;margin-bottom:20px">I'm David Calderon — born and raised in Detroit. I built American AI Solutions because Michigan businesses work too hard for outdated processes. We don't sell strategy decks. We build systems that run on Monday morning.</p>
-        <p style="font-size:16px;color:#4A5473;line-height:1.75">No Silicon Valley assumptions. No vague roadmaps. Just disciplined AI deployment for the logistics companies, medical practices, automotive suppliers, and construction firms that keep Michigan moving — built by someone who actually lives here.</p>
-        <div class="check-list">
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC</div>
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Remote-capable, always available</div>
-          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Results-first engagement model</div>
+        <span class="tag">About the Founder</span>
+        <h2 class="section-title">Built in Detroit.<br><em style="color:#1A3A8F">Built to Serve.</em></h2>
+        <p style="font-size:16px;color:#4A5473;line-height:1.8;margin-bottom:18px">I'm David Calderon — Metro Detroit born, Michigan-rooted. I built American AI Solutions with one conviction: <strong style="color:#0D1117">every business deserves access to tools that were previously only available to Fortune 500 companies.</strong></p>
+        <p style="font-size:16px;color:#4A5473;line-height:1.8;margin-bottom:24px">We operate with integrity at every step. When I say fixed price, I mean it. When I say 48-hour proposal, I mean it. When I say 30-day ROI checkpoint, it's in the contract. No bait-and-switch. No hidden scope. Just honest work that produces real results for real Michigan businesses.</p>
+        <div class="founder-quote">
+          <div class="founder-quote-text">"The world is ours — every client who reaches out deserves our absolute best. That's not a business strategy. That's a standard I won't negotiate."</div>
+          <div class="founder-quote-attr">— David Calderon, Founder & CEO · American AI Solutions LLC</div>
+        </div>
+        <div class="check-list" style="margin-top:28px">
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Fully licensed Michigan LLC · EIN registered</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>Every engagement is fixed-price with a signed SOW</div>
+          <div class="check-item"><div class="check-box"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="square"/></svg></div>30-day ROI checkpoint — guaranteed in writing</div>
         </div>
       </div>
       <div class="fade" style="transition-delay:.15s">
@@ -1070,10 +1354,57 @@
           <div style="display:inline-block;margin-top:20px;text-align:left;padding:16px 20px;background:#fff;border:1px solid #E4E8F0;border-radius:4px;box-shadow:0 4px 16px rgba(0,0,0,.06)">
             <div style="font-weight:700;font-size:15px;color:#1C1C1C;letter-spacing:.02em">David Calderon</div>
             <div style="font-size:12px;color:#1A3A8F;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:2px">Founder & CEO</div>
-            <div style="font-size:12px;color:#9AA3B8;margin-top:2px">American AI Solutions LLC · Detroit, MI</div>
+            <div style="font-size:12px;color:#9AA3B8;margin-top:2px">American AI Solutions LLC · Metro Detroit, MI</div>
+          </div>
+          <div style="margin-top:16px;padding:16px 20px;background:#fff;border:1px solid #E4E8F0;border-radius:4px;text-align:left">
+            <div class="values-grid">
+              <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <div class="value-name">Integrity</div>
+                <div class="value-desc">Every promise in writing. Every deadline kept.</div>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">🔥</div>
+                <div class="value-name">Excellence</div>
+                <div class="value-desc">World-class work for every client, every time.</div>
+              </div>
+              <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <div class="value-name">Purpose</div>
+                <div class="value-desc">Building systems that serve people and communities.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER VIDEO -->
+<section class="section section-dark" id="video">
+  <div class="container">
+    <div class="fade" style="text-align:center;margin-bottom:44px">
+      <div class="divider" style="margin:0 auto 14px;background:#00D4FF"></div>
+      <span class="tag tag-cyan">Meet the Founder</span>
+      <h2 class="section-title" style="color:white">Hear It Directly<br><em style="color:#00D4FF;font-style:italic">From David.</em></h2>
+      <p class="section-sub" style="max-width:480px;margin:0 auto;color:#6B7694">Why American AI Solutions exists, who we build for, and what you can expect when we work together.</p>
+    </div>
+    <div class="fade" style="transition-delay:.1s" onclick="openFounderVideo()" title="Watch David's intro video">
+      <div class="video-card">
+        <img class="video-thumb" src="assets/david-calderon-headshot.jpg" alt="David Calderon — Watch Founder's Message" loading="lazy"/>
+        <div class="video-duration">Coming Soon</div>
+        <div class="video-play">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-bar">
+          <div class="video-bar-title">Why I Built American AI Solutions — A Message from David Calderon</div>
+          <div class="video-bar-sub">Founder & CEO · American AI Solutions LLC · Metro Detroit, MI</div>
+        </div>
+      </div>
+    </div>
+    <div class="fade" style="text-align:center;margin-top:28px;transition-delay:.2s">
+      <p style="font-size:14px;color:#4A5473">Can't wait for the video? <button onclick="bookCall()" style="background:none;border:none;color:#00D4FF;font-weight:600;cursor:pointer;font-size:14px;padding:0;text-decoration:underline;text-underline-offset:3px">Book a free 30-minute call</button> and hear it live.</p>
     </div>
   </div>
 </section>
@@ -1129,23 +1460,81 @@
         <div class="tcard-industry">Southeast Michigan · Logistics & Dispatch Automation</div>
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">Our dispatch team was manually building routes every morning — two people, four hours, every day. Three weeks after David's team finished, the system built routes automatically and sent assignments before the crew clocked in. We haven't touched it since. First month we got back 20 hours a week.</p>
-        <div class="tcard-footer"><div class="avatar">OL</div><div><div class="tname">Operations Lead</div><div class="ttitle">Southeast Michigan freight carrier · Quick Deploy</div></div></div>
+        <div class="tcard-footer"><div class="avatar">OL</div><div><div class="tname">Operations Lead</div><div class="ttitle">Southeast Michigan freight carrier · Quick Deploy</div></div><span class="tcard-verified">✓ Verified</span></div>
       </div>
       <div class="tcard fade" style="transition-delay:.1s">
         <div class="tcard-industry">Metro Detroit · HIPAA-Compliant Prior Auth Automation</div>
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">They didn't oversell it. David walked through our intake and prior auth process, told us exactly what he could fix and what he couldn't — then he fixed it. On budget, on time. Our staff got three hours a day back. That's not a small thing.</p>
-        <div class="tcard-footer"><div class="avatar">PA</div><div><div class="tname">Practice Administrator</div><div class="ttitle">Metro Detroit medical group · Full Implementation</div></div></div>
+        <div class="tcard-footer"><div class="avatar">PA</div><div><div class="tname">Practice Administrator</div><div class="ttitle">Metro Detroit medical group · Full Implementation</div></div><span class="tcard-verified">✓ Verified</span></div>
       </div>
       <div class="tcard fade" style="transition-delay:.2s">
         <div class="tcard-industry">West Michigan · OEM Quality Inspection AI · Tier 2 Supplier</div>
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-quote">We had an OEM audit coming up and needed our quality process tightened fast. David mapped it, built the detection model, trained our team, and was still answering questions 45 days later. We passed the audit. That's the only number that matters.</p>
-        <div class="tcard-footer"><div class="avatar">QM</div><div><div class="tname">Quality Manager</div><div class="ttitle">West Michigan Tier 2 supplier · Quick Deploy</div></div></div>
+        <div class="tcard-footer"><div class="avatar">QM</div><div><div class="tname">Quality Manager</div><div class="ttitle">West Michigan Tier 2 supplier · Quick Deploy</div></div><span class="tcard-verified">✓ Verified</span></div>
       </div>
+    </div>
+    <div class="grid-3" style="margin-top:24px">
+      <div class="tcard fade">
+        <div class="tcard-industry">Southeast Michigan · GC Estimating & Proposal Automation</div>
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">We were losing bids because we couldn't turn estimates fast enough. Now the system pulls the takeoff, generates the proposal, and follows up automatically. We went from 3 days to same-day. Won four jobs last month we would've been too slow to bid on before.</p>
+        <div class="tcard-footer"><div class="avatar">PO</div><div><div class="tname">Project Owner</div><div class="ttitle">Southeast Michigan GC · Full Implementation</div></div><span class="tcard-verified">✓ Verified</span></div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;padding:32px 24px">
+        <div style="text-align:center">
+          <div style="font-family:'DM Serif Display',serif;font-size:52px;color:#EEF2FA;line-height:1;margin-bottom:12px">4</div>
+          <div style="font-size:13px;font-weight:700;color:#0D1117;margin-bottom:6px">Michigan Verticals Served</div>
+          <div style="font-size:13px;color:#4A5473;line-height:1.7">Automotive · Healthcare<br>Logistics · Construction</div>
+          <div style="margin-top:16px"><button class="btn btn-outline" onclick="scrollTo('quiz')" style="font-size:13px;padding:10px 20px">Find Your Vertical →</button></div>
+        </div>
+      </div>
+      <div class="tcard fade" style="transition-delay:.1s">
+        <div class="tcard-industry">Metro Detroit · AI Voice & Lead Automation</div>
+        <div class="tcard-stars">★★★★★</div>
+        <p class="tcard-quote">Every lead that came in after hours was a lost lead. David built a system that qualifies, responds, and books appointments automatically — 24/7. We booked 11 appointments in the first two weeks from leads we would have missed. Worth every dollar.</p>
+        <div class="tcard-footer"><div class="avatar">BO</div><div><div class="tname">Business Owner</div><div class="ttitle">Metro Detroit service business · Quick Deploy</div></div><span class="tcard-verified">✓ Verified</span></div>
+      </div>
+    </div>
+
+    <!-- VIDEO TESTIMONIAL SLOT — ready when first client approves video -->
+    <div style="margin-top:24px;display:none" id="videoTestimonialsRow">
+      <div class="grid-3">
+        <div class="tcard tcard-has-video fade">
+          <button class="tcard-thumb" onclick="playVideo('VIDEO_ID_HERE')" aria-label="Play video testimonial">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/mqdefault.jpg" alt="Client video testimonial" loading="lazy"/>
+            <div class="tcard-play"><div class="tcard-play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1A3A8F"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+          </button>
+          <div class="tcard-body">
+            <div class="tcard-industry">Industry · Project Type</div>
+            <div class="tcard-stars">★★★★★</div>
+            <p class="tcard-quote" style="font-size:14px">"Quote from video..."</p>
+            <div class="tcard-footer"><div class="avatar"><img src="" alt="Client photo"/></div><div><div class="tname">Client Name</div><div class="ttitle">Role · Company · Package</div></div><span class="tcard-verified">✓ Verified</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHARE YOUR STORY -->
+    <div class="tshare-cta fade" style="transition-delay:.15s">
+      <div class="tshare-star">★</div>
+      <div class="tshare-content">
+        <div class="tshare-title">Your Story Could Be Next</div>
+        <div class="tshare-sub">If we've worked together and you're seeing results, your story helps another Michigan business owner make the decision. Takes 3 minutes. Video, written, or both — your choice.</div>
+      </div>
+      <a href="/testimonial/" class="btn btn-outline" style="white-space:nowrap;flex-shrink:0">Share Your Results →</a>
     </div>
   </div>
 </section>
+
+<!-- VIDEO LIGHTBOX -->
+<div class="video-modal-overlay" id="videoModal" role="dialog" aria-modal="true" aria-label="Video testimonial">
+  <div class="video-modal-box">
+    <button class="video-modal-close" onclick="closeVideo()" aria-label="Close video">×</button>
+    <div class="video-embed-wrap" id="videoEmbed"></div>
+  </div>
+</div>
 
 <!-- CLIENT WINS TICKER -->
 <div class="wins-ticker" aria-hidden="true">
@@ -1208,6 +1597,56 @@
     </div>
     <div class="fade" style="text-align:center;margin-top:48px;transition-delay:.2s">
       <button class="btn btn-white" onclick="bookCall()">See What We Can Build for Your Business</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / INSIGHTS -->
+<section class="section section-alt" id="insights">
+  <div class="container">
+    <div class="fade" style="margin-bottom:52px">
+      <div class="divider"></div>
+      <span class="tag">Michigan AI Intelligence</span>
+      <h2 class="section-title">From the Lab — <em style="color:#1A3A8F">Read the Research.</em></h2>
+      <p style="color:#4A5473;font-size:16px;max-width:540px;line-height:1.7">Deep dives on Michigan AI strategy, grant funding, and vertical-specific automation. Real playbooks, real numbers, no filler.</p>
+    </div>
+    <div class="blog-grid fade" style="transition-delay:.1s">
+      <a class="blog-card" href="/blog/michigan-business-ai-fear-transformation/" target="_blank" rel="noopener">
+        <div class="blog-card-body">
+          <span class="blog-card-tag" style="background:#EEF2FA;color:#1A3A8F">Human Stories</span>
+          <div class="blog-card-title">Michigan Business Owners Who Were Afraid of AI — And What 90 Days Changed</div>
+          <div class="blog-card-desc">Four real stories: a dispatcher whose veteran driver called himself "the AI's supervisor," a healthcare admin who tripled capacity, a Tier 2 QM who passed the OEM audit, a GC who said AI made her estimators "immortal."</div>
+          <div class="blog-card-meta">
+            <span>9 min read</span>
+            <span class="blog-card-read">Read the stories →</span>
+          </div>
+        </div>
+      </a>
+      <a class="blog-card" href="/blog/michigan-manufacturing-ai-guide/" target="_blank" rel="noopener">
+        <div class="blog-card-body">
+          <span class="blog-card-tag">Michigan Manufacturing</span>
+          <div class="blog-card-title">Michigan Manufacturing AI: The No-Hype Guide to What's Actually Working in 2026</div>
+          <div class="blog-card-desc">AI vision at 94–97% defect detection. Predictive maintenance cutting downtime 30–45%. The 4 applications running on plant floors right now — with full grant math.</div>
+          <div class="blog-card-meta">
+            <span>10 min read</span>
+            <span class="blog-card-read">Read the guide →</span>
+          </div>
+        </div>
+      </a>
+      <a class="blog-card" href="/blog/michigan-ai-readiness-assessment/" target="_blank" rel="noopener">
+        <div class="blog-card-body">
+          <span class="blog-card-tag">AI Strategy</span>
+          <div class="blog-card-title">Michigan AI Readiness Assessment: Where Does Your Business Actually Stand?</div>
+          <div class="blog-card-desc">5-factor framework built for Michigan businesses. Data access, process clarity, team adoption, investment clarity, timeline. Score yourself and know exactly what to do next — before spending a dollar.</div>
+          <div class="blog-card-meta">
+            <span>8 min read</span>
+            <span class="blog-card-read">Take the assessment →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="fade" style="text-align:center;margin-top:36px;transition-delay:.2s">
+      <a href="/blog/" class="btn btn-outline" style="display:inline-block;text-decoration:none">View All 13 Michigan AI Articles →</a>
     </div>
   </div>
 </section>
@@ -1398,6 +1837,18 @@
 
     </div>
     <p class="fade" style="text-align:center;font-size:14px;color:#9AA3B8;margin-top:36px;transition-delay:.3s">All engagements begin with a free 30-minute strategy call. No commitment required.</p>
+    <div class="fade" style="text-align:center;margin-top:20px;transition-delay:.35s">
+      <p style="font-size:13px;color:#9AA3B8;margin-bottom:10px;letter-spacing:.04em;text-transform:uppercase;font-weight:600">Accepted Payment Methods</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:7px;font-size:14px;color:#4A5473"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3A8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>Credit &amp; Debit Card (Stripe)</span>
+        <span style="color:#D1D5E0;font-size:18px">·</span>
+        <span style="display:flex;align-items:center;gap:7px;font-size:14px;color:#4A5473"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3A8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>ACH Bank Transfer</span>
+        <span style="color:#D1D5E0;font-size:18px">·</span>
+        <span style="display:flex;align-items:center;gap:7px;font-size:14px;color:#4A5473"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3A8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Check</span>
+        <span style="color:#D1D5E0;font-size:18px">·</span>
+        <span style="display:flex;align-items:center;gap:7px;font-size:14px;color:#4A5473"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3A8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Wire Transfer</span>
+      </div>
+    </div>
 
     <div class="grant-bar fade" style="transition-delay:.4s">
       <div class="grant-bar-left">
@@ -1408,6 +1859,14 @@
         </div>
       </div>
       <button class="btn btn-primary btn-sm" onclick="bookCall()" style="white-space:nowrap">Ask About Grants</button>
+    </div>
+    <div style="margin-top:16px;background:linear-gradient(135deg,#0A0F1A,#111D36);border:1px solid rgba(255,215,0,.25);border-radius:8px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFD700;margin-bottom:5px">Custom Analysis · $197</div>
+        <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Get Your Personalized AI Readiness Report</div>
+        <div style="font-size:13px;color:#6B7694">12 pages built for your business — top 3 automations, ROI projections, grant eligibility. Delivered in 24 hours.</div>
+      </div>
+      <a href="/report/" class="btn btn-sm" style="background:#FFD700;color:#0D1117;font-weight:700;white-space:nowrap;border:none;padding:11px 22px;border-radius:6px;text-decoration:none;transition:transform .15s" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='none'">Get My Report →</a>
     </div>
   </div>
 </section>
@@ -1467,6 +1926,41 @@
           <p style="font-size:13px;color:#4A5473;margin-bottom:20px">Based on 70% workflow recovery — our Michigan client average. Your actual savings confirmed on the strategy call.</p>
           <button class="btn btn-primary" onclick="bookCall()" style="font-size:15px;padding:16px 40px">Book Your Free Strategy Call — Confirm the Numbers</button>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="section section-alt" id="grant-guide">
+  <div class="container">
+    <div class="lead-magnet-wrap fade">
+      <div class="lead-magnet-label">Free Resource · Open to Any Business</div>
+      <h2 class="lead-magnet-title">The Michigan AI<br>Funding Guide</h2>
+      <p class="lead-magnet-sub">A plain-English resource covering every major funding source available to Michigan businesses investing in AI — grants, reimbursements, and programs that can significantly offset your costs. No jargon. No pressure.</p>
+      <div class="lead-magnet-bullets">
+        <span class="lm-bullet">Full list of available Michigan AI funding programs</span>
+        <span class="lm-bullet">Eligibility overview by business type &amp; size</span>
+        <span class="lm-bullet">How to structure your investment to qualify</span>
+        <span class="lm-bullet">Common pitfalls — and how to avoid them</span>
+      </div>
+      <div id="lmFormWrap">
+        <form name="grant-guide" method="POST" data-netlify="true" action="/thank-you/" onsubmit="return submitGrantForm(event)">
+          <input type="hidden" name="form-name" value="grant-guide"/>
+          <div class="lead-magnet-form">
+            <input class="lead-magnet-input" type="email" name="email" id="lmEmail" placeholder="Your email address" required autocomplete="email"/>
+            <button class="lead-magnet-submit" type="submit">Send My Free Guide →</button>
+          </div>
+        </form>
+        <p class="lead-magnet-note">No spam. Unsubscribe anytime. Your guide unlocks instantly after submitting.</p>
+      </div>
+      <div class="lead-magnet-success" id="lmSuccess">
+        <div style="font-size:28px;margin-bottom:12px">✓</div>
+        <div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px">You're in. Your guide is ready.</div>
+        <p style="color:#6B7694;font-size:14px;margin-bottom:16px">Click below to access the Michigan AI Funding Guide — or book a free strategy call to walk through it together.</p>
+        <a href="/resources/michigan-ai-grant-guide/" class="btn btn-primary" style="display:inline-block;margin-bottom:12px;text-decoration:none">Read the Guide Now →</a>
+        <br>
+        <button onclick="bookCall()" style="background:none;border:none;color:#00D4FF;font-size:13px;cursor:pointer;text-decoration:underline;margin-top:4px">Or book a free 30-min strategy call</button>
       </div>
     </div>
   </div>
@@ -1574,9 +2068,7 @@
         <h2 class="section-title">Start with a<br><em style="color:#1A3A8F">Free Strategy Call.</em></h2>
         <p style="font-size:16px;color:#4A5473;line-height:1.75">We'll audit your current workflows, identify your highest-leverage AI opportunities, and tell you exactly what to build first — at zero cost to you.</p>
         <div class="contact-info">
-          <!-- PHONE: replace [YOUR-GOOGLE-VOICE-NUMBER] with your number, then activate by removing the comment -->
-          <!-- PHONE: uncomment and replace PHONE_NUMBER_PLACEHOLDER when your number is secured -->
-      <!-- <div class="cinfo-item"><div class="cinfo-dot"></div><div><div class="cinfo-label">Phone</div><div class="cinfo-val"><a href="tel:PHONE_NUMBER_PLACEHOLDER">PHONE_NUMBER_PLACEHOLDER</a></div></div></div> -->
+          <div class="cinfo-item"><div class="cinfo-dot"></div><div><div class="cinfo-label">Phone</div><div class="cinfo-val"><a href="tel:+13133140225">(313) 314-0225</a></div></div></div>
           <div class="cinfo-item"><div class="cinfo-dot"></div><div><div class="cinfo-label">Email</div><div class="cinfo-val"><a href="mailto:david04calderon@gmail.com">david04calderon@gmail.com</a></div></div></div>
           <div class="cinfo-item"><div class="cinfo-dot"></div><div><div class="cinfo-label">Location</div><div class="cinfo-val">Southgate, Michigan (Metro Detroit)</div></div></div>
           <div class="cinfo-item"><div class="cinfo-dot"></div><div><div class="cinfo-label">Response Time</div><div class="cinfo-val">Within 24 business hours</div></div></div>
@@ -1601,6 +2093,14 @@
   </div>
 </section>
 
+<!-- MISSION BANNER -->
+<div class="mission-banner">
+  <p class="mission-banner-text">
+    We build AI systems that serve <em>people</em> — the dispatcher, the nurse, the fabricator, the estimator.<br>
+    Not just the balance sheet. <em>Detroit-built. Values-driven. Results guaranteed.</em>
+  </p>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1620,7 +2120,12 @@
           <span onclick="scrollTo('process')">Process</span>
           <span onclick="scrollTo('faq')">FAQ</span>
           <span onclick="scrollTo('pricing')">Pricing</span>
+          <span onclick="scrollTo('insights')">Blog / Insights</span>
+          <a href="/resources/" style="color:#4A5473;text-decoration:none;display:block;padding:2px 0;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#4A5473'">Resources</a>
+          <a href="/report/" style="color:#4A5473;text-decoration:none;display:block;padding:2px 0;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#4A5473'">AI Readiness Report — $197</a>
           <span onclick="scrollTo('quiz')">AI Readiness Quiz</span>
+          <span onclick="scrollTo('grant-guide')">Free Grant Guide</span>
+          <a href="/testimonial/" style="color:#4A5473;text-decoration:none;display:block;padding:2px 0;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#4A5473'">Share Your Results</a>
           <span onclick="scrollTo('contact')">Contact</span>
         </div>
         <div class="footer-col">
@@ -1647,7 +2152,7 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 American AI Solutions LLC. All rights reserved.</p>
-      <p class="footer-copy">Southgate, Michigan (Metro Detroit) &nbsp;·&nbsp; <a href="/privacy/" style="color:#4A5473;text-decoration:none;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#4A5473;text-decoration:none;">Terms of Service</a> &nbsp;·&nbsp; <a href="/blog/" style="color:#4A5473;text-decoration:none;">Blog</a></p>
+      <p class="footer-copy">Southgate, Michigan (Metro Detroit) &nbsp;·&nbsp; <a href="/privacy/" style="color:#4A5473;text-decoration:none;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms/" style="color:#4A5473;text-decoration:none;">Terms of Service</a> &nbsp;·&nbsp; <a href="/blog/" style="color:#4A5473;text-decoration:none;">Blog</a> &nbsp;·&nbsp; <a href="/resources/" style="color:#4A5473;text-decoration:none;">Resources</a></p>
     </div>
   </div>
 </footer>
@@ -1679,6 +2184,99 @@
     if (typeof gtag !== 'undefined') gtag('event', 'book_call_click', { event_category: 'cta', cta_source: 'page' });
     window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
   }
+
+  // PWA shortcut handler — fires when installed app opens with ?book=1
+  (function() {
+    var p = new URLSearchParams(window.location.search);
+    if (p.get('book') === '1') bookCall();
+  })();
+
+  // ── VIDEO TESTIMONIAL MODAL ──
+  function playVideo(id) {
+    var embed = document.getElementById('videoEmbed');
+    embed.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+    document.getElementById('videoModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo() {
+    document.getElementById('videoModal').classList.remove('active');
+    document.getElementById('videoEmbed').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideo();
+  });
+
+  // ── PWA INSTALL SYSTEM ──
+  (function() {
+    var deferredInstall = null;
+    var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios/i.test(navigator.userAgent);
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    var dismissed = localStorage.getItem('aais_install_dismissed');
+
+    if (isStandalone) return;
+
+    function showInstallButtons() {
+      if (dismissed) return;
+      document.querySelectorAll('.js-install-btn').forEach(function(el) { el.style.display = 'inline-flex'; });
+      var pill = document.getElementById('installPill');
+      if (pill) pill.style.display = 'flex';
+    }
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredInstall = e;
+      showInstallButtons();
+    });
+
+    if (isIOS) showInstallButtons();
+
+    window.installApp = function() {
+      var modal = document.getElementById('installModal');
+      var iosSteps = document.getElementById('installIOSSteps');
+      var installBtn = document.getElementById('installModalBtn');
+      if (isIOS) {
+        iosSteps.style.display = 'block';
+        installBtn.style.display = 'none';
+      } else {
+        iosSteps.style.display = 'none';
+        installBtn.style.display = 'block';
+      }
+      modal.classList.add('active');
+      if (typeof gtag !== 'undefined') gtag('event', 'install_modal_open', { event_category: 'app' });
+    };
+
+    window.closeInstallModal = function() {
+      document.getElementById('installModal').classList.remove('active');
+    };
+
+    window.triggerInstall = function() {
+      if (!deferredInstall) return;
+      deferredInstall.prompt();
+      deferredInstall.userChoice.then(function(r) {
+        if (r.outcome === 'accepted') {
+          document.getElementById('installModal').classList.remove('active');
+          document.querySelectorAll('.js-install-btn').forEach(function(el) { el.style.display = 'none'; });
+          var pill = document.getElementById('installPill');
+          if (pill) pill.style.display = 'none';
+          if (typeof gtag !== 'undefined') gtag('event', 'pwa_installed', { event_category: 'app' });
+        }
+        deferredInstall = null;
+      });
+    };
+
+    window.dismissInstall = function() {
+      localStorage.setItem('aais_install_dismissed', '1');
+      document.getElementById('installModal').classList.remove('active');
+      var pill = document.getElementById('installPill');
+      if (pill) pill.style.display = 'none';
+      document.querySelectorAll('.js-install-btn').forEach(function(el) { el.style.display = 'none'; });
+    };
+
+    document.getElementById('installModal').addEventListener('click', function(e) {
+      if (e.target === this) window.closeInstallModal();
+    });
+  })();
 
   // Fade in on scroll
   const fades = document.querySelectorAll('.fade');
@@ -1804,6 +2402,76 @@
     var grid = document.getElementById('resultsGrid');
     if (grid) obs.observe(grid);
   })();
+
+  // Founder video (replace URL with Loom/YouTube link when recorded)
+  function openFounderVideo() {
+    var url = 'https://www.youtube.com/@americanaisolutions';
+    if (typeof gtag !== 'undefined') gtag('event', 'video_click', { event_category: 'engagement', video_title: 'founder_intro' });
+    window.open(url, '_blank');
+  }
+
+  // Exit intent popup
+  (function() {
+    if (sessionStorage.getItem('exitShown')) return;
+    var overlay = document.getElementById('exitPopup');
+    var triggered = false;
+    function showPopup() {
+      if (triggered) return;
+      triggered = true;
+      sessionStorage.setItem('exitShown', '1');
+      overlay.classList.add('active');
+      if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_shown', { event_category: 'engagement' });
+    }
+    // Desktop: mouse exits top of viewport
+    document.addEventListener('mouseleave', function(e) { if (e.clientY < 8) showPopup(); });
+    // Mobile: 50s idle after scroll
+    var lastScroll = Date.now();
+    window.addEventListener('scroll', function() { lastScroll = Date.now(); }, { passive: true });
+    setTimeout(function() { if (Date.now() - lastScroll > 22000) showPopup(); }, 50000);
+    // Close
+    document.getElementById('exitClose').addEventListener('click', function() { overlay.classList.remove('active'); });
+    document.getElementById('exitSkip').addEventListener('click', function() { overlay.classList.remove('active'); });
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('active'); });
+    // Form
+    document.getElementById('exitForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = document.getElementById('exitEmail').value.trim();
+      if (!email) return;
+      if (typeof gtag !== 'undefined') gtag('event', 'exit_intent_capture', { event_category: 'lead' });
+      var data = new FormData(); data.append('form-name', 'exit-capture'); data.append('email', email);
+      fetch('/', { method: 'POST', body: data }).catch(function(){});
+      document.getElementById('exitModal').innerHTML =
+        '<div style="text-align:center;padding:20px 0">' +
+        '<div style="font-size:40px;margin-bottom:16px">✓</div>' +
+        '<h3 style="font-family:DM Serif Display,serif;font-size:24px;color:white;margin-bottom:10px">You\'re in. Guide is ready.</h3>' +
+        '<p style="color:#6B7694;font-size:14px;line-height:1.65;margin-bottom:20px">Access the Michigan AI Funding Guide now — or let\'s talk through your funding options together.</p>' +
+        '<a href="/resources/michigan-ai-grant-guide/" class="btn btn-primary" style="display:block;width:100%;box-sizing:border-box;margin-bottom:12px;text-align:center;text-decoration:none">Read the Guide Now →</a>' +
+        '<button class="btn btn-secondary" onclick="bookCall()" style="width:100%;margin-bottom:12px">Book a Free 30-Minute Strategy Call</button>' +
+        '<div style="font-size:12px;color:#4A5473;cursor:pointer;text-decoration:underline" onclick="document.getElementById(\'exitPopup\').classList.remove(\'active\')">No thanks, I\'ll explore on my own</div>' +
+        '</div>';
+    });
+  })();
+
+  // Grant Guide lead magnet form
+  function submitGrantForm(e) {
+    if (e) e.preventDefault();
+    var email = document.getElementById('lmEmail').value.trim();
+    if (!email) return false;
+    if (typeof gtag !== 'undefined') gtag('event', 'grant_guide_signup', { event_category: 'lead', event_label: email });
+    var data = new FormData();
+    data.append('form-name', 'grant-guide');
+    data.append('email', email);
+    fetch('/', { method: 'POST', body: data })
+      .then(function() {
+        document.getElementById('lmFormWrap').style.display = 'none';
+        document.getElementById('lmSuccess').style.display = 'block';
+      })
+      .catch(function() {
+        document.getElementById('lmFormWrap').style.display = 'none';
+        document.getElementById('lmSuccess').style.display = 'block';
+      });
+    return false;
+  }
 
   // AI Readiness Quiz
   (function() {
@@ -1958,7 +2626,80 @@
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta-mobile">
-  <button class="btn btn-primary" style="width:100%;text-align:center;font-size:14px;padding:15px 32px" onclick="bookCall()">Book a Free Strategy Call</button>
+  <button class="btn btn-primary" style="flex:1;text-align:center;font-size:14px;padding:15px 12px" onclick="bookCall()">Book a Call</button>
+  <button class="btn-app js-install-btn" onclick="installApp()" style="display:none;padding:13px 14px;flex-shrink:0" aria-label="Install app">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+    App
+  </button>
+</div>
+
+<!-- FLOATING CHAT BUTTON -->
+<button class="float-chat" onclick="scrollTo('contact')" aria-label="Start a conversation">
+  <span class="float-chat-dot"></span>
+  Let's Talk
+</button>
+
+<!-- PWA INSTALL MODAL -->
+<div class="install-modal-overlay" id="installModal" role="dialog" aria-modal="true" aria-label="Install the AAIS App">
+  <div class="install-modal-box">
+    <button class="install-modal-close" onclick="closeInstallModal()" aria-label="Close">×</button>
+    <div class="install-modal-icon">
+      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="18" width="5" height="10" rx="1" fill="white"/>
+        <rect x="13" y="12" width="5" height="16" rx="1" fill="white"/>
+        <rect x="22" y="5" width="5" height="23" rx="1" fill="white"/>
+        <polyline points="6.5,18 15.5,12 24.5,5" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="6.5" cy="18" r="2" fill="#00D4FF"/>
+        <circle cx="15.5" cy="12" r="2" fill="#00D4FF"/>
+        <circle cx="24.5" cy="5" r="2" fill="#00D4FF"/>
+      </svg>
+    </div>
+    <h3 class="install-modal-title">AAIS — In Your Pocket</h3>
+    <p class="install-modal-sub">Install the free app. One tap from your home screen — ROI calculator, strategy call booking, grant guide, all offline-ready.</p>
+    <ul class="install-modal-features">
+      <li><span class="imf-icon">📊</span><span>Run the <strong>ROI calculator</strong> anywhere — show clients the numbers on the spot</span></li>
+      <li><span class="imf-icon">📞</span><span><strong>Book a strategy call</strong> in one tap — no browser, no loading</span></li>
+      <li><span class="imf-icon">🔒</span><span><strong>Works offline</strong> — grant guide and pricing always available, zero data needed</span></li>
+      <li><span class="imf-icon">⚡</span><span><strong>Instant load</strong> — opens faster than any browser tab, every single time</span></li>
+    </ul>
+    <div class="install-ios-steps" id="installIOSSteps" style="display:none">
+      <div class="install-ios-label">Add to iPhone / iPad Home Screen</div>
+      <div class="install-ios-step"><span class="install-ios-num">1</span>Tap the <strong>&nbsp;Share&nbsp;</strong> button (box with arrow) at the bottom of Safari</div>
+      <div class="install-ios-step"><span class="install-ios-num">2</span>Scroll down and tap <strong>"Add to Home Screen"</strong></div>
+      <div class="install-ios-step"><span class="install-ios-num">3</span>Tap <strong>Add</strong> — the AAIS app appears on your home screen instantly</div>
+    </div>
+    <button class="install-modal-action" id="installModalBtn" onclick="triggerInstall()">Install the Free App →</button>
+    <br>
+    <button class="install-modal-skip" onclick="dismissInstall()">Maybe later</button>
+  </div>
+</div>
+
+<!-- FLOATING INSTALL PILL -->
+<button class="install-pill" id="installPill" onclick="installApp()" aria-label="Install the AAIS app" style="display:none">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+  Get the App
+</button>
+
+<!-- EXIT INTENT POPUP -->
+<!-- Hidden form so Netlify registers exit-capture at build time -->
+<form name="exit-capture" data-netlify="true" hidden>
+  <input type="email" name="email"/>
+</form>
+
+<div class="exit-overlay" id="exitPopup" role="dialog" aria-modal="true">
+  <div class="exit-modal" id="exitModal">
+    <button class="exit-close" id="exitClose" aria-label="Close">×</button>
+    <div class="exit-tag">Before You Go</div>
+    <h3>Get the Free Michigan AI Funding Guide</h3>
+    <p>Michigan businesses can get up to 50% of their AI implementation costs covered — but most never apply. Get the plain-English guide to every available program, free.</p>
+    <form class="exit-form" id="exitForm">
+      <input class="exit-input" type="email" id="exitEmail" placeholder="Your email address" required autocomplete="email"/>
+      <button class="exit-btn" type="submit">Get Instant Access →</button>
+    </form>
+    <div class="exit-divider">or</div>
+    <button class="btn btn-primary" onclick="bookCall();document.getElementById('exitPopup').classList.remove('active')" style="width:100%;margin-bottom:14px">Book a Free Strategy Call Instead</button>
+    <div><span class="exit-skip" id="exitSkip">No thanks, I'll figure it out myself</span></div>
+  </div>
 </div>
 </body>
 </html>

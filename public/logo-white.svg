@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="American AI Solutions logo — white version">
+  <!-- Transparent background — use on dark surfaces -->
+
+  <!-- THE "A" — left leg -->
+  <line x1="62" y1="358" x2="200" y2="88" stroke="white" stroke-width="30" stroke-linecap="round"/>
+  <!-- THE "A" — right leg -->
+  <line x1="200" y1="88" x2="338" y2="358" stroke="white" stroke-width="30" stroke-linecap="round"/>
+  <!-- THE "A" — crossbar -->
+  <line x1="118" y1="248" x2="282" y2="248" stroke="white" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- SIGNAL ARCS -->
+  <path d="M 163,76 Q 200,38 237,76" stroke="#00D4FF" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M 136,60 Q 200,8 264,60" stroke="#00D4FF" stroke-width="8.5" fill="none" stroke-linecap="round" opacity="0.72"/>
+  <path d="M 108,44 Q 200,-22 292,44" stroke="#00D4FF" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.42"/>
+
+  <!-- GOLD APEX -->
+  <circle cx="200" cy="88" r="16" fill="#FFD700"/>
+  <circle cx="200" cy="88" r="9" fill="#FFF8DC"/>
+</svg>
