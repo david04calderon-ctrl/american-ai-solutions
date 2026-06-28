@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Michigan AI Resources — Free Tools & Guides | American AI Solutions LLC</title>
+  <meta name="description" content="Free AI resources for Michigan businesses — Grant funding guide, ROI calculator, AI readiness quiz, industry reports. Detroit-based American AI Solutions LLC."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/resources/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/resources/"/>
+  <meta property="og:title" content="Free Michigan AI Resources — American AI Solutions LLC"/>
+  <meta property="og:description" content="Free tools, guides, and calculators for Michigan businesses exploring AI automation. Grant guide, ROI calculator, readiness quiz — all free."/>
+  <link rel="icon" href="/logo-icon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="/icons/icon-192.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-size: 16px; color: #2D3450; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid #E4E8F0; height: 64px; display: flex; align-items: center; padding: 0 24px; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: #0D1117; }
+    .nav-cta { background: #1A3A8F; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background .2s; }
+    .nav-cta:hover { background: #1430AA; }
+
+    .page-hero { padding: 112px 24px 56px; text-align: center; background: linear-gradient(180deg, #F7F9FC 0%, #fff 100%); border-bottom: 1px solid #E4E8F0; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: #EEF2FA; color: #1A3A8F; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(30px, 5vw, 48px); color: #0D1117; line-height: 1.15; letter-spacing: -.02em; max-width: 640px; margin: 0 auto 16px; }
+    .page-hero p { font-size: 17px; color: #4A5473; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    .resources-grid { max-width: 1080px; margin: 0 auto; padding: 64px 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+
+    .resource-card { border: 1px solid #E4E8F0; border-radius: 12px; overflow: hidden; background: #fff; transition: box-shadow .2s, transform .2s; text-decoration: none; display: flex; flex-direction: column; }
+    .resource-card:hover { box-shadow: 0 8px 32px rgba(13,17,35,.1); transform: translateY(-3px); }
+    .resource-card.featured { border-color: #1A3A8F; box-shadow: 0 4px 24px rgba(26,58,143,.15); }
+
+    .card-header { padding: 28px 28px 0; }
+    .card-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-bottom: 16px; }
+    .badge-free { background: #DCFCE7; color: #166534; }
+    .badge-paid { background: #1A3A8F; color: #fff; }
+    .badge-tool { background: #EEF2FA; color: #1A3A8F; }
+    .card-icon { font-size: 36px; margin-bottom: 14px; }
+    .card-header h2 { font-family: 'DM Serif Display', serif; font-size: 22px; color: #0D1117; line-height: 1.25; margin-bottom: 10px; }
+    .card-body { padding: 14px 28px; flex: 1; }
+    .card-body p { font-size: 14px; color: #4A5473; line-height: 1.65; margin-bottom: 14px; }
+    .card-features { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 0; }
+    .card-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: #2D3450; }
+    .card-features li::before { content: "✓"; color: #22C55E; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .card-footer { padding: 20px 28px 28px; }
+    .card-cta { display: block; text-align: center; background: #1A3A8F; color: #fff; text-decoration: none; padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 700; transition: background .2s; }
+    .card-cta:hover { background: #1430AA; }
+    .card-cta.outline { background: transparent; color: #1A3A8F; border: 2px solid #1A3A8F; }
+    .card-cta.outline:hover { background: #1A3A8F; color: #fff; }
+    .card-cta.paid { background: #FFD700; color: #0D1117; }
+    .card-cta.paid:hover { background: #F5C800; }
+
+    .section-divider { max-width: 1080px; margin: 0 auto 8px; padding: 0 24px; }
+    .section-divider h2 { font-family: 'DM Serif Display', serif; font-size: 28px; color: #0D1117; margin-bottom: 4px; }
+    .section-divider p { font-size: 15px; color: #4A5473; }
+
+    .cta-band { background: #1A3A8F; padding: 56px 24px; text-align: center; }
+    .cta-band h2 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 4vw, 38px); color: #fff; margin-bottom: 14px; }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,.75); max-width: 480px; margin: 0 auto 28px; }
+    .btn-white { display: inline-block; background: #fff; color: #1A3A8F; text-decoration: none; padding: 15px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: transform .15s, box-shadow .2s; }
+    .btn-white:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+
+    footer { background: #0D1117; color: #4A5473; text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color: #6B7694; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 768px) { .resources-grid { grid-template-columns: 1fr; gap: 16px; padding: 40px 16px; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="nav-logo">
+    <img src="/logo-icon.svg" alt="AAIS Logo"/>
+    <span class="nav-brand">American AI Solutions</span>
+  </a>
+  <a href="/#contact" class="nav-cta">Book Free Call</a>
+</nav>
+
+<section class="page-hero">
+  <div class="hero-tag">🔧 Free Michigan AI Resources</div>
+  <h1>Everything You Need to Start Your AI Journey</h1>
+  <p>Free tools, guides, and calculators built specifically for Michigan businesses. Use them before you book a call. Use them to make the decision.</p>
+</section>
+
+<!-- FREE TOOLS -->
+<div style="max-width:1080px;margin:56px auto 0;padding:0 24px">
+  <div class="section-divider" style="max-width:none;padding:0;margin:0 0 32px">
+    <h2>Free Tools</h2>
+    <p>No email required for these. Just use them.</p>
+  </div>
+</div>
+
+<div class="resources-grid" style="padding-top:0">
+
+  <a href="/#quiz" class="resource-card featured">
+    <div class="card-header">
+      <span class="card-badge badge-free">Free · No signup</span>
+      <div class="card-icon">🧠</div>
+      <h2>AI Readiness Quiz</h2>
+    </div>
+    <div class="card-body">
+      <p>5 questions. 2 minutes. Find out where your business stands on AI adoption and what your highest-ROI automation is.</p>
+      <ul class="card-features">
+        <li>Industry-specific scoring (automotive, healthcare, logistics, construction)</li>
+        <li>Immediate personalized recommendations</li>
+        <li>Michigan grant eligibility check built in</li>
+        <li>No email required — just answers</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/#quiz" class="card-cta">Take the Quiz →</a>
+    </div>
+  </a>
+
+  <a href="/blog/michigan-ai-roi-calculator/" class="resource-card">
+    <div class="card-header">
+      <span class="card-badge badge-free">Free · No signup</span>
+      <div class="card-icon">📊</div>
+      <h2>Michigan AI ROI Calculator</h2>
+    </div>
+    <div class="card-body">
+      <p>Enter your hours, headcount, and industry. Get a real dollar figure for what AI automation is worth to your operation.</p>
+      <ul class="card-features">
+        <li>All 4 Michigan verticals: auto, healthcare, logistics, construction</li>
+        <li>Labor savings, revenue capture, grant math</li>
+        <li>Adjustable for your actual numbers</li>
+        <li>Shareable results</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/blog/michigan-ai-roi-calculator/" class="card-cta outline">Open Calculator →</a>
+    </div>
+  </a>
+
+</div>
+
+<!-- FREE GUIDES -->
+<div style="max-width:1080px;margin:40px auto 0;padding:0 24px">
+  <div class="section-divider" style="max-width:none;padding:0;margin:0 0 32px">
+    <h2>Free Guides</h2>
+    <p>Email required — we send you the guide and follow up once. No spam.</p>
+  </div>
+</div>
+
+<div class="resources-grid" style="padding-top:0">
+
+  <a href="/resources/michigan-ai-grant-guide/" class="resource-card featured">
+    <div class="card-header">
+      <span class="card-badge badge-free">Free Download</span>
+      <div class="card-icon">💰</div>
+      <h2>Michigan AI Grant Guide 2026</h2>
+    </div>
+    <div class="card-body">
+      <p>The complete guide to Michigan's AI funding programs — Going PRO Talent Fund, Industry 4.0 Tech Grant, Detroit Small Business Tech Fund, and more.</p>
+      <ul class="card-features">
+        <li>Going PRO Talent Fund — AI training reimbursements up to 50%</li>
+        <li>Industry 4.0 Tech Grant — implementation cost matching</li>
+        <li>Step-by-step application walkthrough</li>
+        <li>Which grant your business qualifies for</li>
+        <li>Michigan EDC contact list included</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/resources/michigan-ai-grant-guide/" class="card-cta">Get the Guide →</a>
+    </div>
+  </a>
+
+  <a href="/blog/michigan-going-pro-talent-fund-ai-training/" class="resource-card">
+    <div class="card-header">
+      <span class="card-badge badge-tool">Article</span>
+      <div class="card-icon">📋</div>
+      <h2>Going PRO Fund Complete Walkthrough</h2>
+    </div>
+    <div class="card-body">
+      <p>Full breakdown of the Michigan Going PRO Talent Fund — who qualifies, how to apply, what AI training costs are reimbursable, and how to maximize your claim.</p>
+      <ul class="card-features">
+        <li>Eligibility checklist by industry</li>
+        <li>Reimbursable vs. non-reimbursable costs</li>
+        <li>Application deadlines and cycles</li>
+        <li>Real examples: what $6M in funding gets deployed on</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/blog/michigan-going-pro-talent-fund-ai-training/" class="card-cta outline">Read Article →</a>
+    </div>
+  </a>
+
+  <a href="/blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/" class="resource-card">
+    <div class="card-header">
+      <span class="card-badge badge-tool">Article</span>
+      <div class="card-icon">🏭</div>
+      <h2>OEM AI Mandate Survival Guide</h2>
+    </div>
+    <div class="card-body">
+      <p>GM, Ford, and Stellantis are requiring digital quality reporting from Tier 2/3 suppliers. This is what you need to comply — and how to use Michigan grants to pay for it.</p>
+      <ul class="card-features">
+        <li>Which OEM mandates affect Tier 2/3 suppliers in 2026</li>
+        <li>What "AI-ready" means in a supplier audit</li>
+        <li>How defect detection AI pays for itself in under 90 days</li>
+        <li>Grant eligibility for automotive AI</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/" class="card-cta outline">Read Article →</a>
+    </div>
+  </a>
+
+  <a href="/blog/hipaa-ai-michigan-healthcare-practices/" class="resource-card">
+    <div class="card-header">
+      <span class="card-badge badge-tool">Article</span>
+      <div class="card-icon">🏥</div>
+      <h2>HIPAA + AI: Healthcare Compliance Guide</h2>
+    </div>
+    <div class="card-body">
+      <p>Michigan healthcare practices: can you use AI and stay HIPAA compliant? Yes — here's how. On-premise deployment, BAA requirements, and what's actually allowed.</p>
+      <ul class="card-features">
+        <li>HIPAA-compliant AI deployment options</li>
+        <li>BAA (Business Associate Agreement) requirements</li>
+        <li>What AI can automate without touching PHI</li>
+        <li>Michigan health network grant programs</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/blog/hipaa-ai-michigan-healthcare-practices/" class="card-cta outline">Read Article →</a>
+    </div>
+  </a>
+
+  <a href="/blog/michigan-fleet-ai-dispatch-optimization/" class="resource-card">
+    <div class="card-header">
+      <span class="card-badge badge-tool">Article</span>
+      <div class="card-icon">🚛</div>
+      <h2>Fleet Dispatch AI — Michigan Logistics</h2>
+    </div>
+    <div class="card-body">
+      <p>Michigan trucking companies are recovering 20+ hours per week with AI dispatch. Here's the math, the tools, and the grant funding angle.</p>
+      <ul class="card-features">
+        <li>Dispatcher-to-load ratio math for Michigan fleets</li>
+        <li>Michigan freight corridor AI advantage</li>
+        <li>Real deadhead reduction numbers</li>
+        <li>Going PRO eligibility for logistics operators</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/blog/michigan-fleet-ai-dispatch-optimization/" class="card-cta outline">Read Article →</a>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-contractors-estimating-automation/" class="resource-card">
+    <div class="card-header">
+      <span class="card-badge badge-tool">Article</span>
+      <div class="card-icon">🏗️</div>
+      <h2>Construction Estimating AI Guide</h2>
+    </div>
+    <div class="card-body">
+      <p>Michigan GCs are winning more bids with AI-powered estimating. Here's how to go from 4-day estimate cycles to 4-hour turnaround — and what grants cover it.</p>
+      <ul class="card-features">
+        <li>Manual vs. AI estimating: time and accuracy comparison</li>
+        <li>Change order capture automation</li>
+        <li>Subcontractor coordination AI workflows</li>
+        <li>Michigan Builders Association resources</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/blog/ai-for-michigan-contractors-estimating-automation/" class="card-cta outline">Read Article →</a>
+    </div>
+  </a>
+
+</div>
+
+<!-- PAID TOOL -->
+<div style="max-width:1080px;margin:40px auto 0;padding:0 24px">
+  <div class="section-divider" style="max-width:none;padding:0;margin:0 0 32px">
+    <h2>Paid Resources</h2>
+    <p>For businesses ready to go deeper before a strategy call.</p>
+  </div>
+</div>
+
+<div class="resources-grid" style="padding-top:0;padding-bottom:80px">
+
+  <a href="/report/" class="resource-card" style="border-color:#FFD700;box-shadow:0 4px 24px rgba(255,215,0,.15)">
+    <div class="card-header">
+      <span class="card-badge badge-paid">$197 · Instant Delivery</span>
+      <div class="card-icon">📑</div>
+      <h2>Custom AI Readiness Report</h2>
+    </div>
+    <div class="card-body">
+      <p>Your business gets a personalized 12-page AI audit — custom to your industry, size, and current tech stack. Includes your top 3 automation opportunities, ROI projections, and grant eligibility.</p>
+      <ul class="card-features">
+        <li>Personalized to your vertical and operation size</li>
+        <li>Top 3 automation opportunities ranked by ROI</li>
+        <li>Dollar projections: what automation is worth to YOU</li>
+        <li>Michigan grant funding you qualify for</li>
+        <li>Recommended tool stack and build timeline</li>
+        <li>Delivered to your inbox within 24 hours</li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <a href="/report/" class="card-cta paid">Get My Report — $197 →</a>
+    </div>
+  </a>
+
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Not Sure Where to Start?</h2>
+  <p>30-minute free strategy call. We'll tell you exactly what AI can do for your business — and what it can't. No pitch. No pressure.</p>
+  <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="btn-white">Book a Free Call →</a>
+</div>
+
+<footer>
+  <p style="margin-bottom:6px;"><a href="/">American AI Solutions LLC</a> · Detroit-Built. AI-Powered. · <a href="mailto:david04calderon@gmail.com">david04calderon@gmail.com</a></p>
+  <p>© 2026 American AI Solutions LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
