@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Share Your Results — American AI Solutions LLC</title>
+  <meta name="description" content="Working with American AI Solutions? Share your results and help another Michigan business owner make the decision."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/testimonial/"/>
+  <link rel="icon" href="/logo-icon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="/icons/icon-192.png"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; font-size: 16px; color: #2D3450; background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid #E4E8F0; height: 64px; display: flex; align-items: center; padding: 0 24px; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 18px; color: #0D1117; }
+    .nav-back { font-size: 14px; font-weight: 600; color: #1A3A8F; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: opacity .2s; }
+    .nav-back:hover { opacity: .7; }
+
+    /* ── HERO ── */
+    .page-hero { padding: 120px 24px 56px; text-align: center; background: #fff; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: #EEF2FA; color: #1A3A8F; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero-tag span { color: #FFD700; }
+    .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 5vw, 52px); color: #0D1117; line-height: 1.15; letter-spacing: -.02em; max-width: 640px; margin: 0 auto 18px; }
+    .page-hero p { font-size: 17px; color: #4A5473; max-width: 540px; margin: 0 auto 0; line-height: 1.7; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar { background: #F7F9FC; border-top: 1px solid #E4E8F0; border-bottom: 1px solid #E4E8F0; padding: 20px 24px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4A5473; font-weight: 500; }
+    .trust-icon { color: #22C55E; font-size: 15px; }
+
+    /* ── FORM SECTION ── */
+    .form-wrap { max-width: 680px; margin: 0 auto; padding: 56px 24px 80px; }
+
+    .form-block { background: #fff; border: 1px solid #E4E8F0; border-radius: 12px; padding: 40px; box-shadow: 0 2px 24px rgba(13,17,35,.06); }
+
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #1A3A8F; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #E4E8F0; }
+
+    .form-group { margin-bottom: 22px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } .form-block { padding: 28px 20px; } }
+
+    label { display: block; font-size: 13px; font-weight: 600; color: #0D1117; margin-bottom: 7px; }
+    label .req { color: #EF4444; margin-left: 2px; }
+    label .opt { font-weight: 400; color: #9AA3B8; font-size: 12px; margin-left: 4px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    select,
+    textarea { width: 100%; padding: 12px 14px; border: 1.5px solid #E4E8F0; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: #0D1117; background: #fff; transition: border-color .2s, box-shadow .2s; outline: none; -webkit-appearance: none; appearance: none; }
+    input:focus, select:focus, textarea:focus { border-color: #1A3A8F; box-shadow: 0 0 0 3px rgba(26,58,143,.12); }
+    input::placeholder, textarea::placeholder { color: #9AA3B8; }
+    textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A5473' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; cursor: pointer; }
+    .char-count { font-size: 11px; color: #9AA3B8; text-align: right; margin-top: 5px; }
+
+    /* ── RATING ── */
+    .star-group { display: flex; gap: 8px; margin-top: 4px; }
+    .star-btn { background: none; border: 2px solid #E4E8F0; border-radius: 8px; padding: 10px 14px; font-size: 22px; cursor: pointer; transition: all .18s; color: #9AA3B8; }
+    .star-btn:hover, .star-btn.active { border-color: #FFD700; background: #FFFBEB; color: #FFD700; }
+
+    /* ── PERMISSION CHECKBOXES ── */
+    .permission-group { display: flex; flex-direction: column; gap: 12px; }
+    .perm-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border: 1.5px solid #E4E8F0; border-radius: 8px; cursor: pointer; transition: border-color .18s; }
+    .perm-item:hover { border-color: #1A3A8F; }
+    .perm-item input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; accent-color: #1A3A8F; margin-top: 2px; cursor: pointer; }
+    .perm-label { font-size: 14px; line-height: 1.5; }
+    .perm-label strong { color: #0D1117; display: block; font-size: 14px; margin-bottom: 2px; }
+    .perm-label span { color: #6B7694; font-size: 13px; }
+
+    /* ── DIVIDER ── */
+    .form-divider { border: none; border-top: 1px solid #E4E8F0; margin: 32px 0; }
+
+    /* ── VIDEO SECTION ── */
+    .video-option { background: linear-gradient(135deg, #0A0F1A, #111D36); border: 1px solid rgba(0,212,255,.2); border-radius: 10px; padding: 24px; margin-bottom: 22px; }
+    .video-option-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .video-badge { background: rgba(0,212,255,.15); color: #00D4FF; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+    .video-option h3 { font-size: 16px; font-weight: 700; color: #fff; }
+    .video-option p { font-size: 13px; color: #8892B0; line-height: 1.6; margin-bottom: 14px; }
+    .video-option input { border-color: rgba(255,255,255,.15); background: rgba(255,255,255,.06); color: #fff; }
+    .video-option input::placeholder { color: #4A5473; }
+    .video-option input:focus { border-color: #00D4FF; box-shadow: 0 0 0 3px rgba(0,212,255,.12); }
+
+    /* ── SUBMIT ── */
+    .submit-wrap { text-align: center; padding-top: 8px; }
+    .btn-submit { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #1A3A8F; color: #fff; border: none; border-radius: 8px; padding: 16px 40px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: .04em; cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s; box-shadow: 0 4px 18px rgba(26,58,143,.3); min-width: 240px; }
+    .btn-submit:hover { background: #1430AA; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(26,58,143,.4); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: .6; cursor: default; transform: none; }
+    .submit-note { font-size: 12px; color: #9AA3B8; margin-top: 12px; }
+
+    /* ── SUCCESS STATE ── */
+    #successState { display: none; text-align: center; padding: 60px 24px; }
+    .success-icon { font-size: 56px; margin-bottom: 20px; }
+    .success-title { font-family: 'DM Serif Display', serif; font-size: 32px; color: #0D1117; margin-bottom: 14px; }
+    .success-sub { font-size: 16px; color: #4A5473; max-width: 440px; margin: 0 auto 28px; line-height: 1.7; }
+    .btn-home { display: inline-flex; align-items: center; gap: 8px; background: #1A3A8F; color: #fff; text-decoration: none; padding: 13px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: background .2s; }
+    .btn-home:hover { background: #1430AA; }
+
+    /* ── SIDEBAR TIPS ── */
+    .tips-aside { background: #F7F9FC; border: 1px solid #E4E8F0; border-radius: 10px; padding: 24px; margin-top: 32px; }
+    .tips-aside h4 { font-size: 13px; font-weight: 700; color: #0D1117; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .08em; }
+    .tip-item { display: flex; gap: 10px; margin-bottom: 14px; font-size: 13px; color: #4A5473; line-height: 1.55; }
+    .tip-num { background: #1A3A8F; color: #fff; border-radius: 50%; min-width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── FOOTER ── */
+    footer { background: #0D1117; color: #4A5473; text-align: center; padding: 28px 24px; font-size: 13px; }
+    footer a { color: #6B7694; text-decoration: none; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="/" class="nav-logo" aria-label="American AI Solutions home">
+    <img src="/logo-icon.svg" alt="AAIS Logo"/>
+    <span class="nav-brand">American AI Solutions</span>
+  </a>
+  <a href="/#testimonials" class="nav-back">← Back to Site</a>
+</nav>
+
+<!-- HIDDEN NETLIFY FORM DETECTION -->
+<form name="testimonial" netlify netlify-honeypot="bot-field" hidden>
+  <input name="name"/>
+  <input name="company"/>
+  <input name="role"/>
+  <input name="industry"/>
+  <input name="email"/>
+  <input name="rating"/>
+  <textarea name="problem"></textarea>
+  <textarea name="results"></textarea>
+  <textarea name="quote"></textarea>
+  <input name="video_link"/>
+  <input name="permission_website"/>
+  <input name="permission_social"/>
+  <input name="permission_case_study"/>
+  <input name="permission_video"/>
+</form>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-tag"><span>★</span> Verified Client Stories</div>
+  <h1>Your Story Could Change Someone's Business</h1>
+  <p>If we've worked together and you're getting results — your experience is worth sharing. 3 minutes. Any format. 100% on your terms.</p>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✓</span> Your privacy is protected — we ask before using anything</div>
+  <div class="trust-item"><span class="trust-icon">✓</span> Written, video, or stats only — your choice</div>
+  <div class="trust-item"><span class="trust-icon">✓</span> Michigan businesses helping Michigan businesses</div>
+</div>
+
+<!-- MAIN FORM -->
+<div class="form-wrap">
+
+  <!-- SUCCESS STATE -->
+  <div id="successState">
+    <div class="success-icon">🏆</div>
+    <div class="success-title">Thank you. This means everything.</div>
+    <div class="success-sub">We'll review your submission and reach out before publishing anything. Detroit-built, trust-first. Your story is safe with us.</div>
+    <a href="/" class="btn-home">← Return to americanaisolutionsllc.com</a>
+  </div>
+
+  <!-- FORM -->
+  <div id="formContainer">
+    <form id="testimonialForm" name="testimonial" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="testimonial"/>
+      <div style="display:none"><input name="bot-field"/></div>
+
+      <!-- SECTION 1: WHO YOU ARE -->
+      <div class="form-block">
+        <div class="section-label">01 — About You</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="David Calderon" required/>
+          </div>
+          <div class="form-group">
+            <label for="role">Your Role <span class="req">*</span></label>
+            <input type="text" id="role" name="role" placeholder="Operations Manager" required/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Company Name <span class="req">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Michigan Manufacturing Co." required/>
+          </div>
+          <div class="form-group">
+            <label for="industry">Industry <span class="req">*</span></label>
+            <select id="industry" name="industry" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option value="Automotive / Manufacturing">Automotive / Manufacturing</option>
+              <option value="Healthcare / Medical">Healthcare / Medical</option>
+              <option value="Logistics / Trucking">Logistics / Trucking</option>
+              <option value="Construction / Trades">Construction / Trades</option>
+              <option value="HVAC / Mechanical">HVAC / Mechanical</option>
+              <option value="Professional Services">Professional Services</option>
+              <option value="Retail / E-commerce">Retail / E-commerce</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="req">*</span><span class="opt">(never published — for follow-up only)</span></label>
+          <input type="email" id="email" name="email" placeholder="you@yourcompany.com" required/>
+        </div>
+      </div>
+
+      <hr class="form-divider"/>
+
+      <!-- SECTION 2: YOUR RESULTS -->
+      <div class="form-block">
+        <div class="section-label">02 — Your Results</div>
+
+        <div class="form-group">
+          <label for="rating">How would you rate working with AAIS? <span class="req">*</span></label>
+          <div class="star-group" id="starGroup" role="radiogroup" aria-label="Star rating">
+            <button type="button" class="star-btn" data-val="1" aria-label="1 star">★</button>
+            <button type="button" class="star-btn" data-val="2" aria-label="2 stars">★</button>
+            <button type="button" class="star-btn" data-val="3" aria-label="3 stars">★</button>
+            <button type="button" class="star-btn" data-val="4" aria-label="4 stars">★</button>
+            <button type="button" class="star-btn" data-val="5" aria-label="5 stars">★</button>
+          </div>
+          <input type="hidden" id="rating" name="rating" value="" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="problem">What problem were you dealing with before working with us? <span class="req">*</span></label>
+          <textarea id="problem" name="problem" placeholder="e.g. Our dispatch team was manually routing 200+ loads per week. It was taking 4 hours every morning and we were still making errors..." required maxlength="800"></textarea>
+          <div class="char-count"><span id="problemCount">0</span> / 800</div>
+        </div>
+
+        <div class="form-group">
+          <label for="results">What changed after working with American AI Solutions? <span class="req">*</span></label>
+          <textarea id="results" name="results" placeholder="e.g. AAIS built us a dispatch AI that now handles routing in 20 minutes. We recovered 3.5 hours per day, reduced errors by 90%, and our dispatcher says it's 'like having an extra person on the team'..." required maxlength="1000"></textarea>
+          <div class="char-count"><span id="resultsCount">0</span> / 1000</div>
+        </div>
+
+        <div class="form-group">
+          <label for="quote">One sentence you'd say to another Michigan business owner <span class="opt">(optional — this becomes your pull quote)</span></label>
+          <input type="text" id="quote" name="quote" placeholder="e.g. 'If you're on the fence, just take the call. It paid for itself in the first month.'" maxlength="200"/>
+        </div>
+      </div>
+
+      <hr class="form-divider"/>
+
+      <!-- SECTION 3: VIDEO (OPTIONAL) -->
+      <div class="form-block">
+        <div class="section-label">03 — Video <span style="font-weight:400;letter-spacing:0;text-transform:none;font-size:12px;color:#9AA3B8">(Optional — but powerful)</span></div>
+
+        <div class="video-option">
+          <div class="video-option-header">
+            <span class="video-badge">🎥 Optional</span>
+            <h3>Add a Video Testimonial</h3>
+          </div>
+          <p>Video testimonials convert 3–5× better than written ones. 60 seconds on your phone is enough. Just record yourself answering: "What changed after working with AAIS?" — then upload to YouTube (unlisted is fine), Loom, Google Drive, or Dropbox and paste the link below.</p>
+          <label for="video_link" style="color:#8892B0;font-size:13px;margin-bottom:7px;">Video Link</label>
+          <input type="url" id="video_link" name="video_link" placeholder="https://loom.com/share/... or YouTube link"/>
+        </div>
+      </div>
+
+      <hr class="form-divider"/>
+
+      <!-- SECTION 4: PERMISSIONS -->
+      <div class="form-block">
+        <div class="section-label">04 — How We Can Use Your Story</div>
+        <p style="font-size:14px;color:#4A5473;margin-bottom:20px;line-height:1.6;">We will never publish anything without your review first. Check what you're comfortable with — nothing goes live without confirmation.</p>
+
+        <div class="permission-group">
+          <label class="perm-item">
+            <input type="checkbox" name="permission_website" value="yes"/>
+            <div class="perm-label">
+              <strong>Website Testimonial</strong>
+              <span>Display your name, company, and story on americanaisolutionsllc.com (we'll send you a preview first)</span>
+            </div>
+          </label>
+          <label class="perm-item">
+            <input type="checkbox" name="permission_social" value="yes"/>
+            <div class="perm-label">
+              <strong>Social Media</strong>
+              <span>Use your quote or results in LinkedIn, TikTok, or Instagram posts (always credited to you)</span>
+            </div>
+          </label>
+          <label class="perm-item">
+            <input type="checkbox" name="permission_case_study" value="yes"/>
+            <div class="perm-label">
+              <strong>Full Case Study</strong>
+              <span>Feature your business as a detailed case study with metrics and outcomes (we write it, you approve it)</span>
+            </div>
+          </label>
+          <label class="perm-item">
+            <input type="checkbox" name="permission_video" value="yes"/>
+            <div class="perm-label">
+              <strong>Video Publishing</strong>
+              <span>If you submitted a video, publish it on our website and/or social channels (you approve final edit)</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <hr class="form-divider"/>
+
+      <!-- SUBMIT -->
+      <div class="submit-wrap">
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="submitLabel">Submit My Story →</span>
+        </button>
+        <p class="submit-note">Your submission is private until you confirm. Questions? <a href="mailto:david04calderon@gmail.com" style="color:#1A3A8F;">david04calderon@gmail.com</a></p>
+      </div>
+
+    </form>
+
+    <!-- TIPS -->
+    <div class="tips-aside">
+      <h4>Tips for a Great Testimonial</h4>
+      <div class="tip-item"><div class="tip-num">1</div><div>Start with the specific problem — the more real, the more it resonates</div></div>
+      <div class="tip-item"><div class="tip-num">2</div><div>Include a number if you have one: hours saved, cost reduced, leads captured</div></div>
+      <div class="tip-item"><div class="tip-num">3</div><div>For video: natural is better than polished. Phone camera, 60 seconds, natural light</div></div>
+      <div class="tip-item"><div class="tip-num">4</div><div>End with what you'd tell another business owner who's on the fence</div></div>
+    </div>
+
+  </div><!-- /formContainer -->
+</div><!-- /form-wrap -->
+
+<footer>
+  <p style="margin-bottom:6px;"><a href="/">American AI Solutions LLC</a> · Detroit-Built. AI-Powered. · <a href="mailto:david04calderon@gmail.com">david04calderon@gmail.com</a></p>
+  <p>© 2026 American AI Solutions LLC. All rights reserved. EIN: on file.</p>
+</footer>
+
+<script>
+  // ── CHAR COUNTERS ──
+  function bindCounter(fieldId, countId) {
+    var el = document.getElementById(fieldId);
+    var ct = document.getElementById(countId);
+    if (!el || !ct) return;
+    el.addEventListener('input', function() { ct.textContent = el.value.length; });
+  }
+  bindCounter('problem', 'problemCount');
+  bindCounter('results', 'resultsCount');
+
+  // ── STAR RATING ──
+  var ratingInput = document.getElementById('rating');
+  var starBtns = document.querySelectorAll('.star-btn');
+  var currentRating = 0;
+
+  starBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      currentRating = parseInt(this.dataset.val, 10);
+      ratingInput.value = currentRating;
+      starBtns.forEach(function(b) {
+        b.classList.toggle('active', parseInt(b.dataset.val, 10) <= currentRating);
+      });
+    });
+    btn.addEventListener('mouseenter', function() {
+      var hover = parseInt(this.dataset.val, 10);
+      starBtns.forEach(function(b) {
+        b.classList.toggle('active', parseInt(b.dataset.val, 10) <= hover);
+      });
+    });
+  });
+  document.getElementById('starGroup').addEventListener('mouseleave', function() {
+    starBtns.forEach(function(b) {
+      b.classList.toggle('active', parseInt(b.dataset.val, 10) <= currentRating);
+    });
+  });
+
+  // ── FORM SUBMISSION ──
+  document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate required fields
+    var name = document.getElementById('name').value.trim();
+    var role = document.getElementById('role').value.trim();
+    var company = document.getElementById('company').value.trim();
+    var industry = document.getElementById('industry').value;
+    var email = document.getElementById('email').value.trim();
+    var rating = ratingInput.value;
+    var problem = document.getElementById('problem').value.trim();
+    var results = document.getElementById('results').value.trim();
+
+    if (!name || !role || !company || !industry || !email || !rating || !problem || !results) {
+      alert('Please fill in all required fields (marked with *) and select a star rating.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    var btn = document.getElementById('submitBtn');
+    var lbl = document.getElementById('submitLabel');
+    btn.disabled = true;
+    lbl.textContent = 'Submitting…';
+
+    var form = document.getElementById('testimonialForm');
+    var data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(function(res) {
+      if (res.ok) {
+        showSuccess();
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    })
+    .catch(function() {
+      // Fallback: open mailto so no submission is lost
+      var subject = encodeURIComponent('AAIS Testimonial: ' + name + ' — ' + company);
+      var body = encodeURIComponent(
+        'Name: ' + name + '\nRole: ' + role + '\nCompany: ' + company +
+        '\nIndustry: ' + industry + '\nEmail: ' + email + '\nRating: ' + rating + '/5 stars\n\n' +
+        'PROBLEM:\n' + problem + '\n\nRESULTS:\n' + results
+      );
+      window.location.href = 'mailto:david04calderon@gmail.com?subject=' + subject + '&body=' + body;
+      showSuccess();
+    });
+  });
+
+  function showSuccess() {
+    document.getElementById('formContainer').style.display = 'none';
+    var s = document.getElementById('successState');
+    s.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
