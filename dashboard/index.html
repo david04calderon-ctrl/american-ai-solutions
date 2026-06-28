@@ -1075,6 +1075,21 @@ function exportCSV(type) {
   a.click();
 }
 
+// ── SEED SERVICES (first load only) ──
+if (db.services.length === 0) {
+  db.services = [
+    {id:'AAIS-001',name:'AI Workflow Automation',desc:'Custom n8n automations — lead intake, follow-up, reporting',delivery:'3–6 weeks',value:'$2,500–$5,000'},
+    {id:'AAIS-002',name:'Custom AI Integration',desc:'Claude API integrated into existing business software',delivery:'4–8 weeks',value:'$5,000–$15,000'},
+    {id:'AAIS-003',name:'Enterprise AI Systems',desc:'Full-scale multi-agent AI system with custom UI',delivery:'8–12 weeks',value:'$15,000–$40,000'},
+    {id:'AAIS-004',name:'Essential Retainer',desc:'Monthly AI support, monitoring, and optimization',delivery:'Ongoing',value:'$1,000/month'},
+    {id:'AAIS-005',name:'Growth Retainer',desc:'Expanded support + new automations + quarterly strategy',delivery:'Ongoing',value:'$2,500/month'},
+    {id:'AAIS-006',name:'Scale Retainer',desc:'Dedicated build hours + priority support + KPI reporting',delivery:'Ongoing',value:'$4,500/month'},
+    {id:'AAIS-007',name:'AI Readiness Audit',desc:'Discovery + gap analysis + Michigan grant eligibility assessment',delivery:'1–2 weeks',value:'$500–$1,500'},
+    {id:'AAIS-008',name:'Going PRO Grant Consulting',desc:'Michigan Going PRO AI training reimbursement support',delivery:'2–4 weeks',value:'Included in project'},
+  ];
+  save('services');
+}
+
 // ── INIT ──
 renderLeads(); renderServices(); renderPortal(); updateKPIs();
 </script>
