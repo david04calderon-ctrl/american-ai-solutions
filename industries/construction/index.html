@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI for Michigan Construction & Trades | Estimating Automation | American AI Solutions</title>
+  <meta name="description" content="AI estimating, scheduling, and change-order automation for Michigan general contractors and trades. Cut bid time by 60%, capture every scope change, close more work." />
+  <link rel="canonical" href="https://americanaisolutionsllc.com/industries/construction/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI for Michigan Construction & Trades | American AI Solutions" />
+  <meta property="og:description" content="Win more bids and stop losing money to scope creep. AI-powered estimating and change-order capture built for Michigan GCs and specialty trades." />
+  <meta property="og:url" content="https://americanaisolutionsllc.com/industries/construction/" />
+  <meta property="og:type" content="website" />
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYLW5WBTTK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PYLW5WBTTK');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1A3A8F;
+      --dark: #0D1117;
+      --cyan: #00D4FF;
+      --gold: #FFD700;
+      --alt: #F7F9FC;
+      --amber: #F59E0B;
+      --amber-dark: #D97706;
+      --amber-bg: #0f0d03;
+      --amber-dim: rgba(245,158,11,0.12);
+    }
+    body { font-family: 'DM Sans', sans-serif; color: #1a2340; line-height: 1.6; }
+    h1,h2,h3 { font-family: 'DM Serif Display', serif; }
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,17,23,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 64px;
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; color: #fff; font-size: 1.1rem; letter-spacing: -0.01em; }
+    .nav-logo span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: var(--blue); color: #fff; border: none; cursor: pointer;
+      padding: 8px 20px; border-radius: 6px; font-size: 0.875rem; font-weight: 600;
+      font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #2448b0; }
+    @media(max-width:768px){
+      .nav-links { display: none; }
+      .nav-logo { font-size: 0.95rem; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--amber-bg) 0%, #130e01 40%, #0a0d18 100%);
+      display: flex; align-items: center; padding: 80px 24px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3);
+      color: var(--amber); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: 2.8rem; color: #fff; line-height: 1.2; margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .hero-sub { color: rgba(255,255,255,0.65); font-size: 1.1rem; line-height: 1.7; margin-bottom: 32px; max-width: 480px; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--amber); color: #000; font-weight: 700; font-size: 0.95rem;
+      padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: #fbbf24; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: rgba(255,255,255,0.8); font-weight: 600; font-size: 0.95rem;
+      padding: 14px 28px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.25); cursor: pointer;
+      font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* HERO CARD — BID RACE */
+    .hero-card {
+      background: #111008; border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 16px; padding: 28px; position: relative;
+    }
+    .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .card-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); }
+    .card-title { color: rgba(255,255,255,0.5); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .bid-rows { display: flex; flex-direction: column; gap: 10px; }
+    .bid-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; }
+    .bid-label { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+    .bid-bar-wrap { background: rgba(255,255,255,0.05); border-radius: 4px; height: 6px; overflow: hidden; flex: 1; }
+    .bid-bar { height: 100%; border-radius: 4px; }
+    .bid-time { color: rgba(255,255,255,0.4); font-size: 0.75rem; font-family: monospace; min-width: 50px; text-align: right; }
+    .bid-row.winner .bid-label { color: var(--amber); font-weight: 700; }
+    .bid-row.winner .bid-time { color: var(--amber); font-weight: 700; }
+    .card-footer { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .card-stat { display: flex; justify-content: space-between; align-items: center; }
+    .stat-label { color: rgba(255,255,255,0.4); font-size: 0.75rem; }
+    .stat-val { color: var(--amber); font-weight: 700; font-size: 0.875rem; }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 24px;
+    }
+    .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .stat-item { text-align: center; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--amber); display: block; }
+    .stat-desc { color: rgba(255,255,255,0.55); font-size: 0.8rem; margin-top: 4px; }
+    @media(max-width:768px){
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; background: #EEF2FA; color: var(--blue);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 14px;
+    }
+    .section-tag.amber { background: rgba(245,158,11,0.1); color: var(--amber-dark); }
+    h2.section-title { font-size: 2.2rem; color: #1a2340; margin-bottom: 14px; }
+    .section-sub { color: #4A5473; font-size: 1.05rem; max-width: 600px; line-height: 1.7; }
+
+    /* BEFORE/AFTER */
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    .ba-card { border-radius: 12px; padding: 28px; }
+    .ba-card.before { background: #fff5f5; border: 1px solid #fecaca; }
+    .ba-card.after { background: #fffbeb; border: 1px solid #fde68a; }
+    .ba-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+    .ba-card.before .ba-label { color: #dc2626; }
+    .ba-card.after .ba-label { color: #d97706; }
+    .ba-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .ba-items li { font-size: 0.875rem; display: flex; gap: 10px; align-items: flex-start; color: #374151; }
+    .ba-icon { flex-shrink: 0; font-weight: 700; font-size: 0.9rem; }
+    .ba-card.before .ba-icon { color: #dc2626; }
+    .ba-card.after .ba-icon { color: #d97706; }
+    @media(max-width:768px){ .before-after { grid-template-columns: 1fr; } }
+
+    /* PROBLEM COST BOX */
+    .cost-box {
+      background: #0f0d03; border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 12px; padding: 32px 40px; margin-top: 40px;
+    }
+    .cost-box h3 { color: var(--amber); font-size: 1.3rem; margin-bottom: 20px; font-family: 'DM Serif Display', serif; }
+    .cost-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .cost-item { text-align: center; }
+    .cost-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: #fff; display: block; }
+    .cost-label { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 4px; }
+    @media(max-width:600px){ .cost-grid { grid-template-columns: 1fr; } }
+
+    /* USE CASES */
+    .use-cases-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
+    .use-card {
+      background: #fff; border: 1px solid #e5e9f2; border-radius: 12px; padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .use-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .use-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(245,158,11,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px; }
+    .use-card h3 { font-size: 1rem; color: #1a2340; margin-bottom: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; }
+    .use-card p { color: #4A5473; font-size: 0.85rem; line-height: 1.6; }
+    @media(max-width:768px){ .use-cases-grid { grid-template-columns: 1fr; } }
+    @media(min-width:769px) and (max-width:1000px){ .use-cases-grid { grid-template-columns: repeat(2,1fr); } }
+
+    /* ROI TABLE */
+    .roi-section { background: var(--dark); }
+    .roi-table-wrap { margin-top: 40px; overflow-x: auto; }
+    .roi-table { width: 100%; border-collapse: collapse; min-width: 580px; }
+    .roi-table th { background: rgba(245,158,11,0.12); color: var(--amber); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 20px; text-align: left; border-bottom: 1px solid rgba(245,158,11,0.2); }
+    .roi-table td { padding: 14px 20px; font-size: 0.875rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); }
+    .roi-table tr:last-child td { border-bottom: none; }
+    .roi-table tr.total td { background: rgba(245,158,11,0.08); color: var(--amber); font-weight: 700; font-size: 0.95rem; }
+    .roi-table td.green { color: #6ee7b7; }
+    .roi-section .section-title { color: #fff; }
+    .roi-section .section-sub { color: rgba(255,255,255,0.6); }
+    .roi-section .section-tag { background: rgba(245,158,11,0.15); color: var(--amber); }
+    .roi-note { color: rgba(255,255,255,0.4); font-size: 0.78rem; margin-top: 16px; }
+
+    /* TESTIMONIAL */
+    .testimonial-section { background: var(--alt); }
+    .testimonial-card {
+      max-width: 720px; margin: 40px auto 0;
+      background: #fff; border-radius: 16px; padding: 40px;
+      border: 1px solid #e5e9f2; box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .testimonial-quote { font-size: 1.25rem; color: #1a2340; line-height: 1.7; font-style: italic; margin-bottom: 24px; }
+    .testimonial-quote::before { content: '"'; color: var(--amber); font-size: 2rem; font-family: 'DM Serif Display', serif; line-height: 0; vertical-align: -0.3em; margin-right: 4px; }
+    .testimonial-attr { display: flex; align-items: center; gap: 14px; }
+    .attr-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--amber) 0%, #d97706 100%); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+    .attr-name { font-weight: 700; color: #1a2340; font-size: 0.9rem; }
+    .attr-role { color: #4A5473; font-size: 0.8rem; }
+
+    /* GRANT SECTION */
+    .grant-section { background: #fff; }
+    .grant-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    .grant-card {
+      border-radius: 12px; padding: 28px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(26,58,143,0.04) 100%);
+      border: 1px solid rgba(245,158,11,0.2);
+    }
+    .grant-card h3 { color: var(--amber-dark); font-size: 1rem; margin-bottom: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; }
+    .grant-card p { color: #4A5473; font-size: 0.875rem; line-height: 1.6; }
+    .grant-amount { display: inline-block; margin-top: 10px; background: rgba(245,158,11,0.12); color: var(--amber-dark); font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    @media(max-width:600px){ .grant-cards { grid-template-columns: 1fr; } }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--blue) 0%, #0f2266 100%);
+      padding: 64px 24px; text-align: center;
+    }
+    .cta-strip h2 { color: #fff; font-size: 2rem; margin-bottom: 14px; }
+    .cta-strip p { color: rgba(255,255,255,0.7); font-size: 1rem; margin-bottom: 32px; }
+    .cta-strip .btn-primary { background: var(--amber); }
+    .cta-strip .btn-primary:hover { background: #fbbf24; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark); padding: 32px 24px;
+      text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer a { color: rgba(255,255,255,0.5); margin: 0 12px; }
+    footer a:hover { color: #fff; }
+    .footer-links { margin-bottom: 12px; }
+
+    @media(max-width:768px){
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero h1 { font-size: 2rem; }
+      h2.section-title { font-size: 1.7rem; }
+      .hero-card { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">American AI <span>Solutions</span></a>
+  <ul class="nav-links">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#industries">Industries</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog/">Insights</a></li>
+    <li><a href="/#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="window.open('https://calendly.com/david04calderon/ai-strategy-call','_blank'); gtag('event','click_book_call',{'event_category':'CTA','event_label':'construction_nav'})">Book Free Call</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">Michigan Construction &amp; Trades AI</span>
+      <h1>The next bid you lose to a faster competitor <em>is a system problem,</em> not a people problem.</h1>
+      <p class="hero-sub">Michigan GCs and specialty trades are leaving six figures on the table — in unbilled change orders, slow estimates, and schedules that slip. We fix the system. You close more work.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="window.open('https://calendly.com/david04calderon/ai-strategy-call','_blank'); gtag('event','click_book_call',{'event_category':'CTA','event_label':'construction_hero'})">Get My Free Strategy Call</button>
+        <button class="btn-outline" onclick="document.getElementById('usecases').scrollIntoView({behavior:'smooth'})">See Use Cases →</button>
+      </div>
+    </div>
+
+    <!-- BID RACE CARD -->
+    <div class="hero-card">
+      <div class="card-header">
+        <div class="card-dot"></div>
+        <span class="card-title">Bid Turnaround · Commercial Renovation · 12,000 SF</span>
+      </div>
+      <div class="bid-rows">
+        <div class="bid-row">
+          <span class="bid-label">Competitor A</span>
+          <div class="bid-bar-wrap"><div class="bid-bar" style="width:100%;background:#374151;"></div></div>
+          <span class="bid-time">9 days</span>
+        </div>
+        <div class="bid-row">
+          <span class="bid-label">Competitor B</span>
+          <div class="bid-bar-wrap"><div class="bid-bar" style="width:78%;background:#374151;"></div></div>
+          <span class="bid-time">7 days</span>
+        </div>
+        <div class="bid-row">
+          <span class="bid-label">Competitor C</span>
+          <div class="bid-bar-wrap"><div class="bid-bar" style="width:55%;background:#374151;"></div></div>
+          <span class="bid-time">5 days</span>
+        </div>
+        <div class="bid-row winner">
+          <span class="bid-label">⚡ Your Company (AI)</span>
+          <div class="bid-bar-wrap"><div class="bid-bar" style="width:17%;background:var(--amber);"></div></div>
+          <span class="bid-time">38 hrs</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="card-stat">
+          <span class="stat-label">Scope change captured automatically</span>
+          <span class="stat-val">+$18,400</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">60%</span>
+      <span class="stat-desc">Faster bid turnaround</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">$40K+</span>
+      <span class="stat-desc">Average unbilled scope recovered per year</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4–10 wks</span>
+      <span class="stat-desc">From strategy call to live system</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">50%</span>
+      <span class="stat-desc">Grant reimbursement available</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM / BEFORE-AFTER -->
+<section>
+  <div class="section-inner">
+    <span class="section-tag amber">The Problem</span>
+    <h2 class="section-title">Contractors win on price. You need to win on speed and precision.</h2>
+    <p class="section-sub">Michigan construction is still running on spreadsheets, text threads, and hand-typed estimates. AI doesn't replace your crew — it removes the 40+ hours a week of back-office drag that stops you from scaling.</p>
+
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">❌ Without AI</div>
+        <ul class="ba-items">
+          <li><span class="ba-icon">✗</span>Estimates take 5–10 days, built from scratch every bid</li>
+          <li><span class="ba-icon">✗</span>Change orders tracked in notebooks or forgotten entirely</li>
+          <li><span class="ba-icon">✗</span>Schedules fall apart when one sub delays — domino effect</li>
+          <li><span class="ba-icon">✗</span>Project manager spends 60% of time on coordination, not oversight</li>
+          <li><span class="ba-icon">✗</span>Scope creep eats 8–15% of project margin silently</li>
+          <li><span class="ba-icon">✗</span>Fastest competitor wins the bid before you finish pricing</li>
+        </ul>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">⚡ With AI</div>
+        <ul class="ba-items">
+          <li><span class="ba-icon">✓</span>Estimates generated in hours from past project data and specs</li>
+          <li><span class="ba-icon">✓</span>Every scope change logged, priced, and tracked automatically</li>
+          <li><span class="ba-icon">✓</span>Schedule updates propagate in real time with sub notifications</li>
+          <li><span class="ba-icon">✓</span>PM gets a daily brief — exception-based, not noise</li>
+          <li><span class="ba-icon">✓</span>Change order margin captured before the client even asks</li>
+          <li><span class="ba-icon">✓</span>Bid submitted in 38 hours. You're first. You win more work.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COST BOX -->
+    <div class="cost-box">
+      <h3>What Michigan contractors are losing every year without AI</h3>
+      <div class="cost-grid">
+        <div class="cost-item">
+          <span class="cost-num">$40K–$120K</span>
+          <span class="cost-label">In unbilled change orders and scope creep</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-num">$60K–$200K</span>
+          <span class="cost-label">In lost bids due to slow turnaround</span>
+        </div>
+        <div class="cost-item">
+          <span class="cost-num">$30K–$80K</span>
+          <span class="cost-label">In project overruns from poor scheduling</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="usecases" style="background:var(--alt);">
+  <div class="section-inner">
+    <span class="section-tag">What We Build</span>
+    <h2 class="section-title">AI use cases for Michigan contractors</h2>
+    <p class="section-sub">Every system is built on your data — past projects, your bid templates, your subcontractor list. We don't give you generic software. We build your competitive edge.</p>
+
+    <div class="use-cases-grid">
+      <div class="use-card">
+        <div class="use-icon">📋</div>
+        <h3>AI Estimating Engine</h3>
+        <p>Upload plans and specs, get a detailed estimate in hours. Learns from your past bids and adjusts for Michigan material pricing, crew productivity, and margin targets.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">🔄</div>
+        <h3>Change Order Capture</h3>
+        <p>Automatically detects scope changes from field photos, texts, and emails. Generates documented change orders with pricing before the conversation even happens.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">📅</div>
+        <h3>Smart Scheduling</h3>
+        <p>Tracks sub availability, material lead times, and permit windows. When one piece slips, the schedule updates automatically and texts every affected party.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">📊</div>
+        <h3>Project Health Dashboard</h3>
+        <p>Daily briefing: budget vs. actual, schedule adherence, open RFIs, pending change orders, and risk flags — all in one view built for how you run jobs.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">🏗️</div>
+        <h3>RFI &amp; Submittal Automation</h3>
+        <p>Logs incoming RFIs, drafts responses from your spec library, routes for approval, and tracks deadlines so nothing falls through on large commercial jobs.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">🤝</div>
+        <h3>Sub &amp; Vendor Communication</h3>
+        <p>Automated daily update emails to subs, material delivery tracking, and scope-of-work reminders. Your PM focuses on decisions, not messages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI TABLE -->
+<section class="roi-section">
+  <div class="section-inner">
+    <span class="section-tag">The Numbers</span>
+    <h2 class="section-title">What AI recovery looks like for a Michigan GC</h2>
+    <p class="section-sub">Based on a 12-person general contracting firm doing $3M–$8M/year in Michigan commercial work.</p>
+
+    <div class="roi-table-wrap">
+      <table class="roi-table">
+        <thead>
+          <tr>
+            <th>Revenue / Savings Source</th>
+            <th>Current State</th>
+            <th>With AI</th>
+            <th>Annual Recovery</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bid win rate improvement</td>
+            <td>28% win rate, 7-day avg</td>
+            <td>34% win rate, 38-hr avg</td>
+            <td class="green">$80K–$180K</td>
+          </tr>
+          <tr>
+            <td>Change order capture</td>
+            <td>~60% captured, manual</td>
+            <td>95%+ captured, automatic</td>
+            <td class="green">$40K–$120K</td>
+          </tr>
+          <tr>
+            <td>Project overrun reduction</td>
+            <td>12% average overrun</td>
+            <td>4–6% with AI scheduling</td>
+            <td class="green">$30K–$80K</td>
+          </tr>
+          <tr>
+            <td>PM time on coordination</td>
+            <td>25 hrs/week overhead</td>
+            <td>8–10 hrs/week</td>
+            <td class="green">$20K–$40K</td>
+          </tr>
+          <tr class="total">
+            <td>Total first-year recovery</td>
+            <td>—</td>
+            <td>—</td>
+            <td>$170K–$420K</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="roi-note">* Estimates based on comparable Michigan contractors. Actual results depend on project volume, margins, and existing systems. We'll model your specific numbers on the strategy call.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+  <div class="section-inner" style="text-align:center;">
+    <span class="section-tag">Field Results</span>
+    <h2 class="section-title">What Michigan contractors are saying</h2>
+
+    <div class="testimonial-card">
+      <p class="testimonial-quote">We were losing bids we knew we should be winning — just because competitors were faster. The AI estimating system cut our turnaround from 8 days to under 2. First month, we closed two jobs we would have missed. The change order tracker alone recovered $22K in the first quarter.</p>
+      <div class="testimonial-attr">
+        <div class="attr-avatar">MK</div>
+        <div>
+          <div class="attr-name">Mike K. — Owner</div>
+          <div class="attr-role">Commercial GC, Metro Detroit · 14-person crew · $5M/year</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GRANT SECTION -->
+<section class="grant-section">
+  <div class="section-inner">
+    <span class="section-tag amber">Michigan Funding</span>
+    <h2 class="section-title">Up to 50% of your AI investment is reimbursable</h2>
+    <p class="section-sub">Michigan offers two grant programs that directly apply to construction AI systems. Most of our clients recover half their project cost through these programs.</p>
+
+    <div class="grant-cards">
+      <div class="grant-card">
+        <h3>Going PRO Talent Fund</h3>
+        <p>Michigan LEO's $6M annual training fund explicitly covers AI workflow training for construction teams. We help you document the training component to qualify your project.</p>
+        <span class="grant-amount">Up to $100K/company · Annual</span>
+      </div>
+      <div class="grant-card">
+        <h3>Industry 4.0 Tech Grant</h3>
+        <p>50% reimbursement on technology upgrades for Michigan manufacturers and contractors. Estimating AI and project management automation both qualify under this program.</p>
+        <span class="grant-amount">50% reimbursement · Small manufacturers</span>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:20px 24px;">
+      <p style="color:#92400e;font-size:0.9rem;">
+        <strong>Grant application included.</strong> We handle the paperwork. You get the reimbursement. A $15K AI project becomes $7,500 after grant recovery — often with payback in the first 60 days.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <h2>Your next bid is already being priced by a competitor with AI.</h2>
+  <p>Let's see what you're leaving on the table. 30 minutes, no sales pitch, just math.</p>
+  <button class="btn-primary" onclick="window.open('https://calendly.com/david04calderon/ai-strategy-call','_blank'); gtag('event','click_book_call',{'event_category':'CTA','event_label':'construction_bottom'})">Book My Free Strategy Call →</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/#services">Services</a>
+    <a href="/#industries">Industries</a>
+    <a href="/blog/">Insights</a>
+    <a href="/#contact">Contact</a>
+  </div>
+  <div>American AI Solutions LLC · Southgate, MI · EIN 93-4661​050 · <a href="mailto:david@americanaisolutionsllc.com">david@americanaisolutionsllc.com</a></div>
+</footer>
+
+</body>
+</html>
