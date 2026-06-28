@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AI for Michigan Physical Therapy Practices: Scheduling, Documentation, and Prior Auth Automation | American AI Solutions</title>
+  <meta name="description" content="Michigan physical therapists spend 35% of their time on documentation and admin. AI automates SOAP notes, prior auth, schedule optimization, and billing — recovering $120K+ annually for a 4-therapist clinic."/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/blog/ai-for-michigan-physical-therapy-practices/"/>
+  <meta property="og:title" content="AI for Michigan Physical Therapy Practices: Scheduling, Documentation, and Prior Auth Automation"/>
+  <meta property="og:description" content="Michigan physical therapists spend 35% of their time on documentation and admin. AI automates SOAP notes, prior auth, schedule optimization, and billing — recovering $120K+ annually for a 4-therapist clinic."/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/blog/ai-for-michigan-physical-therapy-practices/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="https://americanaisolutionsllc.com/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI for Michigan Physical Therapy Practices: Scheduling, Documentation, and Prior Auth Automation",
+    "description": "Michigan physical therapists spend 35% of their time on documentation and admin. AI automates SOAP notes, prior auth, schedule optimization, and billing — recovering $120K+ annually for a 4-therapist clinic.",
+    "author": {"@type": "Organization", "name": "American AI Solutions LLC"},
+    "publisher": {"@type": "Organization", "name": "American AI Solutions LLC", "url": "https://americanaisolutionsllc.com"},
+    "datePublished": "2026-06-27",
+    "url": "https://americanaisolutionsllc.com/blog/ai-for-michigan-physical-therapy-practices/"
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1A1A2E; background: #fff; line-height: 1.7; }
+    a { color: #1A3A8F; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav { background: #fff; border-bottom: 1px solid #E8ECF4; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; color: #1A3A8F; text-decoration: none; }
+    .nav-cta { background: #1A3A8F; color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .nav-cta:hover { background: #15307a; text-decoration: none; }
+
+    .hero { background: linear-gradient(135deg, #0a2010 0%, #065F46 50%, #0a3a50 100%); color: #fff; padding: 72px 24px 64px; text-align: center; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,.12); color: #a8f0d0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 52px); line-height: 1.2; max-width: 820px; margin: 0 auto 20px; }
+    .hero p { font-size: clamp(16px, 2vw, 19px); color: #c0f0d8; max-width: 660px; margin: 0 auto 36px; }
+    .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; }
+    .hero-stat strong { display: block; font-size: 36px; font-weight: 700; color: #00D4FF; }
+    .hero-stat span { font-size: 13px; color: #a8f0d0; }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid #E8ECF4; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 32px); color: #1A1A2E; margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: #1A1A2E; margin-bottom: 10px; }
+    p { color: #4A5473; margin-bottom: 16px; }
+    ul { color: #4A5473; padding-left: 20px; }
+    ul li { margin-bottom: 8px; }
+
+    .alert-box { background: #FFF7E6; border-left: 4px solid #D97706; border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+    .alert-box strong { color: #92400E; display: block; margin-bottom: 6px; font-size: 15px; }
+    .alert-box p { color: #92400E; margin: 0; font-size: 14px; }
+
+    .hipaa-box { background: #F0FDF4; border-left: 4px solid #059669; border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+    .hipaa-box strong { color: #065F46; display: block; margin-bottom: 6px; font-size: 15px; }
+    .hipaa-box p { color: #065F46; margin: 0; font-size: 14px; line-height: 1.6; }
+
+    .stat-box { background: #EEF2FA; border-radius: 12px; padding: 28px; margin: 32px 0; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-top: 16px; }
+    .stat-item strong { display: block; font-size: 32px; font-weight: 700; color: #065F46; }
+    .stat-item span { font-size: 13px; color: #4A5473; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 32px; }
+    .card { background: #F7F9FC; border-radius: 12px; padding: 24px; border-left: 4px solid #065F46; }
+    .card h3 { font-size: 16px; color: #065F46; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: #4A5473; margin: 0; }
+
+    .dark-block { background: #0D1117; color: #fff; border-radius: 16px; padding: 40px; margin: 40px 0; }
+    .dark-block h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: #00D4FF; margin-bottom: 8px; }
+    .dark-block p { color: #9AA3B8; margin-bottom: 24px; }
+    .step-list { list-style: none; padding: 0; }
+    .step-list li { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+    .step-num { background: #065F46; color: #00D4FF; font-weight: 700; font-size: 14px; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-list li p { margin: 0; color: #C8D8F8; font-size: 14px; }
+    .step-list li strong { display: block; color: #fff; margin-bottom: 4px; font-size: 15px; }
+
+    .table-wrap { overflow-x: auto; margin: 32px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { background: #065F46; color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; }
+    td { padding: 12px 16px; border-bottom: 1px solid #E8ECF4; color: #4A5473; vertical-align: top; }
+    tr:nth-child(even) td { background: #F7F9FC; }
+    .good { color: #059669; font-weight: 600; }
+    .bad { color: #DC2626; font-weight: 600; }
+
+    .roi-box { background: linear-gradient(135deg, #0a2010 0%, #065F46 100%); color: #fff; border-radius: 16px; padding: 40px; margin: 40px 0; text-align: center; }
+    .roi-box h3 { font-family: 'DM Serif Display', serif; font-size: 26px; color: #FFD700; margin-bottom: 8px; }
+    .roi-box p { color: #c0f0d8; margin-bottom: 24px; }
+    .roi-numbers { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .roi-num strong { display: block; font-size: 36px; font-weight: 700; color: #00D4FF; }
+    .roi-num span { font-size: 13px; color: #a8f0d0; }
+
+    .cta-section { background: #EEF2FA; border-radius: 16px; padding: 48px 32px; text-align: center; margin: 56px 0; }
+    .cta-section h2 { font-family: 'DM Serif Display', serif; font-size: 28px; color: #1A1A2E; margin-bottom: 12px; }
+    .cta-section p { color: #4A5473; margin-bottom: 28px; }
+    .btn { display: inline-block; background: #065F46; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; }
+    .btn:hover { background: #054a38; text-decoration: none; }
+    .btn-outline { border: 2px solid #065F46; color: #065F46; background: transparent; margin-left: 12px; }
+    .btn-outline:hover { background: #065F46; color: #fff; }
+
+    footer { background: #0D1117; color: #9AA3B8; text-align: center; padding: 40px 24px; font-size: 13px; }
+    footer a { color: #9AA3B8; }
+
+    @media (max-width: 768px) {
+      .hero-stats { gap: 20px; }
+      .dark-block { padding: 28px 20px; }
+      .roi-box { padding: 28px 20px; }
+      .btn-outline { margin-left: 0; margin-top: 10px; display: inline-block; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">American AI Solutions</a>
+  <a class="nav-cta" href="https://calendly.com/american-ai-solutions/free-strategy-session" target="_blank" rel="noopener">Free Strategy Call</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Healthcare · Physical Therapy · Michigan</div>
+  <h1>AI for Michigan Physical Therapy Practices: Less Documentation, More Patient Care</h1>
+  <p>Michigan PTs spend 35–45% of their clinical day on documentation, prior auth, and scheduling — not treating patients. AI gives those hours back without sacrificing compliance or quality of care.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>35–45%</strong><span>of PT clinical time is documentation & admin</span></div>
+    <div class="hero-stat"><strong>$120K+</strong><span>recovered value for a 4-therapist Michigan clinic</span></div>
+    <div class="hero-stat"><strong>72%</strong><span>of prior auth denials are initially appealable</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <section>
+    <h2>The Michigan PT Practice Problem: Treating the EHR Instead of the Patient</h2>
+    <p>You went to school to help people recover — to see a patient walk out of your clinic without a limp that six months ago they thought was permanent. You didn't go to school to spend 90 minutes after your last appointment finishing SOAP notes.</p>
+    <p>Michigan physical therapy practices operate on razor-thin margins: Blue Cross Blue Shield of Michigan reimburses at $85–$120 per hour for most outpatient PT, while overhead consumes 55–65% of revenue. The only lever most practices have to increase profitability is throughput — more patients per therapist per day, with less wasted time on administration.</p>
+
+    <div class="stat-box">
+      <strong style="font-family:'DM Serif Display',serif;font-size:20px;color:#1A1A2E;">Where Michigan PT Time Actually Goes (8-Hour Clinical Day)</strong>
+      <p style="color:#4A5473;margin:8px 0 0;font-size:14px;">Based on outpatient PT clinic operations — Michigan multi-therapist practices</p>
+      <div class="stat-grid">
+        <div class="stat-item"><strong>4.7 hrs</strong><span>Direct patient treatment</span></div>
+        <div class="stat-item"><strong>1.8 hrs</strong><span>SOAP notes & documentation</span></div>
+        <div class="stat-item"><strong>0.7 hrs</strong><span>Prior auth calls & paperwork</span></div>
+        <div class="stat-item"><strong>0.5 hrs</strong><span>Schedule coordination & no-show management</span></div>
+        <div class="stat-item"><strong>0.3 hrs</strong><span>Billing review & denial follow-up</span></div>
+      </div>
+    </div>
+
+    <p>At a $100/hour BCBS reimbursement rate and 2.8 hours of administrative time per therapist per day, a 4-therapist Michigan clinic is absorbing 44.8 non-revenue hours weekly — equivalent to $4,480 in opportunity cost every single week.</p>
+  </section>
+
+  <section>
+    <h2>Six AI Workflows Michigan PT Practices Are Implementing Now</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>SOAP Note Generation</h3>
+        <p>Therapist speaks brief summary after session (2–3 minutes). AI converts to structured SOAP note: Subjective, Objective, Functional Gains, Assessment, Plan. PT reviews and approves in 60 seconds instead of writing for 15 minutes.</p>
+      </div>
+      <div class="card">
+        <h3>Prior Auth Automation</h3>
+        <p>AI pre-populates prior auth requests using diagnosis codes, clinical notes, functional outcome data, and MCG/InterQual criteria. Submits to payer portals. Flags denials with appeal language based on clinical documentation.</p>
+      </div>
+      <div class="card">
+        <h3>Schedule Optimization & No-Show Prediction</h3>
+        <p>AI analyzes your schedule history to predict no-show risk by patient, time slot, and day. Sends personalized reminders at 48 hrs and 2 hrs. Maintains waitlist to auto-fill cancellations. Reduces no-show rate from 18% to under 7%.</p>
+      </div>
+      <div class="card">
+        <h3>Home Exercise Program Generation</h3>
+        <p>Based on session notes and current protocol, AI generates patient-specific HEP with exercise selection, sets/reps/frequency, and plain-language instructions. Sends to patient portal or email automatically after each visit.</p>
+      </div>
+      <div class="card">
+        <h3>Outcome Tracking & Functional Progress Notes</h3>
+        <p>AI tracks FOTO, LEFS, DASH, and OPTIMAL scores across visits. Generates progress notes showing functional gains in payer language. Automatically flags when visit counts approach authorization limits to trigger renewal requests.</p>
+      </div>
+      <div class="card">
+        <h3>Billing & Denial Management</h3>
+        <p>AI reviews claims before submission for common denial triggers (modifiers, units, medical necessity language). Identifies patterns in denial codes across payers. Auto-generates appeal letters for CO-97, CO-4, and PR-119 denials.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="dark-block">
+      <h3>SOAP Note Automation: From 15-Minute Burden to 60-Second Approval</h3>
+      <p>For a 4-therapist clinic seeing 10 patients/day each, this is the workflow that recovers 40+ documentation hours per week.</p>
+      <ul class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <div>
+            <strong>Session Summary Capture</strong>
+            <p>After each patient, therapist records a 2–3 minute voice summary: what was treated, patient response, functional progress, changes to plan. Voice memo via mobile app or front-desk tablet — no typing required during clinical care.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div>
+            <strong>AI Transcription & SOAP Conversion</strong>
+            <p>Voice memo transcribed and converted to structured SOAP note format. AI populates: Subjective (patient-reported pain/function), Objective (ROM, strength, functional tests performed), Assessment (progress toward goals), Plan (next session activities, HEP updates).</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div>
+            <strong>Payer-Specific Language Insertion</strong>
+            <p>AI automatically adjusts functional language for primary payer: BCBS, Medicare, Medicaid, Auto No-Fault, and workers' comp each have different documentation requirements. Medicare needs functional limitation language; auto no-fault needs impairment ratings. AI knows the difference.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div>
+            <strong>Therapist Review & Electronic Signature</strong>
+            <p>Therapist receives draft SOAP note for review. Reviews in 45–90 seconds, makes any corrections, and signs electronically. Note locks into EHR automatically. No end-of-day documentation backlog.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <div>
+            <strong>Billing Code Suggestion</strong>
+            <p>Based on documented procedures, AI suggests CPT codes: 97110, 97530, 97140, 97035, and timed code units. Flags any documentation gaps that might trigger denial before submission. Billing staff reviews — not creates from scratch.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Michigan Prior Authorization: The AI Advantage</h2>
+    <p>Michigan PT practices deal with prior auth from BCBS Michigan, Meridian Health Plan, Molina Healthcare, Priority Health, McLaren Health Plan, and dozens of commercial plans — each with different visit limits, criteria, and submission portals.</p>
+    <p>The average Michigan PT clinic spends 45–90 minutes per day on prior auth across all payers. That's 375 hours per year. At $35/hour for a billing coordinator, that's $13,125 in direct labor cost — before you count the opportunity cost of denials that weren't caught in time.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Payer</th><th>Visit Limit</th><th>Auth Required At</th><th>AI Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BCBS Michigan</td><td>60 visits/year</td><td>Visit 1 for most diagnoses</td><td class="good">Auto-submit with functional criteria</td></tr>
+          <tr><td>Medicare</td><td>No hard limit (KX modifier)</td><td>Therapy cap exception at $2,230</td><td class="good">KX modifier tracking + documentation alerts</td></tr>
+          <tr><td>Medicaid (MDHHS)</td><td>Varies by waiver</td><td>Prior to initiation</td><td class="good">Portal submission + denial appeal automation</td></tr>
+          <tr><td>Priority Health</td><td>20 visits initial</td><td>Visit 1</td><td class="good">Auto-generate extension requests at visit 15</td></tr>
+          <tr><td>McLaren</td><td>12 visits initial</td><td>Visit 1</td><td class="good">Early extension flag + functional progress summary</td></tr>
+          <tr><td>Auto No-Fault (Michigan)</td><td>Unlimited (catastrophic)</td><td>Pre-injury verification</td><td class="good">Documentation in DRF/impairment format</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Michigan's 2019 auto no-fault reform created complex billing requirements for PTs treating auto accident patients. AI tracks the specific documentation requirements for personal injury protection (PIP) claims — catastrophic vs. non-catastrophic, fee schedule compliance, and Independent Medical Evaluation (IME) response documentation.</p>
+  </section>
+
+  <section>
+    <h2>HIPAA Compliance in Michigan PT Practice AI</h2>
+    <div class="hipaa-box">
+      <strong>HIPAA Technical Safeguards — Non-Negotiable for Any AI in Your Clinic</strong>
+      <p>All AI tools deployed in Michigan PT practices must comply with HIPAA's Technical Safeguards (45 CFR § 164.312). Specifically:<br/><br/>
+      <strong>Access Control:</strong> Unique user IDs, automatic logoff, and role-based access to PHI in the AI system. The PT treating the patient sees their notes; front desk sees scheduling; billing sees claims — no cross-access without authorization.<br/><br/>
+      <strong>Audit Controls:</strong> Every access to, and action on, PHI is logged automatically. Required for HIPAA compliance and state-level Michigan audit response.<br/><br/>
+      <strong>Transmission Security:</strong> All PHI transmitted between your EHR and the AI system is encrypted in transit (TLS 1.2+) and at rest (AES-256).<br/><br/>
+      <strong>Business Associate Agreement (BAA):</strong> Every AI vendor who touches PHI — including voice transcription services — must sign a BAA. We provide and execute BAAs as part of every healthcare AI deployment.<br/><br/>
+      <strong>Private Deployment:</strong> AI systems we build for Michigan PT practices run on your infrastructure or a dedicated private cloud environment. Your patient notes do not train general AI models. No shared-tenant exposure.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>EHR Integration: Michigan PT Practice Software We Work With</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>WebPT</h3>
+        <p>Michigan's most common PT-specific EHR. AI integrates with documentation workflows, scheduling, and reporting. SOAP note draft flows directly into WebPT note editor.</p>
+      </div>
+      <div class="card">
+        <h3>Clinicient (Optio)</h3>
+        <p>Full integration with Clinicient's documentation and billing modules. AI billing review layers over existing claims workflow.</p>
+      </div>
+      <div class="card">
+        <h3>TheraOffice</h3>
+        <p>Popular with independent Michigan PT clinics. AI connects to appointment scheduling, documentation, and outcome tracking.</p>
+      </div>
+      <div class="card">
+        <h3>Raintree Systems</h3>
+        <p>Used by larger Michigan PT groups and hospital-based outpatient clinics. AI integrations available for documentation assistance and scheduling optimization.</p>
+      </div>
+      <div class="card">
+        <h3>Prompt PT</h3>
+        <p>Growing adoption in Michigan multi-location practices. AI automation for scheduling, documentation review, and billing scrubbing integrates with Prompt's API.</p>
+      </div>
+      <div class="card">
+        <h3>Custom EMR / Hybrid</h3>
+        <p>Some Michigan hospital-affiliated PT departments use Epic or Cerner. We build AI integrations compatible with enterprise EHR API layers and on-premise deployment requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="roi-box">
+      <h3>ROI Model: 4-Therapist Michigan Outpatient PT Clinic</h3>
+      <p>10 patients/therapist/day × 250 clinic days/year. Average BCBS/commercial reimbursement $95/session. AI implementation deployed over 60 days.</p>
+      <div class="roi-numbers">
+        <div class="roi-num"><strong>1.8 hrs</strong><span>Documentation time saved per therapist/day</span></div>
+        <div class="roi-num"><strong>$121,500</strong><span>Annual recovered revenue (additional capacity)</span></div>
+        <div class="roi-num"><strong>18% → 6%</strong><span>No-show rate reduction</span></div>
+        <div class="roi-num"><strong>$13,125</strong><span>Prior auth labor cost saved/year</span></div>
+      </div>
+      <p style="margin-top:28px;color:#FFD700;font-weight:700;font-size:18px;">Net first-year impact: $127,125 — after $7,500 AI system cost</p>
+      <p style="color:#a8f0d0;font-size:13px;margin-top:8px;">Revenue model: 1.8 hrs documentation × 4 therapists × 250 days × 70% converted to billable sessions × $95/session. No-show improvement: 12% reduction × 10 patients × 4 therapists × 250 days × $95.</p>
+    </div>
+
+    <div class="alert-box">
+      <strong>Michigan Going PRO Talent Fund — PT Staff AI Training Eligible</strong>
+      <p>Physical therapy support staff — front desk coordinators, billing specialists, PT aides — trained to work with AI documentation and billing tools qualify for Going PRO reimbursement up to $2,000 per employee. For a clinic with 4 support staff members, that's $8,000 toward your AI implementation cost before you spend a dollar. We handle the Going PRO application from start to reimbursement.</p>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <h2>Ready to Treat More Patients and Document Less?</h2>
+    <p>Every hour your therapists spend on SOAP notes is an hour they're not treating patients — or going home on time. Let's fix that in 60 days.</p>
+    <a class="btn" href="https://calendly.com/american-ai-solutions/free-strategy-session" target="_blank" rel="noopener">Book Your Free Strategy Call</a>
+    <a class="btn btn-outline" href="/blog/">Read More Articles</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>American AI Solutions LLC</strong> &nbsp;·&nbsp; Southgate, Michigan &nbsp;·&nbsp; <a href="mailto:david04calderon@gmail.com">david04calderon@gmail.com</a></p>
+  <p style="margin-top:8px"><a href="/">← Back to americanaisolutionsllc.com</a></p>
+  <p style="margin-top:16px;font-size:11px;color:#4A5473;">© 2026 American AI Solutions LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

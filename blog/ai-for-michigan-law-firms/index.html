@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>AI for Michigan Law Firms: Document Review, Client Intake, and Billing Automation | American AI Solutions</title>
+  <meta name="description" content="Michigan attorneys spend 40–60% of their time on non-billable work. AI automates document review, contract drafting, client intake, and billing — adding $180K+ in recovered billable hours annually."/>
+  <link rel="canonical" href="https://americanaisolutionsllc.com/blog/ai-for-michigan-law-firms/"/>
+  <meta property="og:title" content="AI for Michigan Law Firms: Document Review, Client Intake, and Billing Automation"/>
+  <meta property="og:description" content="Michigan attorneys spend 40–60% of their time on non-billable work. AI automates document review, contract drafting, client intake, and billing — adding $180K+ in recovered billable hours annually."/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/blog/ai-for-michigan-law-firms/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:image" content="https://americanaisolutionsllc.com/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI for Michigan Law Firms: Document Review, Client Intake, and Billing Automation",
+    "description": "Michigan attorneys spend 40–60% of their time on non-billable work. AI automates document review, contract drafting, client intake, and billing — adding $180K+ in recovered billable hours annually.",
+    "author": {"@type": "Organization", "name": "American AI Solutions LLC"},
+    "publisher": {"@type": "Organization", "name": "American AI Solutions LLC", "url": "https://americanaisolutionsllc.com"},
+    "datePublished": "2026-06-27",
+    "url": "https://americanaisolutionsllc.com/blog/ai-for-michigan-law-firms/"
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1A1A2E; background: #fff; line-height: 1.7; }
+    a { color: #1A3A8F; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { background: #fff; border-bottom: 1px solid #E8ECF4; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 18px; color: #1A3A8F; text-decoration: none; }
+    .nav-cta { background: #1A3A8F; color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
+    .nav-cta:hover { background: #15307a; text-decoration: none; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #0a1628 0%, #1A3A8F 50%, #2a1a5e 100%); color: #fff; padding: 72px 24px 64px; text-align: center; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,.12); color: #a8c0f8; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 52px); line-height: 1.2; max-width: 820px; margin: 0 auto 20px; }
+    .hero p { font-size: clamp(16px, 2vw, 19px); color: #c8d8f8; max-width: 660px; margin: 0 auto 36px; }
+    .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; }
+    .hero-stat strong { display: block; font-size: 36px; font-weight: 700; color: #00D4FF; }
+    .hero-stat span { font-size: 13px; color: #a8c0f8; }
+
+    /* CONTENT */
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid #E8ECF4; }
+    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 32px); color: #1A1A2E; margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: #1A1A2E; margin-bottom: 10px; }
+    p { color: #4A5473; margin-bottom: 16px; }
+    ul { color: #4A5473; padding-left: 20px; }
+    ul li { margin-bottom: 8px; }
+
+    /* ALERT BOX */
+    .alert-box { background: #FFF7E6; border-left: 4px solid #D97706; border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+    .alert-box strong { color: #92400E; display: block; margin-bottom: 6px; font-size: 15px; }
+    .alert-box p { color: #92400E; margin: 0; font-size: 14px; }
+
+    /* ETHICS BOX */
+    .ethics-box { background: #F0FDF4; border-left: 4px solid #059669; border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+    .ethics-box strong { color: #065F46; display: block; margin-bottom: 6px; font-size: 15px; }
+    .ethics-box p { color: #065F46; margin: 0; font-size: 14px; line-height: 1.6; }
+
+    /* STAT BOX */
+    .stat-box { background: #EEF2FA; border-radius: 12px; padding: 28px; margin: 32px 0; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin-top: 16px; }
+    .stat-item strong { display: block; font-size: 32px; font-weight: 700; color: #1A3A8F; }
+    .stat-item span { font-size: 13px; color: #4A5473; }
+
+    /* CARD GRID */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 32px; }
+    .card { background: #F7F9FC; border-radius: 12px; padding: 24px; border-left: 4px solid #1A3A8F; }
+    .card h3 { font-size: 16px; color: #1A3A8F; margin-bottom: 8px; }
+    .card p { font-size: 14px; color: #4A5473; margin: 0; }
+
+    /* DARK BLOCK */
+    .dark-block { background: #0D1117; color: #fff; border-radius: 16px; padding: 40px; margin: 40px 0; }
+    .dark-block h3 { font-family: 'DM Serif Display', serif; font-size: 22px; color: #00D4FF; margin-bottom: 8px; }
+    .dark-block p { color: #9AA3B8; margin-bottom: 24px; }
+    .step-list { list-style: none; padding: 0; }
+    .step-list li { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+    .step-num { background: #1A3A8F; color: #00D4FF; font-weight: 700; font-size: 14px; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-list li p { margin: 0; color: #C8D8F8; font-size: 14px; }
+    .step-list li strong { display: block; color: #fff; margin-bottom: 4px; font-size: 15px; }
+
+    /* COMPARISON TABLE */
+    .table-wrap { overflow-x: auto; margin: 32px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { background: #1A3A8F; color: #fff; padding: 12px 16px; text-align: left; font-weight: 600; }
+    td { padding: 12px 16px; border-bottom: 1px solid #E8ECF4; color: #4A5473; vertical-align: top; }
+    tr:nth-child(even) td { background: #F7F9FC; }
+    .good { color: #059669; font-weight: 600; }
+    .bad { color: #DC2626; font-weight: 600; }
+
+    /* ROI BOX */
+    .roi-box { background: linear-gradient(135deg, #0a1628 0%, #1A3A8F 100%); color: #fff; border-radius: 16px; padding: 40px; margin: 40px 0; text-align: center; }
+    .roi-box h3 { font-family: 'DM Serif Display', serif; font-size: 26px; color: #FFD700; margin-bottom: 8px; }
+    .roi-box p { color: #c8d8f8; margin-bottom: 24px; }
+    .roi-numbers { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px; }
+    .roi-num strong { display: block; font-size: 36px; font-weight: 700; color: #00D4FF; }
+    .roi-num span { font-size: 13px; color: #a8c0f8; }
+
+    /* CTA */
+    .cta-section { background: #EEF2FA; border-radius: 16px; padding: 48px 32px; text-align: center; margin: 56px 0; }
+    .cta-section h2 { font-family: 'DM Serif Display', serif; font-size: 28px; color: #1A1A2E; margin-bottom: 12px; }
+    .cta-section p { color: #4A5473; margin-bottom: 28px; }
+    .btn { display: inline-block; background: #1A3A8F; color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; }
+    .btn:hover { background: #15307a; text-decoration: none; }
+    .btn-outline { border: 2px solid #1A3A8F; color: #1A3A8F; background: transparent; margin-left: 12px; }
+    .btn-outline:hover { background: #1A3A8F; color: #fff; }
+
+    footer { background: #0D1117; color: #9AA3B8; text-align: center; padding: 40px 24px; font-size: 13px; }
+    footer a { color: #9AA3B8; }
+
+    @media (max-width: 768px) {
+      .hero-stats { gap: 20px; }
+      .dark-block { padding: 28px 20px; }
+      .roi-box { padding: 28px 20px; }
+      .btn-outline { margin-left: 0; margin-top: 10px; display: inline-block; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">American AI Solutions</a>
+  <a class="nav-cta" href="https://calendly.com/american-ai-solutions/free-strategy-session" target="_blank" rel="noopener">Free Strategy Call</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Legal Industry · Michigan</div>
+  <h1>AI for Michigan Law Firms: More Billable Hours, Less Administrative Work</h1>
+  <p>Michigan attorneys spend 40–60% of their time on tasks that don't get billed. AI changes that — document review, intake, contract drafting, and billing automation that pays for itself in weeks.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>40–60%</strong><span>of attorney time is non-billable</span></div>
+    <div class="hero-stat"><strong>$180K+</strong><span>recovered value for a 5-attorney firm</span></div>
+    <div class="hero-stat"><strong>70%</strong><span>faster document review with AI assistance</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <section>
+    <h2>The Hidden Cost of Running a Michigan Law Firm</h2>
+    <p>You didn't go to law school to spend your afternoons chasing invoices, drafting routine intake emails, and manually reviewing 200-page contracts for the third time this week. But that's where the time goes.</p>
+    <p>The 2025 Clio Legal Trends Report found that attorneys across all firm sizes bill fewer than 3 hours per 8-hour day on average — the rest is consumed by administration, client communication, and document processing. For a Michigan attorney billing at $250/hour, every non-billable hour is $250 quietly walking out the door.</p>
+
+    <div class="stat-box">
+      <strong style="font-family:'DM Serif Display',serif;font-size:20px;color:#1A1A2E;">Where Michigan Attorney Time Actually Goes</strong>
+      <p style="color:#4A5473;margin:8px 0 0;font-size:14px;">Based on 8-hour billing day — solo to mid-size Michigan firms</p>
+      <div class="stat-grid">
+        <div class="stat-item"><strong>2.8 hrs</strong><span>Actual billable client work</span></div>
+        <div class="stat-item"><strong>1.6 hrs</strong><span>Document review & drafting (not billed)</span></div>
+        <div class="stat-item"><strong>1.2 hrs</strong><span>Client communication & intake</span></div>
+        <div class="stat-item"><strong>1.0 hr</strong><span>Billing, invoicing, collections</span></div>
+        <div class="stat-item"><strong>0.9 hr</strong><span>Research & due diligence</span></div>
+        <div class="stat-item"><strong>0.5 hr</strong><span>Scheduling & coordination</span></div>
+      </div>
+    </div>
+
+    <p>That 2.8 billable hours is the industry average — not a Michigan outlier. The other 5.2 hours are either written off, eaten entirely, or billed at a deep discount. AI can't replace the judgment that makes those 2.8 hours valuable. But it can eliminate most of the 5.2 hours that don't belong on a lawyer's calendar.</p>
+  </section>
+
+  <section>
+    <h2>Six Areas Where Michigan Law Firms Deploy AI First</h2>
+    <p>These aren't future-state promises. These are workflows attorneys in Michigan — from solo practitioners to 20-attorney firms — are implementing now.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Document Review & Summarization</h3>
+        <p>Upload 150-page contracts, depositions, or discovery files. AI extracts key clauses, flags risks, and produces a structured summary in minutes — not hours. Human attorney confirms; AI does the heavy lifting.</p>
+      </div>
+      <div class="card">
+        <h3>Client Intake Automation</h3>
+        <p>Intake forms → AI triage → conflict check initiation → welcome email with engagement letter attached. New client from web inquiry to signed retainer in under 4 hours instead of 3 days.</p>
+      </div>
+      <div class="card">
+        <h3>Contract Drafting (First Draft)</h3>
+        <p>AI generates first drafts of NDA, operating agreements, employment contracts, or purchase agreements based on your firm's templates. Attorneys review and refine — not write from scratch every time.</p>
+      </div>
+      <div class="card">
+        <h3>Legal Research Assistance</h3>
+        <p>AI scans Michigan case law, MCL statutes, and Federal circuits for relevant precedent. Produces a cited memo draft. Still requires attorney review — but saves 2–4 hours per research assignment.</p>
+      </div>
+      <div class="card">
+        <h3>Billing & Invoice Automation</h3>
+        <p>Time entries captured automatically from email, calendar events, and document activity. Draft invoices generated weekly. Follow-up sequences sent automatically at 15, 30, and 45 days past due.</p>
+      </div>
+      <div class="card">
+        <h3>Deadline & Calendar Management</h3>
+        <p>AI reads court orders, docketing notices, and opposing counsel correspondence — extracts deadlines and auto-populates the firm calendar. Sends reminders at 30, 14, 7, and 1 day out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="dark-block">
+      <h3>How a Michigan Litigation Firm Implements Document Review AI</h3>
+      <p>From discovery dump to attorney-ready summary — the workflow that recovers 8+ hours per case per week.</p>
+      <ul class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <div>
+            <strong>Document Ingestion</strong>
+            <p>Discovery documents, depositions, and exhibits uploaded to a secure, firm-controlled AI pipeline. No documents leave your server. No third-party SaaS with shared infrastructure. All processing on-premise or private cloud.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div>
+            <strong>AI Classification & Extraction</strong>
+            <p>AI reads each document, classifies it by type (deposition, contract, correspondence, financial record), and extracts key facts: dates, parties, amounts, obligations, and risks. Every page is processed — nothing missed.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div>
+            <strong>Chronology & Theme Building</strong>
+            <p>AI assembles a chronological timeline of events, identifies recurring themes, and flags documents that contradict each other. Produce the case chronology in 20 minutes, not 20 hours.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div>
+            <strong>Attorney Review Interface</strong>
+            <p>Attorneys receive a structured brief: case summary, key documents with citations, risk flags, and recommended focus areas. Review takes 45 minutes. The alternative took half a day.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <div>
+            <strong>Deposition Prep & Strategy</strong>
+            <p>AI generates deposition prep packets: key facts per witness, contradictions to explore, exhibits to introduce. Attorneys enter deposition prep already armed — not starting from scratch.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Michigan Ethics Rules and AI: What You Must Know</h2>
+    <p>Michigan attorneys operate under MRPC Rule 1.1 (competence), Rule 1.6 (confidentiality), and increasing State Bar guidance on technology use. AI doesn't create new ethical obligations — but it makes existing ones impossible to ignore.</p>
+
+    <div class="ethics-box">
+      <strong>Michigan Rules of Professional Conduct — AI Compliance Framework</strong>
+      <p><strong>Rule 1.1 (Competence):</strong> The Michigan Supreme Court's MRPC commentary notes that competence "includes understanding the benefits and risks of relevant technology." Using AI you don't understand, or failing to review AI output, violates this rule.<br/><br/>
+      <strong>Rule 1.6 (Confidentiality):</strong> Client information cannot flow through unsecured third-party systems. Any AI tool processing client data must have appropriate data protection agreements, no training on client data, and either on-premise or private cloud deployment.<br/><br/>
+      <strong>Rule 5.3 (Supervision of Non-Lawyers):</strong> AI output is not final. Every document, draft, or summary produced by AI must be reviewed and approved by a licensed Michigan attorney before use. AI is a supervised tool, not an autonomous decision-maker.<br/><br/>
+      <strong>State Bar of Michigan Technology Guidance:</strong> The SBOM has issued ethics opinions indicating AI use is permissible with appropriate supervision and confidentiality protections in place.</p>
+    </div>
+
+    <p>Our AI implementations for Michigan law firms are built with these requirements at the foundation: private deployment, no external data sharing, attorney-in-the-loop for every output, and complete audit trails. This isn't a checkbox — it's the architecture.</p>
+  </section>
+
+  <section>
+    <h2>Practice Area Breakdown: AI Impact by Michigan Case Type</h2>
+    <p>Not all legal work benefits equally from AI automation. Here's where Michigan firms see the highest ROI by practice area.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Practice Area</th><th>Highest-Impact AI Application</th><th>Time Saved / Case</th><th>AI Readiness</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Business / Corporate</td><td>Contract drafting, due diligence review, entity formation docs</td><td>6–10 hrs/matter</td><td class="good">High</td></tr>
+          <tr><td>Real Estate (Commercial)</td><td>Purchase agreement drafting, title review, lease abstraction</td><td>4–8 hrs/transaction</td><td class="good">High</td></tr>
+          <tr><td>Employment Law</td><td>Handbook drafting, policy templates, EEOC response letters</td><td>3–6 hrs/matter</td><td class="good">High</td></tr>
+          <tr><td>Litigation</td><td>Discovery review, deposition prep, motion drafting (first pass)</td><td>8–15 hrs/case</td><td class="good">High</td></tr>
+          <tr><td>Estate Planning</td><td>Will/trust drafting templates, asset inventory, beneficiary summaries</td><td>2–4 hrs/plan</td><td class="good">High</td></tr>
+          <tr><td>Family Law</td><td>Intake processing, asset disclosure analysis, parenting plan drafting</td><td>3–5 hrs/case</td><td style="color:#D97706;font-weight:600">Medium</td></tr>
+          <tr><td>Criminal Defense</td><td>Discovery review, case timeline, sentencing memo research</td><td>4–8 hrs/case</td><td style="color:#D97706;font-weight:600">Medium</td></tr>
+          <tr><td>Personal Injury</td><td>Medical record summarization, demand letter drafting, coverage analysis</td><td>5–9 hrs/case</td><td class="good">High</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Michigan Law Firm Intake: From Lead to Retainer in 4 Hours</h2>
+    <p>Most Michigan law firms lose 20–40% of qualified leads because intake is slow. A prospect calls Friday afternoon, nobody follows up until Monday, and they've already hired the other firm. AI intake automation closes this gap.</p>
+
+    <div class="dark-block">
+      <h3>The Automated Intake Pipeline</h3>
+      <p>Web inquiry → conflict check → signed retainer — all before the attorney's first meeting with the client.</p>
+      <ul class="step-list">
+        <li>
+          <span class="step-num">1</span>
+          <div>
+            <strong>Immediate Inquiry Response</strong>
+            <p>Web form or phone inquiry triggers automated response within 90 seconds — personalized by practice area, includes link to schedule intake consultation, sets expectations on next steps. Response time drops from "maybe tomorrow" to under 2 minutes.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div>
+            <strong>Intake Questionnaire Delivery</strong>
+            <p>Custom intake form sent automatically by practice area: family law gets different questions than estate planning. AI captures responses and generates a structured brief for the attorney before the consultation call.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div>
+            <strong>Conflict Check Initiation</strong>
+            <p>AI searches your firm's matter management system for party name matches. Flags potential conflicts for attorney review before the consultation. Manual conflict checks that took 30–60 minutes now happen in 3 minutes.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div>
+            <strong>Engagement Letter Generation</strong>
+            <p>AI pre-populates engagement letter with client info, case type, fee arrangement, and scope — from intake questionnaire data. Attorney reviews, adjusts, signs digitally. Sent to client within 20 minutes of consultation.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <div>
+            <strong>Matter Opening & Billing Setup</strong>
+            <p>Once retainer signed, AI creates matter in Clio/MyCase/Smokeball with all client information pre-populated, billing rate assigned, and first task list generated. Zero manual data entry from inquiry to open matter.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Michigan Legal Software Integrations</h2>
+    <p>Our AI workflows connect to the practice management and billing software Michigan firms already use — no rip-and-replace required.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Clio Manage & Grow</h3>
+        <p>Michigan's most-used legal software. AI integrates with matter management, billing, and intake flows. Clio Grow intake forms can trigger automated AI workflows.</p>
+      </div>
+      <div class="card">
+        <h3>MyCase</h3>
+        <p>Full matter and billing integration. AI reads case files, extracts deadlines, and auto-populates time entries based on work performed.</p>
+      </div>
+      <div class="card">
+        <h3>Smokeball</h3>
+        <p>Popular with Michigan solo and small firms. Smokeball's auto-time capture pairs with AI summarization and billing review.</p>
+      </div>
+      <div class="card">
+        <h3>LexisNexis / Westlaw</h3>
+        <p>AI research assistants integrate with both platforms — pulling cited cases, checking citations, and flagging negative treatment automatically.</p>
+      </div>
+      <div class="card">
+        <h3>Court Filing Systems (MiFILE)</h3>
+        <p>Michigan's eFiling system integration for deadline tracking, docket monitoring, and filing deadline calendar sync. Critical for litigation practices.</p>
+      </div>
+      <div class="card">
+        <h3>DocuSign / PandaDoc</h3>
+        <p>E-signature integration for engagement letters, fee agreements, and settlement documents. AI generates the draft; DocuSign closes the loop.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="roi-box">
+      <h3>ROI Model: 5-Attorney Michigan Law Firm</h3>
+      <p>Practice area: general business + litigation + real estate. Billing rate: $275/hour average. AI implementation + 90-day deployment.</p>
+      <div class="roi-numbers">
+        <div class="roi-num"><strong>2.1 hrs</strong><span>Recovered per attorney per day</span></div>
+        <div class="roi-num"><strong>$182,325</strong><span>Additional billable value per year</span></div>
+        <div class="roi-num"><strong>60%</strong><span>Reduction in intake processing time</span></div>
+        <div class="roi-num"><strong>$18,500</strong><span>AI system annual cost</span></div>
+      </div>
+      <p style="margin-top:28px;color:#FFD700;font-weight:700;font-size:18px;">Net first-year value: $163,825 — a 9:1 return on investment</p>
+      <p style="color:#a8c0f8;font-size:13px;margin-top:8px;">Model assumes 240 billing days/year. 2.1 recovered hours × 5 attorneys × 240 days × $275/hr = $693,000 potential. Assumes 26% capture rate (conservative — some recovered time remains unbillable).</p>
+    </div>
+
+    <div class="alert-box">
+      <strong>Michigan Going PRO Talent Fund — Legal Staff Training</strong>
+      <p>Legal support staff (paralegals, legal assistants, intake coordinators) who learn to work with AI tools are eligible for Going PRO reimbursement — up to $2,000 per trained employee. A 3-person support staff could offset $6,000 of implementation cost before you write a single check. We handle the application.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What AI Can't Do for Michigan Attorneys</h2>
+    <p>We're going to be honest here, because you need accuracy, not hype.</p>
+    <ul>
+      <li><strong>AI cannot provide legal advice.</strong> Every document AI produces requires attorney review, judgment, and sign-off. AI is a research and drafting assistant — the attorney is still responsible.</li>
+      <li><strong>AI cannot replace courtroom advocacy.</strong> Cross-examination, oral argument, and negotiation require human judgment, emotional intelligence, and presence. AI prepares you for these moments; it doesn't replace them.</li>
+      <li><strong>AI cannot guarantee research accuracy.</strong> AI-assisted legal research requires attorney verification against primary sources. Cite-checking and case status must still be confirmed. AI hallucinations in legal citations are a documented risk.</li>
+      <li><strong>AI cannot substitute for client relationships.</strong> The trust a client places in their attorney is human and irreplaceable. AI handles administrative work so attorneys have more time for the conversations that actually matter.</li>
+    </ul>
+    <p>We build AI that makes your firm more efficient, more profitable, and more competitive — not AI that replaces the judgment you spent years developing.</p>
+  </section>
+
+  <div class="cta-section">
+    <h2>Ready to Recover Your Billable Hours?</h2>
+    <p>Every week that passes is another 10–15 hours per attorney spent on tasks that don't belong on your calendar. Let's build the workflow that gives them back.</p>
+    <a class="btn" href="https://calendly.com/american-ai-solutions/free-strategy-session" target="_blank" rel="noopener">Book Your Free Strategy Call</a>
+    <a class="btn btn-outline" href="/blog/">Read More Articles</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>American AI Solutions LLC</strong> &nbsp;·&nbsp; Southgate, Michigan &nbsp;·&nbsp; <a href="mailto:david04calderon@gmail.com">david04calderon@gmail.com</a></p>
+  <p style="margin-top:8px"><a href="/">← Back to americanaisolutionsllc.com</a></p>
+  <p style="margin-top:16px;font-size:11px;color:#4A5473;">© 2026 American AI Solutions LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
