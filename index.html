@@ -1832,13 +1832,15 @@
             <button class="lead-magnet-submit" type="submit">Send My Free Guide →</button>
           </div>
         </form>
-        <p class="lead-magnet-note">No spam. Unsubscribe anytime. This goes straight to your inbox in 60 seconds.</p>
+        <p class="lead-magnet-note">No spam. Unsubscribe anytime. Your guide unlocks instantly after submitting.</p>
       </div>
       <div class="lead-magnet-success" id="lmSuccess">
         <div style="font-size:28px;margin-bottom:12px">✓</div>
-        <div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px">It's on its way.</div>
-        <p style="color:#6B7694;font-size:14px">Check your inbox — and if you're serious about getting grants funded, let's talk strategy.</p>
-        <button class="btn btn-primary" onclick="bookCall()" style="margin-top:18px">Book a Free Strategy Call</button>
+        <div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px">You're in. Your guide is ready.</div>
+        <p style="color:#6B7694;font-size:14px;margin-bottom:16px">Click below to access the Michigan AI Funding Guide — or book a free strategy call to walk through it together.</p>
+        <a href="/resources/michigan-ai-grant-guide/" class="btn btn-primary" style="display:inline-block;margin-bottom:12px;text-decoration:none">Read the Guide Now →</a>
+        <br>
+        <button onclick="bookCall()" style="background:none;border:none;color:#00D4FF;font-size:13px;cursor:pointer;text-decoration:underline;margin-top:4px">Or book a free 30-min strategy call</button>
       </div>
     </div>
   </div>
@@ -2231,10 +2233,11 @@
       document.getElementById('exitModal').innerHTML =
         '<div style="text-align:center;padding:20px 0">' +
         '<div style="font-size:40px;margin-bottom:16px">✓</div>' +
-        '<h3 style="font-family:DM Serif Display,serif;font-size:24px;color:white;margin-bottom:10px">It\'s on its way.</h3>' +
-        '<p style="color:#6B7694;font-size:14px;line-height:1.65;margin-bottom:20px">The Michigan AI Grant Blueprint is heading to your inbox right now. While you\'re here —</p>' +
-        '<button class="btn btn-primary" onclick="bookCall()" style="width:100%;margin-bottom:12px">Book a Free 30-Minute Strategy Call</button>' +
-        '<div style="font-size:12px;color:#4A5473;cursor:pointer;text-decoration:underline" onclick="document.getElementById(\'exitPopup\').classList.remove(\'active\')">No thanks, I\'ll read the guide first</div>' +
+        '<h3 style="font-family:DM Serif Display,serif;font-size:24px;color:white;margin-bottom:10px">You\'re in. Guide is ready.</h3>' +
+        '<p style="color:#6B7694;font-size:14px;line-height:1.65;margin-bottom:20px">Access the Michigan AI Funding Guide now — or let\'s talk through your funding options together.</p>' +
+        '<a href="/resources/michigan-ai-grant-guide/" class="btn btn-primary" style="display:block;width:100%;box-sizing:border-box;margin-bottom:12px;text-align:center;text-decoration:none">Read the Guide Now →</a>' +
+        '<button class="btn btn-secondary" onclick="bookCall()" style="width:100%;margin-bottom:12px">Book a Free 30-Minute Strategy Call</button>' +
+        '<div style="font-size:12px;color:#4A5473;cursor:pointer;text-decoration:underline" onclick="document.getElementById(\'exitPopup\').classList.remove(\'active\')">No thanks, I\'ll explore on my own</div>' +
         '</div>';
     });
   })();
@@ -2436,11 +2439,11 @@
     <p>Michigan businesses can get up to 50% of their AI implementation costs covered — but most never apply. Get the plain-English guide to every available program, free.</p>
     <form class="exit-form" id="exitForm">
       <input class="exit-input" type="email" id="exitEmail" placeholder="Your email address" required autocomplete="email"/>
-      <button class="exit-btn" type="submit">Send It →</button>
+      <button class="exit-btn" type="submit">Get Instant Access →</button>
     </form>
     <div class="exit-divider">or</div>
     <button class="btn btn-primary" onclick="bookCall();document.getElementById('exitPopup').classList.remove('active')" style="width:100%;margin-bottom:14px">Book a Free Strategy Call Instead</button>
-    <div><span class="exit-skip" id="exitSkip">No thanks, I don't want the grant guide</span></div>
+    <div><span class="exit-skip" id="exitSkip">No thanks, I'll figure it out myself</span></div>
   </div>
 </div>
 </body>
