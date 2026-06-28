@@ -584,7 +584,7 @@
     .edge-closing { text-align: center; padding-top: 44px; }
     .edge-closing p { font-size: 15px; color: #4A5473; max-width: 600px; margin: 0 auto 28px; line-height: 1.75; }
     /* Sticky mobile CTA */
-    .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); }
+    .sticky-cta-mobile { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 98; padding: 12px 16px; background: white; border-top: 1px solid #E4E8F0; box-shadow: 0 -4px 20px rgba(0,0,0,.1); gap: 10px; align-items: center; }
 
     @media (max-width: 768px) {
       .edge-grid { grid-template-columns: 1fr 1fr; }
@@ -597,7 +597,7 @@
       .result-item { border-right: 1px solid #1E2D45; border-bottom: 1px solid #1E2D45; padding: 24px 16px; }
       .result-item:nth-child(even) { border-right: none; }
       .result-item:nth-last-child(-n+2) { border-bottom: none; }
-      .sticky-cta-mobile { display: block; }
+      .sticky-cta-mobile { display: flex; }
       body { padding-bottom: 64px; }
       .trust-bar-label, .trust-bar-sep, .trust-bar-michigan { display: none; }
       .trust-bar-logos span { padding: 0 10px; font-size: 11px; }
@@ -912,6 +912,32 @@
       color: #6B7694; line-height: 1.5; max-width: 680px; margin: 0 auto;
     }
     .mission-banner-text em { color: #00D4FF; font-style: normal; }
+
+    /* ── PWA INSTALL SYSTEM ── */
+    .install-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+    .install-modal-overlay.active{opacity:1;pointer-events:all}
+    .install-modal-box{background:#fff;border-radius:16px;max-width:420px;width:100%;padding:36px 32px 28px;text-align:center;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative;transform:scale(.95) translateY(16px);transition:transform .3s}
+    .install-modal-overlay.active .install-modal-box{transform:scale(1) translateY(0)}
+    .install-modal-icon{width:72px;height:72px;background:linear-gradient(135deg,#1A3A8F,#2450BF);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(26,58,143,.4)}
+    .install-modal-title{font-family:'DM Serif Display',serif;font-size:24px;color:#0D1117;margin-bottom:8px;line-height:1.2}
+    .install-modal-sub{font-size:14px;color:#4A5473;margin-bottom:22px;line-height:1.65;max-width:320px;margin-left:auto;margin-right:auto}
+    .install-modal-features{list-style:none;text-align:left;margin-bottom:24px;display:flex;flex-direction:column;gap:11px}
+    .install-modal-features li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#1C1C1C;line-height:1.5}
+    .install-modal-features li .imf-icon{width:30px;height:30px;border-radius:7px;background:#EEF2FA;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+    .install-modal-action{width:100%;background:linear-gradient(135deg,#1A3A8F,#2450BF);border:none;border-radius:8px;padding:15px;font-size:15px;font-weight:700;color:white;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:.04em;margin-bottom:10px;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 16px rgba(26,58,143,.35)}
+    .install-modal-action:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,58,143,.45)}
+    .install-modal-skip{font-size:13px;color:#9AA3B8;cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif;padding:4px 8px}
+    .install-modal-skip:hover{color:#4A5473}
+    .install-modal-close{position:absolute;top:14px;right:16px;background:none;border:none;cursor:pointer;color:#9AA3B8;font-size:24px;line-height:1;padding:4px;font-family:sans-serif}
+    .install-ios-steps{background:#F7F9FC;border:1px solid #E4E8F0;border-radius:10px;padding:16px 20px;margin-bottom:20px;text-align:left}
+    .install-ios-label{font-size:11px;font-weight:700;color:#4A5473;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+    .install-ios-step{display:flex;align-items:center;gap:11px;padding:9px 0;border-bottom:1px solid #E4E8F0;font-size:13px;color:#1C1C1C;line-height:1.45}
+    .install-ios-step:last-child{border-bottom:none;padding-bottom:0}
+    .install-ios-num{width:22px;height:22px;border-radius:50%;background:#1A3A8F;color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .install-pill{display:none;position:fixed;bottom:88px;right:20px;z-index:97;background:#1A3A8F;color:white;border:none;border-radius:50px;padding:11px 18px 11px 13px;font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;align-items:center;gap:7px;box-shadow:0 4px 20px rgba(26,58,143,.5);transition:transform .2s,box-shadow .2s;letter-spacing:.04em;white-space:nowrap}
+    .install-pill:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(26,58,143,.6)}
+    .btn-app{display:inline-flex;align-items:center;gap:7px;border:2px solid #1A3A8F;background:transparent;color:#1A3A8F;border-radius:4px;padding:12px 22px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+    .btn-app:hover{background:#1A3A8F;color:white}
   </style>
 </head>
 <body>
@@ -936,6 +962,10 @@
       <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
       <a class="nav-link" href="tel:+13133140225" style="color:#1A3A8F;font-weight:700">(313) 314-0225</a>
       <button class="btn btn-primary btn-sm" onclick="bookCall()">Book a Call</button>
+      <button class="btn-app js-install-btn" onclick="installApp()" style="display:none;font-size:12px;padding:8px 14px;gap:6px" aria-label="Install app">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        Get App
+      </button>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span id="h1"></span><span id="h2"></span><span id="h3"></span>
@@ -969,6 +999,10 @@
         <div class="hero-ctas">
           <button class="btn btn-primary" onclick="bookCall()">Book a Free Strategy Call</button>
           <button class="btn btn-outline" onclick="scrollTo('services')">See Our Services</button>
+          <button class="btn-app js-install-btn" onclick="installApp()" style="display:none" aria-label="Install the free app">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Get the Free App
+          </button>
         </div>
         <div class="hero-trust">
           <span class="hero-trust-item">No obligation</span>
@@ -2068,6 +2102,77 @@
     if (p.get('book') === '1') bookCall();
   })();
 
+  // ── PWA INSTALL SYSTEM ──
+  (function() {
+    var deferredInstall = null;
+    var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios/i.test(navigator.userAgent);
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    var dismissed = localStorage.getItem('aais_install_dismissed');
+
+    if (isStandalone) return;
+
+    function showInstallButtons() {
+      if (dismissed) return;
+      document.querySelectorAll('.js-install-btn').forEach(function(el) { el.style.display = 'inline-flex'; });
+      var pill = document.getElementById('installPill');
+      if (pill) pill.style.display = 'flex';
+    }
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredInstall = e;
+      showInstallButtons();
+    });
+
+    if (isIOS) showInstallButtons();
+
+    window.installApp = function() {
+      var modal = document.getElementById('installModal');
+      var iosSteps = document.getElementById('installIOSSteps');
+      var installBtn = document.getElementById('installModalBtn');
+      if (isIOS) {
+        iosSteps.style.display = 'block';
+        installBtn.style.display = 'none';
+      } else {
+        iosSteps.style.display = 'none';
+        installBtn.style.display = 'block';
+      }
+      modal.classList.add('active');
+      if (typeof gtag !== 'undefined') gtag('event', 'install_modal_open', { event_category: 'app' });
+    };
+
+    window.closeInstallModal = function() {
+      document.getElementById('installModal').classList.remove('active');
+    };
+
+    window.triggerInstall = function() {
+      if (!deferredInstall) return;
+      deferredInstall.prompt();
+      deferredInstall.userChoice.then(function(r) {
+        if (r.outcome === 'accepted') {
+          document.getElementById('installModal').classList.remove('active');
+          document.querySelectorAll('.js-install-btn').forEach(function(el) { el.style.display = 'none'; });
+          var pill = document.getElementById('installPill');
+          if (pill) pill.style.display = 'none';
+          if (typeof gtag !== 'undefined') gtag('event', 'pwa_installed', { event_category: 'app' });
+        }
+        deferredInstall = null;
+      });
+    };
+
+    window.dismissInstall = function() {
+      localStorage.setItem('aais_install_dismissed', '1');
+      document.getElementById('installModal').classList.remove('active');
+      var pill = document.getElementById('installPill');
+      if (pill) pill.style.display = 'none';
+      document.querySelectorAll('.js-install-btn').forEach(function(el) { el.style.display = 'none'; });
+    };
+
+    document.getElementById('installModal').addEventListener('click', function(e) {
+      if (e.target === this) window.closeInstallModal();
+    });
+  })();
+
   // Fade in on scroll
   const fades = document.querySelectorAll('.fade');
   const obs = new IntersectionObserver((entries) => {
@@ -2416,13 +2521,58 @@
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta-mobile">
-  <button class="btn btn-primary" style="width:100%;text-align:center;font-size:14px;padding:15px 32px" onclick="bookCall()">Book a Free Strategy Call</button>
+  <button class="btn btn-primary" style="flex:1;text-align:center;font-size:14px;padding:15px 12px" onclick="bookCall()">Book a Call</button>
+  <button class="btn-app js-install-btn" onclick="installApp()" style="display:none;padding:13px 14px;flex-shrink:0" aria-label="Install app">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+    App
+  </button>
 </div>
 
 <!-- FLOATING CHAT BUTTON -->
 <button class="float-chat" onclick="scrollTo('contact')" aria-label="Start a conversation">
   <span class="float-chat-dot"></span>
   Let's Talk
+</button>
+
+<!-- PWA INSTALL MODAL -->
+<div class="install-modal-overlay" id="installModal" role="dialog" aria-modal="true" aria-label="Install the AAIS App">
+  <div class="install-modal-box">
+    <button class="install-modal-close" onclick="closeInstallModal()" aria-label="Close">×</button>
+    <div class="install-modal-icon">
+      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="18" width="5" height="10" rx="1" fill="white"/>
+        <rect x="13" y="12" width="5" height="16" rx="1" fill="white"/>
+        <rect x="22" y="5" width="5" height="23" rx="1" fill="white"/>
+        <polyline points="6.5,18 15.5,12 24.5,5" stroke="#00D4FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="6.5" cy="18" r="2" fill="#00D4FF"/>
+        <circle cx="15.5" cy="12" r="2" fill="#00D4FF"/>
+        <circle cx="24.5" cy="5" r="2" fill="#00D4FF"/>
+      </svg>
+    </div>
+    <h3 class="install-modal-title">AAIS — In Your Pocket</h3>
+    <p class="install-modal-sub">Install the free app. One tap from your home screen — ROI calculator, strategy call booking, grant guide, all offline-ready.</p>
+    <ul class="install-modal-features">
+      <li><span class="imf-icon">📊</span><span>Run the <strong>ROI calculator</strong> anywhere — show clients the numbers on the spot</span></li>
+      <li><span class="imf-icon">📞</span><span><strong>Book a strategy call</strong> in one tap — no browser, no loading</span></li>
+      <li><span class="imf-icon">🔒</span><span><strong>Works offline</strong> — grant guide and pricing always available, zero data needed</span></li>
+      <li><span class="imf-icon">⚡</span><span><strong>Instant load</strong> — opens faster than any browser tab, every single time</span></li>
+    </ul>
+    <div class="install-ios-steps" id="installIOSSteps" style="display:none">
+      <div class="install-ios-label">Add to iPhone / iPad Home Screen</div>
+      <div class="install-ios-step"><span class="install-ios-num">1</span>Tap the <strong>&nbsp;Share&nbsp;</strong> button (box with arrow) at the bottom of Safari</div>
+      <div class="install-ios-step"><span class="install-ios-num">2</span>Scroll down and tap <strong>"Add to Home Screen"</strong></div>
+      <div class="install-ios-step"><span class="install-ios-num">3</span>Tap <strong>Add</strong> — the AAIS app appears on your home screen instantly</div>
+    </div>
+    <button class="install-modal-action" id="installModalBtn" onclick="triggerInstall()">Install the Free App →</button>
+    <br>
+    <button class="install-modal-skip" onclick="dismissInstall()">Maybe later</button>
+  </div>
+</div>
+
+<!-- FLOATING INSTALL PILL -->
+<button class="install-pill" id="installPill" onclick="installApp()" aria-label="Install the AAIS app" style="display:none">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+  Get the App
 </button>
 
 <!-- EXIT INTENT POPUP -->
