@@ -561,4 +561,41 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Service pages -->
+  <url>
+    <loc>https://americanaisolutionsllc.com/services/ai-workflow-automation/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://americanaisolutionsllc.com/services/ai-phone-agent/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://americanaisolutionsllc.com/services/hipaa-compliant-ai/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://americanaisolutionsllc.com/services/dispatch-route-optimization/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- PPC landing page -->
+  <url>
+    <loc>https://americanaisolutionsllc.com/start/</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
