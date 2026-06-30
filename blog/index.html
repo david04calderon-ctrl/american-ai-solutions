@@ -6,3 +6,821 @@
   <title>Michigan AI Insights — American AI Solutions LLC</title>
   <meta name="description" content="Practical AI knowledge for Michigan businesses. What's working, what's not, and what to do next — from a Detroit-based AI consulting firm."/>
   <link rel="canonical" href="https://americanaisolutionsllc.com/blog/"/>
+  <meta property="og:title" content="Michigan AI Insights — American AI Solutions LLC"/>
+  <meta property="og:description" content="Practical AI knowledge for Michigan businesses. No hype, just results."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://americanaisolutionsllc.com/blog/"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%231A3A8F'/><rect x='4' y='18' width='5' height='10' rx='1' fill='white'/><rect x='13' y='12' width='5' height='16' rx='1' fill='white'/><rect x='22' y='5' width='5' height='23' rx='1' fill='white'/><polyline points='6.5,18 15.5,12 24.5,5' stroke='%2300D4FF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='6.5' cy='18' r='2' fill='%2300D4FF'/><circle cx='15.5' cy='12' r='2' fill='%2300D4FF'/><circle cx='24.5' cy='5' r='2' fill='%2300D4FF'/></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: #1C1C1C; background: #fff; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+    nav { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 1px solid #E4E8F0; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 800; font-size: 15px; color: #0D1117; letter-spacing: -.02em; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-link { font-size: 13px; font-weight: 500; color: #4A5473; transition: color .2s; }
+    .nav-link:hover { color: #1A3A8F; }
+    .nav-cta { background: #1A3A8F; color: white; font-weight: 700; letter-spacing: .04em; border-radius: 2px; padding: 8px 16px; font-size: 12px; text-transform: uppercase; text-decoration: none; }
+    .nav-cta:hover { background: #152f7a; }
+    @media (max-width: 768px) { .nav-links { display: none; } }
+    .hero { padding: 64px 24px 48px; text-align: center; max-width: 680px; margin: 0 auto; }
+    .hero-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #1A3A8F; margin-bottom: 16px; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 42px); line-height: 1.18; color: #0D1117; margin-bottom: 16px; }
+    .hero p { font-size: 17px; color: #4A5473; line-height: 1.7; margin-bottom: 32px; }
+    .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+    .post-card { border: 1px solid #E4E8F0; border-radius: 2px; background: white; overflow: hidden; display: flex; flex-direction: column; transition: border-color .25s, box-shadow .25s, transform .25s; }
+    .post-card:hover { border-color: #1A3A8F; box-shadow: 0 8px 32px rgba(26,58,143,.10); transform: translateY(-3px); }
+    .post-card-img { height: 140px; display: flex; align-items: center; justify-content: center; }
+    .post-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .post-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; margin-bottom: 10px; }
+    .tag-auto { background: #EEF2FA; color: #1A3A8F; }
+    .tag-health { background: #ECFDF5; color: #065F46; }
+    .tag-logistics { background: #FFF7ED; color: #92400E; }
+    .tag-construction { background: #FEF3C7; color: #78350F; }
+    .tag-featured { background: #FFF8E1; color: #92400E; }
+    .post-card h2 { font-size: 16px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; color: #0D1117; }
+    .post-card p { font-size: 13px; color: #4A5473; line-height: 1.65; flex: 1; margin-bottom: 16px; }
+    .post-read { font-size: 12px; font-weight: 700; color: #1A3A8F; letter-spacing: .04em; text-transform: uppercase; }
+    .post-card:hover .post-read::after { margin-left: 3px; }
+    footer { background: #0D1117; color: #9CA3AF; text-align: center; padding: 32px 24px; font-size: 13px; }
+    footer a { color: #9CA3AF; text-decoration: none; }
+    footer a:hover { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">American AI Solutions</a>
+  <div class="nav-links">
+    <a class="nav-link" href="/#services">Services</a>
+    <a class="nav-link" href="/#industries">Industries</a>
+    <a class="nav-link" href="/blog/">Insights</a>
+    <a href="/pay/" style="background:#FFD700;color:#0D1117;font-weight:800;letter-spacing:.04em;border-radius:2px;padding:8px 16px;font-size:12px;text-transform:uppercase;text-decoration:none;">Get Started →</a>
+    <a class="nav-cta" href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Free Strategy Call</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Michigan AI Insights</div>
+  <h1>Real AI Results for Real Michigan Businesses</h1>
+  <p>No hype. No buzzwords. Just what's actually working — from a Detroit-based team that builds and deploys AI for Michigan companies every week.</p>
+</div>
+
+<div class="post-grid">
+
+  <a class="post-card" href="/report/" style="border-color:rgba(255,215,0,.4);background:linear-gradient(135deg,#0A0F1A,#0f1a35);color:white;grid-column:1/-1;">
+    <div class="post-card-body" style="padding:32px 36px">
+      <div class="post-tag" style="background:rgba(255,215,0,.15);color:#FFD700;">NEW — Paid Resource</div>
+      <h2 style="font-size:22px;color:white;margin-bottom:12px">Michigan AI Readiness Report — $197</h2>
+      <p style="color:#9CA3AF;font-size:15px;margin-bottom:24px">Get a custom 12-page audit of your business's AI readiness. We analyze your workflows, identify the 3 highest-ROI automation opportunities, and hand you a prioritized action plan — ready to implement or hand to a developer.</p>
+      <span style="display:inline-block;background:#FFD700;color:#0D1117;font-weight:800;font-size:13px;padding:12px 28px;border-radius:2px;letter-spacing:.04em;text-transform:uppercase">Get My Report — $197 →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/oem-ai-mandates-michigan-tier-2-tier-3-suppliers/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0D1117 0%,#1A3A8F 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-auto">Automotive</div>
+      <h2>OEM AI Mandates: What Michigan Tier 2 &amp; Tier 3 Suppliers Must Do Now</h2>
+      <p>Ford, GM, and Stellantis are requiring AI-ready operations from their supply chain. Here's exactly what that means for Michigan manufacturers and how to get compliant before the audits start.</p>
+      <span class="post-read">Read the full guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/hipaa-ai-michigan-healthcare-practices/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0D1A14 0%,#065F46 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-health">Healthcare</div>
+      <h2>HIPAA-Compliant AI for Michigan Healthcare Practices: The Complete Guide</h2>
+      <p>Michigan practices are using AI to cut prior auth time by 70% and reduce no-shows by 40% — without touching patient data in the cloud. Here's the compliant architecture and the ROI math.</p>
+      <span class="post-read">Read the full guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/michigan-going-pro-talent-fund-ai-training/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#1A0D00 0%,#92400E 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-logistics">Grant Funding</div>
+      <h2>Michigan Going PRO Talent Fund: How to Get AI Training Reimbursed</h2>
+      <p>Michigan's Going PRO fund is explicitly approving AI workflow training. Here's the exact application process, eligible expenses, and how to claim up to $50K per company for AI implementation.</p>
+      <span class="post-read">Read the full guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/michigan-fleet-ai-dispatch-optimization/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0A0D1A 0%,#1A3A8F 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-auto">Logistics</div>
+      <h2>Michigan Fleet AI: How Detroit Trucking Companies Are Cutting Deadhead Miles by 31%</h2>
+      <p>Michigan's freight corridor from Detroit to Chicago to Cleveland creates unique dispatch optimization opportunities. Here's the ROI math and how to qualify for Going PRO funding to implement it.</p>
+      <span class="post-read">Read the full guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-contractors-estimating-automation/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#1A0A00 0%,#78350F 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-construction">Construction</div>
+      <h2>AI for Michigan Contractors: Automate Estimating &amp; Change Orders Before Your Competitor Does</h2>
+      <p>Michigan GCs using AI are generating estimates 10x faster and capturing change orders on-site the same day. Here's the exact workflow and the Going PRO grant that covers 50% of implementation.</p>
+      <span class="post-read">Read the full guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/michigan-ai-roi-calculator/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0D1117 0%,#0f2460 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-auto">ROI Calculator</div>
+      <h2>Michigan AI ROI Calculator: What Will AI Actually Save Your Business?</h2>
+      <p>Interactive calculator for all 4 Michigan verticals — automotive, healthcare, logistics, and construction. Enter your hours and headcount; we'll show you the exact dollar savings and grant math.</p>
+      <span class="post-read">Try the calculator →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/what-detroit-gets-about-ai/">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#0D1117 0%,#1A3A8F 100%)">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00D4FF" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+    <div class="post-card-body">
+      <div class="post-tag tag-auto">Detroit Perspective</div>
+      <h2>What Detroit Gets About AI That Silicon Valley Keeps Getting Wrong</h2>
+      <p>AI tools built for San Francisco startups don't work in a Michigan stamping plant. Here's why Detroit's blue-collar pragmatism is actually the right framework for implementing AI — and how we build with it.</p>
+      <span class="post-read">Read the perspective →</span>
+    </div>
+  </a>
+
+</div>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 24px 80px">
+  <div style="border-top:1px solid #E4E8F0;padding-top:48px">
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(22px,3vw,30px);color:#0D1117;margin-bottom:8px">All Michigan AI Guides</h2>
+    <p style="color:#4A5473;font-size:15px;margin-bottom:32px">Industry-specific AI implementation guides for Michigan businesses. Real numbers, real workflows, real ROI.</p>
+
+  <div class="post-grid" style="padding:0;margin:0">
+
+  <a class="post-card" href="/blog/ai-for-michigan-auto-dealerships/">
+    <div class="post-tag tag-auto" style="margin:16px 16px 0">Automotive</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Auto Dealerships</h2>
+      <p>Michigan dealerships using AI follow-up are converting 34% more leads and holding gross on every deal. See the finance desk and service drive workflows built for Detroit's auto market.</p>
+      <span class="post-read">Read the auto dealerships guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-hvac-contractors/">
+    <div class="post-tag tag-construction" style="margin:16px 16px 0">HVAC</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan HVAC Contractors</h2>
+      <p>Michigan HVAC companies are using AI dispatch to book 40% more service calls and cut overtime by 25%. See the exact workflow for seasonal demand spikes and emergency dispatch automation.</p>
+      <span class="post-read">Read the HVAC contractors guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-staffing-agencies/">
+    <div class="post-tag tag-auto" style="margin:16px 16px 0">Staffing</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Staffing Agencies</h2>
+      <p>Michigan staffing firms using AI are filling positions 3x faster and cutting time-to-place from 18 days to 6. See how Detroit's manufacturing and healthcare staffing niches are automating candidate matching.</p>
+      <span class="post-read">Read the staffing agencies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-dental-practices/">
+    <div class="post-tag tag-health" style="margin:16px 16px 0">Healthcare</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Dental Practices</h2>
+      <p>Michigan dental offices using AI are reducing no-shows by 60% and filling last-minute cancellations in under 4 minutes. See the scheduling and recall automation that HIPAA-compliant and ready to deploy.</p>
+      <span class="post-read">Read the dental practices guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-law-firms/">
+    <div class="post-tag tag-health" style="margin:16px 16px 0">Legal</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Law Firms</h2>
+      <p>Michigan attorneys are using AI to draft briefs 5x faster, cut document review from days to hours, and never miss a deadline again. See the compliance-safe implementation built for Michigan's legal market.</p>
+      <span class="post-read">Read the law firms guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-real-estate-agents/">
+    <div class="post-tag tag-construction" style="margin:16px 16px 0">Real Estate</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Real Estate Agents</h2>
+      <p>Michigan realtors using AI follow-up are converting 40% more leads and spending 60% less time on admin. See the CRM automation, listing description, and buyer nurture workflows built for Southeast Michigan's market.</p>
+      <span class="post-read">Read the real estate agents guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-insurance-agencies/">
+    <div class="post-tag tag-auto" style="margin:16px 16px 0">Insurance</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Insurance Agencies</h2>
+      <p>Michigan independent agents using AI are quoting 3x faster, retaining 90%+ of renewals, and writing more new business without adding staff. See the cross-sell and renewal automation built for Michigan's market.</p>
+      <span class="post-read">Read the insurance agencies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-accounting-firms/">
+    <div class="post-tag tag-auto" style="margin:16px 16px 0">Accounting</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Accounting Firms</h2>
+      <p>Michigan CPAs using AI are processing tax prep 4x faster, cutting audit prep from weeks to days, and serving more clients without billing more hours. See the workflow built for Michigan's busy season.</p>
+      <span class="post-read">Read the accounting firms guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-physical-therapy-clinics/">
+    <div class="post-tag tag-health" style="margin:16px 16px 0">Healthcare</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Physical Therapy Clinics</h2>
+      <p>Michigan PT clinics using AI are reducing documentation time by 65% and cutting cancellations by 40%. See the HIPAA-compliant notes automation and appointment management built for outpatient rehab.</p>
+      <span class="post-read">Read the physical therapy clinics guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-plumbing-companies/">
+    <div class="post-tag tag-construction" style="margin:16px 16px 0">Plumbing</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Plumbing Companies</h2>
+      <p>Michigan plumbers using AI dispatch are booking 35% more calls and cutting drive time by 22%. See the job scheduling, estimate follow-up, and review automation built for Michigan's residential and commercial market.</p>
+      <span class="post-read">Read the plumbing companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-chiropractic-offices/">
+    <div class="post-tag tag-health" style="margin:16px 16px 0">Healthcare</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Chiropractic Offices</h2>
+      <p>Michigan chiropractors using AI are filling 90%+ of their schedules and reducing patient drop-off by 50%. See the recall, reactivation, and intake automation that works with Jane App and ChiroTouch.</p>
+      <span class="post-read">Read the chiropractic offices guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-property-management-companies/">
+    <div class="post-tag tag-construction" style="margin:16px 16px 0">Property Mgmt</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Property Management Companies</h2>
+      <p>Michigan property managers using AI are handling 3x more units per staff member and cutting vacancy cycles from 45 to 12 days. See the tenant screening, maintenance dispatch, and renewal automation.</p>
+      <span class="post-read">Read the property management companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-catering-companies/">
+    <div class="post-tag tag-construction" style="margin:16px 16px 0">Food Service</div>
+    <div class="post-card-body">
+      <h2>AI for Michigan Catering Companies</h2>
+      <p>Michigan caterers using AI are booking 40% more events and cutting proposal turnaround from 3 days to 4 hours. See the quote automation, event timeline generation, and client communication workflows.</p>
+      <span class="post-read">Read the catering companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-electrical-contractors/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Electrical</div>
+      <h2>AI for Michigan Electrical Contractors</h2>
+      <p>Michigan electricians using AI dispatch are scheduling 30% more jobs per technician and cutting estimate turnaround from 3 days to same-day. See the permit tracking and bid automation for commercial and residential.</p>
+      <span class="post-read">Read the electrical contractors guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-pest-control-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Pest Control</div>
+      <h2>AI for Michigan Pest Control Companies</h2>
+      <p>Michigan pest control operators using AI are routing 25% more stops per day and automating seasonal upsell sequences that generate $40K+ in additional revenue annually. See the route and retention workflow.</p>
+      <span class="post-read">Read the pest control companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-mental-health-practices/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Mental Health</div>
+      <h2>AI for Michigan Mental Health Practices</h2>
+      <p>Michigan therapists and counselors using AI are reducing admin time by 70% and eliminating no-shows with automated reminders that feel personal. See the HIPAA-compliant note drafting and scheduling automation.</p>
+      <span class="post-read">Read the mental health practices guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-freight-brokers/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-logistics">Freight</div>
+      <h2>AI for Michigan Freight Brokers</h2>
+      <p>Michigan freight brokers using AI are matching loads to carriers 5x faster and capturing spot rate opportunities that manual processes miss. See the lane analysis and carrier communication automation.</p>
+      <span class="post-read">Read the freight brokers guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-home-care-agencies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Home Care</div>
+      <h2>AI for Michigan Home Care Agencies</h2>
+      <p>Michigan home care agencies using AI are reducing caregiver turnover by 35% and cutting scheduling time from 4 hours to 20 minutes. See the caregiver matching, compliance tracking, and family communication automation.</p>
+      <span class="post-read">Read the home care agencies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-commercial-cleaning-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Cleaning</div>
+      <h2>AI for Michigan Commercial Cleaning Companies</h2>
+      <p>Michigan cleaning companies using AI are winning more bids, scheduling crews automatically, and generating client reports in minutes instead of hours. See the proposal and operations workflow.</p>
+      <span class="post-read">Read the commercial cleaning companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-title-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Title &amp; Escrow</div>
+      <h2>AI for Michigan Title Companies</h2>
+      <p>Michigan title companies using AI are closing files 40% faster and cutting document processing from 2 days to 2 hours. See the order intake, document review, and closing coordination automation.</p>
+      <span class="post-read">Read the title companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-veterinary-practices/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Veterinary</div>
+      <h2>AI for Michigan Veterinary Practices</h2>
+      <p>Michigan vet clinics using AI are reducing no-shows by 55%, automating wellness reminders, and capturing 20% more wellness visits annually. See the SOAP notes and client communication automation.</p>
+      <span class="post-read">Read the veterinary practices guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-mortgage-brokers/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Mortgage</div>
+      <h2>AI for Michigan Mortgage Brokers</h2>
+      <p>Michigan mortgage brokers using AI are processing applications 60% faster and converting 35% more leads with automated rate alert and pre-approval follow-up sequences built for Southeast Michigan's market.</p>
+      <span class="post-read">Read the mortgage brokers guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-auto-body-shops/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Auto Body</div>
+      <h2>AI for Michigan Auto Body Shops</h2>
+      <p>Michigan collision shops using AI are writing estimates 70% faster, automating insurance follow-up, and recovering $50K+ in missed supplement revenue annually. See the DRP workflow automation.</p>
+      <span class="post-read">Read the auto body shops guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-senior-living-facilities/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Senior Living</div>
+      <h2>AI for Michigan Senior Living Facilities</h2>
+      <p>Michigan senior living operators using AI are filling beds 45% faster and reducing staff overtime by 28%. See the inquiry follow-up, staffing optimization, and family communication automation.</p>
+      <span class="post-read">Read the senior living facilities guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-landscaping-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Landscaping</div>
+      <h2>AI for Michigan Landscaping Companies</h2>
+      <p>Michigan landscapers using AI are booking 50% more seasonal contracts and routing crews 30% more efficiently. See the estimate follow-up, crew scheduling, and seasonal upsell automation for Michigan's market.</p>
+      <span class="post-read">Read the landscaping companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-urgent-care-centers/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Urgent Care</div>
+      <h2>AI for Michigan Urgent Care Centers</h2>
+      <p>Michigan urgent care operators using AI are reducing wait times by 35% and capturing 25% more patient revenue through automated follow-up and care gap identification. See the HIPAA-compliant intake and billing workflow.</p>
+      <span class="post-read">Read the urgent care centers guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-restaurant-groups/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Restaurant</div>
+      <h2>AI for Michigan Restaurant Groups</h2>
+      <p>Michigan restaurant operators using AI are reducing food waste by 22% and increasing repeat visits by 30% with automated loyalty and re-engagement sequences. See the inventory forecasting and guest experience automation.</p>
+      <span class="post-read">Read the restaurant groups guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-financial-advisors/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Financial Services</div>
+      <h2>AI for Michigan Financial Advisors</h2>
+      <p>Michigan RIAs and advisors using AI are preparing for client meetings in 20 minutes instead of 2 hours and capturing 40% more referrals through automated follow-up systems. See the compliance-safe workflow.</p>
+      <span class="post-read">Read the financial advisors guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-security-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Security</div>
+      <h2>AI for Michigan Security Companies</h2>
+      <p>Michigan security firms using AI are scheduling guards 40% more efficiently and reducing incident report time from 45 minutes to 8 minutes. See the patrol optimization and client reporting automation.</p>
+      <span class="post-read">Read the security companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-printing-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Print &amp; Signage</div>
+      <h2>AI for Michigan Printing Companies</h2>
+      <p>Michigan print shops using AI are turning around quotes in 4 minutes instead of 4 hours and automating reorder reminders that generate $80K+ in recurring revenue. See the estimating and client retention workflow.</p>
+      <span class="post-read">Read the printing companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-funeral-homes/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Funeral Services</div>
+      <h2>AI for Michigan Funeral Homes</h2>
+      <p>Michigan funeral homes using AI are reducing administrative burden by 60% and improving family communication during the hardest moments. See the sensitive, HIPAA-aligned workflow for arrangement coordination and aftercare.</p>
+      <span class="post-read">Read the funeral homes guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-roofing-contractors/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Roofing</div>
+      <h2>AI for Michigan Roofing Contractors</h2>
+      <p>Michigan roofers using AI are writing storm damage estimates 80% faster and converting 45% more insurance claims into signed contracts. See the Xactimate integration and adjuster follow-up automation.</p>
+      <span class="post-read">Read the roofing contractors guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-medical-spas/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Medical Spa</div>
+      <h2>AI for Michigan Medical Spas</h2>
+      <p>Michigan med spas using AI are filling cancellations in under 10 minutes and generating $60K+ in additional annual revenue through automated treatment plan follow-up. See the booking and upsell workflow.</p>
+      <span class="post-read">Read the medical spas guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-architecture-firms/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Architecture</div>
+      <h2>AI for Michigan Architecture Firms</h2>
+      <p>Michigan architects using AI are cutting proposal prep from 2 weeks to 3 days and automating client communication across projects with 10+ concurrent stakeholders. See the project management and business development workflow.</p>
+      <span class="post-read">Read the architecture firms guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-translation-services/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Translation</div>
+      <h2>AI for Michigan Translation Services</h2>
+      <p>Michigan translation agencies serving Arabic, Spanish, and Hmong communities are processing 3x more projects with AI-assisted review and cutting turnaround from 5 days to same-day for common document types.</p>
+      <span class="post-read">Read the translation services guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-event-venues/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Event Venues</div>
+      <h2>AI for Michigan Event Venues</h2>
+      <p>Michigan event venues using AI are booking 35% more events and generating proposals in 8 minutes instead of 2 days. See the inquiry handling, availability management, and vendor coordination automation.</p>
+      <span class="post-read">Read the event venues guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-optometrists/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Optometry</div>
+      <h2>AI for Michigan Optometrists</h2>
+      <p>Michigan optometry practices using AI are reducing no-shows by 50% and capturing 30% more recall visits. See the HIPAA-compliant appointment automation and optical upsell workflow.</p>
+      <span class="post-read">Read the optometrists guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-custom-home-builders/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Custom Homes</div>
+      <h2>AI for Michigan Custom Home Builders</h2>
+      <p>Michigan custom builders using AI are managing 3x more projects per PM and cutting change order processing from 3 days to same-day. See the project communication and client portal automation.</p>
+      <span class="post-read">Read the custom home builders guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-wealth-management-firms/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Wealth Management</div>
+      <h2>AI for Michigan Wealth Management Firms</h2>
+      <p>Michigan wealth managers using AI are preparing quarterly reviews in 30 minutes instead of 4 hours and automating prospect nurture sequences that generate 25% more referral introductions. See the compliance-safe workflow.</p>
+      <span class="post-read">Read the wealth management firms guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-auto-parts-distributors/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Auto Parts</div>
+      <h2>AI for Michigan Auto Parts Distributors</h2>
+      <p>Michigan parts distributors serving the OEM supply chain are using AI to predict stockouts 14 days in advance and cut order processing time by 65%. See the inventory intelligence and order automation workflow.</p>
+      <span class="post-read">Read the auto parts distributors guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-logistics-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-logistics">3PL / Logistics</div>
+      <h2>AI for Michigan 3PL and Logistics Companies</h2>
+      <p>Michigan 3PLs and regional carriers using AI are reducing dwell time by 28% and automating carrier check-calls that previously required 2 full-time staff. See the TMS integration and load visibility automation.</p>
+      <span class="post-read">Read the logistics companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-podiatrists/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Podiatry</div>
+      <h2>AI for Michigan Podiatrists</h2>
+      <p>Michigan podiatry practices using AI are reducing documentation time by 60% and capturing 25% more diabetic foot care revenue through automated recall. See the HIPAA-compliant notes and scheduling workflow.</p>
+      <span class="post-read">Read the podiatrists guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-specialty-contractors/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Specialty Trades</div>
+      <h2>AI for Michigan Specialty Contractors</h2>
+      <p>Michigan specialty contractors in concrete, masonry, insulation, and glazing are using AI to win more bids and manage subcontractor coordination across multiple active sites. See the estimating and field communication workflow.</p>
+      <span class="post-read">Read the specialty contractors guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-sports-medicine-clinics/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Sports Medicine</div>
+      <h2>AI for Michigan Sports Medicine Clinics</h2>
+      <p>Michigan sports medicine practices using AI are cutting return-to-play documentation from 2 hours to 20 minutes and automating athlete progress tracking for high school and collegiate programs. See the workflow.</p>
+      <span class="post-read">Read the sports medicine clinics guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-cold-storage-warehouses/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-logistics">Cold Storage</div>
+      <h2>AI for Michigan Cold Storage Warehouses</h2>
+      <p>Michigan cold storage operators using AI are reducing energy costs by 18% and cutting inventory shrink by 25% with predictive temperature monitoring and automated receiving workflows.</p>
+      <span class="post-read">Read the cold storage warehouses guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-telecommunications-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Telecom</div>
+      <h2>AI for Michigan Telecommunications Companies</h2>
+      <p>Michigan telecom providers using AI are reducing churn by 30% and cutting customer service costs by 40% with intelligent call routing and automated account management. See the retention and support automation.</p>
+      <span class="post-read">Read the telecommunications companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-food-manufacturers/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Food Manufacturing</div>
+      <h2>AI for Michigan Food Manufacturers</h2>
+      <p>Michigan food manufacturers using AI are reducing quality inspection time by 70% and predicting equipment failures 72 hours in advance. See the SPC integration and OEM compliance documentation automation.</p>
+      <span class="post-read">Read the food manufacturers guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-occupational-therapy-practices/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Occupational Therapy</div>
+      <h2>AI for Michigan Occupational Therapy Practices</h2>
+      <p>Michigan OT practices using AI are cutting documentation time by 65% and automating insurance authorization that previously took 2–3 days. See the HIPAA-compliant workflow for pediatric and adult rehab.</p>
+      <span class="post-read">Read the occupational therapy practices guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-moving-companies/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-logistics">Moving &amp; Storage</div>
+      <h2>AI for Michigan Moving Companies</h2>
+      <p>Michigan movers using AI are booking 40% more jobs and cutting estimate callbacks by 80% with instant binding quotes and automated crew scheduling for Michigan's busy spring-summer season.</p>
+      <span class="post-read">Read the moving companies guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-photography-studios/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Photography</div>
+      <h2>AI for Michigan Photography Studios</h2>
+      <p>Michigan photographers and studios using AI are delivering galleries 3x faster and booking 35% more sessions through automated lead follow-up and gallery delivery systems. See the booking and workflow automation.</p>
+      <span class="post-read">Read the photographers guide →</span>
+    </div>
+  </a>
+
+  <a class="post-card" href="/blog/ai-for-michigan-boat-marine-services/">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Marine Services</div>
+      <h2>AI for Michigan Boat &amp; Marine Services</h2>
+      <p>Fill every slip, book winterization in August, and keep customers loyal year-round with AI-powered seasonal management.</p>
+      <span class="post-read">Read the marine services guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-executive-recruiters/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Executive Search &amp; Staffing</div>
+      <h2>AI for Michigan Executive Recruiters &amp; Staffing Firms</h2>
+      <p>Michigan recruiters using AI close 40% more placements and source candidates 60% faster. See the placement ROI math and Detroit talent market angles that make this a natural fit.</p>
+      <span class="post-read">Read the executive recruiters guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-speech-therapists/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Speech-Language Pathology</div>
+      <h2>AI for Michigan Speech Therapists &amp; SLP Practices</h2>
+      <p>Michigan SLPs using AI are cutting documentation time by 60% and automating insurance prior auth. See the HIPAA-compliant AAC device workflow and teletherapy documentation automation.</p>
+      <span class="post-read">Read the speech therapists guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-flooring-contractors/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Flooring &amp; Installation</div>
+      <h2>AI for Michigan Flooring Contractors &amp; Installation Companies</h2>
+      <p>Michigan flooring companies win 35% more bids with AI-automated estimating and follow-up. See how $134K+ in annual revenue comes from faster quotes and zero missed leads.</p>
+      <span class="post-read">Read the flooring contractors guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-addiction-counselors/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Substance Use &amp; Recovery</div>
+      <h2>AI for Michigan Addiction Counselors &amp; Substance Use Practices</h2>
+      <p>Michigan SUD counselors carry the most documentation-heavy caseloads in healthcare. AI cuts documentation time 55% and improves 90-day client retention by 31%, recovering $119K+ annually.</p>
+      <span class="post-read">Read the addiction counselors guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-pool-spa-services/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Pool &amp; Spa</div>
+      <h2>AI for Michigan Pool &amp; Spa Service Companies</h2>
+      <p>Michigan pool companies using AI are booking 40% more recurring service contracts and automating the seasonal open/close scheduling that used to require a dedicated coordinator.</p>
+      <span class="post-read">Read the pool &amp; spa guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-personal-injury-attorneys/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Personal Injury Law</div>
+      <h2>AI for Michigan Personal Injury Attorneys &amp; PI Firms</h2>
+      <p>Michigan's no-fault reform makes speed to lead the primary competitive variable. AI responds to every inquiry in under 5 minutes, screens leads 3x faster, and adds $287K+ in annual contingency revenue.</p>
+      <span class="post-read">Read the personal injury attorneys guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-event-planners/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Event Planning</div>
+      <h2>AI for Michigan Event Planners &amp; Coordination Companies</h2>
+      <p>Michigan event planners using AI are managing 40% more events per coordinator and delivering client updates automatically. See the vendor coordination and day-of logistics automation.</p>
+      <span class="post-read">Read the event planners guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-opticians/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Optical &amp; Vision Care</div>
+      <h2>AI for Michigan Opticians &amp; Optical Practices</h2>
+      <p>Independent Michigan opticians compete against national chains on relationship — not price. AI makes patient recall and optical sales systematic, adding $93K+ annually without discounting or advertising spend.</p>
+      <span class="post-read">Read the opticians guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-personal-trainers/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Personal Training &amp; Fitness</div>
+      <h2>AI for Michigan Personal Trainers &amp; Fitness Studios</h2>
+      <p>Michigan personal trainers and fitness studios using AI are retaining 85%+ of clients month-over-month and filling their schedule without spending money on ads. See the client engagement and lead nurture workflow.</p>
+      <span class="post-read">Read the personal trainers guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-title-companies-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Real Estate Title</div>
+      <h2>AI for Michigan Title Companies: Closing Files Faster</h2>
+      <p>Michigan title companies using AI are closing 40% more files per examiner and catching title defects before they delay closings. See the commitment workflow and lender communication automation.</p>
+      <span class="post-read">Read the title companies guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-vet-clinics/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Veterinary Clinics</div>
+      <h2>AI for Michigan Vet Clinics: SOAP Notes &amp; Client Communication</h2>
+      <p>Michigan veterinary clinics using AI are completing SOAP notes in under 3 minutes and reactivating lapsed patients automatically. See the workflow that works with AVImark and Cornerstone.</p>
+      <span class="post-read">Read the vet clinics guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-commercial-cleaning-companies-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Janitorial &amp; Facilities</div>
+      <h2>AI for Michigan Commercial Cleaning: Operations &amp; Client Retention</h2>
+      <p>Michigan janitorial companies using AI are winning larger contracts, automating quality inspections, and generating client reports that justify premium pricing. See the ops and sales workflow.</p>
+      <span class="post-read">Read the commercial cleaning guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-photographers-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Wedding &amp; Event Photography</div>
+      <h2>AI for Michigan Wedding &amp; Event Photographers</h2>
+      <p>Michigan wedding photographers using AI are culling 2,000 images in 8 minutes and delivering galleries 3x faster. See the Lightroom AI, client communication, and booking automation workflow.</p>
+      <span class="post-read">Read the photographers guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-landscaping-companies-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Lawn Care &amp; Snow Removal</div>
+      <h2>AI for Michigan Landscaping: Seasonal Routing &amp; Client Retention</h2>
+      <p>Michigan lawn care and snow removal companies using AI are routing crews 35% more efficiently and retaining 92% of seasonal clients through automated communication. See the snow dispatch and renewal workflow.</p>
+      <span class="post-read">Read the landscaping companies guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-home-inspectors/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Home Inspection</div>
+      <h2>AI for Michigan Home Inspectors</h2>
+      <p>Michigan home inspectors using AI are generating full inspection reports in 12 minutes and booking 40% more inspections through automated realtor relationship management. See the ISN integration workflow.</p>
+      <span class="post-read">Read the home inspectors guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-financial-advisors-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-auto">Independent Financial Planning</div>
+      <h2>AI for Michigan Independent Financial Planners</h2>
+      <p>Michigan fee-only planners using AI are building comprehensive financial plans 70% faster and automating the annual review process that retains clients for 10+ years. See the compliance-safe workflow.</p>
+      <span class="post-read">Read the financial advisors guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-electricians-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Residential &amp; Commercial Electrical</div>
+      <h2>AI for Michigan Electricians: Estimating &amp; Service Dispatch</h2>
+      <p>Michigan electricians using AI are winning 35% more bids and dispatching service calls 50% faster. See the panel upgrade estimating and service agreement automation built for Michigan's housing market.</p>
+      <span class="post-read">Read the electricians guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-roofing-contractors-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Roofing &amp; Siding</div>
+      <h2>AI for Michigan Roofing &amp; Siding Contractors: Storm Season Automation</h2>
+      <p>Michigan storm restoration contractors using AI are scaling from 10 to 40+ jobs per week during hail season without adding admin staff. See the insurance workflow and subcontractor coordination automation.</p>
+      <span class="post-read">Read the roofing contractors guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-optometrists-2/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-health">Vision Care</div>
+      <h2>AI for Michigan Optometrists: Recall &amp; Optical Revenue</h2>
+      <p>Michigan ODs using AI are capturing 35% more optical sales and filling 90%+ of their recall slots. See the VSP/EyeMed integration and optical tower upsell automation.</p>
+      <span class="post-read">Read the optometrists guide</span>
+    </div>
+  </a>
+
+  <a href="/blog/ai-for-michigan-storage-facilities/" class="post-card">
+    <div class="post-card-body" style="padding-top:16px">
+      <div class="post-tag tag-construction">Self-Storage</div>
+      <h2>AI for Michigan Self-Storage Facilities</h2>
+      <p>Michigan storage operators using AI are maintaining 95%+ occupancy year-round and automating the delinquency management that used to take 6 hours per week. See the revenue management and lien workflow.</p>
+      <span class="post-read">Read the storage facilities guide</span>
+    </div>
+  </a>
+
+  </div><!-- end .post-grid -->
+  </div>
+</div>
+
+<footer>
+  <p style="margin-bottom:8px"><strong style="color:white">American AI Solutions LLC</strong> — Detroit, Michigan</p>
+  <p><a href="/">Home</a> · <a href="/blog/">Insights</a> · <a href="/pay/">Pricing</a> · <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener">Book a Call</a></p>
+  <p style="margin-top:12px;font-size:12px;color:#6B7280">© 2025 American AI Solutions LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
