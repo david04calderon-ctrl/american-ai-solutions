@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#060A10">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="AAIS CEO">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AAIS Command · CEO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #060A10;
+      --dark: #0B1018;
+      --dark2: #0F1620;
+      --dark3: #141C28;
+      --dark4: #1A2333;
+      --gold: #FFD700;
+      --gold2: #FFC107;
+      --gold3: #FFB300;
+      --gold-glow: rgba(255,215,0,0.15);
+      --gold-border: rgba(255,215,0,0.2);
+      --blue: #1A3A8F;
+      --blue2: #2251CF;
+      --cyan: #00D4FF;
+      --green: #00E676;
+      --red: #FF4444;
+      --orange: #FF8C00;
+      --white: #FFFFFF;
+      --gray1: #D8DCE8;
+      --gray2: #9BA4BA;
+      --gray3: #5A6480;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.03);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --tab-h: calc(60px + var(--safe-bottom));
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ── AUTH GATE ── */
+    #auth-gate {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 32px;
+    }
+
+    .auth-logo {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 40px rgba(26,58,143,0.4);
+    }
+
+    .auth-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
+
+    .auth-sub {
+      font-size: 13px;
+      color: var(--gray3);
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+    .auth-input {
+      width: 100%;
+      max-width: 280px;
+      background: var(--dark3);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      text-align: center;
+      letter-spacing: 4px;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color 0.15s;
+    }
+
+    .auth-input:focus { border-color: var(--gold-border); }
+
+    .auth-btn {
+      width: 100%;
+      max-width: 280px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 15px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .auth-btn:active { transform: scale(0.97); }
+
+    .auth-error {
+      font-size: 12px;
+      color: var(--red);
+      margin-top: 12px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .auth-error.show { opacity: 1; }
+
+    /* ── APP SHELL ── */
+    #app {
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── TOP BAR ── */
+    #top-bar {
+      flex-shrink: 0;
+      padding-top: var(--safe-top);
+      background: rgba(6,10,16,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: 12px;
+      z-index: 100;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+    }
+
+    .owner-greeting {
+      font-size: 12px;
+      color: var(--gray3);
+      font-weight: 500;
+    }
+
+    .owner-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .owner-role {
+      font-size: 10px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .top-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Revenue quick-view */
+    .rev-strip {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .rev-strip::-webkit-scrollbar { display: none; }
+
+    .rev-chip {
+      flex-shrink: 0;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 110px;
+    }
+
+    .rev-chip-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--gray3);
+    }
+
+    .rev-chip-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .rev-chip-value.up { color: var(--green); }
+    .rev-chip-value.gold { color: var(--gold); }
+
+    /* ── SCREENS ── */
+    #screens {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      padding-bottom: calc(var(--tab-h) + 8px);
+    }
+
+    .screen.active { opacity: 1; transform: translateY(0); pointer-events: all; }
+
+    /* ── TAB BAR ── */
+    #tab-bar {
+      flex-shrink: 0;
+      height: var(--tab-h);
+      padding-bottom: var(--safe-bottom);
+      background: rgba(6,10,16,0.97);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      z-index: 100;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 4px 2px;
+      color: var(--gray3);
+      transition: color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tab-btn.active { color: var(--gold); }
+
+    .tab-icon { font-size: 20px; line-height: 1; }
+    .tab-label { font-size: 9px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; }
+
+    /* ── SHARED ── */
+    .section-pad { padding: 14px 14px 0; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gray3);
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .card + .card { margin-top: 10px; }
+
+    .gold-border { border-color: var(--gold-border); background: linear-gradient(135deg, rgba(255,215,0,0.07), var(--dark2)); }
+    .green-border { border-color: rgba(0,230,118,0.2); background: linear-gradient(135deg, rgba(0,230,118,0.06), var(--dark2)); }
+    .red-border { border-color: rgba(255,68,68,0.2); background: linear-gradient(135deg, rgba(255,68,68,0.06), var(--dark2)); }
+    .blue-border { border-color: rgba(26,58,143,0.4); background: linear-gradient(135deg, rgba(26,58,143,0.15), var(--dark2)); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      letter-spacing: -0.1px;
+    }
+
+    .btn:active { transform: scale(0.96); }
+    .btn-full { width: 100%; }
+    .btn-gold { background: var(--gold); color: var(--black); }
+    .btn-green { background: rgba(0,230,118,0.15); color: var(--green); border: 1px solid rgba(0,230,118,0.2); }
+    .btn-red { background: rgba(255,68,68,0.12); color: var(--red); border: 1px solid rgba(255,68,68,0.2); }
+    .btn-ghost { background: var(--dark3); color: var(--gray2); border: 1px solid var(--border); }
+    .btn-blue { background: var(--blue); color: var(--white); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-gold { background: var(--gold-glow); color: var(--gold); border: 1px solid var(--gold-border); }
+    .badge-green { background: rgba(0,230,118,0.1); color: var(--green); }
+    .badge-red { background: rgba(255,68,68,0.1); color: var(--red); }
+    .badge-gray { background: var(--dark3); color: var(--gray3); }
+    .badge-orange { background: rgba(255,140,0,0.12); color: var(--orange); }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .divider { height: 1px; background: var(--border2); margin: 12px 0; }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 16px 10px;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+
+    .action-btn:active { transform: scale(0.96); }
+    .action-btn .icon { font-size: 24px; }
+    .action-btn .label { font-size: 11px; font-weight: 600; color: var(--gray2); text-align: center; }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 1 — COMMAND CENTER (HOME)
+    ═══════════════════════════════════════════ */
+
+    .pipeline-stages {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+
+    .pipeline-stages::-webkit-scrollbar { display: none; }
+
+    .pipeline-stage {
+      flex-shrink: 0;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .stage-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stage-num.gold { color: var(--gold); }
+
+    .stage-label {
+      font-size: 10px;
+      color: var(--gray3);
+      margin-top: 4px;
+    }
+
+    /* Lead row */
+    .lead-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .lead-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+
+    .lead-row:active { transform: scale(0.98); }
+
+    .lead-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+
+    .lead-info { flex: 1; min-width: 0; }
+
+    .lead-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lead-meta {
+      font-size: 11px;
+      color: var(--gray3);
+      margin-top: 2px;
+    }
+
+    .lead-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+    .lead-action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--dark4);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Activity feed */
+    .activity-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .activity-item:last-child { border-bottom: none; }
+
+    .activity-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--dark3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .activity-content { flex: 1; }
+
+    .activity-text {
+      font-size: 13px;
+      color: var(--gray1);
+      line-height: 1.4;
+    }
+
+    .activity-time {
+      font-size: 10px;
+      color: var(--gray3);
+      margin-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 2 — LEADS / PIPELINE
+    ═══════════════════════════════════════════ */
+
+    .lead-filter-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .lead-filter-row::-webkit-scrollbar { display: none; }
+
+    .filter-chip {
+      flex-shrink: 0;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      color: var(--gray3);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+
+    .filter-chip.active {
+      background: var(--gold-glow);
+      border-color: var(--gold-border);
+      color: var(--gold);
+    }
+
+    /* Lead detail modal */
+    #lead-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 500;
+      display: flex;
+      align-items: flex-end;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    #lead-modal.open { opacity: 1; pointer-events: all; }
+
+    .modal-sheet {
+      background: var(--dark2);
+      border-radius: 20px 20px 0 0;
+      border-top: 1px solid var(--border);
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 20px 16px;
+      padding-bottom: calc(20px + var(--safe-bottom));
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    #lead-modal.open .modal-sheet { transform: translateY(0); }
+
+    .modal-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--gray3);
+      border-radius: 2px;
+      margin: 0 auto 20px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 3 — CONTENT / SOCIAL
+    ═══════════════════════════════════════════ */
+
+    .platform-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .platform-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+      display: block;
+      transition: all 0.15s;
+    }
+
+    .platform-card:active { transform: scale(0.95); }
+
+    .platform-icon { font-size: 26px; margin-bottom: 6px; }
+    .platform-name { font-size: 10px; font-weight: 700; color: var(--gray2); }
+
+    .content-script {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .script-platform {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .script-type-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--dark4);
+      color: var(--gray3);
+    }
+
+    .script-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .script-hook {
+      font-size: 12px;
+      color: var(--gray2);
+      line-height: 1.5;
+      border-left: 2px solid var(--gold);
+      padding-left: 10px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .script-btn-row { display: flex; gap: 8px; }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 4 — TOOLS & QUICK ACCESS
+    ═══════════════════════════════════════════ */
+
+    .tool-section {
+      padding: 14px 14px 0;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tool-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      display: block;
+      transition: all 0.15s;
+    }
+
+    .tool-card:active { transform: scale(0.96); }
+
+    .tool-icon { font-size: 26px; margin-bottom: 8px; }
+    .tool-name { font-size: 13px; font-weight: 700; color: var(--white); }
+    .tool-desc { font-size: 11px; color: var(--gray3); margin-top: 3px; }
+
+    .tool-card-wide {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tool-card-wide .tool-icon { margin-bottom: 0; font-size: 30px; }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 5 — SALES SCRIPTS
+    ═══════════════════════════════════════════ */
+
+    .script-card {
+      background: var(--dark3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .script-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .script-scenario {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .objection-text {
+      font-size: 12px;
+      color: var(--red);
+      background: rgba(255,68,68,0.08);
+      border-left: 2px solid var(--red);
+      padding: 10px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .reframe-text {
+      font-size: 13px;
+      color: var(--gray1);
+      background: rgba(0,230,118,0.06);
+      border-left: 2px solid var(--green);
+      padding: 10px;
+      border-radius: 0 8px 8px 0;
+      line-height: 1.55;
+    }
+
+    /* Notification dot */
+    .notif-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* KPI gauge bar */
+    .kpi-bar-wrap {
+      background: var(--dark4);
+      border-radius: 6px;
+      height: 6px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .kpi-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius: 6px;
+      transition: width 0.8s ease;
+    }
+
+    .kpi-bar-fill.green { background: linear-gradient(90deg, var(--green), #00C864); }
+    .kpi-bar-fill.red { background: linear-gradient(90deg, var(--red), #CC0000); }
+
+    /* Scrollbar for desktop */
+    @media (pointer: fine) {
+      .screen::-webkit-scrollbar { width: 3px; }
+      .screen::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    }
+
+    @media (min-width: 768px) {
+      #app { max-width: 430px; margin: 0 auto; box-shadow: 0 0 80px rgba(0,0,0,0.6); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- AUTH GATE -->
+<div id="auth-gate">
+  <div class="auth-logo">⚡</div>
+  <div class="auth-title">AAIS Command</div>
+  <div class="auth-sub">Owner · Operator · CEO</div>
+  <input class="auth-input" type="password" id="auth-pin" placeholder="Enter PIN" maxlength="6" oninput="checkAuth(this.value)" autocomplete="off">
+  <button class="auth-btn" onclick="tryAuth()">Unlock</button>
+  <div class="auth-error" id="auth-error">Incorrect PIN. Try again.</div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+
+  <!-- TOP BAR -->
+  <div id="top-bar">
+    <div class="top-row">
+      <div>
+        <div class="owner-greeting">Good <span id="time-greeting">morning</span>,</div>
+        <div class="owner-name">David Calderon</div>
+        <div class="owner-role">Founder & CEO · American AI Solutions</div>
+      </div>
+      <div class="top-actions">
+        <div class="top-btn" onclick="showCalendly()" title="Book a call">📅</div>
+        <a href="tel:+13138063647" class="top-btn" title="Your number">📞</a>
+      </div>
+    </div>
+    <div class="rev-strip">
+      <div class="rev-chip">
+        <div class="rev-chip-label">MTD Revenue</div>
+        <div class="rev-chip-value gold" id="mtd-rev">$0</div>
+      </div>
+      <div class="rev-chip">
+        <div class="rev-chip-label">Pipeline Value</div>
+        <div class="rev-chip-value" id="pipe-val">$0</div>
+      </div>
+      <div class="rev-chip">
+        <div class="rev-chip-label">Open Leads</div>
+        <div class="rev-chip-value up" id="open-leads">0</div>
+      </div>
+      <div class="rev-chip">
+        <div class="rev-chip-label">Calls Booked</div>
+        <div class="rev-chip-value up" id="calls-booked">0</div>
+      </div>
+      <div class="rev-chip">
+        <div class="rev-chip-label">Goal %</div>
+        <div class="rev-chip-value gold" id="goal-pct">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREENS -->
+  <div id="screens">
+
+    <!-- ─── COMMAND CENTER ─── -->
+    <div id="screen-cmd" class="screen active">
+
+      <!-- Today's Priority -->
+      <div class="section-pad">
+        <div class="section-label">Today's Priority Actions</div>
+        <div id="priority-list">
+          <div class="card gold-border" style="margin-bottom:8px;">
+            <div class="row">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--gold);">⚡ Follow up: Marcus (Auto Supplier)</div>
+                <div style="font-size:11px;color:var(--gray3);margin-top:3px;">Sent proposal 2 days ago — no reply</div>
+              </div>
+              <a href="tel:+13138063647" class="btn btn-gold btn-sm" style="flex-shrink:0;padding:8px 12px;font-size:12px;">Call</a>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:8px;">
+            <div class="row">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--white);">📩 Post TikTok: AI dispatch reel</div>
+                <div style="font-size:11px;color:var(--gray3);margin-top:3px;">Script ready in Content tab — 11am slot</div>
+              </div>
+              <button class="btn btn-ghost" style="flex-shrink:0;padding:8px 12px;font-size:12px;" onclick="switchTab('content')">Open</button>
+            </div>
+          </div>
+          <div class="card" style="margin-bottom:8px;">
+            <div class="row">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:var(--white);">📊 Update HubSpot pipeline</div>
+                <div style="font-size:11px;color:var(--gray3);margin-top:3px;">3 leads need stage updates</div>
+              </div>
+              <a href="https://app.hubspot.com" target="_blank" rel="noopener" class="btn btn-ghost" style="flex-shrink:0;padding:8px 12px;font-size:12px;">Open</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline snapshot -->
+      <div class="section-pad" style="margin-top:14px;">
+        <div class="section-label">Pipeline Snapshot</div>
+        <div class="pipeline-stages">
+          <div class="pipeline-stage">
+            <div class="stage-num" id="st-new">7</div>
+            <div class="stage-label">New Leads</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num" id="st-qual">4</div>
+            <div class="stage-label">Qualified</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num gold" id="st-prop">2</div>
+            <div class="stage-label">Proposals</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num" id="st-neg">1</div>
+            <div class="stage-label">Negotiating</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num up" style="color:var(--green);" id="st-close">0</div>
+            <div class="stage-label">Closed Won</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hot leads -->
+      <div class="section-pad" style="margin-top:14px;">
+        <div class="row" style="margin-bottom:10px;">
+          <div class="section-label" style="margin-bottom:0;">Hot Leads</div>
+          <button class="btn btn-ghost" style="font-size:11px;padding:5px 10px;" onclick="switchTab('leads')">See All</button>
+        </div>
+        <div class="lead-list">
+          <div class="lead-row" onclick="openLead('marcus')">
+            <div class="lead-avatar">M</div>
+            <div class="lead-info">
+              <div class="lead-name">Marcus T. — Auto Supplier</div>
+              <div class="lead-meta">Proposal sent · $18K deal · 2d ago</div>
+            </div>
+            <div class="lead-actions">
+              <a href="tel:+15867773344" class="lead-action-btn" title="Call">📞</a>
+              <a href="sms:+15867773344&body=Hey Marcus, following up on the proposal — do you have any questions?" class="lead-action-btn" title="Text">💬</a>
+            </div>
+          </div>
+          <div class="lead-row" onclick="openLead('sarah')">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#6B21A8,#9333EA);">S</div>
+            <div class="lead-info">
+              <div class="lead-name">Sarah K. — Healthcare Practice</div>
+              <div class="lead-meta">Call booked Fri · $12K deal · 1d ago</div>
+            </div>
+            <div class="lead-actions">
+              <a href="tel:+15861234567" class="lead-action-btn">📞</a>
+              <a href="mailto:sarah@example.com?subject=Your AI Strategy Call Friday&body=Hi Sarah, looking forward to our call on Friday. I'll have a custom plan ready based on your practice size." class="lead-action-btn">✉️</a>
+            </div>
+          </div>
+          <div class="lead-row" onclick="openLead('james')">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#065F46,#059669);">J</div>
+            <div class="lead-info">
+              <div class="lead-name">James R. — Logistics Fleet</div>
+              <div class="lead-meta">Discovery done · $22K deal · 4h ago</div>
+            </div>
+            <div class="lead-actions">
+              <a href="tel:+15869876543" class="lead-action-btn">📞</a>
+              <a href="sms:+15869876543&body=James — I'm putting together your custom proposal. Couple quick questions, do you have 5 min?" class="lead-action-btn">💬</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div class="section-pad" style="margin-top:14px;">
+        <div class="section-label">Weekly KPIs</div>
+        <div class="card">
+          <div style="margin-bottom:14px;">
+            <div class="row">
+              <div style="font-size:13px;color:var(--gray2);">Calls made</div>
+              <div style="font-size:13px;font-weight:700;color:var(--white);" id="kpi-calls">12 / 25</div>
+            </div>
+            <div class="kpi-bar-wrap"><div class="kpi-bar-fill" style="width:48%;"></div></div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <div class="row">
+              <div style="font-size:13px;color:var(--gray2);">LinkedIn DMs sent</div>
+              <div style="font-size:13px;font-weight:700;color:var(--white);">8 / 20</div>
+            </div>
+            <div class="kpi-bar-wrap"><div class="kpi-bar-fill" style="width:40%;"></div></div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <div class="row">
+              <div style="font-size:13px;color:var(--gray2);">Content posts</div>
+              <div style="font-size:13px;font-weight:700;color:var(--white);">3 / 9</div>
+            </div>
+            <div class="kpi-bar-fill" style="display:none;"></div>
+            <div class="kpi-bar-wrap"><div class="kpi-bar-fill" style="width:33%;"></div></div>
+          </div>
+          <div>
+            <div class="row">
+              <div style="font-size:13px;color:var(--gray2);">Revenue goal</div>
+              <div style="font-size:13px;font-weight:700;color:var(--gold);">$0 / $10K</div>
+            </div>
+            <div class="kpi-bar-wrap"><div class="kpi-bar-fill red" style="width:0%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity feed -->
+      <div class="section-pad" style="margin-top:14px;margin-bottom:4px;">
+        <div class="section-label">Recent Activity</div>
+        <div class="card">
+          <div class="activity-item">
+            <div class="activity-dot">📱</div>
+            <div class="activity-content">
+              <div class="activity-text">New lead from <strong style="color:var(--white);">/app/</strong> — ROI Calculator (Automotive)</div>
+              <div class="activity-time">2 minutes ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">📅</div>
+            <div class="activity-content">
+              <div class="activity-text">Strategy call booked: <strong style="color:var(--white);">Sarah K.</strong> — Friday 10am</div>
+              <div class="activity-time">1 hour ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">💰</div>
+            <div class="activity-content">
+              <div class="activity-text">Proposal viewed: Marcus T. — $18K Automation Package (x3)</div>
+              <div class="activity-time">3 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">🤖</div>
+            <div class="activity-content">
+              <div class="activity-text">Atlas AI: 14 conversations today — 3 Calendly clicks</div>
+              <div class="activity-time">Today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /screen-cmd -->
+
+    <!-- ─── LEADS ─── -->
+    <div id="screen-leads" class="screen">
+      <div class="section-pad">
+        <div class="section-label">Lead Pipeline</div>
+        <div class="lead-filter-row" style="margin-bottom:12px;">
+          <div class="filter-chip active" onclick="filterLeads('all', this)">All (14)</div>
+          <div class="filter-chip" onclick="filterLeads('hot', this)">🔥 Hot (3)</div>
+          <div class="filter-chip" onclick="filterLeads('proposal', this)">Proposal (2)</div>
+          <div class="filter-chip" onclick="filterLeads('call', this)">Call Booked (4)</div>
+          <div class="filter-chip" onclick="filterLeads('new', this)">New (5)</div>
+        </div>
+
+        <div class="lead-list" id="full-lead-list">
+          <!-- All leads -->
+          <div class="lead-row" data-status="hot" onclick="openLead('marcus')">
+            <div class="lead-avatar">M</div>
+            <div class="lead-info">
+              <div class="lead-name">Marcus T. — Auto Supplier</div>
+              <div class="lead-meta">Romulus, MI · $18K · Proposal sent</div>
+            </div>
+            <div class="lead-actions">
+              <span class="badge badge-orange">Proposal</span>
+            </div>
+          </div>
+          <div class="lead-row" data-status="call" onclick="openLead('sarah')">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#6B21A8,#9333EA);">S</div>
+            <div class="lead-info">
+              <div class="lead-name">Sarah K. — Healthcare</div>
+              <div class="lead-meta">Grand Rapids · $12K · Call Fri 10am</div>
+            </div>
+            <div class="lead-actions">
+              <span class="badge badge-green">Call Booked</span>
+            </div>
+          </div>
+          <div class="lead-row" data-status="hot" onclick="openLead('james')">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#065F46,#059669);">J</div>
+            <div class="lead-info">
+              <div class="lead-name">James R. — Logistics</div>
+              <div class="lead-meta">Flint, MI · $22K · Discovery done</div>
+            </div>
+            <div class="lead-actions">
+              <span class="badge badge-orange">Proposal</span>
+            </div>
+          </div>
+          <div class="lead-row" data-status="call">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#7C2D12,#C2410C);">R</div>
+            <div class="lead-info">
+              <div class="lead-name">Robert V. — Construction GC</div>
+              <div class="lead-meta">Sterling Heights · $8K · Call Mon</div>
+            </div>
+            <div class="lead-actions">
+              <span class="badge badge-green">Call Booked</span>
+            </div>
+          </div>
+          <div class="lead-row" data-status="new">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#1E3A5F,#2C5282);">T</div>
+            <div class="lead-info">
+              <div class="lead-name">Tanya M. — Healthcare Admin</div>
+              <div class="lead-meta">Dearborn · $15K · ROI calc completed</div>
+            </div>
+            <div class="lead-actions">
+              <span class="badge badge-gray">New</span>
+            </div>
+          </div>
+          <div class="lead-row" data-status="new">
+            <div class="lead-avatar" style="background:linear-gradient(135deg,#1A1A2E,#16213E);">D</div>
+            <div class="lead-info">
+              <div class="lead-name">Derek O. — Auto Tier 2</div>
+              <div class="lead-meta">Warren · $24K · Atlas chat</div>
+            </div>
+            <div class="lead-actions">
+              <span class="badge badge-gray">New</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;padding:20px;">
+          <div style="font-size:12px;color:var(--gray3);margin-bottom:8px;">Connect HubSpot for live sync</div>
+          <a href="https://app.hubspot.com/contacts" target="_blank" rel="noopener" class="btn btn-ghost" style="width:auto;">Open HubSpot CRM →</a>
+        </div>
+
+      </div>
+    </div><!-- /screen-leads -->
+
+    <!-- ─── CONTENT ─── -->
+    <div id="screen-content" class="screen">
+      <div class="section-pad">
+        <div class="section-label">Post to Platforms</div>
+        <div class="platform-row" style="margin-bottom:16px;">
+          <a href="https://www.tiktok.com/upload" target="_blank" rel="noopener" class="platform-card">
+            <div class="platform-icon">🎵</div>
+            <div class="platform-name">TikTok</div>
+          </a>
+          <a href="https://www.instagram.com/reels/create" target="_blank" rel="noopener" class="platform-card">
+            <div class="platform-icon">📸</div>
+            <div class="platform-name">Instagram</div>
+          </a>
+          <a href="https://www.linkedin.com/feed" target="_blank" rel="noopener" class="platform-card">
+            <div class="platform-icon">💼</div>
+            <div class="platform-name">LinkedIn</div>
+          </a>
+          <a href="https://www.youtube.com/upload" target="_blank" rel="noopener" class="platform-card">
+            <div class="platform-icon">▶️</div>
+            <div class="platform-name">YouTube</div>
+          </a>
+        </div>
+
+        <!-- Content scripts ready to film -->
+        <div class="section-label">Scripts Ready to Film</div>
+
+        <div class="content-script">
+          <div class="script-platform">
+            <span class="platform-icon" style="font-size:18px;">🎵</span>
+            <span class="script-type-badge">TIKTOK REEL · 60s</span>
+            <span class="badge badge-gold" style="margin-left:auto;">TODAY</span>
+          </div>
+          <div class="script-title">Dispatcher saves 3 hours/day with AI</div>
+          <div class="script-hook">"Michigan trucking company — I want to show you something wild. This dispatcher used to spend 3 hours a day on phone calls. Now it's 18 minutes."</div>
+          <div class="script-btn-row">
+            <button class="btn btn-gold" style="flex:1;font-size:12px;" onclick="expandScript('tiktok-dispatch')">Full Script</button>
+            <a href="https://www.tiktok.com/upload" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;font-size:12px;">Post Now</a>
+          </div>
+        </div>
+
+        <div class="content-script">
+          <div class="script-platform">
+            <span class="platform-icon" style="font-size:18px;">📸</span>
+            <span class="script-type-badge">IG REEL · 30s</span>
+          </div>
+          <div class="script-title">OEM mandate — what Tier 2 suppliers don't know</div>
+          <div class="script-hook">"If you make parts for Ford, GM, or Stellantis, you need to see this. They've quietly started requiring AI readiness documentation from suppliers."</div>
+          <div class="script-btn-row">
+            <button class="btn btn-blue" style="flex:1;font-size:12px;" onclick="expandScript('ig-oem')">Full Script</button>
+            <a href="https://www.instagram.com/reels/create" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;font-size:12px;">Post Now</a>
+          </div>
+        </div>
+
+        <div class="content-script">
+          <div class="script-platform">
+            <span class="platform-icon" style="font-size:18px;">💼</span>
+            <span class="script-type-badge">LINKEDIN POST</span>
+          </div>
+          <div class="script-title">Michigan AI grant — most businesses are leaving $30K on the table</div>
+          <div class="script-hook">"Going PRO Talent Fund deadline is coming. Here's exactly how to apply and what qualifies…"</div>
+          <div class="script-btn-row">
+            <button class="btn btn-ghost" style="flex:1;font-size:12px;" onclick="expandScript('li-grant')">Full Post</button>
+            <a href="https://www.linkedin.com/feed" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;font-size:12px;">Post Now</a>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:6px;">Content Calendar — This Week</div>
+        <div class="card">
+          <div class="activity-item">
+            <div class="activity-dot">📅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--gold);">Mon</strong> — TikTok: Dispatcher saves 3 hrs/day</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">📅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--gold);">Wed</strong> — LinkedIn: Grant funding post + IG story</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">📅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--gold);">Fri</strong> — YouTube: "AI for Michigan manufacturers" (long form)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /screen-content -->
+
+    <!-- ─── TOOLS ─── -->
+    <div id="screen-tools" class="screen">
+      <div class="tool-section">
+        <div class="section-label">Business Stack</div>
+        <div class="tool-grid">
+          <a href="https://app.hubspot.com" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">🔶</div>
+            <div class="tool-name">HubSpot</div>
+            <div class="tool-desc">CRM · Pipeline</div>
+          </a>
+          <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">📅</div>
+            <div class="tool-name">Calendly</div>
+            <div class="tool-desc">Bookings · Schedule</div>
+          </a>
+          <a href="https://n8n.io" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">⚙️</div>
+            <div class="tool-name">n8n</div>
+            <div class="tool-desc">Automations</div>
+          </a>
+          <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">💳</div>
+            <div class="tool-name">Stripe</div>
+            <div class="tool-desc">Payments · Revenue</div>
+          </a>
+          <a href="https://app.pandadoc.com" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">📝</div>
+            <div class="tool-name">PandaDoc</div>
+            <div class="tool-desc">Proposals · Contracts</div>
+          </a>
+          <a href="https://app.instantly.ai" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">✉️</div>
+            <div class="tool-name">Instantly</div>
+            <div class="tool-desc">Cold email campaigns</div>
+          </a>
+          <a href="https://app.clay.com" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">🏺</div>
+            <div class="tool-name">Clay</div>
+            <div class="tool-desc">Prospect enrichment</div>
+          </a>
+          <a href="https://linear.app" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">🔷</div>
+            <div class="tool-name">Linear</div>
+            <div class="tool-desc">Project tracking</div>
+          </a>
+        </div>
+
+        <div class="section-label">AAIS Properties</div>
+        <div class="tool-grid">
+          <a href="https://americanaisolutionsllc.com" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">🌐</div>
+            <div class="tool-name">Main Site</div>
+            <div class="tool-desc">americanaisolutionsllc.com</div>
+          </a>
+          <a href="https://americanaisolutionsllc.com/app/" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">📱</div>
+            <div class="tool-name">Client App</div>
+            <div class="tool-desc">/app/ · Atlas AI</div>
+          </a>
+          <a href="https://americanaisolutionsllc.com/pay/" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">💰</div>
+            <div class="tool-name">Pay Page</div>
+            <div class="tool-desc">Stripe checkout</div>
+          </a>
+          <a href="https://americanaisolutionsllc.com/blog/" target="_blank" rel="noopener" class="tool-card">
+            <div class="tool-icon">📰</div>
+            <div class="tool-name">Blog</div>
+            <div class="tool-desc">7 SEO articles live</div>
+          </a>
+        </div>
+
+        <div class="section-label">Quick Actions</div>
+        <div class="action-grid">
+          <a href="sms:+13138063647" class="action-btn">
+            <span class="icon">💬</span>
+            <span class="label">Send Text</span>
+          </a>
+          <a href="mailto:david@americanaisolutionsllc.com" class="action-btn">
+            <span class="icon">✉️</span>
+            <span class="label">Send Email</span>
+          </a>
+          <a href="https://www.linkedin.com/messaging" target="_blank" rel="noopener" class="action-btn">
+            <span class="icon">💼</span>
+            <span class="label">LinkedIn DM</span>
+          </a>
+          <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="action-btn">
+            <span class="icon">📅</span>
+            <span class="label">Book Call</span>
+          </a>
+          <div class="action-btn" onclick="switchTab('scripts')">
+            <span class="icon">📋</span>
+            <span class="label">Sales Scripts</span>
+          </div>
+          <a href="https://americanaisolutionsllc.com/app/" target="_blank" rel="noopener" class="action-btn">
+            <span class="icon">🤖</span>
+            <span class="label">Atlas App</span>
+          </a>
+        </div>
+
+        <div style="height:8px;"></div>
+      </div>
+    </div><!-- /screen-tools -->
+
+    <!-- ─── SALES SCRIPTS ─── -->
+    <div id="screen-scripts" class="screen">
+      <div class="section-pad">
+
+        <div class="section-label">Cold Call Openers</div>
+
+        <div class="script-card">
+          <div class="script-header">
+            <div class="script-scenario">🏭 Auto Supplier Cold Call</div>
+            <span class="badge badge-gold">Proven</span>
+          </div>
+          <div style="font-size:12px;color:var(--gray3);margin-bottom:8px;">When they pick up:</div>
+          <div class="reframe-text">"Hey [Name], this is David with American AI Solutions out of Detroit. I'll be super quick — we work with Tier 2 and Tier 3 suppliers in Michigan helping them hit OEM AI readiness standards without spending a fortune. Do you have 90 seconds for me to tell you what that looks like?"</div>
+          <div class="divider"></div>
+          <div style="font-size:12px;color:var(--gray3);margin-bottom:8px;">If they say "we're not interested":</div>
+          <div class="reframe-text">"Totally respect that. Can I ask — is that because you've already got an AI plan, or because you haven't had time to look into it yet? I ask because most of the suppliers I talk to who say that end up being the ones who need it most before the next OEM audit."</div>
+        </div>
+
+        <div class="script-card">
+          <div class="script-header">
+            <div class="script-scenario">🏥 Healthcare Opener</div>
+          </div>
+          <div class="reframe-text">"Hi, is this [Name]? This is David from American AI Solutions — we help Michigan medical practices cut admin hours in half using HIPAA-compliant AI. I know your time is incredibly valuable, so I'll ask one question: how many hours a week is your team spending on prior auth and paperwork that isn't direct patient care?"</div>
+        </div>
+
+        <div class="section-label" style="margin-top:6px;">Objection Handlers</div>
+
+        <div class="script-card">
+          <div class="objection-text">"It's too expensive."</div>
+          <div class="reframe-text">"I hear that a lot before people see the math. Our average client saves $3,000 to $5,000 a month in labor — so the system pays for itself in 3 to 5 months. And Michigan's Going PRO grant can cut the upfront cost in half. Can I show you the numbers for your specific situation?"</div>
+        </div>
+
+        <div class="script-card">
+          <div class="objection-text">"We tried AI before and it didn't work."</div>
+          <div class="reframe-text">"Yeah — most of the 'AI' tools out there are just ChatGPT wrappers that don't connect to anything real. What we build is custom-integrated into your actual workflow — your tools, your data, your team. It's night and day different. What did you try before, out of curiosity?"</div>
+        </div>
+
+        <div class="script-card">
+          <div class="objection-text">"I need to think about it."</div>
+          <div class="reframe-text">"Completely fair. What would help you make a decision? Because usually 'I need to think about it' means one of two things — either the value isn't totally clear yet, or the timing isn't right. Which one is it for you?"</div>
+        </div>
+
+        <div class="script-card">
+          <div class="objection-text">"We don't have the technical staff for this."</div>
+          <div class="reframe-text">"Good news — you don't need any. We build it, we deploy it, we train your team, and we stay with you 30 days post-launch to make sure everything runs. Your team clicks buttons. We handle the engineering."</div>
+        </div>
+
+        <div class="section-label" style="margin-top:6px;">Closing Lines</div>
+        <div class="card">
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text">"Based on everything you've told me, the numbers make sense — and we have the bandwidth to start in the next two weeks. What would it take to get a yes today?"</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text">"I'm going to send over the proposal tonight. Fair warning — I only work with 3 new clients a month. Once those spots are gone, the next open slot is 8 weeks out."</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text">"The grant deadline is [date]. If we start the application now, we can get you 50% covered. If we wait, you pay full price. Your call."</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:8px;"></div>
+      </div>
+    </div><!-- /screen-scripts -->
+
+  </div><!-- /screens -->
+
+  <!-- TAB BAR -->
+  <nav id="tab-bar">
+    <button class="tab-btn active" id="tab-cmd" onclick="switchTab('cmd')">
+      <span class="tab-icon">⚡</span>
+      <span class="tab-label">Command</span>
+    </button>
+    <button class="tab-btn" id="tab-leads" onclick="switchTab('leads')">
+      <span class="tab-icon">👥</span>
+      <span class="tab-label">Leads</span>
+    </button>
+    <button class="tab-btn" id="tab-content" onclick="switchTab('content')">
+      <span class="tab-icon">🎬</span>
+      <span class="tab-label">Content</span>
+    </button>
+    <button class="tab-btn" id="tab-tools" onclick="switchTab('tools')">
+      <span class="tab-icon">🔧</span>
+      <span class="tab-label">Tools</span>
+    </button>
+    <button class="tab-btn" id="tab-scripts" onclick="switchTab('scripts')">
+      <span class="tab-icon">📋</span>
+      <span class="tab-label">Scripts</span>
+    </button>
+  </nav>
+
+</div><!-- /app -->
+
+<!-- LEAD DETAIL MODAL -->
+<div id="lead-modal" onclick="closeLead(event)">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div id="lead-modal-content"></div>
+  </div>
+</div>
+
+<!-- SCRIPT MODAL -->
+<div id="script-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:600;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 0.2s;">
+  <div style="flex:1;overflow-y:auto;padding:20px 16px 40px;padding-top:calc(20px + var(--safe-top));">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+      <div style="font-size:16px;font-weight:700;color:var(--white);" id="script-modal-title"></div>
+      <button onclick="closeScript()" style="background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--gray2);font-size:13px;cursor:pointer;">Close ✕</button>
+    </div>
+    <div id="script-modal-body" style="font-size:14px;color:var(--gray1);line-height:1.7;white-space:pre-line;"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// AUTH
+// ═══════════════════════════════════════════════
+const PIN = 'AAIS2026'; // Change this to David's actual PIN
+
+function checkAuth(val) {
+  if (val.length >= PIN.length) tryAuth();
+}
+
+function tryAuth() {
+  const pin = document.getElementById('auth-pin').value;
+  if (pin === PIN) {
+    document.getElementById('auth-gate').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    initApp();
+  } else {
+    document.getElementById('auth-error').classList.add('show');
+    document.getElementById('auth-pin').value = '';
+    setTimeout(() => document.getElementById('auth-error').classList.remove('show'), 2000);
+  }
+}
+
+// Allow Enter key
+document.getElementById('auth-pin').addEventListener('keydown', e => {
+  if (e.key === 'Enter') tryAuth();
+});
+
+// ═══════════════════════════════════════════════
+// APP INIT
+// ═══════════════════════════════════════════════
+function initApp() {
+  setGreeting();
+  setFakeMetrics();
+}
+
+function setGreeting() {
+  const h = new Date().getHours();
+  const greet = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
+  document.getElementById('time-greeting').textContent = greet;
+}
+
+function setFakeMetrics() {
+  // These would be live from HubSpot/Stripe in production
+  // For now using realistic sample data
+  document.getElementById('mtd-rev').textContent = '$4,500';
+  document.getElementById('pipe-val').textContent = '$54K';
+  document.getElementById('open-leads').textContent = '14';
+  document.getElementById('calls-booked').textContent = '5';
+  document.getElementById('goal-pct').textContent = '45%';
+}
+
+// ═══════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════
+const SCREENS = ['cmd', 'leads', 'content', 'tools', 'scripts'];
+let currentScreen = 'cmd';
+
+function switchTab(name) {
+  SCREENS.forEach(s => {
+    document.getElementById('screen-' + s).classList.toggle('active', s === name);
+    const tab = document.getElementById('tab-' + s);
+    if (tab) tab.classList.toggle('active', s === name);
+  });
+  document.getElementById('screen-' + name).scrollTop = 0;
+  currentScreen = name;
+}
+
+// ═══════════════════════════════════════════════
+// LEAD MODAL
+// ═══════════════════════════════════════════════
+const LEADS = {
+  marcus: {
+    name: 'Marcus T.', company: 'Auto Supplier', location: 'Romulus, MI',
+    phone: '+15867773344', email: 'marcus@example.com',
+    deal: '$18,000', stage: 'Proposal Sent', vertical: 'Automotive',
+    notes: 'OEM compliance pain — Ford audit in 3 months. Ready to move but waiting on budget approval. Follow up on his decision by Friday.',
+    lastContact: '2 days ago'
+  },
+  sarah: {
+    name: 'Sarah K.', company: 'Healthcare Practice', location: 'Grand Rapids, MI',
+    phone: '+15861234567', email: 'sarah@example.com',
+    deal: '$12,000', stage: 'Call Booked — Friday 10am', vertical: 'Healthcare',
+    notes: 'Admin team spending 15 hrs/week on prior auth. HIPAA-compliant requirement. Practice has 8 providers.',
+    lastContact: '1 day ago'
+  },
+  james: {
+    name: 'James R.', company: 'Logistics Fleet', location: 'Flint, MI',
+    phone: '+15869876543', email: 'james@example.com',
+    deal: '$22,000', stage: 'Discovery Complete', vertical: 'Logistics',
+    notes: '48 trucks, dispatch team of 4. Deadhead miles at 22%. Wants dispatch AI + route optimization. Budget approved.',
+    lastContact: '4 hours ago'
+  }
+};
+
+function openLead(id) {
+  const l = LEADS[id];
+  if (!l) return;
+  document.getElementById('lead-modal-content').innerHTML = `
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+      <div class="lead-avatar" style="width:52px;height:52px;font-size:22px;">${l.name[0]}</div>
+      <div>
+        <div style="font-size:18px;font-weight:700;color:var(--white);">${l.name}</div>
+        <div style="font-size:13px;color:var(--gray3);">${l.company} · ${l.location}</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+      <div class="rev-chip"><div class="rev-chip-label">Deal Value</div><div class="rev-chip-value gold">${l.deal}</div></div>
+      <div class="rev-chip"><div class="rev-chip-label">Vertical</div><div class="rev-chip-value">${l.vertical}</div></div>
+      <div class="rev-chip"><div class="rev-chip-label">Stage</div><div class="rev-chip-value" style="font-size:11px;">${l.stage}</div></div>
+      <div class="rev-chip"><div class="rev-chip-label">Last Contact</div><div class="rev-chip-value" style="font-size:12px;">${l.lastContact}</div></div>
+    </div>
+    <div class="card" style="margin-bottom:12px;">
+      <div class="section-label" style="margin-bottom:8px;">Notes</div>
+      <div style="font-size:13px;color:var(--gray2);line-height:1.6;">${l.notes}</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+      <a href="tel:${l.phone}" class="btn btn-gold" style="font-size:12px;padding:12px;">📞 Call</a>
+      <a href="sms:${l.phone}" class="btn btn-ghost" style="font-size:12px;padding:12px;">💬 Text</a>
+      <a href="mailto:${l.email}" class="btn btn-ghost" style="font-size:12px;padding:12px;">✉️ Email</a>
+    </div>
+  `;
+  document.getElementById('lead-modal').classList.add('open');
+}
+
+function closeLead(e) {
+  if (e.target === document.getElementById('lead-modal')) {
+    document.getElementById('lead-modal').classList.remove('open');
+  }
+}
+
+// ═══════════════════════════════════════════════
+// LEAD FILTERING
+// ═══════════════════════════════════════════════
+function filterLeads(status, el) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#full-lead-list .lead-row').forEach(row => {
+    if (status === 'all') { row.style.display = 'flex'; return; }
+    row.style.display = row.dataset.status === status ? 'flex' : 'none';
+  });
+}
+
+// ═══════════════════════════════════════════════
+// CONTENT SCRIPTS
+// ═══════════════════════════════════════════════
+const SCRIPTS = {
+  'tiktok-dispatch': {
+    title: '🎵 TikTok: Dispatcher saves 3 hrs/day',
+    body: `HOOK (0-3s): [Point at camera] "Michigan trucking company — I want to show you something wild."
+
+PROBLEM (3-15s): "This dispatcher — real guy, 48 trucks — used to spend 3 hours every single morning on the phone. Routing calls. Checking driver availability. Manually updating load boards. 3 hours. Every. Single. Day."
+
+BUILD (15-35s): "We built him a custom AI dispatch system. Now? 18 minutes. Same work. Same quality. 18 minutes. And his deadhead miles dropped 28% in the first 60 days — that's real money in this industry."
+
+CTA (35-60s): "This isn't ChatGPT. This isn't some app you download. This is a custom system built into HIS workflow, HIS data, HIS team. If you run a fleet in Michigan and you're still doing this manually, DM me 'DISPATCH' and I'll show you the math on your specific operation."
+
+CAPTION: Michigan fleet AI dispatch | AI automation Michigan | trucking technology | dispatch optimization #Michigan #AIautomation #trucking #logistics #smallbusiness #dispatch`
+  },
+  'ig-oem': {
+    title: '📸 IG Reel: OEM AI mandate',
+    body: `HOOK (0-3s): "If you make parts for Ford, GM, or Stellantis — stop what you're doing."
+
+PROBLEM (3-12s): "They've quietly started requiring AI readiness documentation from suppliers. Not announced. Not in the news. But it's in the 2025 supplier scorecards and audits."
+
+SOLUTION (12-25s): "We help Tier 2 and Tier 3 Michigan suppliers get AI-ready before the audit — not after. Quality documentation, traceability, defect detection. The whole stack."
+
+PROOF (25-40s): "One client went from 12 quality incidents to 2 in their first quarter. Their OEM scorecard went green for the first time in 3 years."
+
+CTA (40-60s): "Comment 'OEM' below or visit americanaisolutionsllc.com for a free analysis of where you stand."
+
+CAPTION: Michigan auto supplier AI | OEM audit readiness | Tier 2 AI | automotive quality AI | Michigan manufacturing #AutomotiveAI #Michigan #OEM #manufacturing #tier2supplier`
+  },
+  'li-grant': {
+    title: '💼 LinkedIn: Michigan AI Grant Post',
+    body: `Michigan manufacturers: you're leaving free money on the table.
+
+The Going PRO Talent Fund has $6 million set aside specifically for AI training and implementation.
+
+Here's exactly what qualifies:
+✅ AI workflow training for your team
+✅ Custom AI implementation costs
+✅ Process automation documentation
+✅ Technology integration (n8n, custom dashboards, etc.)
+
+The math: if your AI project costs $20,000 — you could get $10,000 back.
+
+Most businesses I talk to have never heard of this. Their competitors have.
+
+The application is simpler than you think, and I walk clients through it personally.
+
+If you're a Michigan manufacturer, trucking company, healthcare practice, or contractor — DM me "GRANT" and I'll tell you in 5 minutes whether you qualify.
+
+The next funding cycle closes soon.
+
+Don't pay full price for something the state will pay half of.
+
+—David Calderon
+Founder, American AI Solutions
+(313) 806-3647 | americanaisolutionsllc.com`
+  }
+};
+
+function expandScript(id) {
+  const s = SCRIPTS[id];
+  if (!s) return;
+  document.getElementById('script-modal-title').textContent = s.title;
+  document.getElementById('script-modal-body').textContent = s.body;
+  const m = document.getElementById('script-modal');
+  m.style.opacity = '1';
+  m.style.pointerEvents = 'all';
+}
+
+function closeScript() {
+  const m = document.getElementById('script-modal');
+  m.style.opacity = '0';
+  m.style.pointerEvents = 'none';
+}
+
+function showCalendly() {
+  window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
+}
+</script>
+
+</body>
+</html>
