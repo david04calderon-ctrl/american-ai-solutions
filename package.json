@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && for d in blog dashboard privacy terms resources thank-you pay; do [ -d \"$d\" ] && cp -r \"$d\" dist/; done",
+    "build": "vite build && for d in blog dashboard privacy terms resources thank-you pay app owner report start testimonial lp services industries; do [ -d \"$d\" ] && cp -r \"$d\" dist/; done",
     "preview": "vite preview"
   },
   "dependencies": {
