@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0D1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AAIS">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="American AI Solutions — AI automation for Michigan businesses. Get your custom ROI estimate, chat with Atlas AI, and book your free strategy call.">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <title>AAIS — American AI Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #0D1117;
+      --dark2: #101825;
+      --dark3: #0A0E14;
+      --gold: #FFD700;
+      --gold2: #FFC107;
+      --gold-dim: rgba(255,215,0,0.12);
+      --gold-border: rgba(255,215,0,0.25);
+      --blue: #1A3A8F;
+      --blue-light: #2251CF;
+      --cyan: #00D4FF;
+      --white: #FFFFFF;
+      --gray1: #E8EBF0;
+      --gray2: #B0B8C8;
+      --gray3: #6B7694;
+      --border: rgba(255,255,255,0.08);
+      --border2: rgba(255,255,255,0.04);
+      --card-bg: rgba(16,24,37,0.9);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --nav-h: 64px;
+      --tab-h: calc(64px + var(--safe-bottom));
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--dark3);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+
+    /* ── APP SHELL ── */
+    #app {
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── TOP NAV ── */
+    #top-nav {
+      flex-shrink: 0;
+      height: calc(var(--nav-h) + var(--safe-top));
+      padding-top: var(--safe-top);
+      background: rgba(13,17,23,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 20px;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--gold);
+    }
+
+    .nav-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.2px;
+    }
+
+    .nav-subtitle {
+      font-size: 10px;
+      color: var(--gray3);
+      margin-top: 1px;
+    }
+
+    .nav-badge {
+      background: var(--gold);
+      color: var(--dark3);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── SCREENS ── */
+    #screens {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      pointer-events: none;
+      padding-bottom: calc(var(--tab-h) + 12px);
+    }
+
+    .screen.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    /* ── BOTTOM TAB BAR ── */
+    #tab-bar {
+      flex-shrink: 0;
+      height: var(--tab-h);
+      padding-bottom: var(--safe-bottom);
+      background: rgba(10,14,20,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 100;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 4px 4px;
+      color: var(--gray3);
+      transition: color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tab-btn.active { color: var(--gold); }
+
+    .tab-icon {
+      font-size: 22px;
+      line-height: 1;
+      transition: transform 0.15s;
+    }
+
+    .tab-btn.active .tab-icon { transform: scale(1.1); }
+
+    .tab-label {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      padding: 24px 20px 16px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      line-height: 1.15;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--gray2);
+      margin-top: 8px;
+      line-height: 1.55;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .card-gold {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,193,7,0.05));
+      border-color: var(--gold-border);
+    }
+
+    .card-blue {
+      background: linear-gradient(135deg, rgba(26,58,143,0.4), rgba(34,81,207,0.15));
+      border-color: rgba(26,58,143,0.5);
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 24px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      width: 100%;
+      letter-spacing: -0.1px;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark3);
+    }
+
+    .btn-gold:hover { background: #FFC107; transform: translateY(-1px); }
+    .btn-gold:active { transform: scale(0.97); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-outline:active { transform: scale(0.97); }
+
+    .btn-blue {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-sm {
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: 10px;
+    }
+
+    /* ── PILL TAGS ── */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.07);
+      color: var(--gray2);
+    }
+
+    .pill-gold { background: var(--gold-dim); color: var(--gold); }
+    .pill-green { background: rgba(0,200,100,0.12); color: #00C864; }
+    .pill-blue { background: rgba(26,58,143,0.25); color: #7BA3FF; }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 1 — HOME
+    ═══════════════════════════════════════════ */
+    #screen-home { background: var(--dark3); }
+
+    .hero-banner {
+      margin: 16px;
+      padding: 28px 20px;
+      background: linear-gradient(135deg, #0A1628 0%, #0D1B35 50%, #091020 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(26,58,143,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00C864;
+      box-shadow: 0 0 8px rgba(0,200,100,0.6);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .hero-status-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: #00C864;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -0.8px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .hero-h1 span { color: var(--gold); }
+
+    .hero-p {
+      font-size: 14px;
+      color: var(--gray2);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 0 16px 16px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--gray3);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    /* Quick action cards */
+    .quick-actions {
+      margin: 0 16px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .qa-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+      text-decoration: none;
+      display: block;
+    }
+
+    .qa-card:active { transform: scale(0.97); }
+
+    .qa-card-wide {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(26,58,143,0.35), rgba(34,81,207,0.15));
+      border-color: rgba(26,58,143,0.5);
+    }
+
+    .qa-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .qa-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .qa-desc {
+      font-size: 11px;
+      color: var(--gray3);
+      line-height: 1.4;
+    }
+
+    .qa-arrow {
+      float: right;
+      color: var(--gold);
+      font-size: 16px;
+      margin-top: -2px;
+    }
+
+    /* Proof section */
+    .proof-section {
+      margin: 0 16px 16px;
+    }
+
+    .proof-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray3);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .testimonial-scroll::-webkit-scrollbar { display: none; }
+
+    .testi-card {
+      flex-shrink: 0;
+      width: 240px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .testi-stars {
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .testi-quote {
+      font-size: 13px;
+      color: var(--gray1);
+      line-height: 1.5;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .testi-author {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gray3);
+    }
+
+    /* Scarcity bar */
+    .scarcity-bar {
+      margin: 0 16px 16px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,193,7,0.04));
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scarcity-icon { font-size: 22px; }
+
+    .scarcity-text {
+      flex: 1;
+    }
+
+    .scarcity-top {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .scarcity-bottom {
+      font-size: 11px;
+      color: var(--gray3);
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 2 — ATLAS CHAT
+    ═══════════════════════════════════════════ */
+    #screen-chat {
+      display: flex;
+      flex-direction: column;
+      background: var(--dark3);
+      padding-bottom: 0 !important;
+    }
+
+    .chat-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+      background: rgba(13,17,23,0.8);
+    }
+
+    .atlas-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1A3A8F, #2251CF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .atlas-online {
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00C864;
+      border: 2px solid var(--dark3);
+      box-shadow: 0 0 6px rgba(0,200,100,0.5);
+    }
+
+    .atlas-info { flex: 1; }
+
+    .atlas-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .atlas-status {
+      font-size: 11px;
+      color: #00C864;
+      margin-top: 1px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .msg {
+      max-width: 82%;
+      animation: msg-in 0.2s ease;
+    }
+
+    @keyframes msg-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-atlas { align-self: flex-start; }
+    .msg-user { align-self: flex-end; }
+
+    .msg-bubble {
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .msg-atlas .msg-bubble {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--gray1);
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-user .msg-bubble {
+      background: var(--blue);
+      color: var(--white);
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg-time {
+      font-size: 10px;
+      color: var(--gray3);
+      margin-top: 4px;
+      padding: 0 4px;
+    }
+
+    .msg-user .msg-time { text-align: right; }
+
+    /* Chat options (quick reply buttons) */
+    .chat-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .chat-opt-btn {
+      background: rgba(26,58,143,0.25);
+      border: 1.5px solid rgba(26,58,143,0.5);
+      color: #7BA3FF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .chat-opt-btn:hover, .chat-opt-btn:active {
+      background: rgba(26,58,143,0.5);
+      border-color: var(--blue-light);
+      transform: scale(0.97);
+    }
+
+    .chat-opt-btn.selected {
+      background: var(--blue);
+      border-color: var(--blue-light);
+      color: var(--white);
+    }
+
+    /* ROI result bubble */
+    .roi-result-bubble {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,193,7,0.05));
+      border: 1.5px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 4px;
+    }
+
+    .roi-result-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .roi-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border2);
+      font-size: 13px;
+    }
+
+    .roi-line:last-child { border-bottom: none; }
+
+    .roi-line-label { color: var(--gray3); }
+    .roi-line-value { color: var(--white); font-weight: 600; }
+    .roi-line-value.highlight { color: var(--gold); font-size: 16px; }
+
+    .roi-cta-row {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      border-bottom-left-radius: 4px;
+      width: fit-content;
+    }
+
+    .typing-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gray3);
+      animation: typing 1.2s infinite;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    /* Chat input */
+    .chat-input-area {
+      flex-shrink: 0;
+      padding: 12px 16px;
+      padding-bottom: calc(12px + var(--safe-bottom));
+      border-top: 1px solid var(--border);
+      background: rgba(13,17,23,0.95);
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 11px 16px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      resize: none;
+      max-height: 100px;
+      line-height: 1.4;
+    }
+
+    .chat-input::placeholder { color: var(--gray3); }
+    .chat-input:focus { border-color: rgba(255,255,255,0.2); }
+
+    .chat-send-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .chat-send-btn:active { transform: scale(0.93); }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 3 — ROI CALCULATOR
+    ═══════════════════════════════════════════ */
+    #screen-calc { background: var(--dark3); }
+
+    .calc-vertical-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0 16px 20px;
+    }
+
+    .vertical-btn {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+      text-align: center;
+    }
+
+    .vertical-btn.selected {
+      background: rgba(26,58,143,0.3);
+      border-color: var(--blue-light);
+    }
+
+    .vertical-btn:active { transform: scale(0.96); }
+
+    .v-icon { font-size: 28px; margin-bottom: 8px; }
+    .v-name { font-size: 13px; font-weight: 600; color: var(--white); }
+    .v-desc { font-size: 10px; color: var(--gray3); margin-top: 3px; }
+
+    /* Input fields */
+    .calc-form { margin: 0 16px 20px; }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--gray3);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus { border-color: rgba(255,255,255,0.25); }
+    .form-input::placeholder { color: var(--gray3); }
+
+    .form-select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 16px;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%236B7694' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+
+    .form-select option { background: #1A2030; color: var(--white); }
+
+    /* Results panel */
+    .calc-results {
+      margin: 0 16px 16px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(26,58,143,0.1) 100%);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 18px;
+      display: none;
+    }
+
+    .calc-results.visible { display: block; }
+
+    .result-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.3px;
+    }
+
+    .result-headline span { color: var(--gold); }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .result-box {
+      background: rgba(13,17,23,0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .result-box-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: -0.5px;
+    }
+
+    .result-box-label {
+      font-size: 10px;
+      color: var(--gray3);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    .grant-callout {
+      background: rgba(0,200,100,0.08);
+      border: 1px solid rgba(0,200,100,0.2);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .grant-callout-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #00C864;
+      margin-bottom: 4px;
+    }
+
+    .grant-callout-text {
+      font-size: 12px;
+      color: var(--gray2);
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════════════════
+       SCREEN 4 — BOOK CALL
+    ═══════════════════════════════════════════ */
+    #screen-book { background: var(--dark3); }
+
+    .book-hero {
+      margin: 16px;
+      padding: 28px 20px;
+      background: linear-gradient(135deg, #0A1628, #0D1B35);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .book-emoji { font-size: 48px; margin-bottom: 16px; }
+
+    .book-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .book-title span { color: var(--gold); }
+
+    .book-sub {
+      font-size: 14px;
+      color: var(--gray2);
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .book-includes {
+      margin: 0 16px 16px;
+    }
+
+    .book-includes-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray3);
+      margin-bottom: 12px;
+    }
+
+    .include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .include-item:last-child { border-bottom: none; }
+
+    .include-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .include-content { flex: 1; }
+
+    .include-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .include-desc {
+      font-size: 12px;
+      color: var(--gray3);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .contact-methods {
+      margin: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+
+    .contact-method:active { transform: scale(0.98); }
+
+    .method-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .method-info { flex: 1; }
+
+    .method-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .method-value {
+      font-size: 12px;
+      color: var(--gray3);
+      margin-top: 2px;
+    }
+
+    .method-arrow {
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    /* ═══════════════════════════════════════════
+       SHARED / UTILITY
+    ═══════════════════════════════════════════ */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 4px 16px 16px;
+    }
+
+    .section-pad { margin: 0 16px 16px; }
+
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: calc(var(--tab-h) + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(26,58,143,0.95);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 999;
+      border: 1px solid rgba(34,81,207,0.6);
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Notification banner */
+    .notif-banner {
+      margin: 12px 16px 4px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(26,58,143,0.08));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .notif-icon { font-size: 22px; flex-shrink: 0; }
+    .notif-text { flex: 1; font-size: 12px; color: var(--gray2); line-height: 1.4; }
+    .notif-text strong { color: var(--cyan); }
+    .notif-dismiss { font-size: 14px; color: var(--gray3); cursor: pointer; padding: 4px; flex-shrink: 0; }
+
+    /* Scrollbar for desktop */
+    @media (pointer: fine) {
+      .chat-messages::-webkit-scrollbar { width: 4px; }
+      .chat-messages::-webkit-scrollbar-track { background: transparent; }
+      .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+      .screen::-webkit-scrollbar { width: 4px; }
+      .screen::-webkit-scrollbar-track { background: transparent; }
+      .screen::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 480px) {
+      .hero-h1 { font-size: 34px; }
+      .section-title { font-size: 28px; }
+    }
+
+    @media (min-width: 768px) {
+      #app { max-width: 430px; margin: 0 auto; box-shadow: 0 0 80px rgba(0,0,0,0.5); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- TOP NAV -->
+  <nav id="top-nav">
+    <div class="nav-brand">
+      <div class="nav-logo">AI</div>
+      <div>
+        <div class="nav-title">American AI</div>
+        <div class="nav-subtitle">Solutions LLC · Detroit, MI</div>
+      </div>
+    </div>
+    <div class="nav-badge">FREE CALL</div>
+  </nav>
+
+  <!-- SCREENS -->
+  <div id="screens">
+
+    <!-- ─── SCREEN 1: HOME ─── -->
+    <div id="screen-home" class="screen active">
+
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-eyebrow">
+          <div class="hero-dot"></div>
+          <span class="hero-status-text">Atlas AI · Online Now</span>
+        </div>
+        <h1 class="hero-h1">We build AI that<br><span>makes you money.</span></h1>
+        <p class="hero-p">Michigan businesses we work with see ROI within 90 days. No fluff. No offshore teams. Real results, Detroit-built.</p>
+        <div class="hero-cta-row">
+          <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="btn btn-gold">
+            📅 Book Free Strategy Call
+          </a>
+          <button class="btn btn-outline" onclick="switchTab('chat')">
+            💬 Chat with Atlas AI
+          </button>
+        </div>
+      </div>
+
+      <!-- Scarcity Bar -->
+      <div class="scarcity-bar">
+        <span class="scarcity-icon">⚡</span>
+        <div class="scarcity-text">
+          <div class="scarcity-top">Only 2 spots open this month</div>
+          <div class="scarcity-bottom">We limit intake to guarantee results for every client</div>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num">$2.4M+</div>
+          <div class="stat-label">Revenue unlocked for clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">90</div>
+          <div class="stat-label">Days to measurable ROI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Michigan-built & supported</div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <div class="qa-card" onclick="switchTab('calc')">
+          <span class="qa-icon">🧮</span>
+          <div class="qa-title">ROI Calculator</div>
+          <div class="qa-desc">See your exact savings in 60 seconds</div>
+        </div>
+        <div class="qa-card" onclick="switchTab('book')">
+          <span class="qa-icon">📞</span>
+          <div class="qa-title">Book a Call</div>
+          <div class="qa-desc">Free 30-min strategy session</div>
+        </div>
+        <div class="qa-card qa-card-wide" onclick="switchTab('chat')">
+          <span class="qa-arrow">→</span>
+          <span class="qa-icon">🤖</span>
+          <div class="qa-title">Chat with Atlas — Your AI Advisor</div>
+          <div class="qa-desc">Get answers, see your personalized ROI, and get matched to the right AI solution for your business. Available 24/7.</div>
+        </div>
+      </div>
+
+      <!-- Grant Callout -->
+      <div class="section-pad">
+        <div class="card card-gold">
+          <div class="section-eyebrow">Michigan Grant Funding</div>
+          <div style="font-size:15px;font-weight:600;color:var(--white);margin-bottom:8px;">50% of your AI project could be covered</div>
+          <div style="font-size:13px;color:var(--gray2);line-height:1.5;margin-bottom:14px;">The <strong style="color:var(--gold)">Going PRO Talent Fund</strong> and <strong style="color:var(--gold)">Industry 4.0 Tech Grant</strong> reimburse Michigan businesses for AI training and implementation costs.</div>
+          <button class="btn btn-gold btn-sm" onclick="switchTab('chat')">Get Grant Analysis →</button>
+        </div>
+      </div>
+
+      <!-- Social Proof -->
+      <div class="proof-section">
+        <div class="proof-title" style="padding:0 16px;">What Michigan Businesses Say</div>
+        <div class="testimonial-scroll" style="padding:0 16px 8px;">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"We cut our quoting time from 3 days to 4 hours. The ROI was there in 6 weeks."</div>
+            <div class="testi-author">Operations Manager · Tier 2 Auto Supplier, Metro Detroit</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"HIPAA-compliant, works with our EHR, and our admin hours dropped 40%. Real solution."</div>
+            <div class="testi-author">Practice Owner · Healthcare, Grand Rapids</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"Dispatch went from chaos to clockwork. Deadhead miles down 28% in 60 days."</div>
+            <div class="testi-author">Fleet Manager · Logistics, Flint</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Tease -->
+      <div class="section-pad">
+        <div class="card card-blue">
+          <div class="section-eyebrow">What We Build</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-size:20px;">⚙️</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--white)">Workflow Automation</div>
+                <div style="font-size:11px;color:var(--gray3)">n8n + Claude AI + your existing tools</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-size:20px;">🤖</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--white)">AI Agents & Chatbots</div>
+                <div style="font-size:11px;color:var(--gray3)">24/7 customer intake, lead qualification</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-size:20px;">📊</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--white)">Custom AI Dashboards</div>
+                <div style="font-size:11px;color:var(--gray3)">Real-time data, zero manual reporting</div>
+              </div>
+            </div>
+          </div>
+          <a href="https://americanaisolutionsllc.com" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px;font-size:13px;">View Full Services →</a>
+        </div>
+      </div>
+
+    </div><!-- /screen-home -->
+
+    <!-- ─── SCREEN 2: ATLAS CHAT ─── -->
+    <div id="screen-chat" class="screen">
+      <div class="chat-header">
+        <div class="atlas-avatar">
+          🤖
+          <div class="atlas-online"></div>
+        </div>
+        <div class="atlas-info">
+          <div class="atlas-name">Atlas AI</div>
+          <div class="atlas-status">● Online · Responds instantly</div>
+        </div>
+        <button class="btn btn-sm btn-outline" style="width:auto;padding:8px 14px;font-size:12px;" onclick="resetChat()">New Chat</button>
+      </div>
+
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <div class="chat-input-area">
+        <textarea class="chat-input" id="chatInput" placeholder="Ask Atlas anything..." rows="1" onkeydown="handleChatKey(event)" oninput="autoGrow(this)"></textarea>
+        <button class="chat-send-btn" onclick="sendUserMessage()">➤</button>
+      </div>
+    </div><!-- /screen-chat -->
+
+    <!-- ─── SCREEN 3: ROI CALCULATOR ─── -->
+    <div id="screen-calc" class="screen">
+      <div class="section-header">
+        <div class="section-eyebrow">ROI Calculator</div>
+        <h2 class="section-title">Your AI<br>payback number</h2>
+        <p class="section-sub">Plug in your numbers and see exactly what AI automation is worth to your business — including Michigan grant funding.</p>
+      </div>
+
+      <!-- Vertical selector -->
+      <div class="calc-vertical-grid">
+        <div class="vertical-btn" onclick="selectVertical('auto', this)">
+          <div class="v-icon">🏭</div>
+          <div class="v-name">Automotive</div>
+          <div class="v-desc">Tier 2/3 OEM suppliers</div>
+        </div>
+        <div class="vertical-btn" onclick="selectVertical('health', this)">
+          <div class="v-icon">🏥</div>
+          <div class="v-name">Healthcare</div>
+          <div class="v-desc">Clinics & practices</div>
+        </div>
+        <div class="vertical-btn" onclick="selectVertical('logistics', this)">
+          <div class="v-icon">🚛</div>
+          <div class="v-name">Logistics</div>
+          <div class="v-desc">Fleet & dispatch</div>
+        </div>
+        <div class="vertical-btn" onclick="selectVertical('construction', this)">
+          <div class="v-icon">🏗️</div>
+          <div class="v-name">Construction</div>
+          <div class="v-desc">GCs & specialty trades</div>
+        </div>
+      </div>
+
+      <!-- Inputs -->
+      <div class="calc-form" id="calcForm" style="display:none;">
+        <label class="form-label" id="input1-label">Number of employees</label>
+        <input class="form-input" id="input1" type="number" placeholder="e.g. 45" min="1" oninput="calculateROI()">
+
+        <label class="form-label" id="input2-label">Annual revenue ($)</label>
+        <input class="form-input" id="input2" type="number" placeholder="e.g. 2500000" min="0" oninput="calculateROI()">
+
+        <label class="form-label">Hours/week spent on manual data entry</label>
+        <input class="form-input" id="input3" type="number" placeholder="e.g. 20" min="0" oninput="calculateROI()">
+
+        <label class="form-label">Average hourly rate for that work ($)</label>
+        <input class="form-input" id="input4" type="number" placeholder="e.g. 35" min="0" oninput="calculateROI()">
+      </div>
+
+      <!-- Results panel -->
+      <div class="calc-results" id="calcResults">
+        <div class="result-headline">You could save <span id="res-annual">$0</span> per year</div>
+
+        <div class="result-grid">
+          <div class="result-box">
+            <div class="result-box-num" id="res-monthly">$0</div>
+            <div class="result-box-label">Monthly labor savings</div>
+          </div>
+          <div class="result-box">
+            <div class="result-box-num" id="res-hours">0 hrs</div>
+            <div class="result-box-label">Hours reclaimed/week</div>
+          </div>
+          <div class="result-box">
+            <div class="result-box-num" id="res-payback">0 mo</div>
+            <div class="result-box-label">Estimated payback period</div>
+          </div>
+          <div class="result-box">
+            <div class="result-box-num" id="res-roi">0%</div>
+            <div class="result-box-label">First-year ROI</div>
+          </div>
+        </div>
+
+        <div class="grant-callout" id="grantCallout">
+          <div class="grant-callout-title">🎯 Michigan Grant Opportunity</div>
+          <div class="grant-callout-text" id="grantText">You may qualify for up to 50% reimbursement on AI implementation through the Going PRO Talent Fund or Industry 4.0 Tech Grant.</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="btn btn-gold">
+            📅 Get My Custom Plan — Free
+          </a>
+          <button class="btn btn-outline" onclick="switchTab('chat')">
+            💬 Ask Atlas a Question
+          </button>
+        </div>
+      </div>
+
+      <div style="height:8px;"></div>
+    </div><!-- /screen-calc -->
+
+    <!-- ─── SCREEN 4: BOOK ─── -->
+    <div id="screen-book" class="screen">
+      <div class="book-hero">
+        <div class="book-emoji">🗓️</div>
+        <h2 class="book-title">30 Minutes.<br><span>Zero Obligation.</span></h2>
+        <p class="book-sub">A direct conversation with David Calderon, Founder & CEO. We'll map your biggest pain to an AI solution, estimate your ROI, and check your grant eligibility — all in 30 minutes.</p>
+        <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:16px;">
+          Reserve Your Spot Now →
+        </a>
+      </div>
+
+      <!-- Scarcity -->
+      <div class="scarcity-bar" style="margin:0 16px 16px;">
+        <span class="scarcity-icon">🔥</span>
+        <div class="scarcity-text">
+          <div class="scarcity-top">Only 2 strategy calls left this month</div>
+          <div class="scarcity-bottom">We maintain a small client roster to deliver exceptional results</div>
+        </div>
+      </div>
+
+      <!-- What's included -->
+      <div class="book-includes">
+        <div class="book-includes-title">What happens on the call</div>
+        <div class="include-item">
+          <span class="include-icon">🎯</span>
+          <div class="include-content">
+            <div class="include-title">Pain Point Diagnosis</div>
+            <div class="include-desc">We identify exactly where you're losing time and money — specific, not generic.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="include-icon">💡</span>
+          <div class="include-content">
+            <div class="include-title">Custom AI Roadmap</div>
+            <div class="include-desc">You leave with a concrete plan, not a pitch deck. What to build, in what order, why.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="include-icon">💰</span>
+          <div class="include-content">
+            <div class="include-title">ROI Estimate</div>
+            <div class="include-desc">Real numbers based on your business — labor savings, revenue capture, payback timeline.</div>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="include-icon">🎁</span>
+          <div class="include-content">
+            <div class="include-title">Grant Funding Check</div>
+            <div class="include-desc">We check if Going PRO or Industry 4.0 covers up to 50% of your project costs.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Contact methods -->
+      <div class="contact-methods">
+        <div class="book-includes-title" style="padding:0 16px 4px;">Or reach out directly</div>
+
+        <a href="tel:+13138063647" class="contact-method">
+          <span class="method-icon">📞</span>
+          <div class="method-info">
+            <div class="method-label">Call David</div>
+            <div class="method-value">(313) 806-3647</div>
+          </div>
+          <span class="method-arrow">→</span>
+        </a>
+
+        <a href="mailto:david@americanaisolutionsllc.com" class="contact-method">
+          <span class="method-icon">✉️</span>
+          <div class="method-info">
+            <div class="method-label">Email</div>
+            <div class="method-value">david@americanaisolutionsllc.com</div>
+          </div>
+          <span class="method-arrow">→</span>
+        </a>
+
+        <a href="https://americanaisolutionsllc.com" target="_blank" rel="noopener" class="contact-method">
+          <span class="method-icon">🌐</span>
+          <div class="method-info">
+            <div class="method-label">Full Website</div>
+            <div class="method-value">americanaisolutionsllc.com</div>
+          </div>
+          <span class="method-arrow">→</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/david-calderon-ceo-american-ai-solutions/" target="_blank" rel="noopener" class="contact-method">
+          <span class="method-icon">💼</span>
+          <div class="method-info">
+            <div class="method-label">LinkedIn</div>
+            <div class="method-value">Connect with David</div>
+          </div>
+          <span class="method-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- Founder note -->
+      <div class="section-pad" style="margin-top:16px;">
+        <div class="card">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-light));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">👤</div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--white);">David Calderon</div>
+              <div style="font-size:11px;color:var(--gray3);">Founder & CEO · Southgate, MI</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--gray2);line-height:1.6;font-style:italic;">"I built this company because Michigan businesses deserve real AI — not consultants who fly in, collect a check, and disappear. We're local, we're accountable, and we don't leave until it works."</p>
+        </div>
+      </div>
+    </div><!-- /screen-book -->
+
+  </div><!-- /screens -->
+
+  <!-- BOTTOM TAB BAR -->
+  <nav id="tab-bar">
+    <button class="tab-btn active" id="tab-home" onclick="switchTab('home')">
+      <span class="tab-icon">🏠</span>
+      <span class="tab-label">Home</span>
+    </button>
+    <button class="tab-btn" id="tab-chat" onclick="switchTab('chat')">
+      <span class="tab-icon">💬</span>
+      <span class="tab-label">Atlas</span>
+    </button>
+    <button class="tab-btn" id="tab-calc" onclick="switchTab('calc')">
+      <span class="tab-icon">🧮</span>
+      <span class="tab-label">ROI Calc</span>
+    </button>
+    <button class="tab-btn" id="tab-book" onclick="switchTab('book')">
+      <span class="tab-icon">📅</span>
+      <span class="tab-label">Book Call</span>
+    </button>
+  </nav>
+
+</div><!-- /app -->
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════
+// APP NAVIGATION
+// ═══════════════════════════════════════════════
+const SCREENS = ['home', 'chat', 'calc', 'book'];
+let currentScreen = 'home';
+
+function switchTab(name) {
+  if (!SCREENS.includes(name)) return;
+
+  // Update screens
+  SCREENS.forEach(s => {
+    document.getElementById('screen-' + s).classList.toggle('active', s === name);
+    document.getElementById('tab-' + s).classList.toggle('active', s === name);
+  });
+
+  // Scroll screen to top
+  const el = document.getElementById('screen-' + name);
+  el.scrollTop = 0;
+
+  currentScreen = name;
+
+  // Init chat on first visit
+  if (name === 'chat' && !chatStarted) initChat();
+}
+
+// ═══════════════════════════════════════════════
+// ATLAS AI CHAT ENGINE
+// ═══════════════════════════════════════════════
+let chatStarted = false;
+let chatStep = 0;
+let userVertical = '';
+let userEmployees = '';
+let userPain = '';
+let userBudget = '';
+
+const ATLAS_RESPONSES = {
+  greeting: [
+    "Hey there! 👋 I'm **Atlas**, American AI Solutions' AI advisor. I'm here to help you figure out exactly what AI can do for your business — and put real numbers on it.\n\nWhat industry are you in?"
+  ],
+  verticals: ['🏭 Automotive / Manufacturing', '🏥 Healthcare', '🚛 Logistics & Trucking', '🏗️ Construction / Trades', '🔧 Other / Not sure'],
+  afterVertical: {
+    'Automotive': "Great choice. Michigan's Tier 2/3 suppliers are under serious pressure right now — OEM AI mandates, quality documentation, traceability. You're in the right place.\n\nHow many people work at your company?",
+    'Healthcare': "Perfect. We've built HIPAA-compliant AI for Michigan practices that slashes admin hours and lets your clinical team focus on patients.\n\nHow large is your practice or team?",
+    'Logistics': "Michigan's freight corridor is one of the busiest in the country — and dispatch AI is where the biggest ROI hides. Good call.\n\nHow many drivers or employees do you have?",
+    'Construction': "Construction has the lowest AI competition of any Michigan vertical — which means your window to get ahead is still wide open.\n\nHow many people are on your team?",
+    'Other': "No problem — we've worked across many industries. I'll ask a few questions and we'll figure out where AI makes the most sense for you.\n\nHow many employees do you have?"
+  },
+  employees: ['1–10', '11–50', '51–200', '200+'],
+  afterEmployees: "Got it. Now let's find your biggest lever.\n\nWhat's the #1 thing eating your time and money right now?",
+  pains: ['Manual data entry / paperwork', 'Missed leads / slow follow-up', 'Scheduling & dispatch chaos', 'Customer calls & emails', 'Quality control & reporting', 'Estimating & quoting'],
+  afterPain: "Understood — that's actually one of the most common (and most fixable) problems we see.\n\nOne last question: What's your rough budget range for this kind of project?",
+  budgets: ['Under $5,000', '$5K – $15K', '$15K – $50K', '$50K+', 'Not sure yet'],
+  buildROI: (v, e, p, b) => {
+    const emp = { '1–10': 8, '11–50': 30, '51–200': 120, '200+': 300 }[e] || 20;
+    const hoursWeek = { 'Manual data entry / paperwork': 15, 'Missed leads / slow follow-up': 8, 'Scheduling & dispatch chaos': 12, 'Customer calls & emails': 10, 'Quality control & reporting': 14, 'Estimating & quoting': 16 }[p] || 10;
+    const rate = { 'Automotive': 42, 'Healthcare': 38, 'Logistics': 36, 'Construction': 40, 'Other': 35 }[v] || 38;
+    const automation = 0.75;
+    const savings = hoursWeek * automation * rate * 52;
+    const grantFactor = ['Automotive', 'Healthcare', 'Logistics', 'Construction'].includes(v) ? 0.5 : 0.35;
+    const projectCost = { 'Under $5,000': 5000, '$5K – $15K': 10000, '$15K – $50K': 30000, '$50K+': 60000, 'Not sure yet': 15000 }[b] || 15000;
+    const grantSavings = Math.round(projectCost * grantFactor);
+    const netCost = projectCost - grantSavings;
+    return { savings: Math.round(savings), monthly: Math.round(savings / 12), hours: Math.round(hoursWeek * automation), payback: Math.round((netCost / (savings / 12))), roi: Math.round((savings / projectCost) * 100), grantSavings, netCost };
+  }
+};
+
+function initChat() {
+  chatStarted = true;
+  chatStep = 0;
+  const msgs = document.getElementById('chatMessages');
+  msgs.innerHTML = '';
+
+  // Welcome message after slight delay
+  setTimeout(() => {
+    showTyping(() => {
+      addAtlasMessage(ATLAS_RESPONSES.greeting[0]);
+      addOptions(ATLAS_RESPONSES.verticals, handleVertical);
+    }, 1200);
+  }, 400);
+}
+
+function resetChat() {
+  chatStarted = false;
+  userVertical = '';
+  userEmployees = '';
+  userPain = '';
+  userBudget = '';
+  chatStep = 0;
+  initChat();
+}
+
+function handleVertical(choice) {
+  const vertName = choice.replace(/^.+?/, '').replace(/\s\/.*/, '').trim();
+  // Extract core vertical
+  const map = { 'Automotive': 'Automotive', 'Healthcare': 'Healthcare', 'Logistics': 'Logistics', 'Construction': 'Construction', 'Other': 'Other' };
+  userVertical = Object.keys(map).find(k => choice.includes(k)) || 'Other';
+
+  disableOptions();
+  showTyping(() => {
+    addAtlasMessage(ATLAS_RESPONSES.afterVertical[userVertical]);
+    addOptions(ATLAS_RESPONSES.employees, handleEmployees);
+  }, 1000);
+}
+
+function handleEmployees(choice) {
+  userEmployees = choice;
+  disableOptions();
+  showTyping(() => {
+    addAtlasMessage(ATLAS_RESPONSES.afterEmployees);
+    addOptions(ATLAS_RESPONSES.pains, handlePain);
+  }, 900);
+}
+
+function handlePain(choice) {
+  userPain = choice;
+  disableOptions();
+  showTyping(() => {
+    addAtlasMessage(ATLAS_RESPONSES.afterPain);
+    addOptions(ATLAS_RESPONSES.budgets, handleBudget);
+  }, 900);
+}
+
+function handleBudget(choice) {
+  userBudget = choice;
+  disableOptions();
+
+  showTyping(() => {
+    const roi = ATLAS_RESPONSES.buildROI(userVertical, userEmployees, userPain, userBudget);
+    const roiMsg = `Here's your personalized estimate, ${userVertical} business owner 👇`;
+    addAtlasMessage(roiMsg);
+    addROIResult(roi);
+  }, 1400);
+}
+
+function addAtlasMessage(text, delay = 0) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-atlas';
+
+  // Parse **bold** markdown
+  const formatted = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+
+  div.innerHTML = `<div class="msg-bubble">${formatted}</div><div class="msg-time">${nowTime()}</div>`;
+  msgs.appendChild(div);
+  scrollChat();
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-user';
+  div.innerHTML = `<div class="msg-bubble">${escHtml(text)}</div><div class="msg-time">${nowTime()}</div>`;
+  msgs.appendChild(div);
+  scrollChat();
+}
+
+function addOptions(choices, handler) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-atlas';
+  const opts = document.createElement('div');
+  opts.className = 'chat-options';
+
+  choices.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'chat-opt-btn';
+    btn.textContent = c;
+    btn.onclick = () => {
+      btn.classList.add('selected');
+      addUserMessage(c);
+      handler(c);
+    };
+    opts.appendChild(btn);
+  });
+
+  div.appendChild(opts);
+  msgs.appendChild(div);
+  scrollChat();
+}
+
+function addROIResult(roi) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-atlas';
+  div.style.maxWidth = '95%';
+  div.style.width = '100%';
+
+  div.innerHTML = `
+    <div class="roi-result-bubble">
+      <div class="roi-result-title">📊 Your AI ROI Estimate</div>
+      <div class="roi-line">
+        <span class="roi-line-label">Annual labor savings</span>
+        <span class="roi-line-value highlight">${fmt(roi.savings)}/yr</span>
+      </div>
+      <div class="roi-line">
+        <span class="roi-line-label">Monthly savings</span>
+        <span class="roi-line-value">${fmt(roi.monthly)}/mo</span>
+      </div>
+      <div class="roi-line">
+        <span class="roi-line-label">Hours reclaimed/week</span>
+        <span class="roi-line-value">${roi.hours} hrs</span>
+      </div>
+      <div class="roi-line">
+        <span class="roi-line-label">MI grant funding (est.)</span>
+        <span class="roi-line-value" style="color:#00C864">−${fmt(roi.grantSavings)}</span>
+      </div>
+      <div class="roi-line">
+        <span class="roi-line-label">Net project cost</span>
+        <span class="roi-line-value">${fmt(roi.netCost)}</span>
+      </div>
+      <div class="roi-line">
+        <span class="roi-line-label">Payback period</span>
+        <span class="roi-line-value">${roi.payback} months</span>
+      </div>
+      <div class="roi-line">
+        <span class="roi-line-label">First-year ROI</span>
+        <span class="roi-line-value highlight">${roi.roi}%</span>
+      </div>
+      <div class="roi-cta-row">
+        <a href="https://calendly.com/david04calderon/ai-strategy-call" target="_blank" rel="noopener" class="btn btn-gold">
+          📅 Book Free Strategy Call
+        </a>
+        <button class="btn btn-outline btn-sm" onclick="resetChat()">← Start Over</button>
+      </div>
+    </div>
+    <div class="msg-time">${nowTime()}</div>
+  `;
+  msgs.appendChild(div);
+  scrollChat();
+
+  // Follow-up
+  setTimeout(() => {
+    showTyping(() => {
+      addAtlasMessage(`These numbers are conservative estimates based on what we've seen with similar ${userVertical} businesses in Michigan. The real numbers are often higher.\n\n**Book a free 30-min call** and David will walk you through a more precise projection — with your actual processes, not assumptions.`);
+    }, 1000);
+  }, 600);
+}
+
+function showTyping(callback, duration = 1000) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-atlas typing-msg';
+  div.innerHTML = `<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+  msgs.appendChild(div);
+  scrollChat();
+
+  setTimeout(() => {
+    div.remove();
+    callback();
+  }, duration);
+}
+
+function disableOptions() {
+  document.querySelectorAll('.chat-opt-btn:not(.selected)').forEach(b => {
+    b.disabled = true;
+    b.style.opacity = '0.4';
+  });
+}
+
+function sendUserMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  addUserMessage(text);
+  input.value = '';
+  input.style.height = 'auto';
+
+  // Simple fallback response for free-text
+  showTyping(() => {
+    const lower = text.toLowerCase();
+    let response = '';
+
+    if (lower.includes('price') || lower.includes('cost') || lower.includes('how much')) {
+      response = "Great question. Our projects typically range from **$5,000 to $50,000** depending on scope and complexity.\n\nHere's the real secret: Michigan's **Going PRO Talent Fund** and **Industry 4.0 Tech Grant** can cover up to **50% of your costs** — so most clients end up paying half.\n\nBook a free call and I can give you a precise quote based on your specific situation.";
+    } else if (lower.includes('grant') || lower.includes('going pro') || lower.includes('industry 4')) {
+      response = "Yes — and this is a huge deal. Michigan's **Going PRO Talent Fund** has $6M allocated specifically for AI training and implementation. The **Industry 4.0 Tech Grant** reimburses 50% of costs for small manufacturers.\n\nWe walk every client through the application process. In most cases, we handle it for you. Book a call to see if you qualify.";
+    } else if (lower.includes('hipaa') || lower.includes('healthcare') || lower.includes('medical')) {
+      response = "HIPAA compliance is non-negotiable — and it's one of our specialties. We build **on-premise AI solutions** that never send patient data to third-party servers.\n\nNo cloud PHI exposure. Fully auditable. BAA-ready from day one. Michigan healthcare practices are our most rapidly growing vertical.";
+    } else if (lower.includes('time') || lower.includes('long') || lower.includes('how fast') || lower.includes('quick')) {
+      response = "Most clients go from kickoff to live system in **3 to 12 weeks**, depending on complexity.\n\nOur fastest deployment was a dispatch optimization tool for a Michigan logistics company — **14 business days** from signed SOW to live production.";
+    } else if (lower.includes('hello') || lower.includes('hi') || lower.includes('hey')) {
+      response = "Hey! 👋 Good to hear from you. I'm Atlas, American AI Solutions' AI advisor.\n\nI can help you estimate your AI ROI, answer questions about AI automation for Michigan businesses, or get you connected with David for a free strategy call.\n\nWhat's on your mind?";
+    } else {
+      response = "That's a great question. The honest answer: it depends on your specific situation, which is exactly why we offer a **free 30-minute strategy call**.\n\nDavid will give you a straight answer — no upsell, no pitch deck. Just what AI can actually do for your business and whether the numbers make sense.\n\n**Book your call →** calendly.com/david04calderon/ai-strategy-call";
+    }
+
+    addAtlasMessage(response);
+  }, 900 + Math.random() * 400);
+}
+
+function handleChatKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendUserMessage();
+  }
+}
+
+function autoGrow(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+}
+
+function scrollChat() {
+  requestAnimationFrame(() => {
+    const msgs = document.getElementById('chatMessages');
+    msgs.scrollTop = msgs.scrollHeight;
+  });
+}
+
+// ═══════════════════════════════════════════════
+// ROI CALCULATOR
+// ═══════════════════════════════════════════════
+let selectedVertical = '';
+
+function selectVertical(v, el) {
+  document.querySelectorAll('.vertical-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedVertical = v;
+
+  const vertLabels = {
+    auto: { l1: 'Number of production employees', l2: 'Annual revenue ($)' },
+    health: { l1: 'Number of clinical + admin staff', l2: 'Annual practice revenue ($)' },
+    logistics: { l1: 'Number of drivers / employees', l2: 'Annual revenue ($)' },
+    construction: { l1: 'Number of employees (field + office)', l2: 'Annual revenue ($)' }
+  };
+
+  const labels = vertLabels[v];
+  document.getElementById('input1-label').textContent = labels.l1;
+  document.getElementById('input2-label').textContent = labels.l2;
+  document.getElementById('calcForm').style.display = 'block';
+
+  calculateROI();
+  document.getElementById('calcForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function calculateROI() {
+  const emps = parseFloat(document.getElementById('input1').value) || 0;
+  const rev = parseFloat(document.getElementById('input2').value) || 0;
+  const hours = parseFloat(document.getElementById('input3').value) || 0;
+  const rate = parseFloat(document.getElementById('input4').value) || 0;
+
+  if (!emps || !hours || !rate) {
+    document.getElementById('calcResults').classList.remove('visible');
+    return;
+  }
+
+  const automation = 0.72;
+  const hoursReclaimed = hours * automation;
+  const annual = hoursReclaimed * rate * 52;
+  const monthly = annual / 12;
+
+  const projectCost = Math.max(5000, Math.min(emps * 800, 50000));
+  const grantRate = ['auto', 'health', 'logistics', 'construction'].includes(selectedVertical) ? 0.5 : 0.35;
+  const grantSavings = Math.round(projectCost * grantRate);
+  const netCost = projectCost - grantSavings;
+  const payback = monthly > 0 ? Math.ceil(netCost / monthly) : 0;
+  const roiPct = Math.round((annual / projectCost) * 100);
+
+  document.getElementById('res-annual').textContent = fmt(Math.round(annual));
+  document.getElementById('res-monthly').textContent = fmt(Math.round(monthly));
+  document.getElementById('res-hours').textContent = Math.round(hoursReclaimed) + ' hrs';
+  document.getElementById('res-payback').textContent = payback + ' mo';
+  document.getElementById('res-roi').textContent = roiPct + '%';
+
+  const grantMap = {
+    auto: 'Going PRO Talent Fund + Industry 4.0 Tech Grant — AI training and implementation both qualify.',
+    health: 'Going PRO Talent Fund covers AI training for healthcare staff. Check Michigan LEO for 2025 cycle.',
+    logistics: 'Going PRO eligible for dispatch AI training. Industry 4.0 may apply if you have a warehouse component.',
+    construction: 'Going PRO covers AI training for estimating tools. SBDC may have additional matching funds.'
+  };
+
+  document.getElementById('grantText').textContent =
+    `Estimated grant coverage: ${fmt(grantSavings)} (${Math.round(grantRate * 100)}% of project cost). ` +
+    (grantMap[selectedVertical] || 'You may qualify for Michigan AI grant programs — ask on the free call.');
+
+  document.getElementById('calcResults').classList.add('visible');
+}
+
+// ═══════════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════════
+function fmt(n) {
+  return '$' + n.toLocaleString('en-US');
+}
+
+function nowTime() {
+  return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function showToast(msg, duration = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ═══════════════════════════════════════════════
+// PWA INSTALL
+// ═══════════════════════════════════════════════
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Show install banner after 3s on home screen
+  setTimeout(() => {
+    if (currentScreen === 'home') {
+      showInstallBanner();
+    }
+  }, 3000);
+});
+
+function showInstallBanner() {
+  if (document.getElementById('install-banner')) return;
+  const banner = document.createElement('div');
+  banner.id = 'install-banner';
+  banner.className = 'notif-banner';
+  banner.style.cssText = 'position:fixed;bottom:calc(var(--tab-h) + 12px);left:12px;right:12px;z-index:500;';
+  banner.innerHTML = `
+    <span class="notif-icon">📲</span>
+    <div class="notif-text"><strong>Add to Home Screen</strong> for the best experience. Works offline too.</div>
+    <button class="notif-dismiss" onclick="installApp()">Install</button>
+    <button class="notif-dismiss" onclick="this.closest('#install-banner').remove()">✕</button>
+  `;
+  document.body.appendChild(banner);
+}
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+      const b = document.getElementById('install-banner');
+      if (b) b.remove();
+    });
+  }
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+// Prevent rubber-band scroll on iOS
+document.addEventListener('touchmove', function(e) {
+  if (e.target.closest('.chat-messages, .screen')) return;
+  e.preventDefault();
+}, { passive: false });
+
+// Initialize chat (lazy — happens when tab opened)
+</script>
+
+</body>
+</html>
