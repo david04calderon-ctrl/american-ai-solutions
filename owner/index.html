@@ -843,7 +843,7 @@
       <div>
         <div class="owner-greeting">Good <span id="time-greeting">morning</span>,</div>
         <div class="owner-name">David Calderon</div>
-        <div class="owner-role">Founder & CEO · American AI Solutions</div>
+        <div class="owner-role">Founder & CEO · American AI Solutions LLC</div>
       </div>
       <div class="top-actions">
         <div class="top-btn" onclick="showCalendly()" title="Book a call">📅</div>
@@ -1330,6 +1330,183 @@
           </a>
         </div>
 
+        <!-- SYSTEM HEALTH MONITOR -->
+        <div class="section-label" style="margin-top:6px;">Live System Health</div>
+        <div class="card" id="health-card">
+          <div class="row" style="margin-bottom:12px;">
+            <div style="font-size:13px;font-weight:600;color:var(--white);">AAIS Properties Status</div>
+            <button class="btn btn-ghost" style="font-size:11px;padding:5px 10px;" onclick="runHealthCheck()">↻ Check Now</button>
+          </div>
+          <div id="health-items">
+            <div style="text-align:center;padding:20px;color:var(--gray3);font-size:13px;">Tap "Check Now" to run a live status check on all AAIS properties.</div>
+          </div>
+        </div>
+
+        <!-- GAP ANALYSIS -->
+        <div class="section-label" style="margin-top:14px;">Gap Analysis — Where Money Is Leaking</div>
+        <div class="card">
+          <div id="gap-list">
+            <div class="activity-item">
+              <div class="activity-dot">🔴</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--red);">CRITICAL</strong> — No live chat on main site. Visitors who can't get instant answers leave. Fix: Add Crisp.chat (free) in 10 min.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🔴</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--red);">CRITICAL</strong> — GA4 tracking not configured. You're flying blind on traffic source, bounce rate, and conversion paths. Fix: Add G-XXXXXXXX to index.html.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟡</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--orange);">HIGH</strong> — No Google Business Profile. Michigan local searches for "AI company Detroit" return competitors. Fix: 15 min setup, free.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟡</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--orange);">HIGH</strong> — TikTok/Instagram accounts not verified live. $0 organic reach sitting unclaimed. Fix: Create @americanaisolutions on both platforms.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟡</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--orange);">HIGH</strong> — No email marketing list. Every Calendly visitor and contact form submission is a one-time event. Fix: Mailchimp (free 500 contacts) + embed form on site.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟡</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--orange);">HIGH</strong> — No Calendly → HubSpot automation. Bookings aren't auto-creating CRM contacts. Fix: n8n webhook, 30 min setup.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟢</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--green);">MEDIUM</strong> — USPTO trademark not filed. "American AI Solutions" brand unprotected. Fix: $350 at tmsearch.uspto.gov, Class 42.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟢</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--green);">MEDIUM</strong> — No Google Search Console. Don't know which pages rank or what queries drive traffic. Fix: search.google.com/search-console, free, 5 min.</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot">🟢</div>
+              <div class="activity-content">
+                <div class="activity-text"><strong style="color:var(--green);">MEDIUM</strong> — No retainer Stripe links live. One-time projects close well but no recurring revenue system. Fix: Create $1K, $2.5K, $4.5K Stripe payment links.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FREE TOOLS STACK -->
+        <div class="section-label" style="margin-top:14px;">Free Tools Stack (Zero Budget)</div>
+        <div class="card">
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">GA4</strong> — Google Analytics 4 · traffic, conversions, geography</div>
+              <div class="activity-time"><a href="https://analytics.google.com" target="_blank" rel="noopener" style="color:var(--cyan);">analytics.google.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Google Search Console</strong> — keyword rankings, crawl errors</div>
+              <div class="activity-time"><a href="https://search.google.com/search-console" target="_blank" rel="noopener" style="color:var(--cyan);">search.google.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Google Business Profile</strong> — shows up in Maps for local AI searches</div>
+              <div class="activity-time"><a href="https://business.google.com" target="_blank" rel="noopener" style="color:var(--cyan);">business.google.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Crisp Chat</strong> — live chat on site, free tier, mobile notifications</div>
+              <div class="activity-time"><a href="https://crisp.chat" target="_blank" rel="noopener" style="color:var(--cyan);">crisp.chat →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Mailchimp</strong> — email marketing, 500 contacts free, automation</div>
+              <div class="activity-time"><a href="https://mailchimp.com" target="_blank" rel="noopener" style="color:var(--cyan);">mailchimp.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Hotjar</strong> — heatmaps, session recordings, free up to 35 sessions/day</div>
+              <div class="activity-time"><a href="https://hotjar.com" target="_blank" rel="noopener" style="color:var(--cyan);">hotjar.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Buffer</strong> — schedule TikTok/IG/LinkedIn posts, free tier</div>
+              <div class="activity-time"><a href="https://buffer.com" target="_blank" rel="noopener" style="color:var(--cyan);">buffer.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Canva</strong> — all social graphics, thumbnails, carousels — free tier is enough</div>
+              <div class="activity-time"><a href="https://canva.com" target="_blank" rel="noopener" style="color:var(--cyan);">canva.com →</a></div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Fathom AI</strong> — call recorder + AI summary, free forever plan</div>
+              <div class="activity-time"><a href="https://fathom.video" target="_blank" rel="noopener" style="color:var(--cyan);">fathom.video →</a></div>
+            </div>
+          </div>
+          <div class="activity-item" style="border-bottom:none;">
+            <div class="activity-dot">✅</div>
+            <div class="activity-content">
+              <div class="activity-text"><strong style="color:var(--green);">Claude API</strong> — power Atlas AI and all future automation. Free credits to start, then pay-per-use.</div>
+              <div class="activity-time"><a href="https://console.anthropic.com" target="_blank" rel="noopener" style="color:var(--cyan);">console.anthropic.com →</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UPGRADE ROADMAP -->
+        <div class="section-label" style="margin-top:14px;">Revenue Milestones → Upgrade Unlocks</div>
+        <div class="card">
+          <div class="activity-item">
+            <div class="activity-dot" style="background:rgba(255,215,0,0.15);color:var(--gold);">$5K</div>
+            <div class="activity-content">
+              <div class="activity-text">→ Add Hotjar Pro ($39/mo) · Instantly.ai ($37/mo) for cold email at scale</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot" style="background:rgba(255,215,0,0.15);color:var(--gold);">$10K</div>
+            <div class="activity-content">
+              <div class="activity-text">→ Google Ads ($500/mo budget) · LinkedIn Ads (auto + healthcare targeting) · First hire: VA for content posting</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-dot" style="background:rgba(255,215,0,0.15);color:var(--gold);">$20K</div>
+            <div class="activity-content">
+              <div class="activity-text">→ HubSpot Professional ($450/mo) · Clay Pro ($349/mo) for 10K enrichments/mo · Second hire: account manager</div>
+            </div>
+          </div>
+          <div class="activity-item" style="border-bottom:none;">
+            <div class="activity-dot" style="background:rgba(255,215,0,0.15);color:var(--gold);">$50K</div>
+            <div class="activity-content">
+              <div class="activity-text">→ Meta/TikTok paid ads ($2K/mo) · Full-time sales rep · Dedicated n8n server · App Store PWA wrapper (Capacitor.js, free)</div>
+            </div>
+          </div>
+        </div>
+
         <div style="height:8px;"></div>
       </div>
     </div><!-- /screen-tools -->
@@ -1675,6 +1852,61 @@ function closeScript() {
 
 function showCalendly() {
   window.open('https://calendly.com/david04calderon/ai-strategy-call', '_blank');
+}
+
+// ═══════════════════════════════════════════════
+// LIVE HEALTH MONITOR
+// ═══════════════════════════════════════════════
+const HEALTH_CHECKS = [
+  { label: 'Main Site', url: 'https://americanaisolutionsllc.com/', critical: true },
+  { label: 'Client App /app/', url: 'https://americanaisolutionsllc.com/app/', critical: true },
+  { label: 'Pay / Stripe Page', url: 'https://americanaisolutionsllc.com/pay/', critical: true },
+  { label: 'Blog Index', url: 'https://americanaisolutionsllc.com/blog/', critical: false },
+  { label: 'Going PRO Article', url: 'https://americanaisolutionsllc.com/blog/michigan-going-pro-talent-fund-ai-training/', critical: false },
+  { label: 'ROI Calculator Article', url: 'https://americanaisolutionsllc.com/blog/michigan-ai-roi-calculator/', critical: false },
+  { label: 'Calendly Booking', url: 'https://calendly.com/david04calderon/ai-strategy-call', critical: true },
+];
+
+async function runHealthCheck() {
+  const container = document.getElementById('health-items');
+  container.innerHTML = '<div style="text-align:center;padding:16px;color:var(--gray3);font-size:13px;">Checking all systems...</div>';
+
+  const results = await Promise.allSettled(
+    HEALTH_CHECKS.map(async (check) => {
+      const start = Date.now();
+      try {
+        const resp = await fetch(check.url, { method: 'HEAD', mode: 'no-cors', cache: 'no-cache' });
+        const ms = Date.now() - start;
+        return { ...check, ok: true, ms };
+      } catch (e) {
+        const ms = Date.now() - start;
+        return { ...check, ok: false, ms, error: e.message };
+      }
+    })
+  );
+
+  const timestamp = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+  let html = `<div style="font-size:10px;color:var(--gray3);margin-bottom:10px;">Last checked: ${timestamp}</div>`;
+
+  results.forEach(r => {
+    const d = r.value;
+    // no-cors fetch always "succeeds" if the site is reachable (opaque response)
+    // if it throws, the site is down or unreachable
+    const icon = d.ok ? '🟢' : (d.critical ? '🔴' : '🟡');
+    const status = d.ok ? `Online · ${d.ms}ms` : 'Unreachable ⚠️';
+    const color = d.ok ? 'var(--green)' : (d.critical ? 'var(--red)' : 'var(--orange)');
+    html += `
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border2);">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:14px;">${icon}</span>
+          <span style="font-size:12px;color:var(--white);">${d.label}</span>
+        </div>
+        <span style="font-size:11px;color:${color};font-weight:600;">${status}</span>
+      </div>`;
+  });
+
+  html += `<div style="margin-top:10px;"><a href="https://americanaisolutionsllc.com" target="_blank" rel="noopener" class="btn btn-ghost btn-full" style="font-size:12px;padding:10px;">Open Main Site →</a></div>`;
+  container.innerHTML = html;
 }
 </script>
 
